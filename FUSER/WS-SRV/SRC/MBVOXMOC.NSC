@@ -1,0 +1,52 @@
+0010* ----------------------------------------------------------------------
+0020* Generated from NATURAL XML TOOLKIT
+0030*
+0040*         'MBVOXMOC'
+0050*
+0060* DESCRIPTION
+0070*               XML serialize implementation
+0080*
+0090* Parameter Definition
+0100*
+0110* &1& 'XML'                           /* XML Document
+0120* &2& '#CX'                           /* Counter Variable 1st Dimension
+0130* &3& '#CY'                           /* Counter Variable 2nd Dimension
+0140* &4& '#CZ'                           /* Counter Variable 3rd Dimension
+0150* ----------------------------------------------------------------------
+0160* XML Schema D:\Natural\IBS\FUSER\WS-SRV\RES\
+0170 COMPRESS NUMERIC &1& '<XBVOXM0A'
+0180 '>' INTO &1& LEAVING NO
+0190 /* now the children
+0200/* <##PSEUDO>
+0210 COMPRESS NUMERIC &1& '<OG-CODE'
+0220 '>'XBVOXM0A.OG-CODE
+0230 '</OG-CODE>'
+0240 INTO &1& LEAVING NO
+0250 COMPRESS NUMERIC &1& '<VO-CODE'
+0260 '>'XBVOXM0A.VO-CODE
+0270 '</VO-CODE>'
+0280 INTO &1& LEAVING NO
+0290 COMPRESS NUMERIC &1& '<VO-INN'
+0300 '>'XBVOXM0A.VO-INN
+0310 '</VO-INN>'
+0320 INTO &1& LEAVING NO
+0330 COMPRESS NUMERIC &1& '<VO-KPP'
+0340 '>'XBVOXM0A.VO-KPP
+0350 '</VO-KPP>'
+0360 INTO &1& LEAVING NO
+0370 COMPRESS NUMERIC &1& '<VO-NAME'
+0380 '>'XBVOXM0A.VO-NAME
+0390 '</VO-NAME>'
+0400 INTO &1& LEAVING NO
+0410 COMPRESS NUMERIC &1& '<VO-ADDR'
+0420 '>'XBVOXM0A.VO-ADDR
+0430 '</VO-ADDR>'
+0440 INTO &1& LEAVING NO
+0450 COMPRESS NUMERIC &1& '<VO-TIMESTAMP'
+0460 '>'XBVOXM0A.VO-TIMESTAMP
+0470 '</VO-TIMESTAMP>'
+0480 INTO &1& LEAVING NO
+0490/* </##PSEUDO>
+0500 /*
+0510 COMPRESS FULL &1& '</XBVOXM0A>'
+0520 INTO &1& LEAVING NO

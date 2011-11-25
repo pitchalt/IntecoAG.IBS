@@ -1,0 +1,10 @@
+0010/*C                                *XML: XBVOXM0A -> NAT: XBVOXM0A                                    DA:00.00ED:00.00PF:WNV:06030700
+0020/*DS                                 1XBVOXM0A                        /*SEQ
+0030/*DS                                 2##PSEUDO                        /*SEQ
+0040/*DF                    P       5.0  3OG-CODE                         /*XS:decimal
+0050/*DF                    P       5.0  3VO-CODE                         /*XS:decimal
+0060/*DF                    A        15  3VO-INN                          /*XS:string
+0070/*DF                    A        15  3VO-KPP                          /*XS:string
+0080/*DF                    A        80  3VO-NAME                         /*XS:string
+0090/*DF                    A        80  3VO-ADDR                         /*XS:string
+0100/*DF                    A   DYNAMIC  3VO-TIMESTAMP                    /*XS:dateTime

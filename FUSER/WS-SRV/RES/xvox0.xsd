@@ -2,7 +2,6 @@
 <xs:schema targetNamespace="http://intecoag.ru/ibs/v1/x.xsd"
     elementFormDefault="qualified"
     xmlns="http://intecoag.ru/ibs/v1/x.xsd"
-    xmlns:mstns="http://intecoag.ru/ibs/v1/x.xsd"
     xmlns:xs="http://www.w3.org/2001/XMLSchema"
 >
   <xs:simpleType name="OG-CODE">
@@ -46,10 +45,10 @@
     <xs:sequence>
       <xs:element name='OG-CODE' type='OG-CODE'/>
       <xs:element name='VO-CODE' type='VO-CODE'/>
-      <xs:element name='VO-INN' type='VO-NAME'/>
-      <xs:element name='VO-KPP' type='VO-NAME'/>
+      <xs:element name='VO-INN' type='VO-INN'/>
+      <xs:element name='VO-KPP' type='VO-KPP'/>
       <xs:element name='VO-NAME' type='VO-NAME'/>
-      <xs:element name='VO-ADDR' type='VO-NAME'/>
+      <xs:element name='VO-ADDR' type='VO-ADDR'/>
       <xs:element name='VO-TIMESTAMP' type='VO-TIMESTAMP'/>
     </xs:sequence>
   </xs:complexType>
@@ -64,7 +63,7 @@
   <xs:complexType name='XBVOXL0A'>
     <xs:sequence>
       <xs:element name='OG-CODE' type='OG-CODE'/>
-      <xs:element name='VO-LIST' type='mstns:XBVOXM1A' maxOccurs='unbounded'/>
+      <xs:element name='VO-LIST' type='XBVOXM1A' maxOccurs='unbounded'/>
     </xs:sequence>
   </xs:complexType>
   
