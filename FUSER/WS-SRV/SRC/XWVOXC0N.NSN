@@ -1,32 +1,32 @@
-0010/***********************************************************************
-0020/*
-0030/* SYSTEM: WS-SRV
-0040/* PROGRAM: XWVOXC0N
-0050/*
-0060/* DEVELOPER:  UPA
-0070/* MAKE DATA:
-0080/*
-0090/* NAME:  VO CATALOG LIST
-0100/*
-0110/* CHANGES:
-0120/*
-0130/*
-0140/*
-0150/*
-0160/***********************************************************************
-0170DEFINE DATA
-0180*
-0190PARAMETER USING XXERX00A
-0200PARAMETER USING WWXRPC0A
-0210*
-0220END-DEFINE
-0230COMPRESS
-0240'<TEST>'-
-0250'  <XBVOXM0A xmlns="http://intecoag.ru/ibs/v1/x.xsd">'-
-0260'    <PATH>' PATH-INFO ' </PATH>'-
-0270'    <VO-CODE>1</VO-CODE>'-
-0280'    <VO-TIMESTAMP>1900-01-01T01:01:01+03:00</VO-TIMESTAMP>'-
-0290'  </XBVOXM0A>'-
-0300'</TEST>'
-0310INTO XML-OUT LEAVING NO
-0320END
+/***********************************************************************
+/*
+/* SYSTEM: WS-SRV
+/* PROGRAM: XWVOXC0N
+/*
+/* DEVELOPER:  UPA
+/* MAKE DATA:
+/*
+/* NAME:  VO CATALOG LIST
+/*
+/* CHANGES:
+/*
+/*
+/*
+/*
+/***********************************************************************
+DEFINE DATA
+*
+PARAMETER USING XXERX00A
+PARAMETER USING WWXRPC0A
+*
+END-DEFINE
+COMPRESS
+'<TEST>'-
+'  <XBVOXM0A xmlns="http://intecoag.ru/ibs/v1/x.xsd">'-
+'    <PATH>' PATH-INFO ' </PATH>'-
+'    <VO-CODE>1</VO-CODE>'-
+'    <VO-TIMESTAMP>1900-01-01T01:01:01+03:00</VO-TIMESTAMP>'-
+'  </XBVOXM0A>'-
+'</TEST>'
+INTO XML-OUT LEAVING NO
+END

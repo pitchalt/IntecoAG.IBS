@@ -1,73 +1,73 @@
-0010* ---------------------------------------------------------------------
-0020* CLASS  Natural Web Interface - Utilities
-0030*
-0040*        NAT-ENV
-0050*
-0060* DESCRIPTION
-0070*               This Program returnes the environment send via
-0080*               HTTP API
-0090*
-0100* AUTHOR        SAG   28.07.97
-0110*
-0120* VERSION       6.2.
-0130*
-0140* (c) Copyright  Software AG 1997-2005. All rights reserved.
-0150*
-0160* HISTORY
-0170* USER    DATE       REASON
-0180* ------+----------+----------------------------------------------
-0190*       ! --.--.-- !
-0200* ------+----------+----------------------------------------------
-0210DEFINE DATA
-0220* ------------------------------------------- standard PDA for HTTP Api
-0230PARAMETER USING W3PARM
-0240* -------------------------------------------- definitions for HTTP Api
-0250LOCAL  USING W3CONST
-0260LOCAL  USING W3PINFO
-0270*
-0280LOCAL USING SWVOXM0A
-0290
-0300LOCAL
-03101 #XML-OUT               (A) DYNAMIC
-0320* ---------------------------------------------- parameter W3READ-INPUT
-03301 #XML-IN                (A) DYNAMIC
-03401 #BINARY                (B) DYNAMIC
-03501 #HEADER                (A) DYNAMIC
-03601 #DATA                  (A) DYNAMIC
-0370*
-03801 #XML_PATH             (A) DYNAMIC
-03901 #XML_VALUE            (A) DYNAMIC
-04001 #XML_NAME             (A) DYNAMIC
-04101 #PREV_PARSE-TYPE      (A1)
-04201 XML_PARSER_CONTENT_IS_EMPTY (L)
-0430*
-04401 #CX                          (I4)
-04501 #CY                          (I4)
-04601 #CZ                          (I4)
-0470*
-0480END-DEFINE
-0490* ---------------------------------------------------- error handling
-0500ON ERROR
-0510  PERFORM W3ERROR ##W3ERROR
-0520  PERFORM W3END ##RPC
-0530*
-0540  ESCAPE ROUTINE
-0550END-ERROR
-0560DEFINE WORK FILE 7 "D:\WWW\SWVOXM0N.LOG"
-0570* ======================================================== Main Program
-0580* ------------------------------------------------------- init HTML API
-0590PERFORM W3INIT ##RPC TRUE FALSE
-0600* --------------------------------------------- Set type of return Page
-0610PERFORM W3READ-INPUT #XML-IN #BINARY #HEADER #DATA
-0620PERFORM W3INFO ##W3INFO
-0630*
-0640PERFORM W3CONTENT-TYPE 'text/xml'
-0650/*
-0660#XML-OUT := #XML-IN
-0670/*
-0680PERFORM W3TEXTDYNAMIC #XML-OUT
-0690/*
-0700* ------------------------------------------------------ close HTTP Api
-0710*
-0720PERFORM W3END ##RPC
-0730END
+* ---------------------------------------------------------------------
+* CLASS  Natural Web Interface - Utilities
+*
+*        NAT-ENV
+*
+* DESCRIPTION
+*               This Program returnes the environment send via
+*               HTTP API
+*
+* AUTHOR        SAG   28.07.97
+*
+* VERSION       6.2.
+*
+* (c) Copyright  Software AG 1997-2005. All rights reserved.
+*
+* HISTORY
+* USER    DATE       REASON
+* ------+----------+----------------------------------------------
+*       ! --.--.-- !
+* ------+----------+----------------------------------------------
+DEFINE DATA
+* ------------------------------------------- standard PDA for HTTP Api
+PARAMETER USING W3PARM
+* -------------------------------------------- definitions for HTTP Api
+LOCAL  USING W3CONST
+LOCAL  USING W3PINFO
+*
+LOCAL USING SWVOXM0A
+
+LOCAL
+1 #XML-OUT               (A) DYNAMIC
+* ---------------------------------------------- parameter W3READ-INPUT
+1 #XML-IN                (A) DYNAMIC
+1 #BINARY                (B) DYNAMIC
+1 #HEADER                (A) DYNAMIC
+1 #DATA                  (A) DYNAMIC
+*
+1 #XML_PATH             (A) DYNAMIC
+1 #XML_VALUE            (A) DYNAMIC
+1 #XML_NAME             (A) DYNAMIC
+1 #PREV_PARSE-TYPE      (A1)
+1 XML_PARSER_CONTENT_IS_EMPTY (L)
+*
+1 #CX                          (I4)
+1 #CY                          (I4)
+1 #CZ                          (I4)
+*
+END-DEFINE
+* ---------------------------------------------------- error handling
+ON ERROR
+  PERFORM W3ERROR ##W3ERROR
+  PERFORM W3END ##RPC
+*
+  ESCAPE ROUTINE
+END-ERROR
+DEFINE WORK FILE 7 "D:\WWW\SWVOXM0N.LOG"
+* ======================================================== Main Program
+* ------------------------------------------------------- init HTML API
+PERFORM W3INIT ##RPC TRUE FALSE
+* --------------------------------------------- Set type of return Page
+PERFORM W3READ-INPUT #XML-IN #BINARY #HEADER #DATA
+PERFORM W3INFO ##W3INFO
+*
+PERFORM W3CONTENT-TYPE 'text/xml'
+/*
+#XML-OUT := #XML-IN
+/*
+PERFORM W3TEXTDYNAMIC #XML-OUT
+/*
+* ------------------------------------------------------ close HTTP Api
+*
+PERFORM W3END ##RPC
+END

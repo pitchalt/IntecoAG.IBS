@@ -1,46 +1,46 @@
-0010* ----------------------------------------------------------------------
-0020* Generated from NATURAL XML TOOLKIT
-0030*
-0040*         'SWO'
-0050*
-0060* DESCRIPTION
-0070*               XML serialize implementation
-0080*
-0090* Parameter Definition
-0100*
-0110* &1& 'XML'                           /* XML Document
-0120* &2& '#CX'                           /* Counter Variable 1st Dimension
-0130* &3& '#CY'                           /* Counter Variable 2nd Dimension
-0140* &4& '#CZ'                           /* Counter Variable 3rd Dimension
-0150* ----------------------------------------------------------------------
-0160* DTD SYNC-SRV SWVOXM0A
-0170 COMPRESS NUMERIC &1& '<SWVOXM0A'
-0180 '>' INTO &1& LEAVING NO
-0190 /* now the children
-0200 COMPRESS NUMERIC &1& '<RETURN-CODE'
-0210 '>'SWVOXM0A.RETURN-CODE
-0220 '</RETURN-CODE>'
-0230 INTO &1& LEAVING NO
-0240 COMPRESS NUMERIC &1& '<CMD'
-0250 '>'SWVOXM0A.CMD
-0260 '</CMD>'
-0270 INTO &1& LEAVING NO
-0280 COMPRESS NUMERIC &1& '<OG-CODE'
-0290 '>'SWVOXM0A.OG-CODE
-0300 '</OG-CODE>'
-0310 INTO &1& LEAVING NO
-0320 COMPRESS NUMERIC &1& '<VO-CODE'
-0330 '>'SWVOXM0A.VO-CODE
-0340 '</VO-CODE>'
-0350 INTO &1& LEAVING NO
-0360 COMPRESS NUMERIC &1& '<VO-NAME'
-0370 '>'SWVOXM0A.VO-NAME
-0380 '</VO-NAME>'
-0390 INTO &1& LEAVING NO
-0400 COMPRESS NUMERIC &1& '<VO-ADDR'
-0410 '>'SWVOXM0A.VO-ADDR
-0420 '</VO-ADDR>'
-0430 INTO &1& LEAVING NO
-0440 /*
-0450 COMPRESS FULL &1& '</SWVOXM0A>'
-0460 INTO &1& LEAVING NO
+* ----------------------------------------------------------------------
+* Generated from NATURAL XML TOOLKIT
+*
+*         'SWO'
+*
+* DESCRIPTION
+*               XML serialize implementation
+*
+* Parameter Definition
+*
+* &1& 'XML'                           /* XML Document
+* &2& '#CX'                           /* Counter Variable 1st Dimension
+* &3& '#CY'                           /* Counter Variable 2nd Dimension
+* &4& '#CZ'                           /* Counter Variable 3rd Dimension
+* ----------------------------------------------------------------------
+* DTD SYNC-SRV SWVOXM0A
+ COMPRESS NUMERIC &1& '<SWVOXM0A'
+ '>' INTO &1& LEAVING NO
+ /* now the children
+ COMPRESS NUMERIC &1& '<RETURN-CODE'
+ '>'SWVOXM0A.RETURN-CODE
+ '</RETURN-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<CMD'
+ '>'SWVOXM0A.CMD
+ '</CMD>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<OG-CODE'
+ '>'SWVOXM0A.OG-CODE
+ '</OG-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-CODE'
+ '>'SWVOXM0A.VO-CODE
+ '</VO-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-NAME'
+ '>'SWVOXM0A.VO-NAME
+ '</VO-NAME>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-ADDR'
+ '>'SWVOXM0A.VO-ADDR
+ '</VO-ADDR>'
+ INTO &1& LEAVING NO
+ /*
+ COMPRESS FULL &1& '</SWVOXM0A>'
+ INTO &1& LEAVING NO

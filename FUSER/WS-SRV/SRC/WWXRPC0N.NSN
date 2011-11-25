@@ -1,80 +1,80 @@
-0010/***********************************************************************
-0020/*
-0030/* SYSTEM: WS-SRV
-0040/* PROGRAM:
-0050/*
-0060/* DEVELOPER:  UPA
-0070/* MAKE DATA:
-0080/*
-0090/* NAME:  XML-RPC SERVICE METHOD
-0100/*
-0110/* CHANGES:
-0120/*
-0130/*
-0140/*
-0150/*
-0160/***********************************************************************
-0170DEFINE DATA
-0180* ------------------------------------------- standard PDA for HTTP Api
-0190PARAMETER USING W3PARM
-0200* -------------------------------------------- definitions for HTTP Api
-0210LOCAL  USING W3CONST
-0220LOCAL  USING W3PINFO
-0230*
-0240LOCAL USING XXERX00A
-0250LOCAL USING WWXRPC0A
-0260*
-0270LOCAL
-0280/*1 #BINARY                (B) DYNAMIC
-0290/*1 #HEADER                (A) DYNAMIC
-0300/*1 #DATA                  (A) DYNAMIC
-03101 V                    (I2)  CONST <25>
-03201 ANAME                (A/1:V) DYNAMIC
-03301 ANAMEVALUE           (A/1:V) DYNAMIC
-03401 ANAMEANZ             (I4)
-03501 ANAMESERVER          (L/1:V)
-03601 ANAMESTART           (I4) INIT <1>
-03701 ANAMEMAX             (I4)
-0380/*
-03901 #II                  (I4)
-04001 #SERVICE             (A8)
-04101 #SPLITE              (A32/1:4)
-0420*
-0430END-DEFINE
-0440* ---------------------------------------------------- error handling
-0450ON ERROR
-0460  PERFORM W3ERROR ##W3ERROR
-0470  PERFORM W3END ##RPC
-0480*
-0490  ESCAPE ROUTINE
-0500END-ERROR
-0510* ======================================================== Main Program
-0520* ------------------------------------------------------- init HTML API
-0530PERFORM W3INIT ##RPC TRUE FALSE
-0540* --------------------------------------------- Set type of return Page
-0550PERFORM W3READ-INPUT XML-IN /*#BINARY #HEADER #DATA
-0560PERFORM W3INFO ##W3INFO
-0570*
-0580ANAMEANZ := V
-0590PERFORM W3LIST-ENVIRONMENT-TO-DYNAMIC ANAMESTART ANAMEANZ ANAME(1:ANAMEANZ)
-0600  ANAMEVALUE(1:ANAMEANZ)ANAMESERVER(1:ANAMEANZ) ANAMEMAX
-0610/*
-0620FOR #II = 1 TO ANAMEANZ
-0630    IF ANAME(#II) EQ "PATH_INFO" THEN
-0640        IF ANAMEVALUE(#II) NE " " THEN
-0650           SEPARATE ANAMEVALUE(#II) INTO #SPLITE(*)
-0660                 REMAINDER WWXRPC0A.PATH-INFO WITH DELIMITER "/"
-0670           MOVE #SPLITE(4) TO  #SERVICE
-0680        END-IF
-0690    END-IF
-0700END-FOR
-0710/*
-0720CALLNAT #SERVICE XXERX00A WWXRPC0A
-0730/*
-0740PERFORM W3CONTENT-TYPE 'text/xml'
-0750/*COMPRESS '<service>' #SPLITE(1) #SPLITE(2) #SPLITE(3) #SPLITE(4) '</service>' INTO XML-OUT
-0760PERFORM W3TEXTDYNAMIC XML-OUT
-0770/*
-0780* ------------------------------------------------------ close HTTP Api
-0790PERFORM W3END ##RPC
-0800END
+/***********************************************************************
+/*
+/* SYSTEM: WS-SRV
+/* PROGRAM:
+/*
+/* DEVELOPER:  UPA
+/* MAKE DATA:
+/*
+/* NAME:  XML-RPC SERVICE METHOD
+/*
+/* CHANGES:
+/*
+/*
+/*
+/*
+/***********************************************************************
+DEFINE DATA
+* ------------------------------------------- standard PDA for HTTP Api
+PARAMETER USING W3PARM
+* -------------------------------------------- definitions for HTTP Api
+LOCAL  USING W3CONST
+LOCAL  USING W3PINFO
+*
+LOCAL USING XXERX00A
+LOCAL USING WWXRPC0A
+*
+LOCAL
+/*1 #BINARY                (B) DYNAMIC
+/*1 #HEADER                (A) DYNAMIC
+/*1 #DATA                  (A) DYNAMIC
+1 V                    (I2)  CONST <25>
+1 ANAME                (A/1:V) DYNAMIC
+1 ANAMEVALUE           (A/1:V) DYNAMIC
+1 ANAMEANZ             (I4)
+1 ANAMESERVER          (L/1:V)
+1 ANAMESTART           (I4) INIT <1>
+1 ANAMEMAX             (I4)
+/*
+1 #II                  (I4)
+1 #SERVICE             (A8)
+1 #SPLITE              (A32/1:4)
+*
+END-DEFINE
+* ---------------------------------------------------- error handling
+ON ERROR
+  PERFORM W3ERROR ##W3ERROR
+  PERFORM W3END ##RPC
+*
+  ESCAPE ROUTINE
+END-ERROR
+* ======================================================== Main Program
+* ------------------------------------------------------- init HTML API
+PERFORM W3INIT ##RPC TRUE FALSE
+* --------------------------------------------- Set type of return Page
+PERFORM W3READ-INPUT XML-IN /*#BINARY #HEADER #DATA
+PERFORM W3INFO ##W3INFO
+*
+ANAMEANZ := V
+PERFORM W3LIST-ENVIRONMENT-TO-DYNAMIC ANAMESTART ANAMEANZ ANAME(1:ANAMEANZ)
+  ANAMEVALUE(1:ANAMEANZ)ANAMESERVER(1:ANAMEANZ) ANAMEMAX
+/*
+FOR #II = 1 TO ANAMEANZ
+    IF ANAME(#II) EQ "PATH_INFO" THEN
+        IF ANAMEVALUE(#II) NE " " THEN
+           SEPARATE ANAMEVALUE(#II) INTO #SPLITE(*)
+                 REMAINDER WWXRPC0A.PATH-INFO WITH DELIMITER "/"
+           MOVE #SPLITE(4) TO  #SERVICE
+        END-IF
+    END-IF
+END-FOR
+/*
+CALLNAT #SERVICE XXERX00A WWXRPC0A
+/*
+PERFORM W3CONTENT-TYPE 'text/xml'
+/*COMPRESS '<service>' #SPLITE(1) #SPLITE(2) #SPLITE(3) #SPLITE(4) '</service>' INTO XML-OUT
+PERFORM W3TEXTDYNAMIC XML-OUT
+/*
+* ------------------------------------------------------ close HTTP Api
+PERFORM W3END ##RPC
+END

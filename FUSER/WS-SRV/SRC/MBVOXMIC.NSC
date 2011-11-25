@@ -1,84 +1,84 @@
-0010* ----------------------------------------------------------------------
-0020* Generated from NATURAL XML TOOLKIT
-0030*
-0040*         'MBVOXMIC'
-0050*
-0060* DESCRIPTION
-0070*               XML Parser implementation
-0080*
-0090* Parameter Definition
-0100*
-0110* &1& 'XML_PARSER_XPATH'              /* XPATH to repesent element...
-0120* &2& 'XML_PARSER_XPATH_TYPE'         /* Type of the XPATH:
-0130*                                        ? Processing instruction
-0140*                                        D DOCTYPE
-0150*                                        ! Comment
-0160*                                        C CDATA section
-0170*                                        T Starting Tag
-0180*                                        @ Attribute
-0190*                                        / Close Tag
-0200*                                        $ Parsed Data
-0210* &3& 'XML_PARSER_CONTENT'            /* Content of founld element
-0220* &4& 'XML_PARSER_CONTENT_IS_EMPTY'   /* Is TRUE if Content is empty
-0230* &5& '#CX'                           /* Counter variable 1st dimension
-0240* &6& '#CY'                           /* Counter variable 2nd dimension
-0250* &7& '#CZ'                           /* Counter variable 3rd dimension
-0260* &8& '#XML_PARSER_NAME'              /* Name of the parsed entity
-0270* &9& '#XML_PREV_PARSE-TYPE'          /* Previous type of the XPATH
-0280* ----------------------------------------------------------------------
-0290* XML-Schema D:\Natural\IBS\FUSER\WS-SRV\RES\
-0300 DECIDE ON FIRST &1&
-0310VALUE 'XBVOXM0A//'
-0320IGNORE
-0330VALUE 'XBVOXM0A'
-0340 RESET XBVOXM0A
-0350 IGNORE
-0360VALUE 'XBVOXM0A/OG-CODE//'
-0370IGNORE
-0380VALUE 'XBVOXM0A/OG-CODE'
-0390 IGNORE
-0400VALUE 'XBVOXM0A/OG-CODE/$'
-0410IF &3& IS (P5.0) THEN
-0420XBVOXM0A.OG-CODE := VAL(&3&)
-0430END-IF
-0440VALUE 'XBVOXM0A/VO-CODE//'
-0450IGNORE
-0460VALUE 'XBVOXM0A/VO-CODE'
-0470 IGNORE
-0480VALUE 'XBVOXM0A/VO-CODE/$'
-0490IF &3& IS (P5.0) THEN
-0500XBVOXM0A.VO-CODE := VAL(&3&)
-0510END-IF
-0520VALUE 'XBVOXM0A/VO-INN//'
-0530IGNORE
-0540VALUE 'XBVOXM0A/VO-INN'
-0550 IGNORE
-0560VALUE 'XBVOXM0A/VO-INN/$'
-0570XBVOXM0A.VO-INN := &3&
-0580VALUE 'XBVOXM0A/VO-KPP//'
-0590IGNORE
-0600VALUE 'XBVOXM0A/VO-KPP'
-0610 IGNORE
-0620VALUE 'XBVOXM0A/VO-KPP/$'
-0630XBVOXM0A.VO-KPP := &3&
-0640VALUE 'XBVOXM0A/VO-NAME//'
-0650IGNORE
-0660VALUE 'XBVOXM0A/VO-NAME'
-0670 IGNORE
-0680VALUE 'XBVOXM0A/VO-NAME/$'
-0690XBVOXM0A.VO-NAME := &3&
-0700VALUE 'XBVOXM0A/VO-ADDR//'
-0710IGNORE
-0720VALUE 'XBVOXM0A/VO-ADDR'
-0730 IGNORE
-0740VALUE 'XBVOXM0A/VO-ADDR/$'
-0750XBVOXM0A.VO-ADDR := &3&
-0760VALUE 'XBVOXM0A/VO-TIMESTAMP//'
-0770IGNORE
-0780VALUE 'XBVOXM0A/VO-TIMESTAMP'
-0790 IGNORE
-0800VALUE 'XBVOXM0A/VO-TIMESTAMP/$'
-0810XBVOXM0A.VO-TIMESTAMP := &3&
-0820NONE
-0830IGNORE
-0840END-DECIDE
+* ----------------------------------------------------------------------
+* Generated from NATURAL XML TOOLKIT
+*
+*         'MBVOXMIC'
+*
+* DESCRIPTION
+*               XML Parser implementation
+*
+* Parameter Definition
+*
+* &1& 'XML_PARSER_XPATH'              /* XPATH to repesent element...
+* &2& 'XML_PARSER_XPATH_TYPE'         /* Type of the XPATH:
+*                                        ? Processing instruction
+*                                        D DOCTYPE
+*                                        ! Comment
+*                                        C CDATA section
+*                                        T Starting Tag
+*                                        @ Attribute
+*                                        / Close Tag
+*                                        $ Parsed Data
+* &3& 'XML_PARSER_CONTENT'            /* Content of founld element
+* &4& 'XML_PARSER_CONTENT_IS_EMPTY'   /* Is TRUE if Content is empty
+* &5& '#CX'                           /* Counter variable 1st dimension
+* &6& '#CY'                           /* Counter variable 2nd dimension
+* &7& '#CZ'                           /* Counter variable 3rd dimension
+* &8& '#XML_PARSER_NAME'              /* Name of the parsed entity
+* &9& '#XML_PREV_PARSE-TYPE'          /* Previous type of the XPATH
+* ----------------------------------------------------------------------
+* XML-Schema D:\Natural\IBS\FUSER\WS-SRV\RES\
+ DECIDE ON FIRST &1&
+VALUE 'XBVOXM0A//'
+IGNORE
+VALUE 'XBVOXM0A'
+ RESET XBVOXM0A
+ IGNORE
+VALUE 'XBVOXM0A/OG-CODE//'
+IGNORE
+VALUE 'XBVOXM0A/OG-CODE'
+ IGNORE
+VALUE 'XBVOXM0A/OG-CODE/$'
+IF &3& IS (P5.0) THEN
+XBVOXM0A.OG-CODE := VAL(&3&)
+END-IF
+VALUE 'XBVOXM0A/VO-CODE//'
+IGNORE
+VALUE 'XBVOXM0A/VO-CODE'
+ IGNORE
+VALUE 'XBVOXM0A/VO-CODE/$'
+IF &3& IS (P5.0) THEN
+XBVOXM0A.VO-CODE := VAL(&3&)
+END-IF
+VALUE 'XBVOXM0A/VO-INN//'
+IGNORE
+VALUE 'XBVOXM0A/VO-INN'
+ IGNORE
+VALUE 'XBVOXM0A/VO-INN/$'
+XBVOXM0A.VO-INN := &3&
+VALUE 'XBVOXM0A/VO-KPP//'
+IGNORE
+VALUE 'XBVOXM0A/VO-KPP'
+ IGNORE
+VALUE 'XBVOXM0A/VO-KPP/$'
+XBVOXM0A.VO-KPP := &3&
+VALUE 'XBVOXM0A/VO-NAME//'
+IGNORE
+VALUE 'XBVOXM0A/VO-NAME'
+ IGNORE
+VALUE 'XBVOXM0A/VO-NAME/$'
+XBVOXM0A.VO-NAME := &3&
+VALUE 'XBVOXM0A/VO-ADDR//'
+IGNORE
+VALUE 'XBVOXM0A/VO-ADDR'
+ IGNORE
+VALUE 'XBVOXM0A/VO-ADDR/$'
+XBVOXM0A.VO-ADDR := &3&
+VALUE 'XBVOXM0A/VO-TIMESTAMP//'
+IGNORE
+VALUE 'XBVOXM0A/VO-TIMESTAMP'
+ IGNORE
+VALUE 'XBVOXM0A/VO-TIMESTAMP/$'
+XBVOXM0A.VO-TIMESTAMP := &3&
+NONE
+IGNORE
+END-DECIDE

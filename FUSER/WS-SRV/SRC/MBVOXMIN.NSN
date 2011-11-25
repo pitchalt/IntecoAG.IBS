@@ -1,91 +1,91 @@
-0010* ----------------------------------------------------------------------
-0020* Generated from NATURAL XML TOOLKIT
-0030*
-0040*         'MBVOXMIN'
-0050*
-0060* DESCRIPTION
-0070*               XML Parser implementation
-0080*               using PARSE XML statement for
-0090*               datastructure 'MBVOXM2A'
-0100*
-0110* ----------------------------------------------------------------------
-0120*
-0130DEFINE DATA PARAMETER
-01401 #XML_INPUT             (A) DYNAMIC BY VALUE
-0150PARAMETER USING	MBVOXM2A
-0160*
-0170LOCAL
-01801 #XML_PATH             (A) DYNAMIC
-01901 #XML_VALUE            (A) DYNAMIC
-02001 #XML_NAME             (A) DYNAMIC
-02101 #PREV_PARSE-TYPE      (A1)
-0220*
-0230LOCAL
-02401 #CX                          (I4)
-02501 #CY                          (I4)
-02601 #CZ                          (I4)
-0270END-DEFINE
-0280*
-0290* ------------------------------------------------- CALL THE PARSER
-0300PARSE XML #XML_INPUT INTO PATH #XML_PATH NAME #XML_NAME VALUE #XML_VALUE
-0310*
-0320* XML-Schema D:\Natural\IBS\FUSER\WS-SRV\RES\
-0330  DECIDE ON FIRST #XML_PATH 
-0340      VALUE 'XBVOXM0A//'
-0350      IGNORE
-0360      VALUE 'XBVOXM0A'
-0370      RESET XBVOXM0A 
-0380      IGNORE 
-0390      VALUE 'XBVOXM0A/OG-CODE//'
-0400      IGNORE
-0410      VALUE 'XBVOXM0A/OG-CODE'
-0420      IGNORE 
-0430      VALUE 'XBVOXM0A/OG-CODE/$'
-0440      IF #XML_VALUE IS (P5.0) THEN
-0450        XBVOXM0A.OG-CODE := VAL(#XML_VALUE)
-0460      END-IF
-0470      VALUE 'XBVOXM0A/VO-CODE//'
-0480      IGNORE
-0490      VALUE 'XBVOXM0A/VO-CODE'
-0500      IGNORE 
-0510      VALUE 'XBVOXM0A/VO-CODE/$'
-0520      IF #XML_VALUE IS (P5.0) THEN
-0530        XBVOXM0A.VO-CODE := VAL(#XML_VALUE)
-0540      END-IF
-0550      VALUE 'XBVOXM0A/VO-INN//'
-0560      IGNORE
-0570      VALUE 'XBVOXM0A/VO-INN'
-0580      IGNORE 
-0590      VALUE 'XBVOXM0A/VO-INN/$'
-0600      XBVOXM0A.VO-INN := #XML_VALUE
-0610      VALUE 'XBVOXM0A/VO-KPP//'
-0620      IGNORE
-0630      VALUE 'XBVOXM0A/VO-KPP'
-0640      IGNORE 
-0650      VALUE 'XBVOXM0A/VO-KPP/$'
-0660      XBVOXM0A.VO-KPP := #XML_VALUE
-0670      VALUE 'XBVOXM0A/VO-NAME//'
-0680      IGNORE
-0690      VALUE 'XBVOXM0A/VO-NAME'
-0700      IGNORE 
-0710      VALUE 'XBVOXM0A/VO-NAME/$'
-0720      XBVOXM0A.VO-NAME := #XML_VALUE
-0730      VALUE 'XBVOXM0A/VO-ADDR//'
-0740      IGNORE
-0750      VALUE 'XBVOXM0A/VO-ADDR'
-0760      IGNORE 
-0770      VALUE 'XBVOXM0A/VO-ADDR/$'
-0780      XBVOXM0A.VO-ADDR := #XML_VALUE
-0790      VALUE 'XBVOXM0A/VO-TIMESTAMP//'
-0800      IGNORE
-0810      VALUE 'XBVOXM0A/VO-TIMESTAMP'
-0820      IGNORE 
-0830      VALUE 'XBVOXM0A/VO-TIMESTAMP/$'
-0840      XBVOXM0A.VO-TIMESTAMP := #XML_VALUE
-0850    NONE  
-0860      IGNORE    
-0870  END-DECIDE  
-0880*
-0890END-PARSE
-0900*
-0910END
+* ----------------------------------------------------------------------
+* Generated from NATURAL XML TOOLKIT
+*
+*         'MBVOXMIN'
+*
+* DESCRIPTION
+*               XML Parser implementation
+*               using PARSE XML statement for
+*               datastructure 'MBVOXM2A'
+*
+* ----------------------------------------------------------------------
+*
+DEFINE DATA PARAMETER
+1 #XML_INPUT             (A) DYNAMIC BY VALUE
+PARAMETER USING MBVOXM2A
+*
+LOCAL
+1 #XML_PATH             (A) DYNAMIC
+1 #XML_VALUE            (A) DYNAMIC
+1 #XML_NAME             (A) DYNAMIC
+1 #PREV_PARSE-TYPE      (A1)
+*
+LOCAL
+1 #CX                          (I4)
+1 #CY                          (I4)
+1 #CZ                          (I4)
+END-DEFINE
+*
+* ------------------------------------------------- CALL THE PARSER
+PARSE XML #XML_INPUT INTO PATH #XML_PATH NAME #XML_NAME VALUE #XML_VALUE
+*
+* XML-Schema D:\Natural\IBS\FUSER\WS-SRV\RES\
+  DECIDE ON FIRST #XML_PATH
+      VALUE 'XBVOXM0A//'
+      IGNORE
+      VALUE 'XBVOXM0A'
+      RESET XBVOXM0A
+      IGNORE
+      VALUE 'XBVOXM0A/OG-CODE//'
+      IGNORE
+      VALUE 'XBVOXM0A/OG-CODE'
+      IGNORE
+      VALUE 'XBVOXM0A/OG-CODE/$'
+      IF #XML_VALUE IS (P5.0) THEN
+        XBVOXM0A.OG-CODE := VAL(#XML_VALUE)
+      END-IF
+      VALUE 'XBVOXM0A/VO-CODE//'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-CODE'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-CODE/$'
+      IF #XML_VALUE IS (P5.0) THEN
+        XBVOXM0A.VO-CODE := VAL(#XML_VALUE)
+      END-IF
+      VALUE 'XBVOXM0A/VO-INN//'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-INN'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-INN/$'
+      XBVOXM0A.VO-INN := #XML_VALUE
+      VALUE 'XBVOXM0A/VO-KPP//'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-KPP'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-KPP/$'
+      XBVOXM0A.VO-KPP := #XML_VALUE
+      VALUE 'XBVOXM0A/VO-NAME//'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-NAME'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-NAME/$'
+      XBVOXM0A.VO-NAME := #XML_VALUE
+      VALUE 'XBVOXM0A/VO-ADDR//'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-ADDR'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-ADDR/$'
+      XBVOXM0A.VO-ADDR := #XML_VALUE
+      VALUE 'XBVOXM0A/VO-TIMESTAMP//'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-TIMESTAMP'
+      IGNORE
+      VALUE 'XBVOXM0A/VO-TIMESTAMP/$'
+      XBVOXM0A.VO-TIMESTAMP := #XML_VALUE
+    NONE
+      IGNORE
+  END-DECIDE
+*
+END-PARSE
+*
+END
