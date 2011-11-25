@@ -1,0 +1,7 @@
+0010/*DS                                 1SWVOXM0A                                                        DA:00.00ED:00.00PF:WNV:06030700
+0020/*DF                    I         4  2RETURN-CODE
+0030/*DF                    A        15  2CMD
+0040/*DF                    N         5  2OG-CODE
+0050/*DF                    N         5  2VO-CODE
+0060/*DF                    A        80  2VO-NAME
+0070/*DF                    A        80  2VO-ADDR

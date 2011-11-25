@@ -1,0 +1,109 @@
+0010* ---------------------------------------------------------------------
+0020* CLASS  Natural Web Interface - Utilities
+0030*
+0040*        NAT-ENV
+0050*
+0060* DESCRIPTION
+0070*               This Program returnes the environment send via
+0080*               HTTP API
+0090*
+0100* AUTHOR        SAG   28.07.97
+0110*
+0120* VERSION       6.2.
+0130*
+0140* (c) Copyright  Software AG 1997-2005. All rights reserved.
+0150*
+0160* HISTORY
+0170* USER    DATE       REASON
+0180* ------+----------+----------------------------------------------
+0190*       ! --.--.-- !
+0200* ------+----------+----------------------------------------------
+0210DEFINE DATA
+0220* ------------------------------------------- standard PDA for HTTP Api
+0230PARAMETER USING W3PARM
+0240* -------------------------------------------- definitions for HTTP Api
+0250LOCAL  USING W3CONST
+0260LOCAL  USING W3PINFO
+0270*
+0280LOCAL USING SWVOXM0A
+0290
+0300LOCAL
+03101 #XML-OUT               (A) DYNAMIC
+0320* ---------------------------------------------- parameter W3READ-INPUT
+03301 #XML-IN                (A) DYNAMIC
+03401 #BINARY                (B) DYNAMIC
+03501 #HEADER                (A) DYNAMIC
+03601 #DATA                  (A) DYNAMIC
+0370*
+03801 #XML_PATH             (A) DYNAMIC
+03901 #XML_VALUE            (A) DYNAMIC
+04001 #XML_NAME             (A) DYNAMIC
+04101 #PREV_PARSE-TYPE      (A1)
+04201 XML_PARSER_CONTENT_IS_EMPTY (L)
+0430*
+04401 #CX                          (I4)
+04501 #CY                          (I4)
+04601 #CZ                          (I4)
+0470*
+0480END-DEFINE
+0490* ---------------------------------------------------- error handling
+0500ON ERROR
+0510  PERFORM W3ERROR ##W3ERROR
+0520  PERFORM W3END ##RPC
+0530*
+0540  ESCAPE ROUTINE
+0550END-ERROR
+0560DEFINE WORK FILE 7 "D:\WWW\SWVOXM0N.LOG"
+0570* ======================================================== Main Program
+0580* ------------------------------------------------------- init HTML API
+0590PERFORM W3INIT ##RPC TRUE TRUE
+0600* --------------------------------------------- Set type of return Page
+0610PERFORM W3CONTENT-TYPE 'text/xml'
+0620PERFORM W3INFO ##W3INFO
+0630PERFORM W3READ-INPUT #XML-IN #BINARY #HEADER #DATA
+0640* ------------------------------------------- Set head of the HTML page
+0650* &1& 'XML_PARSER_XPATH'              /* XPATH to repesent element...
+0660* &2& 'XML_PARSER_XPATH_TYPE'         /* Type of the XPATH:
+0670*                                        ? Processing instruction
+0680*                                        D DOCTYPE
+0690*                                        ! Comment
+0700*                                        C CDATA section
+0710*                                        T Starting Tag
+0720*                                        @ Attribute
+0730*                                        / Close Tag
+0740*                                        $ Parsed Data
+0750* &3& 'XML_PARSER_CONTENT'            /* Content of founld element
+0760* &4& 'XML_PARSER_CONTENT_IS_EMPTY'   /* Is TRUE if Content is empty
+0770* &5& '#CX'                           /* Counter variable 1st dimension
+0780* &6& '#CY'                           /* Counter variable 2nd dimension
+0790* &7& '#CZ'                           /* Counter variable 3rd dimension
+0800* &8& '#XML_PARSER_NAME'              /* Name of the parsed entity
+0810* &9& '#XML_PREV_PARSE-TYPE'          /* Previous type of the XPATH
+0820IF FALSE THEN
+0830PARSE XML #XML-IN INTO PATH #XML_PATH NAME #XML_NAME VALUE #XML_VALUE
+0840  IF *LENGTH(#XML_VALUE)=0 THEN
+0850     XML_PARSER_CONTENT_IS_EMPTY := TRUE
+0860  ELSE
+0870     XML_PARSER_CONTENT_IS_EMPTY := FALSE
+0880  END-IF
+0890  INCLUDE SWVOXMIC '#XML_PATH' '*PARSE-TYPE' '#XML_VALUE'
+0900        'XML_PARSER_CONTENT_IS_EMPTY' '#CX' '#CY' '#CZ'
+0910        '#XML_NAME' '#PREV_PARSE-TYPE'
+0920  #PREV_PARSE-TYPE := *PARSE-TYPE
+0930END-PARSE
+0940END-IF
+0950/*
+0960COMPRESS '<?xml version="1.0" encoding="' *CODEPAGE '"?>'
+0970  INTO #XML-OUT LEAVING NO
+0980/*
+0990INCLUDE SWVOXMOC "#XML-OUT" '#CX' '#CY' '#CZ'
+1000/*
+1010/*WRITE WORK FILE 7 VARIABLE #XML-OUT
+1020/*CLOSE WORK FILE 7
+1030/*
+1040PERFORM W3TEXTDYNAMIC #XML-OUT
+1050/*
+1060* ------------------------------------------------------ close HTTP Api
+1070*
+1080PERFORM W3END ##RPC
+1090END
