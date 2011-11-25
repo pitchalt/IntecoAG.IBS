@@ -1,0 +1,38 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPPOHP2M
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20061108
+* :Time 1440000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* WRITE USING MAP 'XXXXXXXX'
+*     MEPMLS0A.DT-ALL-SUMMA MEPMLS0A.DT-CENA-SUMMA MEPMLS0A.DT-COL-RECORD
+*     MEPMLS0A.DT-NDS-SUMMA
+DEFINE DATA PARAMETER
+1 MEPMLS0A.DT-ALL-SUMMA (N13.2)
+1 MEPMLS0A.DT-CENA-SUMMA (N13.2)
+1 MEPMLS0A.DT-COL-RECORD (P07.0)
+1 MEPMLS0A.DT-NDS-SUMMA (N13.2)
+END-DEFINE
+FORMAT PS=003 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 003079        N0NNUCN            X         01 SYSDBA  NR             *
+************************************************************************
+WRITE ( AD=D                                                          /*
+                                                                       )
+ 001T '__________________________________________________________'-
+      '_____________________'
+/
+ 023T 'Итого'
+ 029T MEPMLS0A.DT-CENA-SUMMA  (AD=DROFHT ) /*.01D016 N13.2.
+ 046T MEPMLS0A.DT-NDS-SUMMA  (AD=DROFHT ) /*.01D016 N13.2.
+ 063T MEPMLS0A.DT-ALL-SUMMA  (AD=DROFHT ) /*.01D016 N13.2.
+/
+ 023T 'Строк'
+ 029T MEPMLS0A.DT-COL-RECORD  (AD=DLOFHT ) /*.01D007 P07.0.
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

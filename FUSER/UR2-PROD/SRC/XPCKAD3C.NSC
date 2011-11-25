@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPCKAD3C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060610
+* :Time 1210000
+* <Natural Source Header /*<<RO>
+/*Редактирование списка
+        INCLUDE XPCKAD1C "'LINE-NEW'"    "'PF2'" '"Добав"'
+        INCLUDE XPCKAD1C "'LINE-EDIT'"   "'PF4'" '"Редак"'
+        INCLUDE XPCKAD1C "'LINE-DEL'"    "'PF6'" '"Удал"'
+

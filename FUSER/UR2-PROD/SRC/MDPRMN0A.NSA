@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MDPRMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070109
+**C               *:Time 1347000
+**C               *<Natural Source Header
+**DS          0000      1MDPRMN0A
+**DK          0000A  10 2DL-COMMAND
+**DK          0000P15.0 2PR-ID
+**DK          0000P   9 2PR-CODE
+**DK          0000P   9 2PR-CODE-COUNTER
+**DK          0000P13.2 2PR-CENA
+**DK          0000P  15 2PR-EI-ID
+**DK          0000N 8.7 2PR-COL
+**DK          0000D     2PR-USE-PERIOD
+**DK          0000D     2PR-MAKE-DATA
+**DK          0000P  15 2DC-ID
+**DK          0000P  15 2DR-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  11 2PR-ASUM-INT-NUM
+**DK          0000P   3 2PR-ASUM-LINE
+**DK          0000P  15 2PR-CONFIRM
+**DS I1       0000      2DM-G                            (1:5)
+**DK          0000P  15 3DM-ID
+**DK          0000P 8.7 3DM-COL
+**DK          0000P  15 3DM-EI-ID

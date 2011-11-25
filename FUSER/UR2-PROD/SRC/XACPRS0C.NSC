@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XACPRS0C
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20050113
+* :Time 2228000
+* <Natural Source Header /*<<RO>
+RESET BM-INDEX BM-CMD-LIST-C BM-CMD-LIST(*)
+

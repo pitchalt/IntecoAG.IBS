@@ -1,0 +1,20 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XBDRSX0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060603
+**C               *:Time 2007000
+**C               *<Natural Source Header
+**DS          0000      1XBDRSX0L
+**DK          0000I   4 2DR-AX-NUMBER
+**DK          0000I   4 2DR-AX-FOUND
+**DK          0000N  15 2SX-DATE-NUMBER
+**DR          0000     R2SX-DATE-NUMBER                  /* BEGIN REDEFINE: SX-DATE-NUM
+**DFR         0000N   7 3SX-DATE-SKIP
+**DFR         0000A   8 3SX-DATE-VALUE
+**DK          0000P  15 2SX-NUMBER-NUMBER
+**DR          0000     R2SX-NUMBER-NUMBER                /* BEGIN REDEFINE: SX-NUMBER-N
+**DFR         0000P13.2 3SX-NUMBER2-VALUE
+**DR          0000     R2SX-NUMBER-NUMBER                /* BEGIN REDEFINE: SX-NUMBER-N
+**DFR         0000P 8.7 3SX-NUMBER7-VALUE

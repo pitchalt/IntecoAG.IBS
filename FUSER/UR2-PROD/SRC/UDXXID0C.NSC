@@ -1,0 +1,18 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UDXXID0C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060407
+* :Time 1735000
+* <Natural Source Header /*<<RO>
+/* цемепхпнбюмхе хдемрхтхйюрнпю дкъ гюохяеи
+/* рпеасер дкъ пюанрш UDXXID0L
+/*
+/* оюпюлерпш
+/* 1 йсдю онлеярхрэ ID
+/* 2 ISN гюохях
+MOVE *TIMN TO UDXXID0L.RECORD-ID-TIME
+MOVE &2& TO UDXXID0L.RECORD-ID-ISN
+MOVE UDXXID0L.RECORD-ID TO &1&
+

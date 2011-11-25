@@ -1,0 +1,19 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPDTCH0C
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20061018
+* :Time 1520000
+* <Natural Source Header /*<<RO>
+/* опнбепйю онкеи рхою дюрю
+IF &2& AND &1& EQ 0 THEN
+  CP-CURS-FIELD := POS(&1&)
+  INCLUDE XXERUS1C '2305'
+END-IF
+IF &1& NE 0
+  IF &1& NE MASK(YYYYMMDD) OR &1& < 19000000 THEN
+     CP-CURS-FIELD := POS(&1&)
+     INCLUDE XXERUS1C '2302'
+  END-IF
+END-IF

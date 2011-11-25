@@ -1,0 +1,26 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName USR2006A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070121
+**C               *:Time 1611000
+**C               *<Natural Source Header
+**DS          0000      1USR2006A
+**DK          0000I   4 2ER-INDEX
+**DK          0000I   4 2ER-RESPONSE
+**DK          0000I   4 2ER-NUMBER
+**DK          0000I   4 2ER-LINE
+**DK          0000A  32 2ER-PROGRAM
+**DK          0000A  32 2ER-LIBRARY
+**DK          0000I   4 2ER-DBID
+**DK          0000I   4 2ER-FNR
+**DK          0000T     2ER-TIME
+**DK          0000A  11 2ER-OBJTYPE
+**DK          0000I   4 2ER-LANGUAGE
+**DK          0000I   4 2ER-LEVEL
+**DK          0000B   1 2ER-FILLER
+**DK          0000B   1 2ER-MC
+**DK          0000B   1 2ER-EC
+**DK          0000B   1 2ER-ET
+**DK          0000A 253 2ER-TEXT

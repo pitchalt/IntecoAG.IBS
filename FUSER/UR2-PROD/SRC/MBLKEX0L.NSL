@@ -1,0 +1,27 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBLKEX0L
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060721
+**C               *:Time 1623000
+**C               *<Natural Source Header
+**DS          0000      1MBLKEX0L
+**DK          0000A   9 2NOMLZK
+**DK          0000A  10 2NOM
+**DK          0000A  10 2KODPOTR
+**DK          0000A   9 2SHIFRZAK
+**DK          0000A  11 2UZEL
+**DK          0000A   8 2DATA
+**DRR         0000     R2DATA                            /* REDEF. BEGIN : DATA
+**DFR         0000N   8 3DATA-N
+**DK          0000N 8.3 2KOL
+**DK          0000A   1 2PRIZN_T
+**DK          0000N 8.7 2NORIZ
+**DK          0000A   8 2DATE-START
+**DRR         0000     R2DATE-START                      /* REDEF. BEGIN : DATE-START
+**DFR         0000N   8 3DATE-START-N
+**DK          0000A   8 2DATE-STOP
+**DRR         0000     R2DATE-STOP                       /* REDEF. BEGIN : DATE-STOP
+**DFR         0000N   8 3DATE-STOP-N
+**DK          0000N   5 2MO-CODE

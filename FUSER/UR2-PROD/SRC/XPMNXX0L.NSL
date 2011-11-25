@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPMNXX0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070115
+**C               *:Time 1854000
+**C               *<Natural Source Header
+**DFC  S      0002I   4C1XPMNXX0L-LINES-MAX
+**HS0001
+**I                      10
+**DS          0000      1XPMNXX0L
+**DS I1       0000      2DR-LINES                        (1:20)
+**DK          0000A   2 3DL-CMD
+**DK          0000C     3DL-CMD-C
+**DK          0000A  30 3MENU-ITEM
+**DK          0000A  10 3MENU-CMD

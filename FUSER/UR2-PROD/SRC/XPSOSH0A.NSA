@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPSOSH0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000102
+**C               *:Time 0000000
+**C               *<Natural Source Header
+**DS          0000      1XPSOSH0A
+**DK          0000A  10 2SH-COMMAND
+**DK          0000P  15 2SO-TYPE
+**DK          0000A  10 2SO-SEARCH
+**DS          0000      2SO-RESULT
+**DK          0000P  15 3SO-ID
+**DK          0000N   5 3SO-CODE
+**DK          0000A  40 3SO-NAME

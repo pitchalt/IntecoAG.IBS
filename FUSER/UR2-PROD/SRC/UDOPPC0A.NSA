@@ -1,0 +1,12 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDOPPC0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060516
+**C               *:Time 1132000
+**C               *<Natural Source Header
+**DS          0000      1UDOPPC0A
+**DK          0000A  10 2DL-COMMAND
+**DK          0000I   4 2OP-NUMBER
+**DK I1       0000P  15 2OP-LIST-ID                      (1:20)

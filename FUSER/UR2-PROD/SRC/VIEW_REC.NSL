@@ -1,0 +1,58 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName VIEW_REC
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070920
+**C               *:Time 1439000
+**C               *<Natural Source Header
+**DFC  S      2   N   3C1N_DOP_INF                       /* KOË-BO PEAËÈÇAÖÈÉ DI-OS,DI-
+**HS1
+**I                      5
+**DV          0        V1VIEW_REC                        IBS-REC-FILE
+**DD          0   A  10 2SY-F                            /* SYSTEM
+**DD          0   N 6.0 2GM-F                            /* ÄATA  "ÃÃÃÃMM"
+**DD          0   N 3.0 2NN-ID                           /* OCH./ÄOÏ.
+**DD          0   N 1.0 2BO-F                            /* OÁOPOT
+**DD          0   N 1.0 2TZ-ID                           /* ###
+**DD          0   N 5.0 2OS-F                            /* OCHOBHOÉ
+**DD          0   N 5.0 2KS-F                            /* KOPPECÏOHÄÈPÓÞÙÈÉ
+**DD          0   A   9 2ZK-F                            /* ÇAKAÇ  KS-F
+**DD          0   N13.2 2SU-F                            /* CÓMMA
+**DD          0   N 5.0 2PO-F                            /* ÏOÄPAÇÄEËEHÈE  KS-F
+**DD          0   N 5.0 2KD-F                            /* OG_IDENT_G
+**DD          0   N 5.0 2OP-ID
+**DD          0   N 8.0 2DT-ID                           /* ÄATA ÄOKÓMEHTA
+**DD          0   N 6.0 2ND-ID                           /* HOMEP ÄOKÓMEHTA
+**DD I1 C     0   A 250M2TT-ID                           (1:1)
+**DD          0   A 160 2TX-ID                           /* ÈCTOPÈß ÄOCTÓÏA
+**DR          0        R2TX-ID                           /* REDEF. BEGIN : TX-ID
+**DFR         0   A  45 3FILLER
+**DFR         0   A  10 3MO_INF
+**DD          0   N   5 2OB-PR                           /* M/O   OF    KS-F
+**DD          0   A   1 2TP-ID                           /* TYPE  M/O   OF    KS-F
+**DD          0   N 5.0 2OB-ID                           /* B/O K  KS-F
+**DD          0   N 5.0 2OB-OS                           /* B/O K  OS-F
+**DD          0   N 5.0 2PO-OS                           /* ÏOÄPAÇÄEËEHÈE  OS-F
+**DD          0   A   9 2ZK-OS                           /* ÇAKAÇ OS-F
+**DD          0   A   3 2FL-AN
+**DD          0   A  25 2DI-ID
+**DD          0   A   3 2FL-KS
+**DD I1 C     0   A  20M2DI-OS                           (1:N_DOP_INF) /* ÄOÃOBOP  OS-F
+**DD    *     0        C2ST-OS
+**DD I1 C     0        P2ST-OS                           (1:10)
+**DD          0   A   5 3KK-OS
+**DD          0   I   4 3KD-OS
+**DD    *     0        C2ST-KS
+**DD I1 C     0        P2ST-KS                           (1:10)
+**DD          0   A   5 3KK-KS
+**DD          0   I   4 3KD-KS
+**DD I1 C     0   A  20M2DI-KS                           (1:N_DOP_INF) /* ÄOÃOBOP  KS-F
+**DD          0   A  31 2ASUM_DOC                        /* ÄOCTÓÏ K ASUM-DOC-FILE
+**DR          0        R2ASUM_DOC                        /* BEGIN REDEFINE: ASUM_DOC
+**DFR         0   A   4 3TSYS
+**DFR         0   N   5 3OG-F
+**DFR         0   A   2 3TYPE_DOC                        /* TÈÏ ÄOKYMEHTA
+**DFR         0   N   8 3DATA_DOC                        /* ÏOËHAß ÄATA
+**DFR         0   N   6 3NUM_DOC                         /* HOMEP ÄOKYMEHTA
+**DFR         0   P  11 3NUM_ZAP                         /* BHYTPEHHÈÉ HOMEP ÄOKYMEHTA

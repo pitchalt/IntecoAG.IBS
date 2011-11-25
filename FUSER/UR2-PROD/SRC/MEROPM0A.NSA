@@ -1,0 +1,27 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEROPM0A
+**C               *:UID PAUL
+**C               *:Mode R
+**C               *:CP
+**C               *:Date 20070201
+**C               *:Time 1200000
+**C               *<Natural Source Header
+**DS          0000      1MEROPM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P   7 2DR-COL-RECORD
+**DK          0000P  15 2ROM-ID
+**DK          0000P  15 2ROP-ID
+**DK          0000P  15 2PR-ID
+**DK          0000N   9 2PR-CODE
+**DK          0000P  15 2DT-ID
+**DK          0000P13.2 2CENA
+**DK          0000P13.2 2CENA-SUMMA
+**DK          0000P13.2 2BALC-SUMMA
+**DK          0000P 8.7 2COL
+**DK          0000P  15 2EI-ID
+**DK          0000N   5 2EI-CODE
+**DK          0000A   5 2EI-SHORT-NAME
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000N   5 2BASE-EI-CODE
+**DK          0000A   5 2BASE-EI-SHORT-NAME

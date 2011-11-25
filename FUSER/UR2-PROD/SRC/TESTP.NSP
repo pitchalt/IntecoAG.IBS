@@ -1,0 +1,16 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TESTP
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20060704
+* :Time 1701000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+LOCAL USING MBMZEX0L
+END-DEFINE
+READ WORK FILE 7 MBMZEX0L
+ IGNORE
+END-WORK
+CLOSE WORK FILE 7
+END

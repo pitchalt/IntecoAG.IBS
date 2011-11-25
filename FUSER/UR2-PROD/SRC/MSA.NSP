@@ -1,0 +1,16 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MSA
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20110914
+* :Time 1509000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL
+  1 #DT(N8/2)
+END-DEFINE
+#DT(1) := 20110101
+#DT(2) := 20110831
+CALLNAT 'UNLEXP1' #DT(*)
+END

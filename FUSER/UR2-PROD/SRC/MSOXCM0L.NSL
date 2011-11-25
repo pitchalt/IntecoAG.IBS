@@ -1,0 +1,58 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MSOXCM0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070701
+**C               *:Time 2324000
+**C               *<Natural Source Header
+**DS          0000      1MPSARK0L
+**DK          0000N   8 2SA-DT-START-N                   /*дата проведени
+**DR          0000     R2SA-DT-START-N                   /* BEGIN REDEFINE: SA-DT-START-
+**DFR         0000A   8 3SA-DT-START-A
+**DK          0000N   8 2SA-DT-STOP-N                    /*дата проведени
+**DR          0000     R2SA-DT-STOP-N                    /* BEGIN REDEFINE: SA-DT-STOP-N
+**DFR         0000A   8 3SA-DT-STOP-A
+**DK          0000P  15 2MO-ID
+**DK          0000A  10 2MO-SEARCH
+**DK          0000N   5 2MO-CODE
+**DK          0000A  60 2MO-NAME
+**DK          0000C     2MO-OBJECT-C
+**DK          0000P  15 2MT-ID
+**DK          0000A  22 2MT-SEARCH
+**DK          0000A  22 2MT-CODE
+**DK          0000A  80 2MT-NAME
+**DK          0000C     2MT-OBJECT-C
+**DK          0000P  15 2BASE-MT-ID
+**DK          0000A  22 2BASE-MT-SEARCH
+**DK          0000A  22 2BASE-MT-CODE
+**DK          0000A  80 2BASE-MT-NAME
+**DK          0000C     2BASE-MT-OBJECT-C
+**DK          0000P  15 2DF-ID
+**DK          0000A   5 2DF-SEARCH
+**DK          0000N   5 2DF-CODE
+**DK          0000A  80 2DF-NAME
+**DK          0000C     2DF-OBJECT-C
+**DK          0000P15.0 2PR-ID
+**DK          0000P   9 2PR-CODE
+**DK          0000C     2PR-OBJECT-C
+**DK          0000P  15 2ZK-ID
+**DK          0000A   9 2ZK-CODE
+**DK          0000A   9 2ZK-SEARCH
+**DK          0000A  80 2ZK-NAME
+**DK          0000C     2ZK-OBJECT-C
+**DK          0000P  15 2LK-ID
+**DK          0000A   6 2LK-NUMBER
+**DK          0000D     2LK-DATE
+**DK          0000C     2LK-OBJECT-C
+**DK          0000P  15 2BS-ID
+**DK          0000N   5 2BS-CODE
+**DK          0000A  80 2BS-NAME
+**DK          0000C     2BS-OBJECT-C
+**DK          0000P  15 2GM-ID
+**DK          0000A  10 2GM-SEARCH
+**DK          0000N   5 2GM-CODE
+**DK          0000A  60 2GM-NAME
+**DK          0000C     2GM-OBJECT-C
+**DK I1       0000P   7 2IT-ID                           (1:10)
+**DK          0000C     2IT-OBJECT-C

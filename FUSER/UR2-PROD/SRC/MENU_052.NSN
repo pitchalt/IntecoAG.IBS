@@ -1,0 +1,80 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MENU_052
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20090720
+* :Time 2024000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+PARAMETER USING XXERX00A
+PARAMETER USING XXCTXX0A
+PARAMETER USING XABOXX0A
+LOCAL USING XPMXSM0L
+LOCAL USING MENUXXXL
+LOCAL
+1 #ITEM (I4)
+END-DEFINE
+/*
+MOVE 'АОЗТ ИНТЕКО АГ СИСТЕМА МТС ПОДСИСТЕМА СКЛАД'
+     TO MX-FUNCTION-NAME
+MOVE 'Экспорт информации' TO MX-EDITOR-NAME
+/*
+RESET #ITEM
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт материалов'
+PRG(#ITEM)  := "MPMTEX1N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт партий'
+PRG(#ITEM)  := "MAPREX0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+* ADD 1 TO #ITEM
+* NAME(#ITEM) := 'ЭKCПOPT CAЛЬДO'
+* PRG(#ITEM)  := "MASAEX1N"
+* CMD(#ITEM)  := " "
+* ODID(#ITEM) := 1
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт сальдо новый'
+PRG(#ITEM)  := "MASAEX2N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 1
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт приходов'
+PRG(#ITEM)  := "MAPOEX0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт операций за период'
+PRG(#ITEM)  := "MPOPEX0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт заменителей'
+PRG(#ITEM)  := "MAMZEX1N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт сальдо кладовых'
+PRG(#ITEM)  := "MASAEX1N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 2
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт заголовков операций'
+PRG(#ITEM)  := "UBODEX0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+INCLUDE MENU000C
+END

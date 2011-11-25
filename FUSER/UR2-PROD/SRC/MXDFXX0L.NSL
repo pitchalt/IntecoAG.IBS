@@ -1,0 +1,27 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MXDFXX0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070905
+**C               *:Time 1024000
+**C               *<Natural Source Header
+**DS I1       0000      1MXDFXX0L                        (1:12)
+**DK   S      0005P  15 2SO-ID
+**HS0004
+**I(1)                   10021
+**I(2)                   10022
+**I(3)                   10023
+**I(4)                   10024
+**DK   S      0005N   5 2SO-CODE
+**HS0004
+**I(1)                   1
+**I(2)                   2
+**I(3)                   3
+**I(4)                   4
+**DK   S      0005A  40 2SO-NAME
+**HS0004
+**I(1)                   Непрошедшие входной контроль
+**I(2)                   Бракованные
+**I(3)                   Прошедшие входной контроль
+**I(4)                   Брак на обмене

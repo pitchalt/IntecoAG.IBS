@@ -1,0 +1,25 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBSORK0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061114
+**C               *:Time 1125000
+**C               *<Natural Source Header
+**DS          0000      1MBSORK0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P  15 2DR-EXCLUDE
+**DK          0000D     2SA-DT-S
+**DK          0000D     2SA-DT-PO
+**DK          0000P   7 2SA-DT-ATTR-ID
+**DK I1       0000P  15 2IT-ID                           (1:10)
+**DK I1       0000P  15 2IT-ID-ONCE                      (1:10)
+**DK          0000P  15 2MO-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2PR-ID
+**DK          0000P  15 2ZK-ID
+**DK          0000P  15 2LK-ID
+**DK          0000P  15 2BS-ID
+**DK          0000P  15 2GM-ID
+**DK          0000P  15 2EI-ID
+**DK          0000P  15 2VO-ID

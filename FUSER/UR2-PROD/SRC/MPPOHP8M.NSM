@@ -1,0 +1,76 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPPOHP8M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20070214
+* :Time 1503000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* WRITE USING MAP 'XXXXXXXX'
+*     MEPHMN0A.DP-CODE MEPHMN0A.DP-NAME MEPHMN0A.IN-DP-CODE
+*     MEPHMN0A.IN-DP-NAME MEPHMN0A.IN-MO-CODE MEPHMN0A.IN-MO-NAME
+*     MEPHMN0A.MO-CODE MEPHMN0A.MO-NAME MEPHMN0A.PO-DATE
+*     MEPHMN0A.PO-NUMBER MEPHMN0A.TT-DATE MEPHMN0A.TT-NUMBER
+*     MEPHMN0A.ZK-CODE
+DEFINE DATA PARAMETER
+1 MEPHMN0A.DP-CODE (N05.0)
+1 MEPHMN0A.DP-NAME (A060)
+1 MEPHMN0A.IN-DP-CODE (N05.0)
+1 MEPHMN0A.IN-DP-NAME (A060)
+1 MEPHMN0A.IN-MO-CODE (N05.0)
+1 MEPHMN0A.IN-MO-NAME (A060)
+1 MEPHMN0A.MO-CODE (N05.0)
+1 MEPHMN0A.MO-NAME (A060)
+1 MEPHMN0A.PO-DATE (D)
+1 MEPHMN0A.PO-NUMBER (A006)
+1 MEPHMN0A.TT-DATE (D)
+1 MEPHMN0A.TT-NUMBER (A030)
+1 MEPHMN0A.ZK-CODE (A009)
+END-DEFINE
+FORMAT PS=012 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 012079        N0NNUCN            X         01 SYSDBA  NR             *
+************************************************************************
+WRITE ( AD=D                                                          /*
+                                                                       )
+ 046T 'Подпись старшего'
+/
+ 007T 'ПРИХОДНЫЙ ОРДЕР N'
+ 025T MEPHMN0A.PO-NUMBER  (AD=DLOFHT ) /*.01D006 A006 .
+ 032T 'от'
+ 035T MEPHMN0A.PO-DATE  (AD=DLOFHT EM=DD.MM.YY ) /*.01D008 D    .
+ 052T 'кладовщика  _______________'
+/
+ 007T 'Организаци  ФГУП "КЗТА" г.Калуга'
+/
+/
+ 007T 'Приход из переработки'
+ 030T 'Заказ:'
+ 037T MEPHMN0A.ZK-CODE  (AD=DLOFHT ) /*.01D009 A009 .
+/
+/
+ 002T 'Отправитель'
+ 014T MEPHMN0A.IN-MO-CODE  (AD=DLOFHT ) /*.01D005 N05.0.
+ 020T MEPHMN0A.IN-MO-NAME  (AD=DLOFHT AL=022  ) /*.01D022 A060 .
+ 043T 'Подразд'
+ 051T MEPHMN0A.IN-DP-CODE  (AD=DLOFHT ) /*.01D005 N05.0.
+ 057T MEPHMN0A.IN-DP-NAME  (AD=DLOFHT AL=022  ) /*.01D022 A060 .
+/
+/
+ 002T 'Получатель:'
+ 014T MEPHMN0A.MO-CODE  (AD=DLOFHT ) /*.01D005 N05.0.
+ 020T MEPHMN0A.MO-NAME  (AD=DLOFHT AL=022  ) /*.01D022 A060 .
+ 043T 'Подразд'
+ 051T MEPHMN0A.DP-CODE  (AD=DLOFHT ) /*.01D005 N05.0.
+ 057T MEPHMN0A.DP-NAME  (AD=DLOFHT AL=022  ) /*.01D022 A060 .
+/
+/
+ 002T 'Сопроводит. док:'
+ 019T MEPHMN0A.TT-NUMBER  (AD=DLOFHT ) /*.01D030 A030 .
+ 050T 'от'
+ 053T MEPHMN0A.TT-DATE  (AD=DLOFHT EM=DD.MM.YY ) /*.01D008 D    .
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

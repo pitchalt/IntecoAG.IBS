@@ -1,0 +1,48 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEPOPM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070627
+**C               *:Time 2143000
+**C               *<Natural Source Header
+**DS          0000      1MEPOPM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000I   4 2STACK-POS
+**DK          0000P  15 2PO-ID
+**DK          0000P  15 2PM-ID
+**DK          0000P  15 2MT-ID
+**DK          0000A  22 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000P  15 2GM-ID
+**DK          0000P13.2 2DR-CENA
+**DK          0000P13.2 2DR-CENA-SUMMA
+**DK          0000P13.2 2DR-NDS
+**DK          0000P13.2 2DR-NDS-SUMMA
+**DK          0000P  15 2ND-ID
+**DK          0000N   5 2ND-CODE
+**DK          0000A   5 2ND-STAVKA
+**DK          0000P 2.1 2ND-VALUE
+**DK          0000P13.2 2DR-ALL-SUMMA
+**DK          0000P 8.7 2DR-COL
+**DK          0000P 8.7 2COL
+**DK          0000P 8.7 2COL-LIMIT
+**DK          0000P  15 2EI-ID
+**DK          0000N   5 2EI-CODE
+**DK          0000A   5 2EI-SHORT-NAME
+**DK          0000P 8.7 2BASE-COL
+**DK          0000N   1 2BASE-COL-TYPE
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000N   5 2BASE-EI-CODE
+**DK          0000A   5 2BASE-EI-SHORT-NAME
+**DK          0000P  15 2PR-ID
+**DK          0000N   9 2PR-CODE
+**DK          0000D     2PR-USE-PERIOD
+**DK          0000D     2PR-MAKE-DATA
+**DK          0000P  15 2DC-PM-ID
+**DK          0000P13.2 2DC-CENA-SUMMA
+**DK          0000P 8.7 2DC-BASE-COL
+**DK          0000P 8.7 2DC-PRIH-COL
+**DK          0000P 8.7 2OST-BASE-COL
+**DK          0000P 8.7 2OST-PRIH-COL
+**DK          0000P13.2 2OST-BALC-SUMMA

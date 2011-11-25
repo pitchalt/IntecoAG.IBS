@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XBTBMN0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060529
+**C               *:Time 1452000
+**C               *<Natural Source Header
+**DS          0000      1XBTBMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P  15 2TB-ID
+**DK          0000N   5 2TB-CODE
+**DK          0000A  28 2TB-FAMILY
+**DK          0000A  28 2TB-NAME
+**DK          0000A  28 2TB-OTCHEST
+**DK          0000P  15 2DP-ID

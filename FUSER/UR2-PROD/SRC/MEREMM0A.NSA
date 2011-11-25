@@ -1,0 +1,36 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEREMM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070124
+**C               *:Time 1607000
+**C               *<Natural Source Header
+**DS          0000      1MEREMM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2REH-ID
+**DK          0000P  15 2REM-ID
+**DK          0000P  15 2MT-ID
+**DK          0000A  22 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000P  15 2GM-ID
+**DK          0000N   5 2GM-CODE
+**DK          0000A  70 2GM-NAME
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000N   5 2BASE-EI-CODE
+**DK          0000A   5 2BASE-EI-SHORT-NAME
+**DK          0000P  15 2ND-ID
+**DK          0000P13.2 2NDS
+**DK          0000P13.2 2NDS-SUMMA
+**DK          0000P13.2 2CENA
+**DK          0000P13.2 2CENA-SUMMA
+**DK          0000P13.2 2ALL-SUMMA
+**DK          0000L     2IS-DR-CONFIRMED
+**DK          0000P  15 2IN-BS-ID
+**DK          0000P  15 2OUT-BS-ID
+**DK          0000P  15 2NDS-BS-ID
+**DK          0000P 8.7 2CONF-COL
+**DK          0000P13.2 2CONF-CENA-SUMMA
+**DK          0000P13.2 2CONF-NDS-SUMMA
+**DK          0000P13.2 2CONF-ALL-SUMMA

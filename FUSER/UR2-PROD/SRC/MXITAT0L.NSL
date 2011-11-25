@@ -1,0 +1,81 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MXITAT0L
+**C               *:UID ARMK523
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070620
+**C               *:Time 0820000
+**C               *<Natural Source Header
+**DS          0000      1MXITAT0L
+**DKC  S      0002P 7.0C2DT-ATTR-ID
+**HS0001
+**I                      10101
+**DKC  S      0002P 7.0C2MO-ATTR-ID
+**HS0001
+**I                      10003
+**DKC  S      0002P 7.0C2DP-ATTR-ID
+**HS0001
+**I                      10004
+**DKC  S      0002P 7.0C2VO-ATTR-ID
+**HS0001
+**I                      10002
+**DKC  S      0002P 7.0C2PR-ATTR-ID
+**HS0001
+**I                      10060
+**DKC  S      0002P 7.0C2MT-ATTR-ID
+**HS0001
+**I                      10050
+**DKC  S      0002P 7.0C2GM-ATTR-ID
+**HS0001
+**I                      10061
+**DKC  S      0002P 7.0C2LK-ATTR-ID
+**HS0001
+**I                      10065
+**DKC  S      0002P 7.0C2ZK-ATTR-ID
+**HS0001
+**I                      10066
+**DKC  S      0002P 7.0C2DO-ATTR-ID                      /*Номер документа
+**HS0001
+**I                      10000
+**DKC  S      0002P 7.0C2DD-ATTR-ID                      /*дАТА ДОКУМЕНТА
+**HS0001
+**I                      10001
+**DKC  S      0002P 7.0C2BS-ATTR-ID
+**HS0001
+**I                      10009
+**DKC  S      0002P 7.0C2IT-ATTR-ID                      /*Регистры
+**HS0001
+**I                      50000
+**DKC  S      0002P 7.0C2DF-ATTR-ID                      /*Признак брака
+**HS0001
+**I                      10067
+**DKC  S      0002P   7C2MT-BASE-ATTR-ID                 /*Основной отпускаемый материал
+**HS0001
+**I                      10068
+**DKC  S      0002P 7.0C2DOC-PO-ATTR-ID
+**HS0001
+**I                      10072
+**DKC  S      0002P 7.0C2DOC-TT-ATTR-ID
+**HS0001
+**I                      10071
+**DKC  S      0002P 7.0C2PRIH-COL-ATTR-ID
+**HS0001
+**I                      10102
+**DKC  S      0002P 7.0C2BASE-COL-ATTR-ID
+**HS0001
+**I                      10103
+**DKC  S      0002P 7.0C2PLAN-COL-ATTR-ID
+**HS0001
+**I                      10104
+**DKC  S      0002P 7.0C2BALC-SUM-ATTR-ID
+**HS0001
+**I                      10105
+**DKC  S      0002P   7C2DT-REAL-ATTR-ID
+**HS0001
+**I                      903
+**DKC  S      0002P   7C2DT-REFL-ATTR-ID
+**HS0001
+**I                      902
+**DKC  S      0002P   7C2DT-MAKE-ATTR-ID
+**HS0001
+**I                      901

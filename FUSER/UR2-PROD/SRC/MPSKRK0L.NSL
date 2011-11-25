@@ -1,0 +1,46 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPSKRK0L
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20080409
+**C               *:Time 1837000
+**C               *<Natural Source Header
+**DS          0000      1MPSKRK0L
+**DK          0000N   8 2DATA-START-N
+**DRR         0000     R2DATA-START-N                    /* BEGIN REDEFINE: DATA-START-
+**DFR         0000N   4 3DATA-START-YYYY
+**DFR         0000N   4 3DATA-START-MMDD
+**DRR         0000     R2DATA-START-N                    /* BEGIN REDEFINE: DATA-START-
+**DFR         0000A   8 3DATA-START-A
+**DK          0000N   8 2DATA-STOP-N
+**DRR         0000     R2DATA-STOP-N                     /* BEGIN REDEFINE: DATA-STOP-N
+**DFR         0000A   8 3DATA-STOP-A
+**DK          0000P  15 2MO-ID
+**DK          0000A  10 2MO-SEARCH
+**DK          0000N   5 2MO-CODE
+**DK          0000A  60 2MO-NAME
+**DK          0000C     2MO-OBJECT-C
+**DK          0000C     2ZK-C
+**DK          0000P  15 2ZK-ID
+**DK          0000A   9 2ZK-CODE
+**DK          0000A  10 2ZK-SEARCH
+**DK          0000C     2BASE-MT-C
+**DK          0000P  15 2BASE-MT-ID
+**DK          0000A  22 2BASE-MT-SEARCH
+**DK          0000A  22 2BASE-MT-CODE
+**DK          0000A  80 2BASE-MT-NAME
+**DK          0000P  15 2MT-ID
+**DK          0000A  22 2MT-SEARCH
+**DK          0000A  22 2MT-CODE
+**DK          0000A  80 2MT-NAME
+**DK          0000C     2MT-OBJECT-C
+**DK          0000P15.0 2PR-ID
+**DK          0000P   9 2PR-CODE
+**DK          0000P   9 2PR-CODE-ORG
+**DK          0000C     2PR-OBJECT-C
+**DK          0000P  15 2DF-ID
+**DK          0000A   5 2DF-SEARCH
+**DK          0000N   5 2DF-CODE
+**DK          0000A  80 2DF-NAME
+**DK          0000C     2DF-OBJECT-C

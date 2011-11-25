@@ -1,0 +1,52 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MMXXMN0S
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20050113
+* :Time 2228000
+* <Natural Source Header /*<<RO>
+/***********************************************************************
+/*
+/* СИСТЕМА: ARM-K
+/* ПРОГРАММА: ШАБЛОН БИЗНЕС МЕТОД
+/*
+/* РАЗРАБОТЧИК: УЗОРИН П.А.
+/* ДАТА ВЫПУСКА:
+/*
+/* НАЗВАНИЕ:
+/* КОМАНДЫ:
+/*  - NEW
+/*  - EDIT
+/*  - VIEW
+/*
+/* ИСПРАВЛЕНИЯ:
+/*
+/***********************************************************************
+/* СТАНДАРТНЫЕ ОБЛАСТИ ДАННЫХ
+INCLUDE MMXXMN0C
+DEFINE SUBROUTINE MMPZMN0S
+/* СТАНДАРТНАЯ ИНИЦИАЛИЗАЦИЯ
+INCLUDE MMXXMN1C
+/*
+DECIDE ON FIRST VALUE MX-COMMAND
+  VALUE 'NEW'
+     MX-FUNCTION-NAME := 'Нова  позици  затрат'
+  VALUE 'EDIT'
+     MX-FUNCTION-NAME := 'Редактирование позиции затрат'
+  VALUE 'VIEW'
+     MX-FUNCTION-NAME := 'Просмотр позиции затрат'
+  NONE VALUE
+     IGNORE
+END-DECIDE
+/*
+REPEAT
+/* СТАНДАРТНЫЙ ИНТЕРФЕЙС ПОЛЬЗОВАТЕЛЯ
+  INCLUDE MMXXMN2C
+/* СТАНДАРТНЫЕ КОМАНДЫ
+  INCLUDE MMXXMN3C 'MPPZMN0S'
+END-REPEAT
+/* СТАНДАРТНОЕ ЗАВЕРШЕНИЕ
+INCLUDE MMXXMN4C
+END-SUBROUTINE
+END

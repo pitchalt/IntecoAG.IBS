@@ -1,0 +1,47 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UXCSXX0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060604
+**C               *:Time 2359000
+**C               *<Natural Source Header
+**DS          0000      1UXCSXX0A
+**DS I1       0000      2DD-RECORDS                      (1:10)
+**DK          0000I   2 3DD-CACHE-READ
+**DK          0000P   7 3DD-ID
+**DK          0000A  10 3DD-CODE
+**DK          0000A  70 3DD-NAME
+**DK          0000P   1 3DD-LEVEL
+**DK          0000P   7 3DD-UP-ID
+**DK I2       0000P   7 3DD-CONT-LIST                    (1:5)
+**DK          0000L     3DD-TX-IS-REQUIRED
+**DK          0000I   1 3DD-MA-C
+**DS I2       0000      3DD-MA-G                         (1:40)
+**DK          0000P 7.0 4DD-MA-TYPE-ID
+**DK          0000P 7.0 4DD-MA-ATTR-ID
+**DK          0000A   1 4DD-MA-ATTR-TYPE
+**DK          0000L     4DD-MA-IS-INDEX
+**DK          0000L     4DD-MA-IS-REQUIRED
+**DK          0000L     4DD-MA-IS-AGGREGATE
+**DK          0000L     4DD-MA-IS-HERITABLE
+**DS I1       0000      2IT-RECORDS                      (1:10)
+**DK          0000I   2 3IT-CACHE-READ
+**DK          0000P  10 3IT-ISN
+**DK          0000P 7.0 3IT-ID
+**DK          0000P   7 3CL-ID
+**DK          0000A  10 3IT-CODE
+**DK          0000A  70 3IT-NAME
+**DK          0000P   1 3IT-SALDO-TYPE
+**DS I2       0000      3MA-G                            (1:30)
+**DK          0000P   7 4MA-ID
+**DK          0000P   7 4MA-TYPE-ID
+**DK          0000A   1 4MA-TYPE
+**DK          0000P 7.0 4MA-CONV-TYPE-ID
+**DK          0000P 1.0 4MA-COMB-INDEX-NUM
+**DS I1       0000      2OD-RECORDS                      (1:10)
+**DK          0000I   2 3OD-CACHE-READ
+**DK          0000P   7 3OD-ID
+**DK I2       0000P   7 3OD-IT-ID                        (1:10)
+**DK          0000A  10 3OD-CODE
+**DK          0000A  70 3OD-NAME

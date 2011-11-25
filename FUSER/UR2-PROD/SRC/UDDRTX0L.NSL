@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDDRTX0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061109
+**C               *:Time 1453000
+**C               *<Natural Source Header
+**DV          0000     V1UR-DOC-DATA-TX                  UR-DOC-DATA
+**DD          0000P15.0 2DR-ID
+**DD          0000P 7.0 2DR-TYPE-ID
+**DD          0000A   1 2DR-TX-STATUS
+**DD          0000P15.0 2DR-TX-CREATE-ID
+**DD          0000P15.0 2DR-TX-CURRENT-ID

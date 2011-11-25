@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XDTXMN0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060630
+**C               *:Time 1801000
+**C               *<Natural Source Header
+**DV          0000     V1XX-TRANSACTION-TECH             XX-TRANSACTION
+**DD          0000P15.0 2TX-ID
+**DD          0000P 5.0 2TX-CODE
+**DD          0000P 5.0 2TX-COUNTER
+**DV          0000     V1XX-TRANSACTION-VIEW             XX-TRANSACTION
+**DD          0000P15.0 2TX-ID
+**DD          0000P 5.0 2TX-CODE
+**DD          0000P 7.0 2OD-ID
+**DD          0000L     2TX-IS-OPEN
+**DD          0000A   8 2TX-USER
+**DD          0000T     2TX-TIME-OPEN
+**DD          0000T     2TX-TIME-CLOSE
+**DD          0000T     2TX-TIME-LAST-ACTIVE
+**DD          0000A   8 2TX-RECOVER-PROGRAM
+**C           0000*ÑÓÏÅÐÄÅÑÊÐÈÏÒÎÐÛ
+**DF          0000B  13 1TX-OBJECT-SUPER
+**DR          0000     R1TX-OBJECT-SUPER                 /* BEGIN REDEFINE: TX-OBJECT-SUI
+**DFR         0000P   7 2TX-OBJECT-TYPE-ID
+**DFR         0000P  15 2TX-OBJECT-ID
+**DFR         0000L     2TX-IS-OPEN

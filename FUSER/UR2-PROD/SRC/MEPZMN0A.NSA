@@ -1,0 +1,32 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEPZMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061224
+**C               *:Time 1641000
+**C               *<Natural Source Header
+**DS          0000      1MEPZMN0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2PO-ID
+**DK          0000P  15 2PZ-ID
+**DK          0000P  15 2ZR-ID
+**DK          0000N   5 2ZR-CODE
+**DK          0000A  40 2ZR-NAME
+**DK          0000P13.2 2DR-CENA-SUMMA
+**DK          0000P13.2 2DR-NDS-SUMMA
+**DK          0000P  15 2ND-ID
+**DK          0000N   5 2ND-CODE
+**DK          0000A   5 2ND-STAVKA
+**DK          0000P 2.1 2ND-VALUE
+**DK          0000P13.2 2DR-ALL-SUMMA
+**DK          0000L     2IS-DR-CONFIRMED
+**DK          0000P  15 2IN-BS-ID
+**DK          0000N   5 2IN-BS-CODE
+**DK          0000P  15 2OUT-BS-ID
+**DK          0000N   5 2OUT-BS-CODE
+**DK          0000P  15 2NDS-BS-ID
+**DK          0000N   5 2NDS-BS-CODE
+**DK          0000P13.2 2CONF-CENA-SUMMA
+**DK          0000P13.2 2CONF-NDS-SUMMA
+**DK          0000P13.2 2CONF-ALL-SUMMA

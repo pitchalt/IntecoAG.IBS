@@ -1,0 +1,15 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CXPRS0XA
+**C               *:UID Àäìèíèñò
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060911
+**C               *:Time 1024000
+**C               *<Natural Source Header
+**DS          0000      1CXPRS0XA
+**DK          0000A  10 2PR-COMMAND
+**DK          0000P  15 2PR-SEARCH
+**DK          0000B   4 2DS-ELEM-STEK                    /*İËÅÌÅÍÒ ÑÒÅÊÀ
+**DS          0000      2ITEM-G
+**DK          0000P  15 3PR-ID
+**DK          0000P   9 3PR-CODE                         /*ÏÎĞßÄÊÎÂÛÉ ÍÎÌÅĞ ÏÀĞÒÈÈ

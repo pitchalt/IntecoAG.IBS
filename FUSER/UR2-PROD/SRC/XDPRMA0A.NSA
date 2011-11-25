@@ -1,0 +1,27 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XDPRMA0A
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20051007
+**C               *:Time 1456000
+**C               *<Natural Source Header
+**DS          0000      1XDPRMA0A
+**DK          0000A  10 2PR-COMMAND
+**DK          0000P  10 2PR-ISN
+**DK          0000P  13 2PR-ID
+**DK          0000P 9.0 2PR-CODE
+**DK          0000L     2PR-TH-RECORD
+**DK          0000P 9.0 2PR-COUNTER-NUMBER
+**DS I1       0000      2PR-SPISOK                       (1:20)
+**DK          0000P13.0 3PR-SP-MATERIAL
+**DK          0000P13.0 3PR-SP-EI
+**DK          0000N 7.6 3PR-SP-NUMBER
+**DK          0000N13.2 2PR-CENA
+**DK          0000N 7.6 2PR-NUMBER
+**DK          0000P13.0 2PR-ID-EI
+**DK          0000D     2PR-USE-PERIOD
+**DK          0000D     2PR-MAKE-DATA
+**DS I1       0000      2PR-AT                           (1:5)
+**DK          0000P 7.0 3PR-PN-CODE
+**DK          0000P13.0 3PR-PN-VALUE

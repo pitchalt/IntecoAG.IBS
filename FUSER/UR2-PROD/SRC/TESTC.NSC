@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TESTC
+* :UID KZTA01
+* :Mode R
+* :CP
+* :Date 20070121
+* :Time 1648000
+* <Natural Source Header /*<<RO>
+*ERROR-NR := EC-OBJECT-ID-REQUIRED
+RETURN-CODE := RETURN-CODE / 0

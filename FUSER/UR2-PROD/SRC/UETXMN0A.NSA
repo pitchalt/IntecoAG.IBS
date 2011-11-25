@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UETXMN0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060620
+**C               *:Time 1752000
+**C               *<Natural Source Header
+**DS          0000      1UETXMN0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P15.0 2TX-ID
+**DK          0000L     2TX-IS-OPEN
+**DK          0000A   8 2TX-USER
+**DK          0000T     2TX-TIME-OPEN
+**DK          0000T     2TX-TIME-CLOSE
+**DK          0000T     2TX-TIME-LAST-ACTIVE
+**DK          0000A   8 2TX-RECOVER-PROGRAM

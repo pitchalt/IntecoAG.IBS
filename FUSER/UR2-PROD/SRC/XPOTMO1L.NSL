@@ -1,0 +1,21 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPOTMO1L
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000102
+**C               *:Time 0000000
+**C               *<Natural Source Header
+**DS          0000      1XPOTMO1L
+**DS I1       0000      2STRING                          (1:7)
+**DK          0000P  15 3MO-ID
+**DK          0000A   2 3OT-CMD
+**DK          0000C     3OT-CMD-C
+**DK          0000P  15 3MO-CODE
+**DK          0000N   5 3MO-PODR
+**DK          0000A  30 3MO-NAME
+**DS I1       0000      2POKAZAT                         (1:8)
+**DK          0000A  17 3OT-SUMMA-IN
+**DK          0000A  17 3OT-SUMMA-OUT
+**DK          0000A  17 3OT-SUMMA-OP-D
+**DK          0000A  17 3OT-SUMMA-OP-K

@@ -1,0 +1,41 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CXDFS0DL
+**C               *:UID OLEG
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070110
+**C               *:Time 1442000
+**C               *<Natural Source Header
+**DS          0000      1CXDFS0DLC
+**DKC  S      0002I   4C2STACK-REC-LEN
+**HS0001
+**I                      61
+**DKC  S      0002I   4C2CXDFS0DL-REC-LEN
+**HS0001
+**I                      61
+**DKC  S      0002I   4C2STACK-ALLOC-COUNT
+**HS0001
+**I                      200
+**DS          0000      1CXDFS0DL
+**DK   S      0002B   4 2STACK-READ
+**HS0001
+**I                      H'00000000'
+**DK   S      0002B   4 2STACK-WRITE
+**HS0001
+**I                      H'00000001'
+**DK          0000B   4 2STACK-POS
+**DK          0000I   4 2STACK-POS-I
+**DK          0000B   4 2STACK-TMP-B
+**DK          0000I   4 2STACK-TMP-I
+**DK I1       0000B   4 2STACK-SORT-POS                  (1:3)
+**DK I1       0000B   4 2STACK-SORT-LEN                  (1:3)
+**DK          0000B   4 2STACK-FIELD-POS
+**DK          0000B   4 2STACK-FIELD-LEN
+**DK I1       0000B   1 2STACK-REC-B                     (1:CXDFS0DL-REC-LEN)
+**DR          0000     R2STACK-REC-B                     /* BEGIN REDEFINE: STACK-REC-B
+**DSR         0000      3STACK-REC-G
+**DFR         0000B   4 4DF-NPP                          /*ÍÎÌÅÐ ÏÎ ÏÎÐßÄÊÓ
+**DFR         0000B   4 4DF-SORT                         /*ÏÎËÅ ÑÎÐÒÈÐÎÂÊÈ
+**DFR         0000P  15 4DF-ID
+**DFR         0000N   5 4DF-CODE
+**DFR         0000A  40 4DF-NAME

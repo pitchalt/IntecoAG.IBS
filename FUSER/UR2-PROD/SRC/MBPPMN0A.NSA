@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBPPMN0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060529
+**C               *:Time 1234000
+**C               *<Natural Source Header
+**DS          0000      1MBPPMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P  15 2PP-ID
+**DK          0000N   6 2PP-NUMBER
+**DK          0000D     2PP-DATE
+**DK          0000N13.2 2PP-SUMM
+**DK          0000P  15 2VO-ID
+**DK          0000P  15 2OG-ID

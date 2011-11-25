@@ -1,0 +1,51 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MASAMT3N
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20070612
+* :Time 1531000
+* <Natural Source Header /*<<RO>
+/***********************************************************************
+/*
+/* яхярелю: ARM-K
+/* опнцпюллю: ахгмея ноепюжхъ
+/*
+/* пюгпюанрвхй: сгнпхм о.ю.
+/* дюрю бшосяйю:
+/*
+/* мюгбюмхе: опхундшбюмхе он опхундмнлс нпдепс
+/* йнлюмдш:
+/*  - NEW
+/*  - EDIT
+/*
+/* хяопюбкемхъ:
+/*
+/***********************************************************************
+DEFINE DATA
+PARAMETER USING XXERX00A
+PARAMETER USING XXCTXX0A
+PARAMETER USING XABOXX0A
+/*
+LOCAL USING XXXXEC0L
+LOCAL USING MXITAT0L
+LOCAL USING MMSASH0A
+END-DEFINE
+RESET XXERX00A
+/*
+SET KEY OFF
+SET KEY COMMAND OFF
+SET KEY NAMED OFF
+SET KEY ALL
+SET CONTROL 'M=RE'
+MMSASH0A.OP-ID := XXCTXX0A.OD-ID
+/*MPSKSH0A.CL-ID := 2000
+* IT-ID
+MMSASH0A.IT-ID(1) := 151
+MMSASH0A.IT-ID(2) := 152
+MMSASH0A.SA-DT-ATTR-ID := 902
+MMSASH0A.SA-COMMAND := XABOXX0A.BO-COMMAND
+PERFORM MMSASH0S XXERX00A XXCTXX0A MMSASH0A
+/*
+INCLUDE XXERSY1C
+END

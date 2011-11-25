@@ -1,0 +1,17 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPCSSL0C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060508
+* :Time 1820000
+* <Natural Source Header /*<<RO>
+/* œŒ√¿—»“‹ À»ÿÕ»≈ —“–Œ »  ŒÃ¿Õƒ
+  FOR CP-LINE-INDEX = 1 &2&
+     IF &1&(CP-LINE-INDEX) NE 0
+        RESET DL-CMD-C(CP-LINE-INDEX)
+     ELSE
+        MOVE (AD=P) TO DL-CMD-C(CP-LINE-INDEX)
+     END-IF
+  END-FOR
+

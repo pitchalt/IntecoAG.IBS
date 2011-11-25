@@ -1,0 +1,15 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TEST2P
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20060704
+* :Time 1723000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+LOCAL USING MBSAEX0L
+END-DEFINE
+READ WORK FILE 7 MBSAEX0L
+  IGNORE
+END-WORK
+END

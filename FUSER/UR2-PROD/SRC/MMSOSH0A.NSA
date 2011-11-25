@@ -1,0 +1,15 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MMSOSH0A
+**C               *:UID OLEG
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061011
+**C               *:Time 2344000
+**C               *<Natural Source Header
+**DS          0000      1MMSOSH0A
+**DK          0000A  10 2SO-COMMAND
+**DK          0000A  10 2BO-COMMAND-PROCESS
+**DK          0000P   7 2CL-ID
+**DK          0000P   7 2SA-DT-ATTR-ID
+**DK I1       0000P  15 2IT-ID                           (1:10)
+**DK          0000P   7 2OP-ID                           /*id описани

@@ -1,0 +1,26 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPVPCM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070606
+**C               *:Time 1119000
+**C               *<Natural Source Header
+**DS          0         1MPVPCM0A
+**DK          0   N   8 2VP-DT-N                         /*дата проведени
+**DR          0        R2VP-DT-N                         /* BEGIN REDEFINE: VP-DT-N
+**DFR         0   A   8 3VP-DT-A
+**DK          0   P  15 2MO-ID
+**DK          0   A  10 2MO-SEARCH
+**DK          0   N   5 2MO-CODE
+**DK          0   A  60 2MO-NAME
+**DK          0   C     2MO-OBJECT-C
+**DK          0   P  15 2MT-ID
+**DK          0   A  22 2MT-SEARCH
+**DK          0   A  22 2MT-CODE
+**DK          0   A  80 2MT-NAME
+**DK          0   C     2MT-OBJECT-C
+**DK          0   P  15 2ZK-ID
+**DK          0   A  22 2ZK-SEARCH
+**DK          0   A  22 2ZK-CODE
+**DK          0   C     2ZK-OBJECT-C

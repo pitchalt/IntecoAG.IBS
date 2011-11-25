@@ -1,0 +1,43 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPPOHP4M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20061114
+* :Time 1324000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* WRITE USING MAP 'XXXXXXXX'
+*     MEPHMN0A.PO-DATE MEPHMN0A.PO-NUMBER
+DEFINE DATA PARAMETER
+1 MEPHMN0A.PO-DATE (D)
+1 MEPHMN0A.PO-NUMBER (A006)
+END-DEFINE
+FORMAT PS=004 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 004079        N0NNUCN            X         01 SYSDBA  NR             *
+************************************************************************
+WRITE ( AD=D                                                          /*
+                                                                       )
+ 002T 'Приходный ордер'
+ 018T MEPHMN0A.PO-NUMBER  (AD=DLOFHT ) /*.01D006 A006 .
+ 025T 'от'
+ 028T MEPHMN0A.PO-DATE  (AD=DLOFHT EM=MM.DD.YY ) /*.01D008 D    .
+ 069T 'Стр.'
+ 074T *PAGE-NUMBER  (AD=DLOFHT ) /*.01S005 P05.0.
+/
+ 001T '__________________________________________________________'-
+      '_____________________'
+/
+ 002T 'Расход'
+ 015T 'Ставка НДС'
+ 038T 'Сумма'
+ 058T 'НДС'
+ 068T 'Всего с НДС'
+/
+ 001T '__________________________________________________________'-
+      '_____________________'
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

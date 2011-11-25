@@ -1,0 +1,63 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName T-SORT
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20061023
+* :Time 1745000
+* <Natural Source Header /*<<RO>
+DEFINE DATA LOCAL
+1 #POL1  (I2/1:4)
+1 #I (I2)
+1 #T (I2)
+1 #B  (B4)
+END-DEFINE
+PERFORM SORT-POLE
+
+DEFINE SUBROUTINE SORT-POLE
+FOR #I = 1 TO 10
+  MOVE 1 TO #POL1(1) #POL1(2) #POL1(3) #POL1(4)
+  IF #I = 2 THEN
+     MOVE 2 TO #POL1(3)
+  END-IF
+  IF #I = 4 THEN
+     MOVE 1 TO #POL1(3)
+     MOVE 2 TO #POL1(4)
+  END-IF
+  IF #I = 3 THEN
+     MOVE 1 TO #POL1(3)
+     MOVE 3 TO #POL1(2)
+     MOVE 1 TO #POL1(4)
+  END-IF
+
+END-ALL
+
+SORT #POL1(1) #POL1(2) #POL1(3) #POL1(4) USING #I
+/*
+ADD 1 TO #T
+
+
+AT BREAK #POL1(4)
+  MOVE 1 TO #I
+  WRITE '4' '*' #POL1(1) #POL1(2) #POL1(3) #POL1(4)
+  WRITE '=' #T
+  RESET #T
+END-BREAK
+AT BREAK #POL1(3)
+  MOVE 1 TO #I
+  WRITE '3' '*' #POL1(1) #POL1(2) #POL1(3) #POL1(4)
+END-BREAK
+AT BREAK #POL1(2)
+  MOVE 1 TO #I
+  WRITE '2' '*' #POL1(1) #POL1(2) #POL1(3) #POL1(4)
+END-BREAK
+AT BREAK #POL1(1)
+  MOVE 1 TO #I
+  WRITE '1' '*' #POL1(1) #POL1(2) #POL1(3) #POL1(4)
+END-BREAK
+WRITE '****************************'
+END-SORT
+
+END-SUBROUTINE
+END
+

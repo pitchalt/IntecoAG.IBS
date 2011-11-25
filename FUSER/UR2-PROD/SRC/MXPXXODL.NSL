@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MXPXXODL
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070201
+**C               *:Time 1359000
+**C               *<Natural Source Header
+**DS          0000      1MXPXXODL
+**DK          0000N   7 2PX-OD-TYPE
+**DR          0000     R2PX-OD-TYPE                      /* BEGIN REDEFINE: PX-OD-TYPE
+**DFR         0000N   2 3SKIP
+**DFR         0000N   1 3VO-REQUIRED
+**DFR         0000N   1 3IN-MO-REQUIRED
+**DFR         0000N   1 3PRICE-NOT-REQUIRED
+**DFR         0000N   1 3ZK-REQUIRED
+**DFR         0000N   1 3UNCOMPRESS

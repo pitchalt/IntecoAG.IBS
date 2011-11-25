@@ -1,0 +1,24 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XDRBSP2C
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20070717
+* :Time 0111000
+* <Natural Source Header /*<<RO>
+/* «¿œ¿ Œ¬¿“‹ ÷≈ÀŒ≈ ID ¬ «¿œ»—‹ ƒŒ ”Ã≈Õ“¿
+  RESET DR-AX-FOUND
+  FOR &2& = 1 TO 30 /* DR-AP-C
+     IF &1&.DR-AP-ATTR-ID(&2&) EQ 0 THEN
+        MOVE &2& TO DR-AX-FOUND
+     END-IF
+     IF &1&.DR-AP-ATTR-ID(&2&) EQ &3& THEN
+        MOVE &2& TO DR-AX-FOUND
+        ESCAPE BOTTOM
+     END-IF
+  END-FOR
+  MOVE &3& TO &1&.DR-AP-ATTR-ID(DR-AX-FOUND)
+  MOVE &4&.&5& TO SX-NUMBER2-VALUE
+  MOVE SX-NUMBER-NUMBER TO &1&.DR-AP-VALUE(DR-AX-FOUND)
+  MOVE 7 TO &1&.DR-AP-VALUE-E(DR-AX-FOUND)
+

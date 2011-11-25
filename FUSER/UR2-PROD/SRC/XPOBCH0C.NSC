@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPOBCH0C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060606
+* :Time 1725000
+* <Natural Source Header /*<<RO>
+/* опнбепйю онкеи рхою дюрю
+IF &1& EQ 0 THEN
+  CP-CURS-FIELD := POS(&2&)
+  INCLUDE XXERUS1C '2305'
+END-IF
+

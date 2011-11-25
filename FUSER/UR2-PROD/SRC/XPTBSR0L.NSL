@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPTBSR0L
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20050926
+**C               *:Time 2229000
+**C               *<Natural Source Header
+**DS          0000      1XPTBSR0L
+**DS I1       0000      2TB-LIST                         (1:7)
+**DK          0000A   2 3CP-CMD
+**DK          0000N   5 3TB-CODE
+**DK          0000N   5 3TB-POD
+**DK          0000A  20 3TB-FAM
+**DK          0000A  10 3TB-NAME
+**DK          0000A  15 3TB-OTCHES

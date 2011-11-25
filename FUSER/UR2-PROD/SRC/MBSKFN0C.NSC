@@ -1,0 +1,21 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBSKFN0C
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20070522
+* :Time 1223000
+* <Natural Source Header /*<<RO>
+  RESET #I
+  EXAMINE MPSKFN0A.ATTR-NAME(*) FOR &1& GIVING INDEX #I
+  IF #I NE 0 AND MPSKFN0A.ATTR-CODE(#I) NE 0 AND MPSKFN0A.ATTR-VALUE(#I) NE 0
+     IF #I = 1 THEN
+        ADD 1 TO #TASK
+     ELSE
+        ADD 1 TO #TASK
+        MOVE BY NAME ATTR-IN(#TASK) TO #STR-TEMP
+        MOVE BY NAME ATTR-IN(#I) TO ATTR-IN(#TASK)
+        MOVE BY NAME #STR-TEMP TO ATTR-IN(#I)
+     END-IF
+  END-IF
+

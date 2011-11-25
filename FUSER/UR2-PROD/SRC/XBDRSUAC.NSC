@@ -1,0 +1,16 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XBDRSUAC
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060601
+* :Time 2047000
+* <Natural Source Header /*<<RO>
+/* –¿—œ¿ Œ¬¿“‹ —“–Œ ” ¬ «¿œ»—‹ ƒŒ ”Ã≈Õ“¿
+  RESET &2&
+  FOR DR-AX-NUMBER = 1 TO UBDRMN0A.DR-AS-C
+     IF UBDRMN0A.DR-AS-ATTR-ID(DR-AX-NUMBER) EQ &1& THEN
+        MOVE UBDRMN0A.DR-AS-VALUE(DR-AX-NUMBER) TO &2&
+     END-IF
+  END-FOR
+

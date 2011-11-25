@@ -1,0 +1,23 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPXXFN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061110
+**C               *:Time 1218000
+**C               *<Natural Source Header
+**DS          0000      1MPXXFN0A
+**DK          0000B   4 2STACK-NUMBER
+**DK          0000I   4 2STACK-COUNT
+**DK          0000I   4 2STACK-LEN
+**DK          0000I   4 2STACK-ID
+**DK          0000P   7 2CL-ID
+**DK          0000P   7 2MD-IT-ID                        /*код показател
+**DS I1       0000      2ZP-STRUCTURA                    (1:100)
+**DK          0000P   5 3MN-TYPE-NABOR
+**DK          0000P   5 3MN-TYPE-REC
+**DK I2       0000P   7 3MN-CODE                         (1:5) /*АТРИБУТ
+**DK          0000A   2 3MN-ARIFM                        /*арифметический знак
+**DK I2       0000P  15 3MN-VALUE-P                      (1:2)
+**DK          0000A  50 3MN-VALUE-A
+**DK          0000N   1 3MN-LEVEL                        /*уровень на котором ищем

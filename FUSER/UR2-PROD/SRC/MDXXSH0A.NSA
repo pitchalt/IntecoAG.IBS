@@ -1,0 +1,24 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MDXXSH0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060611
+**C               *:Time 2248000
+**C               *<Natural Source Header
+**DS          0000      1MDXXSH0A
+**DK          0000A  10 2SH-COMMAND
+**DK          0000A  10 2SH-RATAIN
+**DK          0000I   4 2SH-NUMBER-RECORD
+**DK          0000A   2 2SH-SEARCH                       /*команда дл  поиска
+**DK          0000A   1 2SH-TYPE-POLE
+**DK I1       0000L     2SH-CRYT                         (1:5) /*По каким уровн м искать
+**DK          0000I   4 2SH-NUMBER-STEK                  /*Номер стека
+**DK          0000B  12 2SUP-DR-PI
+**DR          0000     R2SUP-DR-PI                       /* BEGIN REDEFINE: SUP-DR-PI
+**DFR         0000P   7 3DR-PI-CODE
+**DFR         0000P  15 3DR-PI-VALUE
+**DK          0000A  54 2SUP-DR-AI
+**DR          0000     R2SUP-DR-AI                       /* BEGIN REDEFINE: SUP-DR-AI
+**DFR         0000P   7 3DR-AI-CODE
+**DFR         0000A  50 3DR-AI-VALUE

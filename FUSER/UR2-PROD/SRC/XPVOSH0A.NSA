@@ -1,0 +1,19 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPVOSH0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070220
+**C               *:Time 1918000
+**C               *<Natural Source Header
+**DS          0000      1XPVOSH0A
+**DK          0000A  10 2SH-COMMAND
+**DK          0000A  40 2VO-SEARCH
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP
+**DS          0000      2VO-RESULT
+**DK          0000P  15 3VO-ID
+**DK          0000N   5 3VO-CODE
+**DK          0000N   5 3VO-RE-CODE
+**DK          0000A  80 3VO-NAME
+**DK          0000A  80 3VO-ADDR

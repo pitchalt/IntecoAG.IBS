@@ -1,0 +1,17 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPCSCH0C
+* :UID Админист
+* :Mode S
+* :CP
+* :Date 20050916
+* :Time 2215000
+* <Natural Source Header /*<<RO>
+IF CP-LINE-CURRENT EQ 0 THEN
+  FOR CP-LINE-INDEX = 1 TO &2&
+     IF CP-CURS-FIELD EQ POS(&1&(CP-LINE-INDEX)) THEN
+        CP-LINE-CURRENT := CP-LINE-INDEX
+        ESCAPE BOTTOM
+     END-IF
+  END-FOR
+END-IF
+

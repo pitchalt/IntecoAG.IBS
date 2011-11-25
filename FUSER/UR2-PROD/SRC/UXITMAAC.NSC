@@ -1,0 +1,15 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UXITMAAC
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060514
+* :Time 1734000
+* <Natural Source Header /*<<RO>
+ADD 1 TO UBITMN0A.MA-C
+UBITMN0A.MA-ID(MA-C) := &1&
+UBITMN0A.MA-TYPE-ID(MA-C) := &2&
+UBITMN0A.MA-TYPE(MA-C) := &3&
+UBITMN0A.MA-COMB-INDEX-NUM(MA-C) := &4&
+UBITMN0A.MA-CONV-TYPE-ID(MA-C) := &5&
+

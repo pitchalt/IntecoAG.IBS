@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBLKRM0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061026
+**C               *:Time 1603000
+**C               *<Natural Source Header
+**DS          0000      1MBLKRM0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P   7 2DR-COL-RECORD
+**DK          0000P  15 2LKR-ID
+**DK          0000P  15 2LKH-ID
+**DK          0000P  15 2RL-ID
+**DK          0000P  15 2DT-ID
+**DK          0000P  15 2OUT-MO-ID
+**DK          0000D     2RL-DATE
+**DK          0000P  15 2GM-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2PR-ID
+**DK          0000P13.2 2CENA
+**DK          0000P13.2 2CENA-SUMMA
+**DK          0000P 8.7 2PRIH-COL
+**DK          0000P  15 2PRIH-EI-ID
+**DK          0000P 8.7 2PLAN-COL
+**DK          0000P  15 2PLAN-EI-ID
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P  15 2BASE-EI-ID

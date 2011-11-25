@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TTT1
+* :UID NAT003
+* :Mode R
+* :CP
+* :Date 20110723
+* :Time 0904000
+* <Natural Source Header /*<<RO>
+HISTOGRAM UR-ACC-DATA UR-ID
+  WRITE OP-TIME-LAST-MODIF .

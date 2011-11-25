@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XDRBSU7C
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20000102
+* :Time 0000000
+* <Natural Source Header /*<<RO>
+/* Распаковать число с семью знаками из записи документа
+VALUE &3&
+  MOVE &1&.DR-AP-VALUE(&2&) TO SX-NUMBER-NUMBER
+  MOVE SX-NUMBER7-VALUE TO &4&.&5&
+

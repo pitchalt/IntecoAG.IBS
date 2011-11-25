@@ -1,0 +1,34 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MELKHM0A
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060721
+**C               *:Time 1626000
+**C               *<Natural Source Header
+**DS          0000      1MELKHM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2LK-ID
+**DK          0000A  10 2LK-NUMBER
+**DK          0000D     2LK-DATE
+**DK          0000D     2LK-DT-START
+**DK          0000D     2LK-DT-STOP
+**DK          0000P 8.7 2LK-NORM-COL
+**DK          0000A  11 2LK-UZEL
+**DK          0000A   1 2LK-PRIZNAK
+**DK          0000P 8.7 2LK-COL
+**DK          0000P 8.7 2FACT-COL
+**DK          0000P13.2 2LK-CENA
+**DK          0000A  60 2LK-PRIM
+**DK          0000P  15 2EI-ID
+**DK          0000N   5 2EI-CODE
+**DK          0000A   5 2EI-SHORT-NAME
+**DK          0000P  15 2MT-ID
+**DK          0000A  30 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000P  15 2ZK-ID
+**DK          0000A   9 2ZK-CODE
+**DK          0000P  15 2DP-ID
+**DK          0000N   5 2DP-CODE
+**DK          0000P  15 2MO-ID
+**DK          0000N   5 2MO-CODE

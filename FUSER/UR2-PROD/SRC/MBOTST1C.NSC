@@ -1,0 +1,42 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBOTST1C
+* :UID Админист
+* :Mode S
+* :CP
+* :Date 20060911
+* :Time 1024000
+* <Natural Source Header /*<<RO>
+  DEFINE SUBROUTINE SORT-FIELD
+        /* аналитический СТЕК
+        EXAMINE MBXXSS0A.DS-TYPE-STEK(*) FOR &1& GIVING INDEX #NS
+        MOVE MBXXSS0A.STACK-NUMBER(#NS) TO #STACK-NUMBER-AN
+        MOVE MBOTXX0A.STACK-OUT TO #STEK-EKR /* экранный СТЕК
+        #J := MBOTXX0A.OT-NUMBER-ELEMENT
+        RESET MBXXDO0L.STACK-POS-I #SORT
+        REPEAT
+           /* ЧИТАЕМ экранный СТЕК
+           ADD 1 TO MBXXDO0L.STACK-POS-I
+           MOVE MBXXDO0L.STACK-POS-I TO MBXXDO0L.STACK-TMP-B
+           IF MBOTXX0A.STACK-LEN < MBXXDO0L.STACK-TMP-B  /*
+              ESCAPE BOTTOM
+           END-IF
+           CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC-B(1) MBXXDO0L.STACK-READ
+                      #STEK-EKR
+           &2&.STACK-TMP-B := MBXXDO0L.ANALITIK(#J)
+           /* читаем аналитический стек
+           CALL 'RWSX' &2&.STACK-TMP-B &2&.STACK-REC-B(1) &2&.STACK-READ
+                       #STACK-NUMBER-AN
+           PERFORM SORT-VALUE
+           END-ALL
+           SORT #SORT-VALUE(1) #SORT-VALUE(2) #SORT-VALUE(3) #SORT-VALUE(4)
+                 #SORT-VALUE(5) USING MBXXDO0L.STACK-REC-B(*)
+              ADD 1 TO #SORT
+              MOVE #SORT TO MBXXDO0L.STACK-TMP-B
+              CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC-B(1) MBXXDO0L.STACK-WRITE
+                          #STEK-EKR
+              RESET MBXXDO0L.STACK-REC-G
+           END-SORT
+        RESET MBXXDO0L.STACK-POS-I
+        PERFORM READ-STEK
+  END-SUBROUTINE
+

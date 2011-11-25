@@ -1,0 +1,218 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBSORS0C
+* :UID ¿‰ÏËÌËÒÚ
+* :Mode S
+* :CP
+* :Date 20000102
+* :Time 0000000
+* <Natural Source Header /*<<RO>
+DEFINE SUBROUTINE READ-STEK
+/* ◊“≈Õ»≈ —“≈ ¿
+  RESET &1&.STRING(*) &1&.POKAZAT(*)
+  &1&.OT-CMD-C(*) := (AD=PN)
+  #J := MBOTXX1A.OT-NUMBER-ELEMENT
+/*
+  EXAMINE MBXXSS0A.DS-TYPE-STEK(*) FOR &4& GIVING INDEX #NS
+  MOVE MBXXSS0A.STACK-NUMBER(#NS) TO #STACK-NUMBER-AN
+  MOVE MBOTXX1A.STACK-OUT TO #STEK-EKR
+/*
+  FOR #I 1 TO #KOL-STROK
+     /* ◊“≈Õ»≈ Œ—ÕŒ¬ÕŒ√Œ —“≈ ¿
+     MBXXDO0L.STACK-POS-I := MBXXDO0L.STACK-POS-I + 1
+     MOVE MBOTXX1A.STACK-LEN TO #STACK-LEN
+     IF MBXXDO0L.STACK-POS-I > #STACK-LEN
+        MBXXDO0L.STACK-POS-I := MBXXDO0L.STACK-POS-I - 1
+        MOVE #I TO #READ-STRING
+        #END := TRUE
+        ESCAPE BOTTOM
+     END-IF
+     MOVE MBXXDO0L.STACK-POS-I TO MBXXDO0L.STACK-POS
+     CALL 'RWSX' MBXXDO0L.STACK-POS MBXXDO0L.STACK-REC-B(1) MBXXDO0L.STACK-READ
+                 #STEK-EKR
+     /*********************************************************************
+     FOR #L = 1 TO MBXXOP0L-CONST.OP-ARRAY-ELEM
+        IF MBXXOP0A.OP-ATTR(#L) = ' '
+           ESCAPE BOTTOM
+        END-IF
+        IF MBXXOP0A.OP-ATTR-SHOW(*) = MBXXOP0A.OP-CODE-AT(#L)
+        /*
+        MOVE LEFT MBXXOP0A.OP-ATTR(#L) TO MBXXOP0A.OP-ATTR(#L)
+        DECIDE ON FIRST VALUE MBXXOP0A.OP-ATTR-SHOT(#L)
+           VALUE "PK"
+              #EL-POK := (MBXXOP0A.OP-POR-NUMBER(#L) - MBXXOP0A.OP-KOL-AN) +
+                            MBXXOP0A.OP-KOL-EAN
+              DECIDE ON FIRST VALUE MBXXOP0A.OP-CODE-AT(#L)
+              VALUE 10102  /* œ–»’Œƒ ÍÓÎË˜ÂÒÚ‚Ó
+                 DECIDE ON FIRST VALUE MBXXOP0A.OP-ATTR(#L)
+                 VALUE "PK1"
+                    MOVE MBXXDO0L.POKAZAT(#EL-POK) TO #POKAZAT7
+                    MOVE EDITED #POK-N7 (EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-IN(#I)
+                 VALUE "PK2"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OUT(#I)
+                 VALUE "PK3"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-D(#I)
+                 VALUE "PK4"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-K(#I)
+                 NONE VALUE
+                    IGNORE
+                 END-DECIDE
+              VALUE 10103  /* ¡‡Á‡‚ÓÂ ÍÓÎË˜ÂÒÚ‚Ó
+                 DECIDE ON FIRST VALUE MBXXOP0A.OP-ATTR(#L)
+                 VALUE "PK1"
+                    MOVE MBXXDO0L.POKAZAT(#EL-POK) TO #POKAZAT7
+                    MOVE EDITED #POK-N7 (EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-IN(#I)
+                 VALUE "PK2"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OUT(#I)
+                 VALUE "PK3"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-D(#I)
+                 VALUE "PK4"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-K(#I)
+                 NONE VALUE
+                    IGNORE
+                 END-DECIDE
+              VALUE 10105 /* —ÛÏÏ‡
+                 DECIDE ON FIRST VALUE MBXXOP0A.OP-ATTR(#L)
+                 VALUE "PK1"
+                    MOVE MBXXDO0L.POKAZAT(#EL-POK) TO #POKAZAT2
+                    MOVE EDITED #POK-N2 (EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-IN(#I)
+                 VALUE "PK2"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT2
+                    MOVE EDITED #POK-N2(EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-OUT(#I)
+                 VALUE "PK3"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT2
+                    MOVE EDITED #POK-N2(EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-OP-D(#I)
+                 VALUE "PK4"
+                    MOVE  MBXXDO0L.POKAZAT(#EL-POK)TO #POKAZAT2
+                    MOVE EDITED #POK-N2(EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-OP-K(#I)
+                 NONE VALUE
+                    IGNORE
+                 END-DECIDE
+              NONE VALUE
+                 IGNORE
+              END-DECIDE
+           VALUE "EI"
+           /* ≈ƒ≈Õ»÷¿ »«Ã≈–≈Õ»ﬂ
+              DECIDE ON FIRST VALUE MBXXOP0A.OP-CODE-AT(#L)
+                 VALUE 10103  /* EI ¡‡Á‡‚ÓÂ ÍÓÎË˜ÂÒÚ‚Ó
+                    #EL-POK := (MBXXOP0A.OP-POR-NUMBER(#L) - MBXXOP0A.OP-KOL-AN) +
+                             MBXXOP0A.OP-KOL-EAN
+/*                    MOVE MBEIMN0A.EI-SHORT-NAME TO &1&.OT-EI(#I)
+/*                    MOVE MBEIMN0A.EI-ID TO &1&.EI-ID(#I)
+                 VALUE 10102  /* EI œ–»’Œƒ ÍÓÎË˜ÂÒÚ‚Ó
+                    #EL-POK := (MBXXOP0A.OP-POR-NUMBER(#L) - MBXXOP0A.OP-KOL-AN) +
+                             MBXXOP0A.OP-KOL-EAN
+                 NONE VALUE
+                    IGNORE
+              END-DECIDE
+              MOVE MBXXDO0L.POKAZAT(#EL-POK) TO MBEIMN0A.EI-ID
+              MOVE "READ" TO MBEIMN0A.BL-COMMAND
+              PERFORM MBEIMN0S XXERX00A XXCTXX0A MBEIMN0A
+              MOVE MBEIMN0A.EI-SHORT-NAME TO &1&.OT-EI(#I)
+              MOVE MBEIMN0A.EI-ID TO &1&.EI-ID(#I)
+           NONE VALUE
+              IGNORE
+        END-DECIDE
+        END-IF
+     END-FOR
+     /*********************************************************************
+     /* ÕŒÃ≈– ›À≈Ã≈Õ“¿ ¬ —“≈ ≈
+     MOVE MBXXDO0L.ANALITIK(#J) TO &2&.STACK-FIELD-POS
+     RESET &2&.STACK-REC-B(*)
+     CALL 'RWSX'  &2&.STACK-FIELD-POS &2&.STACK-REC-B(1) MBXXDO0L.STACK-READ
+                  #STACK-NUMBER-AN
+     INCLUDE &3&
+  END-FOR
+/*
+#I := #KOL-STROK + 1
+/*
+  FOR #L = 1 TO MBXXZP0L-CONST.ARRAY-ITOG-PK
+  IF MBXXOP0A.OP-ATTR-SHOW(*) = MBXXZP1A.PK-CODE(#L)
+     DECIDE ON FIRST VALUE MBXXZP1A.PK-CODE(#L)
+        VALUE 10102  /* œ–»’Œƒ ÍÓÎË˜ÂÒÚ‚Ó
+                 DECIDE ON FIRST VALUE MBXXOP0A.OP-ATTR(#L)
+                 VALUE "PK1"
+                    MOVE MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7 (EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-IN(#I)
+                 VALUE "PK2"
+                    MOVE MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OUT(#I)
+                 VALUE "PK3"
+                    MOVE MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-D(#I)
+                 VALUE "PK4"
+                    MOVE MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-K(#I)
+                 NONE VALUE
+                    IGNORE
+                 END-DECIDE
+        VALUE 10103 /* "BASE"
+                 DECIDE ON FIRST VALUE MBXXZP1A.OP-ATTR(#L)
+                 VALUE "PK1"
+                    MOVE MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7 (EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-IN(#I)
+                 VALUE "PK2"
+                    MOVE  MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OUT(#I)
+                 VALUE "PK3"
+                    MOVE  MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-D(#I)
+                 VALUE "PK4"
+                    MOVE  MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT7
+                    MOVE EDITED #POK-N7(EM=-ZZZZZZZ9.9999999)
+                          TO &1&.OT-COL-OP-K(#I)
+                 NONE VALUE
+                    IGNORE
+                 END-DECIDE
+        VALUE 10105 /* "summa"
+                 DECIDE ON FIRST VALUE MBXXZP1A.OP-ATTR(#L)
+                 VALUE "PK1"
+                    MOVE MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT2
+                    MOVE EDITED #POK-N2 (EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-IN(#I)
+                 VALUE "PK2"
+                    MOVE  MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT2
+                    MOVE EDITED #POK-N2(EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-OUT(#I)
+                 VALUE "PK3"
+                    MOVE  MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT2
+                    MOVE EDITED #POK-N2(EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-OP-D(#I)
+                 VALUE "PK4"
+                    MOVE  MBXXZP1A.PK-VALUE-ITOG(#L) TO #POKAZAT2
+                    MOVE EDITED #POK-N2(EM=-ZZZZZZZZZZZZ9.99)
+                          TO &1&.OT-SUMMA-OP-K(#I)
+                 NONE VALUE
+                    IGNORE
+                 END-DECIDE
+        NONE VALUE
+           IGNORE
+     END-DECIDE
+  END-IF
+  END-FOR
+END-SUBROUTINE
+

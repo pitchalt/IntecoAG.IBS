@@ -1,0 +1,13 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPDMSR0L
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20050925
+**C               *:Time 2317000
+**C               *<Natural Source Header
+**DS          0000      1XPDMSR0L
+**DS I1       0000      2DM-LIST                         (1:7)
+**DK          0000A   2 3CP-CMD
+**DK          0000N   5 3DM-CODE
+**DK          0000A  44 3DM-NAME

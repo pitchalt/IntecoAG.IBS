@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPMSXX0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070115
+**C               *:Time 2204000
+**C               *<Natural Source Header
+**DS          0000      1XPMSXX0A
+**DK          0000A 240 2MS-TXT
+**DR          0000     R2MS-TXT                          /* BEGIN REDEFINE: MS-TXT
+**DFRI1       0000A  40 3MS-TXT-A40                      (1:6)
+**DK          0000N   1 2MS-BTN-DEFAULT
+**DS I1       0000      2MS-BTN                          (1:6)
+**DK          0000A  10 3MS-BTN-CMD
+**DK          0000A  10 3MS-BTN-TXT

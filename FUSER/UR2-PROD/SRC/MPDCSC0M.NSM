@@ -1,0 +1,51 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPDCSC0M
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060718
+* :Time 1502000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     MPDCSC0L.DC-DATE-START MPDCSC0L.DC-DATE-STOP MPDCSC0L.DC-NUMBER
+*     MPDCSC0L.MO-C MPDCSC0L.MO-NAME MPDCSC0L.MO-SEARCH
+DEFINE DATA PARAMETER
+1 MPDCSC0L.DC-DATE-START (N08.0)
+1 MPDCSC0L.DC-DATE-STOP (N08.0)
+1 MPDCSC0L.DC-NUMBER (A006)
+1  MPDCSC0L.MO-C (C)
+1 MPDCSC0L.MO-NAME (A070)
+1 MPDCSC0L.MO-SEARCH (A005)
+END-DEFINE
+FORMAT PS=013 LS=076 ZP=OFF SG=OFF KD=ON  IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 015075        N0NNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 005T 'Номер'
+ 013T MPDCSC0L.DC-NUMBER  (AD=DLMT'_' ) /*.99U006 A006 .
+/
+ 005T 'Дата с'
+ 013T MPDCSC0L.DC-DATE-START  (AD=DLMT'_' ) /*.99U008 N08.0.
+ 022T 'по'
+ 025T MPDCSC0L.DC-DATE-STOP  (AD=DLMT'_' ) /*.99U008 N08.0.
+/
+ 005T 'Материально-ответственный'
+/
+ 005T MPDCSC0L.MO-SEARCH  (AD=YLMT'_' CV=MPDCSC0L.MO-C ) /*.99D005 A005 .
+ 011T MPDCSC0L.MO-NAME  (AD=DLOFHT AL=060  ) /*.01D060 A070 .
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

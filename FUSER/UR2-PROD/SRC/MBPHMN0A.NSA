@@ -1,0 +1,39 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBPHMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100405
+**C               *:Time 1037000
+**C               *<Natural Source Header
+**DS          0000      1MBPHMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P 7.0 2OD-ID
+**DK          0000P15.0 2PO-ID
+**DK          0000A  30 2PO-NUMBER
+**DK          0000D     2PO-DATE
+**DK          0000P15.0 2STORNO-PO-ID
+**DK I1       0000P  15 2DR-ASUM-DOC                     (1:20)
+**DK          0000P15.0 2OG-ID
+**DK          0000P15.0 2VO-ID
+**DK          0000P15.0 2REAL-VO-ID
+**DK          0000P13.2 2REAL-VO-SUMMA
+**DK          0000P15.0 2REAL-TT-ID
+**DK          0000P15.0 2MO-ID
+**DK          0000P15.0 2IN-MO-ID
+**DK          0000P15.0 2SF-ID
+**DK          0000P15.0 2TT-ID
+**DK          0000P15.0 2DV-ID
+**DK          0000P15.0 2OTV-TB-ID
+**DK          0000P15.0 2PP-ID
+**DK          0000N13.2 2PP-SUMM
+**DK          0000P15.0 2TP-ID
+**DK          0000L     2IS-DC-CONFIRMED
+**DK          0000L     2IS-DR-CONFIRMED
+**DK          0000P15.0 2OUT-BS-ID
+**DK          0000P15.0 2NDS-BS-ID
+**DK          0000P15.0 2ZK-ID
+**DK          0000P15.0 2ORDER-DP-ID
+**DK          0000P13.2 2CONF-CENA-SUMMA
+**DK          0000P13.2 2CONF-NDS-SUMMA
+**DK          0000P 5.0 2DC-PACKAGE

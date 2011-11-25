@@ -1,0 +1,48 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDSASH0A
+**C               *:UID OLEG
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061016
+**C               *:Time 1152000
+**C               *<Natural Source Header
+**DS          0000      1UDSASH0A
+**DK          0000A  10 2DL-COMMAND
+**DK          0000A   8 2SH-RETAIN
+**DK          0000P  10 2SH-NUMBER
+**DK          0000P   7 2SH-OP-CL-ID
+**DK          0000P   7 2SH-DT-ATTR-ID
+**DK          0000P  11 2SH-DT-START
+**DK          0000P  11 2SH-DT-STOP
+**DK          0000P  15 2SH-IX-ID
+**DK          0000P  15 2SH-DR-ID
+**DK I1       0000P   7 2SH-IT-ID                        (1:10)
+**DK          0000I   2 2SH-AT-C
+**DS I1       0000      2SH-AT-G                         (1:10)
+**DK          0000L     3SH-AT-IS-FOUND
+**DK          0000P   7 3SH-AT-ATTR-ID
+**DK          0000P  15 3SH-AT-VALUE
+**DK          0000D     2DT-VALUE
+**DK          0000P   7 2CL-ID
+**DK          0000A   1 2OP-STATE
+**DK          0000A   1 2TX-STATUS
+**DK          0000P  15 2TX-CURRENT-ID
+**DK I1       0000P  15 2OP-DR-LIST-ID                   (1:5)
+**DK          0000P   1 2SA-MODIF
+**DK          0000P   7 2IT-ID
+**DK          0000P   1 2IT-SALDO-TYPE
+**DK          0000P  15 2IX-ID
+**DK          0000I   2 2AT-C
+**DR          0000     R2AT-C                            /* BEGIN REDEFINE: AT-C
+**DFR         0000I   2 3UDSASH0A-AT-C
+**DS I1       0000      2AT-G                            (1:30)
+**DK          0000P   7 3AT-ATTR-ID
+**DK          0000A   1 3AT-ATTR-TYPE
+**DK          0000P  15 3AT-EDIZ-ID
+**DK          0000P   1 3AT-VALUE-E
+**DK          0000P  15 3AT-VALUE
+**DK          0000P   7 2OP-OD-ID
+**DK          0000P   7 2OP-DC-DD-ID
+**DK          0000P  15 2OP-DC-DR-ID
+**DK          0000P   7 2MD-IT-ID-D                      /*какой регистр Debet
+**DK          0000P   7 2MD-IT-ID-K                      /*какой регистр Kredit

@@ -1,0 +1,25 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UBODOC0A
+**C               *:UID INTECO
+**C               *:Mode R
+**C               *:CP
+**C               *:Date 20060519
+**C               *:Time 1051000
+**C               *<Natural Source Header
+**DS          0000      1UBODOC0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P   7 2OD-ID
+**DK          0000P   7 2DD-ID
+**DK          0000I   2 2OD-RULE-POS-C
+**DK I1       0000P   3 2OD-RULE-POS-LIST                (1:20)
+**DK          0000I   2 2OC-C
+**DR          0000     R2OC-C                            /* BEGIN REDEFINE: OC-C
+**DFR         0000I   2 3UBODOC0A-OC-C
+**DS I1       0000      2OC-G                            (1:512)
+**DK          0000A   3 3OC-CODE
+**DK          0000A   2 3OC-RES-TYPE
+**DK          0000P   7 3OC-RES-ATTR
+**DK          0000A   2 3OC-ARG-TYPE
+**DK          0000P   7 3OC-ARG-ATTR
+**DK          0000P   1 3OC-ARG-CONST-E
+**DK          0000P  15 3OC-ARG-CONST

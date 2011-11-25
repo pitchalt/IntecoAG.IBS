@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XXSOXX0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070106
+**C               *:Time 1752000
+**C               *<Natural Source Header
+**DFC  S      0002P  15C1SO-TYPE-ZR                      /*Тип транспортно-загот затрат
+**HS0001
+**I                      3001
+**DFC  S      0002P  15C1SO-TYPE-TP                      /*Тип оплаты
+**HS0001
+**I                      3002
+**DFC  S      0002P  15C1SO-TYPE-DF                      /*Признак годности
+**HS0001
+**I                      3003

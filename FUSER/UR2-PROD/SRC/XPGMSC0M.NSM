@@ -1,0 +1,41 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPGMSC0M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20060703
+* :Time 1420000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     XPGMSC0L.GM-CODE XPGMSC0L.GM-NAME
+DEFINE DATA PARAMETER
+1 XPGMSC0L.GM-CODE (N05.0)
+1 XPGMSC0L.GM-NAME (A060)
+END-DEFINE
+FORMAT PS=013 LS=076 ZP=OFF SG=OFF KD=ON  IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 015075        N0NNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+/
+ 002T 'Группа'(I)
+ 015T XPGMSC0L.GM-CODE  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+/
+ 002T 'Наименование'(I)
+ 015T XPGMSC0L.GM-NAME  (AD=DLMFHT'_' ) /*.99U060 A060 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

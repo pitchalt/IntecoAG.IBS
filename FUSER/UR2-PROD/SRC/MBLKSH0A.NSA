@@ -1,0 +1,30 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBLKSH0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070821
+**C               *:Time 2323000
+**C               *<Natural Source Header
+**DS          0000      1MBLKSH0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P  15 2LK-ID
+**DK          0000A  10 2LK-NUMBER
+**DK          0000D     2LK-DT-START
+**DK          0000D     2LK-DT-STOP
+**DK          0000D     2LK-DT-WORK
+**DK          0000P 8.7 2LK-COL
+**DK          0000P13.2 2LK-CENA
+**DK          0000A   2 2STATUS
+**C           0000*'>' - переотоварены
+**C           0000*'>=' - отоварены и переотоварены
+**C           0000*'=' - отоварены
+**C           0000*'<=' - отоварены и недотоварены
+**C           0000*'<' - недотоварены
+**C           0000*'0' - вообще не выдавались
+**DK          0000A  60 2LK-PRIM
+**DK          0000P  15 2EI-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2ZK-ID
+**DK          0000P  15 2DP-ID
+**DK          0000P  15 2MO-ID

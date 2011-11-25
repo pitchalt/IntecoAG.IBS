@@ -1,0 +1,20 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MSOXXS0A
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20071210
+**C               *:Time 1610000
+**C               *<Natural Source Header
+**DS          0000      1MSOXSS0A
+**DK          0000B   4 2STACK-NUMBER
+**DK          0000I   4 2STACK-COUNT
+**DK          0000I   4 2STACK-LEN
+**DK          0000I   4 2STACK-ID
+**DK          0000B   4 2STACK-FIRST-FREE
+**DS          0000      1MSOXOS0A
+**DK          0000B   4 2STACK-NUMBER
+**DK          0000I   4 2STACK-COUNT
+**DK          0000I   4 2STACK-LEN
+**DK          0000I   4 2STACK-ID
+**DK          0000B   4 2STACK-FIRST-FREE

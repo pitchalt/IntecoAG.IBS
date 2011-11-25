@@ -1,0 +1,37 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPRLPL0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061120
+**C               *:Time 2052000
+**C               *<Natural Source Header
+**DFC  S      0002I   4C1MPRLPL0L-DL-LINES-MAX
+**HS0001
+**I                      5
+**DS          0000      1MPRLPL0L
+**DK          0000P   7 2DT-COL-RECORD
+**DK          0000P   7 2DR-LINES-C
+**DS I1       0000      2DR-LINES                        (1:20)
+**DK          0000A   2 3DL-CMD
+**DK          0000C     3DL-CMD-C
+**DK          0000P  15 3RLP-ID
+**DR          0000     R3RLP-ID                          /* BEGIN REDEFINE: RLP-ID
+**DFR         0000P  15 4DR-ID
+**DK          0000P  15 3PR-ID
+**DK          0000N   9 3PR-CODE
+**DK          0000P  15 3DT-ID
+**DK          0000P13.2 3CENA
+**DK          0000P13.2 3CENA-SUMMA
+**DK          0000P 8.7 3COL
+**DK          0000P  15 3EI-ID
+**DK          0000N   5 3EI-CODE
+**DK          0000A   5 3EI-SHORT-NAME
+**DK          0000P 8.7 3BASE-COL
+**DK          0000P  15 3BASE-EI-ID
+**DK          0000N   5 3BASE-EI-CODE
+**DK          0000A   5 3BASE-EI-SHORT-NAME
+**DK          0000P 8.7 3PLAN-COL
+**DK          0000P  15 3PLAN-EI-ID
+**DK          0000N   5 3PLAN-EI-CODE
+**DK          0000A   5 3PLAN-EI-SHORT-NAME

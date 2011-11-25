@@ -1,0 +1,15 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MEXXMN0C
+* :UID Админист
+* :Mode S
+* :CP
+* :Date 20050926
+* :Time 1648000
+* <Natural Source Header /*<<RO>
+
+  MOVE BY NAME &5& TO &2&
+  MOVE &4& TO &2&.&3&
+  PERFORM &1&  XXERX00A XXCTXX0A MXDIXX0A &2&
+  INCLUDE XXERQ01C
+  MOVE BY NAME &2& TO &5&
+

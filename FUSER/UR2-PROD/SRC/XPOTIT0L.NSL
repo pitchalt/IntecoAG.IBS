@@ -1,0 +1,19 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPOTIT0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061110
+**C               *:Time 1219000
+**C               *<Natural Source Header
+**DS          0000      1XPOTIT0L
+**DS I1       0000      2STRING                          (1:7)
+**DK          0000P  15 3IT-ID
+**DK          0000A   2 3OT-CMD
+**DK          0000C     3OT-CMD-C
+**DK          0000A  10 3IT-CODE
+**DK          0000A  70 3IT-NAME
+**DK          0000A   1 3IT-SALDO-TYPE-A
+**DS I1       0000      2POKAZAT                         (1:8)
+**DK          0000A  17 3OT-BALC-SUMMA
+**DK          0000A  17 3OT-BASE-COL

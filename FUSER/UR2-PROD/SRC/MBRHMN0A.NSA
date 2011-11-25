@@ -1,0 +1,24 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBRHMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100405
+**C               *:Time 1037000
+**C               *<Natural Source Header
+**DS          0000      1MBRHMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P   7 2OD-ID
+**DK          0000P  15 2RO-ID
+**DK          0000A  30 2RO-NUMBER
+**DK          0000D     2RO-DATE
+**DK          0000P  15 2IN-MO-ID
+**DK          0000P  15 2TRANSIT-MO-ID
+**DK          0000P  15 2OUT-MO-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2ZK-ID
+**DK          0000P  15 2BS-ID
+**DK          0000L     2IS-DC-CONFIRMED
+**DK          0000L     2IS-DR-CONFIRMED
+**DK          0000P   5 2DC-PACKAGE
+**DK I1       0000P  15 2DR-ASUM-DOC                     (1:20)

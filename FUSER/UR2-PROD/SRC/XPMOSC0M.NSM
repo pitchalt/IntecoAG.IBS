@@ -1,0 +1,44 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPMOSC0M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20060703
+* :Time 1420000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     XPMOSC0L.MO-CODE XPMOSC0L.MO-NAME XPMOSC0L.MO-PO
+DEFINE DATA PARAMETER
+1 XPMOSC0L.MO-CODE (N05.0)
+1 XPMOSC0L.MO-NAME (A050)
+1 XPMOSC0L.MO-PO (N05.0)
+END-DEFINE
+FORMAT PS=013 LS=076 ZP=OFF SG=OFF KD=ON  IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 015075        N0NNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+/
+ 003T 'Код'(I)
+ 017T XPMOSC0L.MO-CODE  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+/
+ 003T 'Фамили '(I)
+ 017T XPMOSC0L.MO-NAME  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T 'Подр.'(I)
+ 017T XPMOSC0L.MO-PO  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

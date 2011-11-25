@@ -1,0 +1,40 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPMZMN0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061109
+**C               *:Time 1234000
+**C               *<Natural Source Header
+**DS          0000      1MPMZMN0L
+**DK          0000C     2MZ-C
+**DK          0000P15.0 2MZ-ID
+**DK          0000D     2MZ-DT-LOCATE
+**DK          0000C     2FROM-MT-C
+**DK          0000P15.0 2FROM-MT-ID
+**DK          0000A  30 2FROM-MT-SEARCH
+**DK          0000A  22 2FROM-MT-CODE
+**DK          0000A 150 2FROM-MT-NAME
+**DK          0000C     2TO-MT-C
+**DK          0000P  15 2TO-MT-ID
+**DK          0000A  30 2TO-MT-SEARCH
+**DK          0000A  22 2TO-MT-CODE
+**DK          0000A 150 2TO-MT-NAME
+**DK          0000C     2ZK-C
+**DK          0000P15.0 2ZK-ID
+**DK          0000A  15 2ZK-SEARCH
+**DK          0000A   9 2ZK-CODE
+**DK          0000A  80 2ZK-NAME
+**DK          0000P 8.7 2COL
+**DK          0000C     2DT-START-C
+**DK          0000N   8 2DT-START-N
+**DR          0000     R2DT-START-N                      /* BEGIN REDEFINE: DT-START-N
+**DFR         0000A   8 3DT-START-A
+**DK          0000C     2DT-STOP-C
+**DK          0000N   8 2DT-STOP-N
+**DR          0000     R2DT-STOP-N                       /* BEGIN REDEFINE: DT-STOP-N
+**DFR         0000A   8 3DT-STOP-A
+**DK          0000A  60 2COMMENT
+**DK          0000A  25 2KART-NUMBER
+**DK          0000P15.0 2KZ-ID
+**DK          0000P  15 2MZ-CHANGE-ID
