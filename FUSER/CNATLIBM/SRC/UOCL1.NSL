@@ -1,0 +1,96 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UOCL1
+**C               *:UID T_MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100309
+**C               *:Time 1651330
+**C               *<Natural Source Header
+**DF   F      2   B   4 1LENREC
+**HF1
+**I                      CONST <353>
+**DS          0         1STEKREC
+**DK          0   N   1 2SBO                             /* ноепюжхъ
+**DR          0        R2SBO                             /* BEGIN REDEFINE: SBO
+**DFR         0   B   1 3PUREC
+**DK          0   N   5 2SOS                             /* явер
+**DK          0   N   5 2SKS                             /* йнпп-явер
+**DK          0   N13.2 2SSS                             /* ясллю-пса
+**DK          0   N   5 2PO_OS
+**DK          0   N   5 2OB_OS
+**DK          0   A   9 2ZK_OS
+**DK I1       0   A  31 2DI_OS                           (1:2)
+**DR          0        R2DI_OS                           /* REDEF. BEGIN : DI_OS
+**DSRI1       0         3#DI_OS                          (2)
+**DFR         0   A   3 4#DI_OS_TY
+**DFR         0   A  20 4#DI_OS_ND
+**DFR         0   A   8 4#DI_OS_DT
+**DS I1       0         2ST_OS                           (1:10)
+**DK          0   A   5 3KK_OS
+**DK          0   I   4 3KD_OS
+**DK          0   A   3 2FL_OS
+**DK          0   N   5 2PO_KS
+**DK          0   N   5 2OB_KS
+**DK          0   A   9 2ZK_KS
+**DK I1       0   A  31 2DI_KS                           (1:2)
+**DR          0        R2DI_KS                           /* REDEF. BEGIN : DI_KS
+**DSRI1       0         3#DI_KS                          (2)
+**DFR         0   A   3 4#DI_KS_TY
+**DFR         0   A  20 4#DI_KS_ND
+**DFR         0   A   8 4#DI_KS_DT
+**DS I1       0         2ST_KS                           (1:10)
+**DK          0   A   5 3KK_KS
+**DK          0   I   4 3KD_KS
+**DK          0   A   3 2FL_KS
+**DK          0   A   1 2FLDZ
+**DS          0         1RSTEKREC
+**DK          0   A  11 2R11
+**DK          0   N13.2 2RSSS
+**DK          0   A 200 2R200
+**DK          0   A 105 2R105
+**DF          0   A   8 1KEYBS
+**DR          0        R1KEYBS                           /* BEGIN REDEFINE: KEYBS
+**DFR         0   N   5 2KEYBSOG                         /* нпцюмхгюжхъ
+**DFR         0   N   3 2KEYBSBS                         /* явер
+**DF          0   A  20 1KEYARX                          /* дкъ-юпухбю
+**DR          0        R1KEYARX                          /* BEGIN REDEFINE: KEYARX
+**DFR         0   N   5 2KEYARXOG                        /* нпц
+**DFR         0   A  15 2KEYARXIN                        /* хмб-мнлеп
+**DF          0   A  80 1STEKOP                          /* опнбндйх-он-ноепюжхх
+**DR          0        R1STEKOP                          /* BEGIN REDEFINE: STEKOP
+**DFR         0   N   2 2S4NN                            /* онпъдйнбши-мнлеп
+**DFR         0   N   2 2S4PZ                            /* онгхжхъ-б-лмнф-онке-явернб
+**DFR         0   N   3 2S4OS                            /* ням-явер
+**DFR         0   A   5 2S4SS                            /* ням-я/явер
+**DFR         0   N   1 2S4BO                            /* ноеп
+**DFR         0   N   3 2S4KS                            /* йнпп-явер
+**DFR         0   A   5 2S4KK                            /* йнпп-я/явер
+**DFR         0   A  58 2S4FORMULA
+**DFR         0   A   1 2S4US
+**DF I1       0   N   5 1#BS                             (1:10) /* я/яверю-
+**DF          0   A   9 1#SH                             /* ьхтп-яохяюмхъ-юлнпрхг
+**DF I1       0   N   5 1RBS                             (1:10)
+**DF          0   A  60 1MSG                             /* яннаыемхе
+**DR          0        R1MSG                             /* BEGIN REDEFINE: MSG
+**DFR         0   A  20 2MSGCN
+**DFR         0   N   5 2MSGMO                           /* M/O
+**DF          0   N   5 1#JJ
+**DF          0   A   8 1#ZN                             /* мнлеп-гюохях
+**DR          0        R1#ZN                             /* BEGIN REDEFINE: #ZN
+**DFR         0   N   8 2NOMZAP
+**DF          0   A  27 1#OB                             /* нанпнрш-он-хмб-мнлепс
+**DR          0        R1#OB                             /* BEGIN REDEFINE: #OB
+**DFR         0   P   5 2OBOS
+**DFR         0   N   1 2OBBO
+**DFR         0   P   5 2OBKS
+**DFR         0   P   5 2OBPO
+**DFR         0   A   9 2OBZK
+**DFR         0   P13.2 2OBSU
+**DF          0   A  10 1KEYSS
+**DR          0        R1KEYSS                           /* BEGIN REDEFINE: KEYSS
+**DFR         0   N   5 2KEYSSOG
+**DFR         0   N   5 2KEYSSSS
+**DF          0   A  15 1KEYSSR3
+**DR          0        R1KEYSSR3                         /* BEGIN REDEFINE: KEYSSR3
+**DFR         0   N   5 2KEYSSOGR3
+**DFR         0   N  10 2KEYSSSSR3

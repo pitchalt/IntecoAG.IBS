@@ -1,0 +1,87 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName DOCUMENT
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090513
+**C               *:Time 1307330
+**C               *<Natural Source Header
+**DFC  S      2   N   2C1N_STRING_DOC                    /* KOËÈ×ECTBO CTPOK ÄOKÓMEHTA
+**HS1
+**I                      80
+**DV          0        V1DOCUMENT                        ASUM-DOC-FILE
+**DD          0   N 5.0 2OG-F
+**DD          0   P11.0 2NUM_ZAP
+**DD          0   A   2 2TY-F
+**DD          0   A   2 2TY1-F
+**DD          0   N 6.0 2ND-F
+**DD          0   N 8.0 2DT-F
+**DR          0        R2DT-F                            /* BEGIN REDEFINE: DT-F
+**DFR         0   N   6 3DT-F_YYYYMM
+**DFR         0   N   2 3DT_F_DD
+**DD          0   D     2DT-T
+**DD          0   A   3 2PP-F
+**DD          0   A  10 2NZ-F
+**DD          0   N 5.0 2DS-F                            /* C×ET B ØAÏKE ÄOKÓMEHTA
+**DD          0   A  20 2DOGOVOR
+**DD          0   A   1 2AVANS
+**DD          0   N 5.0 2N-PACH
+**DD          0   N 5.0 2N-PROV
+**DD          0   N 5.0 2OP-F
+**DD          0   A   1 2T-OP
+**DD          0   N 5.0 2PL-F
+**DD          0   A   1 2T-PL
+**DD          0   N 8.0 2DAT-DOG
+**DD          0   N 2.0 2N_STR
+**DD          0   N 5.0 2PLC
+**DD          0   A 155 2DOG
+**DR          0        R2DOG                             /* REDEF. BEGIN : DOG
+**DFRI1       0   A  31 3DOPOL_INF                       (1:5)
+**DR          0        R3DOPOL_INF                       /* BEGIN REDEFINE: DOPOL_INF
+**DSRI1       0         4#DOPOL_INF                      (1:5)
+**DFR         0   A   3 5DOC-TD
+**DFR         0   A  20 5DOC-ND
+**DFR         0   A   8 5DOC-DT
+**DD          0   A   1 2NDS
+**DD          0   A   1 2PRD
+**DD          0   N 5.0 2NAZN-PL
+**DD I1 C     0   A   1M2ACCEPTNDS                       (1:3)
+**DD          0   N 8.0 2DT-FAKT
+**DD          0   A   1 2OLD-SYSTEM
+**DD          0   A  20 2SF-REG
+**DD    *     0        C2ST-F
+**DD    C     0        P2ST-F
+**DD I1       0   A  22 3KM-F                            (1:N_STRING_DOC)
+**DD I1       0   P 5.0 3TYPE                            (1:N_STRING_DOC)
+**DD I1       0   P 5.0 3GROUP                           (1:N_STRING_DOC)
+**DD I1       0   P 5.0 3EI-F                            (1:N_STRING_DOC)
+**DD I1       0   P13.2 3SUMM_OST                        (1:N_STRING_DOC)
+**DD I1       0   P 7.6 3KL-F                            (1:N_STRING_DOC)
+**DD I1       0   A   8 3KP-F                            (1:N_STRING_DOC)
+**DD I1       0   A   1 3MANUAL                          (1:N_STRING_DOC)
+**DD I1       0   A  15 3CRIT_IN                         (1:N_STRING_DOC)
+**DR          0        R3CRIT_IN                         /* BEGIN REDEFINE: CRIT_IN
+**DSRI1       0         4STRUCT_CR_IN                    (1:N_STRING_DOC)
+**DFRI1       0   A   1 5ATTR_CR_IN                      (1:15)
+**DD I1       0   A  15 3CRIT_OUT                        (1:N_STRING_DOC)
+**DR          0        R3CRIT_OUT                        /* BEGIN REDEFINE: CRIT_OUT
+**DSRI1       0         4STRUCT_CR_OUT                   (1:N_STRING_DOC)
+**DFRI1       0   A   1 5ATTR_CR_OUT                     (1:15)
+**DD I1       0   P 8.0 3DT-EKSP                         (1:N_STRING_DOC)
+**DD I1       0   A  15 3ZN-F                            (1:N_STRING_DOC)
+**DD I1       0   N 5.0 3SCH-MAT-IN                      (1:N_STRING_DOC)
+**DD I1       0   N 5.0 3SCH-MAT-OUT                     (1:N_STRING_DOC)
+**DD I1       0   P15.6 3SUMM_STR                        (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA1                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA2                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA3                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA4                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA5                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA6                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA7                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA8                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA9                          (1:N_STRING_DOC)
+**DD I1       0   P13.6 3SUMMA10                         (1:N_STRING_DOC)
+**DD I1       0   A  15 3IN-F                            (1:N_STRING_DOC)
+**DD I1       0   P 7.6 2KOL_SP                          (1:N_STRING_DOC)
+**DD I1       0   N 5.0 2NDS-CD                          (1:N_STRING_DOC)

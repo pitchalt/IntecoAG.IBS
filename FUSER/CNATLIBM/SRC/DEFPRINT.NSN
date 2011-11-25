@@ -1,0 +1,52 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFPRINT
+* :UID NATURAL
+* :Mode S
+* :CP
+* :Date 20020703
+* :Time 1359330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  PARAMETER
+  1 #KE(N2)
+  1 POSIT(N5)
+  LOCAL
+  1 NMPH(A24/1:4)
+  1 NUM(N1/1:4)
+  1 #CV(C/1:4)
+  1 #I(N2)
+  1 OPSW(L)
+END-DEFINE
+SET KEY PF3
+DEFINE WINDOW WINPRINT
+ SIZE 13*33
+ BASE 5/23
+ TITLE ' '
+ CONTROL SCREEN
+ FRAMED ON
+FOR #I 1 4 NUM(#I) := #I  END-FOR
+RESET #CV(*)
+IF *OPSYS = 'Windows/' OR = 'WNT-X86'
+  NMPH(1) := 'Локальный принтер'
+  NMPH(2) := 'Сетевой принтер'
+  NMPH(3) := 'Экран'
+  NMPH(4) := 'Диск'
+  OPSW := TRUE
+  ELSE
+  NMPH(1) := 'АЦПУ'
+  NMPH(2) := 'Мала  печать'
+  NMPH(3) := 'Пульт'
+  NMPH(4) := 'PC'
+  OPSW := FALSE
+* #CV(4) := (AD=PN)
+END-IF
+SET WINDOW 'WINPRINT'
+INPUT USING MAP 'MAPDEFM1'
+SET WINDOW OFF
+IF *PF-KEY = 'PF3'  #KE := -1 STOP  END-IF
+POSIT := *CURS-LINE - 2
+IF NOT ( POSIT = 1 THRU 4 )  POSIT := 1  END-IF
+IF NOT OPSW AND POSIT = 4 AND *DEVICE NE 'PC'
+ REINPUT 'Entire-connection не включен'
+END-IF
+END

@@ -1,0 +1,32 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPHNGM1
+* :UID IBS_3
+* :Mode S
+* :CP
+* :Date 20000701
+* :Time 0836330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+FORMAT PS=008 LS=057 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 008056        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 004T 'В процессе работы были произведены изменени  данных.'
+/
+ 002T 'Если Вы продолжите текущий режим, то результат Вашей'
+/
+ 002T 'работы не сохранитс .'
+/
+/
+ 010T 'Дл  продолжени  нажмите ''ENTER'' (Ввод)'
+/
+ 015T 'Дл  отмены нажмите ''PF3''(F3)'
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

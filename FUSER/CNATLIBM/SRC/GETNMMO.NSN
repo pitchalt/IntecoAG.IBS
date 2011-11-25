@@ -1,0 +1,25 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName GETNMMO
+* :UID T_MSA
+* :Mode S
+* :CP
+* :Date 20100204
+* :Time 1045330
+* <Natural Source Header /*<<RO>
+* ‘¿Ã»À»ﬂ
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)  1 #VO(N5)  1 #NM(A50)
+  LOCAL USING LCLMOL
+  LOCAL
+  1 KEYMO(A10)
+  1 REDEFINE KEYMO
+    2 KEYMOOG(N5)  2 KEYMOMO(N5)
+END-DEFINE
+*
+RESET #NM
+KEYMOOG := #OG  KEYMOMO := #VO
+FIND IBS-KMO-FILE OG-MO = KEYMO
+  #NM := NO-ID
+END-FIND
+END

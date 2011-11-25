@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName LOADKDD
+* :UID NAT22606
+* :Mode R
+* :CP
+* :Date 20060111
+* :Time 1139330
+* <Natural Source Header /*<<RO>
+READ WORK 7 #NA(A53)
+STORE IBS-SYS-FILE KK-F = 'KD' NA-F = #NA
+END OF TRANSACTION .

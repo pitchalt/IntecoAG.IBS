@@ -1,0 +1,64 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCPRMSET
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20041201
+* :Time 1532330
+* <Natural Source Header /*<<RO>
+*********************************
+* œ≈–≈ƒ¿◊¿ œ¿–¿Ã≈“–Œ¬
+*********************************
+ DEFINE SUBROUTINE PRMBACK
+  OG-IDENT-G        := NAV_OG-IDENT-G
+  FUN-NM-G          := NAV_FUN-NM-G
+  REG-NM-G          := NAV_REG-NM-G
+  SYS-NM-G          := NAV_SYS-NM-G
+  MAX-EL(*)         := NAV_MAX-EL(*)
+  FIRST-EL(*)       := NAV_FIRST-EL(*)
+  COU-EL(*)         := NAV_COU-EL(*)
+  OS-FK-G           := NAV_OS-FK-G
+  OP-IDENT-G        := NAV_OP-IDENT-G
+  OG-NM-G           := NAV_OG-NM-G
+  GP-IDENT-G        := NAV_GP-IDENT-G
+  OS-FP-G           := NAV_OS-FP-G
+  KD-DST            := NAV_KD-DST
+  KKF-G             := NAV_KKF-G
+  BN-IDENT-G        := NAV_BN-IDENT-G
+*  PSW-MENU(*)       := NAV_PSW-MENU(*)
+  SY-IDENT-G(*)     := NAV_SY-IDENT-G(*)
+  TXT-NM-DOK        := NAV_TXT-NM-DOK
+  MAX-KD-VO         := NAV_MAX-KD-VO
+  MAX-CO-VO         := NAV_MAX-CO-VO
+  MAX-CO-BN         := NAV_MAX-CO-BN
+  MAX-CO-BS         := NAV_MAX-CO-BS
+  MAX-CO-SS         := NAV_MAX-CO-SS
+  MAX-NS            := NAV_MAX-NS
+ END-SUBROUTINE
+ DEFINE SUBROUTINE PRMFORW
+ NAV_CODE_OF_SYSTEM := CODE_OF_SYSTEM
+ NAV_OG-IDENT-G     := OG-IDENT-G
+ NAV_FUN-NM-G       := FUN-NM-G
+ NAV_REG-NM-G       := REG-NM-G
+ NAV_SYS-NM-G       := SYS-NM-G
+ NAV_MAX-EL(*)      := MAX-EL(*)
+ NAV_FIRST-EL(*)    := FIRST-EL(*)
+ NAV_COU-EL(*)      := COU-EL(*)
+ NAV_OS-FK-G        := OS-FK-G
+ NAV_OP-IDENT-G     := OP-IDENT-G
+ NAV_OG-NM-G        := OG-NM-G
+ NAV_GP-IDENT-G     := GP-IDENT-G
+ NAV_OS-FP-G        := OS-FP-G
+ NAV_KD-DST         := KD-DST
+ NAV_KKF-G          := KKF-G
+ NAV_BN-IDENT-G     := BN-IDENT-G
+ NAV_PSW-MENU(*)    := PSW-MENU(*)
+ NAV_SY-IDENT-G(*)  := SY-IDENT-G(*)
+ NAV_TXT-NM-DOK     := TXT-NM-DOK
+ NAV_MAX-KD-VO      := MAX-KD-VO
+ NAV_MAX-CO-VO      := MAX-CO-VO
+ NAV_MAX-CO-BN      := MAX-CO-BN
+ NAV_MAX-CO-BS      := MAX-CO-BS
+ NAV_MAX-CO-SS      := MAX-CO-SS
+ NAV_MAX-NS         := MAX-NS
+ END-SUBROUTINE

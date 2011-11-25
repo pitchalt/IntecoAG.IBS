@@ -1,0 +1,41 @@
+/*C                                *>Natural Source Header 000000                                     DA:00.00ED:00.00PF:WNV:06030700
+/*C                                *:NatName AURBXX0L
+/*C                                *:UID UPA
+/*C                                *:Mode S
+/*C                                *:CP
+/*C                                *:Date 20100429
+/*C                                *:Time 1416330
+/*C                                *<Natural Source Header
+/*DV                               V 1AU_RBP                          AU_RBP                          DA:00.00ED:00.00PF:WNV:06030700
+/*DD                    N       6.0  2RB-CODE
+/*DD                    A       100  2RB-NAME
+/*DD                    P      13.2  2RB-STOIMOST
+/*DD                    A        15  2RB-NUMBER-PACT
+/*DD                    D            2RB-DATA-PACT
+/*DD                    L            2RB-LENEAR-DISKARDING
+/*DD                    L            2RB-PRO_RATE-DISKARDING
+/*DD                    P       8.7  2RB-QUANTYTI-PRODUCT
+/*DD                    P       7.0  2RB-QUANTYTI-MONTH
+/*DD                    D            2RB-PERIOD-DISCARDING-START
+/*DD                    D            2RB-PERIOD-DISCARDING-END
+/*DD                    A         1  2RB-EI-PERIOD-DISCARDING
+/*DD                    N       5.0  2RB-PROGRAMM
+/*DD                    N       5.0  2RB-DOGOVOR
+/*DD                    N       5.0  2RB-CODIFIKATOR
+/*DD                    A         5  2RB-CODE-PROGRAMM
+/*DD                    A         5  2RB-CODE-DOGOVOR
+/*DD                    A         5  2RB-CODE-CODIFIKATOR
+/*DD                    A         9  2RB-ZAKAZ
+/*DD                    N       5.0  2RB-SCHET
+/*DD                    N       5.0  2RB-BS
+/*DD                    N       5.0  2RB-OB
+/*DD                    N      13.2  2SUMMA-RBP
+/*DD I  C          M    A        31M 2RB-DI                           (1:1)
+/*DRR                              R 2RB-DI                           /* BEGIN REDEFINE: RB-DI
+/*DSRI             S0001             3#RB-DI
+/*DFR                   A         3  4RB-DITY
+/*DFR                   A        20  4RB-DIND
+/*DFR                   N         8  4RB-DIDT
+/*DD                    N         5  2RB-SZ-CODE
+/*HA0001
+/*A1:1

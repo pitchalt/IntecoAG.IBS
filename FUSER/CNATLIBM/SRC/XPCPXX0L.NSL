@@ -1,0 +1,31 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPCPXX0L
+**C               *:UID OLEG
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20071219
+**C               *:Time 1434330
+**C               *<Natural Source Header
+**DS          0         1XPCPXX0L
+**DK          0   A  10 2CP-COMMAND
+**DK          0   A  10 2CP-CMD-EXIT
+**DK          0   L     2CP-IS-COMMAND-PROCESS
+**DK   S      2   A   3 2CP-MSG-TERM
+**HS1
+**I                      M04
+**DR          0        R2CP-MSG-TERM                     /* BEGIN REDEFINE: CP-MSG-TERM
+**DFR         0   A   1 3CP-MSG-COMMAND
+**DFR         0   N   2 3CP-MSG-POS
+**DK          0   A   4 2CP-PF-KEY
+**DK          0   P   3 2CP-CURS-COL
+**DK          0   P   3 2CP-CURS-LINE
+**DK          0   I   4 2CP-CURS-FIELD
+**DK          0   I   4 2CP-CMD-INDEX
+**DK          0   I   4 2CP-BAR-INDEX
+**DK          0   I   4 2CP-LINE-INDEX
+**DK          0   I   4 2CP-LINE-CURRENT
+**DK          0   A  20 2CP-CHECK-SEARCH
+**DK          0   N   8 2CP-CHECK-SEARCH-D
+**DK          0   I   2 2CP-CL-LIST-TOP
+**DK          0   I   2 2CP-CL-LIST-BOT
+**DK          0   I   4 2CP-CL-STACK-POS

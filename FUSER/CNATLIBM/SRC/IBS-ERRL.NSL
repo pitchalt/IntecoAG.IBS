@@ -1,0 +1,22 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName IBS-ERRL
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20041111
+**C               *:Time 1520330
+**C               *<Natural Source Header
+**DV          0        V1IBS-ERR-FILE                    IBS-SYS-FILE
+**DD          0   N 5.0 2OG-ID
+**DD          0   A   2 2KK-F
+**DD          0   N 6.0 2KD-F
+**DD          0   A 250 2NA-F
+**DR          0        R2NA-F                            /* BEGIN REDEFINE: NA-F
+**DFR         0   A   8 3#LOG
+**DFR         0   A   8 3#PGM
+**DFR         0   N   4 3#LINE
+**DFR         0   N   7 3#ERR
+**DFR         0   A  40 3ERRTXT
+**DD          0   A   8 2UP-PG
+**DD          0   A   8 2UP-US
+**DD          0   N 8.0 2DT-ID

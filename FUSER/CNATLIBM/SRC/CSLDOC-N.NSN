@@ -1,0 +1,63 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CSLDOC-N
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20090831
+* :Time 1031330
+* <Natural Source Header /*<<RO>
+*****************************************
+* ÔÎÐÌÈÐÎÂÀÍÈÅ ÏÀÐÀÌÅÒÐÎÂ ÎÒÁÎÐÀ ÄÎÊÓÌÅÍÒÎÂ
+*****************************************
+DEFINE DATA
+PARAMETER USING CSLDOC-P
+PARAMETER
+1 OG-USER(N5)
+LOCAL USING LCLADSDG
+LOCAL
+1 I(P7)
+END-DEFINE
+RESET DOC-TYP DOC-NM(*) DOC-DT(*) DOC-OGI DOC-OGZ
+IF DOC-IND = 0 AND NOT ( DOC-NN(*) NE 0 ) THEN ESCAPE ROUTINE END-IF
+KEYIND-OG := OG-USER KEYIND-ID := DOC-IND
+IF DOC-IND NE 0 THEN
+A. FIND ADS-DOG-FILE OG-IND = KEYIND
+   DOC-NN(*) := IN-F(*) DOC-TYP := TY-ID(A.)
+   DOC-OGZ := VO-Z(A.) DOC-OGI := VO-I(A.)
+   FOR I COL-NI 1 STEP -1
+   IF IN-F(A./I) NE 0 THEN ESCAPE BOTTOM END-IF
+   END-FOR
+   IF I > 2 THEN DOC-NM(3) := ND-F(A.)
+   ELSE
+      DOC-NM(I) := ND-F(A.)
+      MOVE EDITED GM-F(A.) (EM=YYYYMMDD) TO DOC-DTA(I)
+   END-IF
+   END-FIND
+ELSE
+   FOR I COL-NI 1 STEP -1
+   IF DOC-NN(I) NE 0 THEN ESCAPE BOTTOM END-IF
+   END-FOR
+END-IF
+IF I > 1 AND DOC-IND NE 0 OR DOC-IND = 0 THEN
+D. FIND ADS-DOG-FILE NN-ID = DOC-NN(1) AND UR-ID = 0
+        AND OG-ID = OG-USER
+   IF NN-DP(D.) = 0 THEN
+      DOC-NM(1) := ND-F(D.) DOC-TYP := TY-ID(D.)
+      DOC-OGZ := VO-Z(D.) DOC-OGI := VO-I(D.)
+      MOVE EDITED GM-F(D.) (EM=YYYYMMDD) TO DOC-DTA(1)
+      IF DOC-IND = 0 AND I = 1 THEN DOC-NN(*) := IN-F(*) END-IF
+   ELSE
+      IF NN-DP(D.) = DOC-NN(2) THEN
+         DOC-NM(2) := ND-F(D.)
+         MOVE EDITED GM-F(D.) (EM=YYYYMMDD) TO DOC-DTA(2)
+         IF DOC-IND = 0 AND I = 2 THEN DOC-NN(*) := IN-F(*) END-IF
+      END-IF
+   END-IF
+   END-FIND
+   IF I > 2 AND DOC-IND = 0 THEN
+   F. FIND ADS-DOG-FILE ND-E = DOC-NN(I) AND OG-ID = OG-USER
+      DOC-NN(*) := IN-F(*) DOC-NM(3) := ND-F(F.)
+      END-FIND
+   END-IF
+END-IF
+END

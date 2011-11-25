@@ -1,0 +1,45 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLBSL
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20101201
+**C               *:Time 1017300
+**C               *<Natural Source Header
+**DV          0        V1IBS-BS-FILE                     IBS-BS-FILE
+**DD          0   N 5.0 2OG-ID
+**DD          0   N 5.0 2SS-ID
+**DD          0   N 3.0 2BS-ID
+**DD          0   A  80 2NM-BS
+**DD          0   A 250 2NAME-FULL
+**DD          0   A   8 2PG-ID
+**DD          0   N 2.0 2RZ-ID
+**DD          0   A   3 2FL-AN
+**DD          0   A   3 2AP-ID
+**DD          0   A   1 2FL-DI
+**DD          0   A   1 2FL-PO
+**DD          0   A   1 2FL-BL
+**DD          0   A   3 2VA-ID
+**DD          0   A   1 2FL-DZ
+**DD          0   A   1 2FL-ST
+**DD          0   N 2.0 2SL-ID
+**DD          0   A   6 2SL-UR
+**DD          0   A   1 2FL-ZK
+**DD          0   A   1 2FL-KL
+**DD          0   A   1 2FL-DG
+**DD          0   N 6.0 2DT-CLOSE
+**DR          0        R2DT-CLOSE                        /* BEGIN REDEFINE: DT-CLOSE
+**DFR         0   N   4 3DT-CLOSE-GG
+**DFR         0   N   2 3DT-CLOSE-MM
+**DD I1 C     0   A   8M2USER-CLOSE                      (1:15)
+**DD    *     0        C2USER-CLOSE
+**C           0   *---------------------------------------------------------------------
+**DD          0   N 2.0 2CS-NN
+**DD          0   N 2.0 2CS-ST
+**DD    *     0        C2GS-F
+**DD I1 *     0        C2NS-F                            (1:10)
+**DD I1 C     0        P2GS-F                            (1:10)
+**DD          0   A   1 3BL-F
+**DD          0   A   5 3ST-F
+**DD I2 C     0   B   4M3NS-F                            (1:30)
+**C           0   *---------------------------------------------------------------------

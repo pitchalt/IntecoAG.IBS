@@ -1,0 +1,36 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEF-PATH
+* :UID BUH05U
+* :Mode S
+* :CP
+* :Date 20080327
+* :Time 1323330
+* <Natural Source Header /*<<RO>
+*************************************************
+*                                               *
+*  нопедекемхе осрх MS OFFICE                   *
+*                                               *
+*************************************************
+DEFINE DATA
+  PARAMETER USING PATHL
+  LOCAL USING LCLKKL
+END-DEFINE
+DECIDE ON FIRST VALUE ISOFT
+VALUE "WORD", "WINWORD"
+  ICOMMAND := "RUNWORD.EXE"
+VALUE "EXCEL"
+  ICOMMAND := "RUNEXCEL.EXE"
+NONE VALUE
+  IGNORE
+END-DECIDE
+ESCAPE ROUTINE
+*
+COMPRESS 'C:\Program Files\Microsoft Office\Office11\' ISOFT '.exe'
+INTO ICOMMAND LEAVING NO
+FIND IBS-KK-FILE KK-F = 'MS'
+  IF *USER = NA-USER AND ISOFT = NA-SOFT
+    ICOMMAND := NA-PATH
+    ESCAPE BOTTOM
+  END-IF
+END-FIND
+END

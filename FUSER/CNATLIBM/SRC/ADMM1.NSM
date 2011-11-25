@@ -1,0 +1,88 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName ADMM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050411
+* :Time 1306330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #FIELD-N(*) #FIELD-NC(*) #FIELD-NM(*) FUN-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 #FIELD-N (N02.0/00001:00010)
+1 #FIELD-NC (C/00001:00010)
+1 #FIELD-NM (A040/00001:00010)
+1 FUN-NM-G (A060)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+/
+/
+ 019T 'Ô y í ê ö è  '(I)
+ 061T 'N'(I)
+/
+ 019T '-------------------------------------------'
+/
+ 019T #FIELD-NM (001)  (AD=YLMFHT CV=#FIELD-NC(001) ) /*.99U040 A040 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+ 060T #FIELD-N (001)  (AD=YRMFHT CV=#FIELD-NC(001) ) /*.99U002 N02.0.
+   /**A1000100000100001000010000100001100010001001000001000HV
+/
+ 019T #FIELD-NM (002)  (AD=YLMFHT CV=#FIELD-NC(002) ) /*.99U040 A040 .
+ 060T #FIELD-N (002)  (AD=YRMFHT CV=#FIELD-NC(002) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (003)  (AD=YLMFHT CV=#FIELD-NC(003) ) /*.99U040 A040 .
+ 060T #FIELD-N (003)  (AD=YRMFHT CV=#FIELD-NC(003) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (004)  (AD=YLMFHT CV=#FIELD-NC(004) ) /*.99U040 A040 .
+ 060T #FIELD-N (004)  (AD=YRMFHT CV=#FIELD-NC(004) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (005)  (AD=YLMFHT CV=#FIELD-NC(005) ) /*.99U040 A040 .
+ 060T #FIELD-N (005)  (AD=YRMFHT CV=#FIELD-NC(005) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (006)  (AD=YLMFHT CV=#FIELD-NC(006) ) /*.99U040 A040 .
+ 060T #FIELD-N (006)  (AD=YRMFHT CV=#FIELD-NC(006) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (007)  (AD=YLMFHT CV=#FIELD-NC(007) ) /*.99U040 A040 .
+ 060T #FIELD-N (007)  (AD=YRMFHT CV=#FIELD-NC(007) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (008)  (AD=YLMFHT CV=#FIELD-NC(008) ) /*.99U040 A040 .
+ 060T #FIELD-N (008)  (AD=YRMFHT CV=#FIELD-NC(008) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (009)  (AD=YLMFHT CV=#FIELD-NC(009) ) /*.99U040 A040 .
+ 060T #FIELD-N (009)  (AD=YRMFHT CV=#FIELD-NC(009) ) /*.99U002 N02.0.
+/
+ 019T #FIELD-NM (010)  (AD=YLMFHT CV=#FIELD-NC(010) ) /*.99U040 A040 .
+ 060T #FIELD-N (010)  (AD=YRMFHT CV=#FIELD-NC(010) ) /*.99U002 N02.0.
+/
+/
+/
+ 019T 'Oòìeòüòe êypcopoì'
+ 037T 'N'(I)
+ 039T 'è íaæìèòe'
+ 051T 'BBOÄ(ENTER)'(I)
+/
+/
+ 001T '-BBOÄ---ÏÔ1---ÏÔ2---ÏÔ3---ÏÔ4---ÏÔ5---ÏÔ6---ÏÔ7---ÏÔ8---ÏÔ'-
+      '9---ÏÔ10--ÏÔ11--ÏÔ12-'
+/
+ 021T 'Bûx'(REI)
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

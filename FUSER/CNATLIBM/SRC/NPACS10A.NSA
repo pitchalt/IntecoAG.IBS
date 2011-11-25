@@ -1,0 +1,19 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName NPACS10A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20081022
+**C               *:Time 1245330
+**C               *<Natural Source Header
+**DS          0         1NPACS10A
+**DK          0   N   5 2OG-CODE
+**DK          0   N   6 2PERIOD
+**DK          0   N   5 2N-PROV
+**DS          0         2QUERY-PARAM
+**DK          0   N   1 3BO-ID
+**DK          0   N   5 3AC-CODE
+**DK          0   N   5 3VO-CODE
+**DK          0   A   5 3ST-KK
+**DK          0   I   4 3ST-KD
+**DK          0   A  31 3DI-ID

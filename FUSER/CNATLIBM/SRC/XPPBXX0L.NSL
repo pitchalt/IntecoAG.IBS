@@ -1,0 +1,19 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPPBXX0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20081022
+**C               *:Time 1419330
+**C               *<Natural Source Header
+**DS          0         1XPPBXX0L
+**DK          0   A  50 2PB-TOP-PROCESS
+**DK          0   A  50 2PB-CURRENT-PROCESS
+**DR          0        R2PB-CURRENT-PROCESS              /* BEGIN REDEFINE: PB-CURRENT-
+**DFRI1       0   A   1 3PB-CURRENT-PROCESS-A            (1:50)
+**DK          0   A  50 2PB-HEADER
+**DK          0   P  15 2PB-PROCESS-MAX
+**DK          0   P  15 2PB-PROCESS-CURRENT
+**DK          0   T     2PB-TIME-START
+**DK          0   T     2PB-TIME-PROCESS
+**DK          0   T     2PB-TIME-STOP

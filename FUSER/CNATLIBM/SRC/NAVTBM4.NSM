@@ -1,0 +1,57 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVTBM4
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20071231
+* :Time 1613330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     KOD TEXT
+DEFINE DATA PARAMETER
+1 KOD (N05.0)
+1 TEXT (A010)
+END-DEFINE
+SET KEY PF3 (PB=004/013/002/007) NAMED 'Выход'
+/* 000 000 000 000
+SET KEY TREQ (PB=004/004/002/007) NAMED 'Далее'
+/* 000 000 000 000
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023079        N0NNUCN             X        01 SYSPROF NL           1 *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Введите значени  и нажмите'
+ 029T 'ВВOД(ENTR)'(I)
+/
+ 002T 'Код.......................'
+ 029T KOD  (AD=DLMT'_' ) /*.99U005 N05.0.
+/
+ 002T 'Наименование..............'
+ 029T TEXT  (AD=DM'_' ) /*.99U010 A010 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

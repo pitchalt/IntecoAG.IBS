@@ -1,0 +1,29 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVSTAT
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050624
+* :Time 1430330
+* <Natural Source Header /*<<RO>
+****************************
+* НАСТРОЙКА ВЕДЕНИЯ СТАТЕЙ *
+****************************
+DEFINE DATA
+* GLOBAL USING UFROG
+PARAMETER USING PRMNAVI
+ LOCAL USING PRMSTSET
+ LOCAL USING LCLMSGL
+ LOCAL
+ 1 SELFUN(A60) INIT<'Правила определени  статей'>
+ 1 SELREG(A40)
+END-DEFINE
+INCLUDE CCASKOG
+*
+ RESET STSETUPP;
+ STSETUPP.OG_ID := OG-IDENT-G ;
+ PERFORM SPSTSET STSETUPP PRMNAV ;
+ IF NOT STSETUPP.RESULT OR STSETUPP.RESULT_ID EQ 1 THRU MAXERRMSG THEN
+  INCLUDE CCMSG 'STATMSGL(RESULT_ID)' ;
+ END-IF
+END

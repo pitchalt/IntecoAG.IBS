@@ -1,0 +1,99 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVZK0
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20001019
+* :Time 1648330
+* <Natural Source Header /*<<RO>
+***********************
+* «¿ ¿«-œŒƒ–¿«ƒ≈À≈Õ»≈ *
+***********************
+DEFINE DATA
+*  GLOBAL USING UFROG       /* √ÀŒ¡¿À‹Õ€≈ œ≈–≈Ã≈ÕÕ€≈ ƒÀﬂ ¬—≈… —»—“≈Ã€
+PARAMETER USING PRMNAVI
+*
+  LOCAL  USING LCLZKL     /* VIEW Õ¿ ‘¿…À ZAKAZ
+  LOCAL  USING LCLPOL     /* VIEW Õ¿ ‘¿…À IBS-SYS-FILE
+  LOCAL  USING LCLFROL1      /* Œ¡Ÿ»≈ œ≈–≈Ã≈ÕÕ€≈
+  LOCAL  USING PRMHELP
+  LOCAL
+    1 SELFUN(A60) INIT<'«‡Í‡Á˚ - ÔÓ‰‡Á‰ÂÎÂÌË '>
+    1 SELREG(A40)
+    1 #ZK(A09)                /*  «¿ ¿«
+    1  ZK(A09)                /*  «¿ ¿«
+    1 REDEFINE  ZK
+      2  ZKB(B1)
+    1 #PO(N05)                /*  œŒƒ–¿«ƒ≈À≈Õ»≈
+    1  PO(N05)                /*  œŒƒ–¿«ƒ≈À≈Õ»≈
+    1 REDEFINE  PO
+      2  POB(B1)
+    1 ZK1(A9)                 /*  œŒ»— Œ¬€…  Àﬁ◊ Õ¿◊¿À‹Õ€…
+    1 REDEFINE ZK1
+      2 HEX1(B9)
+    1 ZK2(A9)                 /*  œŒ»— Œ¬€…  Àﬁ◊  ŒÕ≈◊Õ€…
+    1 REDEFINE ZK2
+      2 HEX2(B9)
+    1 PO1(N5)
+    1 PO2(N5)
+    1 KEY5(A10)
+    1 REDEFINE KEY5
+      2 KEYOG5(N5)
+      2 KEYKD5(N5)
+*
+END-DEFINE
+*
+SET KEY PF1 PF2 PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+INCLUDE CCASKOG
+*
+ASSIGN KEYOG5 = OG-IDENT-G
+IF *DATA > 0  INPUT  #ZK #PO  END-IF
+ REPEAT
+   INPUT USING MAP 'MAPZK0M1'
+     IF *PF-KEY = 'PF1'
+        INCLUDE CCHELP '42'
+        ESCAPE TOP
+     END-IF
+*
+     IF *PF-KEY = 'PF3'  STOP  END-IF
+     IF #ZK = ' ' AND #PO = 0
+          REINPUT '«¿ ¿« »À» œŒƒ–¿«ƒ≈À≈Õ»≈' ALARM
+     END-IF
+     IF #ZK NE ' '
+* . FIND NUMBER ZAKAZ OG-F = OG-IDENT-G AND ZK-F = #ZK
+F2.    FIND NUMBER ZAKAZ  ZK-F = #ZK
+        IF *NUMBER(F2.) = 0
+           REINPUT 'Õ≈¬≈–Õ€… «¿ ¿«' ALARM
+        END-IF
+        MOVE #ZK TO ZK1 ZK2
+      ELSE
+        ASSIGN HEX1 = H'000000000000000000'
+        ASSIGN HEX2 = H'FFFFFFFFFFFFFFFFFF'
+     END-IF
+    IF #PO NE 0  ASSIGN KEYKD5 = #PO
+F1.    FIND NUMBER IBS-KPO-FILE OG-PD = KEY5
+          IF *NUMBER(F1.) = 0
+            REINPUT 'Õ≈¬≈–ÕŒ≈ œŒƒ–¿«ƒ≈À≈Õ»≈' MARK 2 ALARM
+          END-IF
+      ELSE  ASSIGN PO1 = 1  ASSIGN PO2 = 99999
+    END-IF
+    ESCAPE BOTTOM
+ END-REPEAT
+*
+ASSIGN ZK = #ZK
+ASSIGN PO = #PO
+* IF  ZK = ' ' ASSIGN  ZKB = H'00' END-IF
+* IF  PO = 0   ASSIGN  POB = H'00' END-IF
+* STACK TOP COMMAND 'NAVZK0'   ZK  PO
+* IF #ZK NE ' ' AND #PO = 0  STACK TOP COMMAND 'NAVZK1' #ZK  END-IF
+* IF #ZK = ' ' AND #PO NE 0  STACK TOP COMMAND 'NAVZK2' #PO  END-IF
+IF #ZK = ' ' AND #PO NE 0 STACK TOP DATA #PO ;   CALLNAT 'SNAVZK2' PRMNAV
+                                               INCLUDE CCRFUNNM
+END-IF
+IF #ZK NE ' ' AND #PO = 0 STACK TOP DATA #ZK ;   CALLNAT 'SNAVZK1' PRMNAV
+                                               INCLUDE CCRFUNNM
+END-IF
+                          STACK TOP DATA ZK PO ; CALLNAT 'SNAVZK0' PRMNAV
+                                               INCLUDE CCRFUNNM
+STOP
+END

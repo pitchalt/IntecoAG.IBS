@@ -1,0 +1,68 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SBMSGGER
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20001104
+* :Time 1157330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+ PARAMETER
+1 NAME_OF_MODULE(A8)
+ LOCAL
+1 STR(A120)
+1 REDEFINE STR
+ 2 STR401(A40)
+ 2 STR402(A40)
+1 REDEFINE STR
+ 2 STR601(A60)
+ 2 STR602(A60)
+END-DEFINE
+ IF *ERROR-NR EQ 0 THEN ESCAPE ROUTINE END-IF
+ DECIDE FOR FIRST CONDITION
+  WHEN ( *ERROR-NR EQ -9 )
+   STR := *COM
+  WHEN ( *ERROR-NR EQ -7 )
+   STR := 'Нарушена структура базы данных. Операци  прервана.'
+  WHEN ( *ERROR-NR EQ -6 )
+   STR := 'Некорректное поведение программы. Операци  прервана.'
+  WHEN ( *ERROR-NR EQ -1 )
+   STR := 'Некорректный вызов программы. Операци  прервана.'
+  WHEN ( *ERROR-NR EQ 3009 )
+   COMPRESS 'K бaзe дaнныx cлишкoм дoлгo нe былo oбpaщeний.'
+            '   Пoвтopитe нeoбxoдимyю oпepaцию.' TO STR
+  WHEN ( *ERROR-NR EQ 1016 )
+   COMPRESS 'Bы нe дoждaлиcь oкoнчaни  выпoлнeни '
+            'тeкyщeй oпepaции.' TO STR
+  WHEN ( *ERROR-NR EQ 3148 )
+   COMPRESS 'Бaзa дaнныx нe aктивнa, или нe дocтyпнa'
+            'Пpoкoнcyльтиpyйтecь c cиcтeмным aдминиcтpaтopoм'
+            TO STR
+  WHEN ( *ERROR-NR EQ 1586)
+   COMPRESS ' He yдaлocь oтпpaвить дaнныe нa пeчaть.'
+            'Пpoкoнcyльтиpyйтecь c cиcтeмным aдминиcтpaтopoм'
+            TO STR
+  WHEN ( *ERROR-NR <= 2999 )
+   COMPRESS 'Oшибкa выпoлнeни  в пpoгpaммe:' NAME_OF_MODULE
+            TO STR401
+   COMPRESS 'Cтpoкa :' *ERROR-LINE '; Hoмep :' *ERROR-NR
+            TO STR402
+   MOVE RIGHT STR402 TO STR402
+  WHEN ( *ERROR-NR > 2999 )
+   COMPRESS 'Oшибкa oбpaщeни  к бaзe дaнныx в пpoгpaммe:'
+            NAME_OF_MODULE TO STR601
+   COMPRESS '; Cтpoкa :' *ERROR-LINE '; Hoмep :' *ERROR-NR
+            TO STR602
+   MOVE RIGHT STR602 TO STR602
+ WHEN NONE
+   COMPRESS 'Oшибкa выпoлнeни  в пpoгpaммe:' NAME_OF_MODULE
+            TO STR401
+   COMPRESS 'Cтpoкa :' *ERROR-LINE '; Hoмep :' *ERROR-NR
+            TO STR402
+   MOVE RIGHT STR402 TO STR402
+ END-DECIDE
+ *COM := STR
+ CALLNAT 'MESSAGEN'
+ RESET *COM   /* MNN
+END
+

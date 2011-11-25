@@ -1,0 +1,58 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFPRNC
+* :UID NIMI
+* :Mode S
+* :CP
+* :Date 20070417
+* :Time 1608330
+* <Natural Source Header /*<<RO>
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнцпюллю лемч нрвернб
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE DATA
+  PARAMETER
+  1 KE(N1)  1 POZ(N5)
+  LOCAL  USING UFROL1      /* наыхе оепелеммше
+  LOCAL
+*
+    1 #DEF-N (N001/1:4)
+    1 #FIELD-FN(A020/1:4)  INIT <'кНЙЮКЭМШИ ОПХМРЕП',
+                                 'яЕРЕБНИ ОПХМРЕП',
+                                 'щЙПЮМ',
+                                 'дХЯЙ'
+                                 >
+    1 #DEF-NM(A024/1:04)    /* дкъ бшбндю мю щйпюм
+    1 #INP-N    (N002)      /* мнлеп пефхлю
+    1 TTT(A40)              /* рнвйх гюонкмхрекх
+    1 REGIM(A8)
+*
+END-DEFINE
+*
+SET KEY PF2 PF3
+CLOSE PRINTER(1)
+ASSIGN Q-LINE = 4           /* днярсомн пефхлнб
+ASSIGN F-LINE = 2           /* ялеыемхе оепбни ярпнйх
+MOVE ALL '.' TO TTT
+*
+  DEFINE WINDOW AA
+    SIZE 14*33
+    BASE  5/20
+    TITLE 'бШАНП ПЕФХЛЮ ОЕВЮРХ'
+    CONTROL SCREEN
+  FOR C-LINE 1 TO Q-LINE
+     ASSIGN #DEF-N(C-LINE) = C-LINE
+     COMPRESS #FIELD-FN(C-LINE) '<' TTT INTO #DEF-NM(C-LINE) LEAVING NO
+  END-FOR
+*
+   ASSIGN KE = 1
+   SET WINDOW 'AA'
+   INPUT USING MAP 'DEFCM2'
+   SET WINDOW OFF
+   FOR #INP-N 1 Q-LINE
+     IF *CURS-FIELD = POS(#DEF-N(#INP-N)) ESCAPE BOTTOM  END-IF
+   END-FOR
+   IF   *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+   IF   *PF-KEY = 'ENTR' AND #INP-N = 1 THRU Q-LINE
+     POZ := #INP-N
+  END-IF
+END

@@ -1,0 +1,13 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName WAITL
+**C               *:UID ASUM315
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070620
+**C               *:Time 1134330
+**C               *<Natural Source Header
+**DF          0000P  10 1#COUNTER
+**DF          0000P  10 1#NUMBER
+**DF          0000N   2 1#OLD
+**DF          0000A  40 1#W-TITL
+**DF          0000N   7 1#TIME

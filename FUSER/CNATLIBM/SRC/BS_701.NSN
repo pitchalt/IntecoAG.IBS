@@ -1,0 +1,33 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName BS_701
+* :UID ADMIN
+* :Mode R
+* :CP
+* :Date 20101001
+* :Time 1537000
+* <Natural Source Header /*<<RO>
+* SERVER
+* Определение БС расчетов с рабочими и служащими
+*
+DEFINE DATA PARAMETER
+01 #ORG(N4)
+01 #BS701(A11)
+01 #BS701N(A11)
+01 #BS701D(A11)
+01 #BS701DZP(A11)
+01 #BS75AK(A11)
+END-DEFINE
+*
+RESET #BS701 #BS701N #BS701D #BS701DZP #BS75AK
+*
+FIND ASRZ-SYS-FILE KK-F = 'TSS' AND KD-F = #ORG
+#BS701 = KR-F
+#BS701N = RR-F
+#BS701D = MF-F
+#BS701DZP = NN-F
+#BS75AK = DI-F
+LOOP
+*
+INCLUDE C-ERRS
+*
+END

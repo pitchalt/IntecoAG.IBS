@@ -1,0 +1,26 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName GETNMZK
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20070425
+* :Time 1131330
+* <Natural Source Header /*<<RO>
+* Õ¿»Ã≈ÕŒ¬¿Õ»≈ «¿ ¿«¿
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)
+  1 #ZK(A9)
+  1 #BS(N5)
+  1 #NM(A50)
+  1 ZKRC(N5)
+  LOCAL USING LCLZKL
+END-DEFINE
+*
+RESET #NM ZKRC #BS
+Z. FIND ZAKAZ ZK-F = #ZK OR ZZ-F = #ZK
+  #NM := NM-F  #BS := BS-F
+  IF ZZ-F NE ' '  ZKRC := 10  END-IF
+END-FIND
+IF *NUMBER(Z.) = 0  ZKRC := 8  END-IF
+END

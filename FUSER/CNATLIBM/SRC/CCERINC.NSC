@@ -1,0 +1,66 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCERINC
+* :UID NAT226
+* :Mode S
+* :CP
+* :Date 19990201
+* :Time 1302330
+* <Natural Source Header /*<<RO>
+MOVE *COM  TO NAME_OF_MODULE
+ESCAPE ROUTINE
+ON ERROR
+ BACKOUT TRANSACTION
+ SET WINDOW OFF
+ SET WINDOW 'ERROR_WINDOW'
+DECIDE FOR FIRST CONDITION
+ WHEN ( *ERROR-NR EQ 3009 )
+   FORMAT PS=006 LS=049 ZP=OFF SG=OFF KD=OFF IP=OFF
+   INPUT (IP=OFF ) WITH TEXT
+   '    ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИТЕ ВВОД(ENTER).'(CD=YE)
+   / 007T 'К базе данных слишком долго не было обращений.'(RE)
+   / 016T 'Повторите необходимую операцию.'(RE)
+  WHEN ( *ERROR-NR EQ 1016 )
+   FORMAT PS=006 LS=049 ZP=OFF SG=OFF KD=OFF IP=OFF
+   INPUT (IP=OFF ) WITH TEXT
+   '    ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИТЕ ВВОД(ENTER).'(CD=YE)
+   / 007T 'Вы не дождались окончани  выполнени '(RE)
+   / 016T 'текущей операции.'(RE)
+  WHEN ( *ERROR-NR EQ 3148 )
+   FORMAT PS=006 LS=049 ZP=OFF SG=OFF KD=OFF IP=OFF
+   INPUT (IP=OFF ) WITH TEXT
+   '    ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИТЕ ВВОД(ENTER).'(CD=YE)
+   / 006T 'База данных не активна, или не доступна'(RE)
+   / 005T '-----------------------------------------'(RE)
+   / 002T 'Проконсультируйтесь с системным аминистратором'(RE)
+  WHEN ( *ERROR-NR EQ 1586 )
+   FORMAT PS=006 LS=049 ZP=OFF SG=OFF KD=OFF IP=OFF
+   INPUT (IP=OFF ) WITH TEXT
+   '    ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИТЕ ВВОД(ENTER).'(CD=YE)
+   / 006T ' Не удалось отправить данные на печать.'(RE)
+   / 005T '-----------------------------------------'(RE)
+   / 002T 'Проконсультируйтесь с системным аминистратором'(RE)
+ WHEN ( *ERROR-NR <= 2999 )
+ FORMAT PS=08 LS=050 ZP=OFF SG=OFF KD=OFF IP=OFF
+  INPUT  (IP=OFF ) WITH TEXT
+  '    ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИТЕ ВВОД(ENTER).'
+   01T ' Ошибка выполнени  в программе :'(REI)
+   036T *PROGRAM  (AD=ILOFHT'_' CD=RE AL=009 )  //
+   04T '   Cтрока :'(REI) 017T *ERROR-LINE (AD=ILOFHT'_' CD=RE )
+   022T '. Номер :'(REI) 032T *ERROR-NR  (AD=ILOFHT'_' CD=RE ) /
+   01T '       Label : '(REI) 020T NAME_OF_MODULE  (AD=ILOFHT'_' CD=RE )
+ WHEN ( *ERROR-NR > 2999 )
+  FORMAT PS=08 LS=050 ZP=OFF SG=OFF KD=OFF IP=OFF
+  INPUT  (IP=OFF ) WITH TEXT
+  '    ДЛЯ ПРОДОЛЖЕНИЯ НАЖМИТЕ ВВОД(ENTER).'
+   010T 'Ошибка обращени  к базе данных'(REI) /
+   10T 'в программе :'(REI) 036T *PROGRAM  (AD=ILOFHT'_' CD=RE AL=009 )  /
+   06T '   Cтрока :'(REI) 019T *ERROR-LINE (AD=ILOFHT'_' CD=RE )
+   024T '. Номер :'(REI) 034T *ERROR-NR  (AD=ILOFHT'_' CD=RE ) /
+   03T '       Label : '(REI) 022T NAME_OF_MODULE  (AD=ILOFHT'_' CD=RE )
+ WHEN NONE
+  IGNORE
+END-DECIDE
+ MOVE *COM  TO NAME_OF_MODULE
+ SET WINDOW OFF
+ STOP
+END-ERROR

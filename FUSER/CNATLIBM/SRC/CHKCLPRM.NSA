@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CHKCLPRM
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20110112
+**C               *:Time 1241000
+**C               *<Natural Source Header
+**DS          0         1CHKCLPRM
+**DK          0   N   5 2CLPRMPID
+**DK          0   A   5 2CLPRMCOD
+**DK          0   N   8 2CLPRMPER
+**DR          0        R2CLPRMPER                        /* BEGIN REDEFINE: CLPRMPER
+**DFR         0   N   6 3CLPRMYYM
+**DK          0   N   8 2CLPRMCLS
+**DK          0   I   4 2CLPRMRTN

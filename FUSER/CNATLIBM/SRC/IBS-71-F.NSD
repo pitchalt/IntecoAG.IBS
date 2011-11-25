@@ -1,0 +1,18 @@
+DB: 000 FILE: 009  - IBS-71-FILE                      DEFAULT SEQUENCE:
+TYPE: ADABAS
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID MSA
+*      :CP
+*
+*
+*      :Date 20110704
+*      :Time 1008280
+*      <Natural Source Header
+  1 TN TN-F                              N  5.0  N
+  1 DL VO-F                              N  5.0  N
+M 1 PP PERIOD                            N  8.0  N
+  1 GM GM-F                              N  6.0  N D
+******DDM OUTPUT TERMINATED******

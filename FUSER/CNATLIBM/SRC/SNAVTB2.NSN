@@ -1,0 +1,223 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVTB2
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20071231
+* :Time 1620330
+* <Natural Source Header /*<<RO>
+**********************************
+* œ–Œ√–¿ÃÃ¿ - —œ–¿¬ ¿  œŒ —◊≈“¿Ã *
+**********************************
+DEFINE DATA
+  PARAMETER
+    1 SEL-KD(N05)
+    1 SEL-TX(A20)
+    1 OG-IDENT(N5)
+PARAMETER USING PRMNAVI
+*
+  LOCAL USING LCLFROL1
+  LOCAL USING LCLFROL4
+  LOCAL USING LCLBSL
+  LOCAL
+    1 SELFUN(A60) INIT<'“‡·ÎËˆ˚ Ò˜ÂÚÓ‚ ‰Î  „ÛÔÔÓ‚˚ı ÓÚ˜ÂÚÓ‚'>
+    1 SELREG(A40)
+    1 INPUT-REC(A25/1:15)
+    1 REDEFINE INPUT-REC
+      2 INPUTREC(15)
+        3 #FIELD-01(N05)
+        3 #FIELD-02(A20)
+    1 FIRST_EL(P07)
+    1 #FIELD-01C(C/1:15)
+    1 #FIELD-02C(C/1:15)
+    1 TTT(A10)
+    1 STEK-SEL(A25)
+    1 REDEFINE STEK-SEL
+      2 STEK-SEL-KD(N05)
+      2 STEK-SEL-TX(A20)
+    1 N-SEL-B(B4)
+    1 L-SEL-B(B4)
+    1 Q-SEL-B(B4)
+    1 MAX_EL(N3)
+    1 INX   (N2)
+    1 INY   (N3)
+    1 KOD(N5)
+    1 TEXT(A10)
+    1 REDEFINE TEXT
+      2 SIM-TX(A1/1:10)
+    1 C-DATA3-B(B4)
+    1 KEY3(A10)
+    1 REDEFINE KEY3
+      2 KEY3-OG(N5)
+      2 KEY3-SS(N5)
+    1 PF-T1(A41)
+    1 PF-T2(A41)
+END-DEFINE
+*
+SET KEY  PF1 PF2 PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+INCLUDE CCASKOG
+#OPSYS := *OPSYS
+*
+ASSIGN Q-LINE   = 15
+ASSIGN FIRST_EL = 1
+ASSIGN F-LINE = 1
+*
+ASSIGN PF-T1 =  '-¬¬Œƒ--PF3---PF7--PF8---PF9--PF10--PF12-'
+ASSIGN PF-T2 =  ' ¬˚·p  ¬˚ı   ÕÁ‰  ¬Ôp‰  Õ‡˜   ÓÌ   —ÓpÚ '
+  MOVE ALL '.' TO TTT
+  MOVE OG-IDENT TO KEY3-OG
+  MOVE 2   TO N-SEL-B
+  MOVE 25  TO L-SEL-B
+  MOVE 800 TO Q-SEL-B
+  CALL 'GTSX' L-SEL-B Q-SEL-B N-SEL-B
+*
+  ASSIGN KOD = SEL-KD
+  ASSIGN TEXT = SEL-TX
+  DEFINE WINDOW W1
+    SIZE 9 * 41
+    BASE 5 / 33
+    TITLE 'œ‡‡ÏÂÚ˚ ÔÓËÒÍ‡'
+   CONTROL SCREEN
+  DEFINE WINDOW W2
+    SIZE 21*45
+    BASE 2/30
+    TITLE '¬˚·Ó ÒÛ·Ò˜ÂÚ‡ ËÁ ÔÎ‡Ì‡ Ò˜ÂÚÓ‚'
+   CONTROL SCREEN
+* œ¿–¿Ã≈“–€ ◊≈–≈« Œ ÕŒ
+ REPEAT
+     IF  KOD =  0  AND TEXT   = ' '
+       SET CONTROL'WB'
+       SET WINDOW 'W1'
+    INCLUDE INPPC '"NAVTBM4"' '"MAPUS2M1"'
+       SET WINDOW OFF
+       IF *PF-KEY = 'PF3'
+         CALL 'FRSX' N-SEL-B
+         SET CONTROL'K0'
+         ESCAPE BOTTOM
+       END-IF
+     END-IF
+* ◊»“¿≈Ã ‘¿…À
+     PERFORM BS-PROC
+* —ŒP“»PŒ¬ ¿ œŒ  Œƒ” œP» Œ“—”“—“¬»» œ¿P¿Ã≈“PŒ¬
+     IF  KOD =  0  AND TEXT   = ' '
+       ASSIGN C-DATA1-B = 1         /*  SORT œŒ  Œƒ”
+       ASSIGN C-DATA2-B = 5
+       CALL 'SRTX' C-DATA1-B C-DATA2-B N-SEL-B
+     END-IF
+* ‘Œ–Ã»–”≈Ã œ≈–¬”ﬁ «¿œ»—‹
+*   «¿ƒ¿Õ  Œƒ
+     IF KOD    NE  0
+       ASSIGN C-DATA1-B = 1         /*  SORT œŒ  Œƒ”
+       ASSIGN C-DATA2-B = 5
+       CALL 'SRTX' C-DATA1-B C-DATA2-B N-SEL-B
+       ASSIGN C-DATA1-B = 1
+       ASSIGN C-DATA3-B = 5
+       CALL 'CMPXF' KOD    C-DATA1-B C-DATA3-B   N-SEL-B
+       IF C-DATA1-B NE 0
+         ASSIGN FIRST_EL = C-DATA1-B
+       END-IF
+     END-IF
+*   «¿ƒ¿Õ “≈ —“
+     IF   KOD  = 0  AND TEXT   NE ' '
+       RESET C-DATA
+       FOR INX 1 10                   /*  ŒÀ. —»Ã¬ŒÀŒ¬ ¬ TX
+        IF SIM-TX(INX) = ' '
+         ESCAPE BOTTOM
+        END-IF
+        ADD 1 TO C-DATA
+       END-FOR
+       ASSIGN C-DATA1-B = 6              /* SORT œŒ “≈ —“”
+       ASSIGN C-DATA2-B = C-DATA
+       CALL 'SRTX' C-DATA1-B C-DATA2-B N-SEL-B
+       ASSIGN C-DATA1-B = 6
+       ASSIGN C-DATA-B = C-DATA
+       CALL 'CMPXF' TEXT   C-DATA1-B C-DATA-B    N-SEL-B
+       IF C-DATA1-B NE 0
+         ASSIGN FIRST_EL = C-DATA1-B
+       END-IF
+     END-IF
+*  ‘Œ–Ã»–Œ¬¿Õ»≈ › –¿Õ¿
+REPEAT
+  ASSIGN C-DATA = FIRST_EL
+  RESET #FIELD-01(*) #FIELD-02(*)
+  MOVE (AD=P) TO #FIELD-01C(*) #FIELD-02C(*)
+*
+  FOR C-LINE = 1 TO Q-LINE
+    IF C-DATA > MAX_EL THEN ESCAPE BOTTOM END-IF
+    ASSIGN C-DATA-B = C-DATA
+    CALL 'RWSX' C-DATA-B INPUT-REC(C-LINE) RD-REC    N-SEL-B
+    ASSIGN #FIELD-01C(C-LINE) = (AD=I)
+    ASSIGN #FIELD-02C(C-LINE) = (AD=D)
+       ADD 1 TO C-DATA
+  END-FOR
+*
+  SET WINDOW 'W2'
+  IF #OPSYS = 'W'  INPUT MARK F-MARK USING MAP 'NAVTBM3'
+    ELSE  INPUT MARK F-MARK USING MAP 'MAPUS1M1'
+  END-IF
+*
+*  COMPUTE C-CURS = *CURS-LINE - F-LINE
+    FOR C-CURS 1 Q-LINE
+     IF *CURS-FIELD = POS(#FIELD-01(C-CURS))
+            ESCAPE BOTTOM  END-IF
+   END-FOR
+*
+  DECIDE FOR EVERY CONDITION
+    WHEN *PF-KEY = 'ENTR' AND C-CURS = 1 THRU Q-LINE
+      COMPUTE C-DATA = C-CURS + FIRST_EL - 1
+      IF C-DATA <= MAX_EL THEN
+        ASSIGN C-DATA-B = C-DATA
+        CALL 'RWSX' C-DATA-B SEL-KD RD-REC    N-SEL-B
+                                  H'00000001' H'00000005'
+        CALL 'RWSX' C-DATA-B SEL-TX RD-REC    N-SEL-B
+                                  H'00000006' H'00000014'
+        ESCAPE BOTTOM
+      END-IF
+    WHEN *PF-KEY = 'PF3'
+      CALL 'FRSX' N-SEL-B
+      ESCAPE BOTTOM
+    WHEN *PF-KEY = 'PF7'
+      COMPUTE FIRST_EL = FIRST_EL - Q-LINE
+      IF FIRST_EL <= 0 THEN ASSIGN FIRST_EL = 1 END-IF
+    WHEN *PF-KEY = 'PF8'
+      COMPUTE C-DATA1 = FIRST_EL + Q-LINE - 1
+      IF C-DATA1 <= MAX_EL THEN
+        COMPUTE FIRST_EL = C-DATA1 + 1
+      END-IF
+    WHEN *PF-KEY = 'PF9'
+      ASSIGN FIRST_EL = 1
+    WHEN *PF-KEY = 'PF10'
+      ASSIGN FIRST_EL = MAX_EL
+    WHEN *PF-KEY = 'PF12'
+     PERFORM SORT-PROC
+    WHEN NONE IGNORE
+  END-DECIDE
+END-REPEAT
+  ESCAPE BOTTOM
+END-REPEAT
+* SET CONTROL'WBM'
+  SET WINDOW OFF
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* œ–Œ÷≈ƒ”–¿ —Œ–“»–Œ¬ »
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE SORT-PROC
+   ASSIGN C-DATA1-B = 1
+   ASSIGN C-DATA2-B = 5
+   CALL 'SRTX' C-DATA1-B C-DATA2-B N-SEL-B
+END-SUBROUTINE
+*************************************
+* ◊“≈Õ»≈ ‘¿…À¿ —◊≈“Œ¬
+*************************************
+  DEFINE SUBROUTINE BS-PROC
+    RESET C-DATA
+    READ IBS-BS-FILE BY OG-SS = KEY3
+     IF OG-ID NE OG-IDENT ESCAPE BOTTOM END-IF
+     ADD 1 TO C-DATA
+     ASSIGN C-DATA-B = C-DATA
+     ASSIGN STEK-SEL-KD = SS-ID
+     ASSIGN STEK-SEL-TX = NM-BS
+     CALL 'RWSX' C-DATA-B  STEK-SEL WR-REC N-SEL-B
+    END-READ
+    ASSIGN MAX_EL    = C-DATA
+  END-SUBROUTINE
+END

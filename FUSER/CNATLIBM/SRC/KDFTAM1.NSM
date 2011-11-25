@@ -1,0 +1,71 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName KDFTAM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20060205
+* :Time 1317330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     INPUT-REC(*)
+DEFINE DATA PARAMETER
+1 INPUT-REC (A050/00001:00020)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Наименование товаров, услуг, работ'
+/
+ 002T INPUT-REC (001)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+   /**A1000200000100001000010000100001100020001001000001000HV
+/
+ 002T INPUT-REC (002)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (003)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (004)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (005)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (006)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (007)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (008)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (009)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (010)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (011)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (012)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (013)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (014)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (015)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (016)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (017)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (018)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (019)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T INPUT-REC (020)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 002T '--------------------------------------------------'
+/
+ 003T 'F3-Вых  F5-Зап  F7-Нзд  F8-Впр  F9-Нач  F10-Кон'
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

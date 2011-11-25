@@ -1,0 +1,19 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SET-PARI
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20100309
+* :Time 1242330
+* <Natural Source Header /*<<RO>
+      OTK_PARMS.INV-N := UOC-INV-FILE.IN-F
+      OTK_PARMS.DT-OST := GM-IDENT-G
+      OTK_PARMS.SU1 := UOC-INV-FILE.SU-F(1)
+      OTK_PARMS.SU2 := UOC-INV-FILE.SU-F(2)
+      OTK_PARMS.BS1 := UOC-INV-FILE.BS-F(1)
+      OTK_PARMS.BS2 := UOC-INV-FILE.BS-F(2)
+      OTK_PARMS.OTR := UOC-INV-FILE.OT-F
+      OTK_PARMS.VD := UOC-INV-FILE.OV-F
+      OTK_PARMS.MO := UOC-INV-FILE.MO-F
+      OTK_PARMS.KL := UOC-INV-FILE.QN-F
+      OTK_PARMS.DW := UOC-INV-FILE.DW-F

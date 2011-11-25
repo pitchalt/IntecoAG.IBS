@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName INITERR
+* :UID UOCNEW
+* :Mode R
+* :CP
+* :Date 20020104
+* :Time 2110330
+* <Natural Source Header /*<<RO>
+SET CONTROL 'E=ON'
+

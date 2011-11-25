@@ -1,0 +1,30 @@
+DB: 000 FILE: 111  - UOC-ARN-FILE                     DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID KBU
+*      :CP
+*
+*
+*      :Date 20080929
+*      :Time 1644330
+*      <Natural Source Header
+  1 OG OG-F                              N  5.0  N D
+  1 IN IN-F                              A   15  N
+  1 PR PR-F                              N  3.2  N
+  1 D1 D1-F                              N  6.0  N
+  1 D2 D2-F                              N  6.0  N
+  1 VO OB-F                              N  5.0  N
+  1 PO PO-F                              N  5.0  N
+  1 ZK ZK-F                              A    9  N
+M 1 DI DI-F                              A   20  N
+P 1 ST ST-F                                0
+  2 KK KK-F                              A    5  N
+  2 KD KD-F                              I    4  N
+  1 BS BS-F                              N  5.0  N
+  1 OI OI-F                              A   20  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-F(1-5)
+*      IN-F(1-15)
+******DDM OUTPUT TERMINATED******

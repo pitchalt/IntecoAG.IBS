@@ -1,0 +1,18 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TTR
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20090804
+* :Time 1014330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+LOCAL USING CSLDOC-P
+LOCAL
+1 OG-USER(N5)  INIT <1000>
+END-DEFINE
+NUM-USER := 1
+FUN := 'WR'
+CALLNAT 'CSLDOC' CSLDOC-D OG-USER
+WRITE DOC-IND(*) DOC-NM(*) '=' DOC-DT(*) '=' DOC-OGZ '=' DOC-OGI '=' RKD
+END

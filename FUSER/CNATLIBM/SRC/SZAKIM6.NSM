@@ -1,0 +1,54 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SZAKIM6
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050130
+* :Time 1421330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #NM-ZK(*)
+DEFINE DATA PARAMETER
+1 #NM-ZK (A050/00001:00005)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T #NM-ZK (001)  (AD=DLMFHT' ' ) /*.99U050 A050 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+/
+ 001T #NM-ZK (002)  (AD=DLMFHT' ' ) /*.99U050 A050 .
+/
+ 001T #NM-ZK (003)  (AD=DLMFHT' ' ) /*.99U050 A050 .
+/
+ 001T #NM-ZK (004)  (AD=DLMFHT' ' ) /*.99U050 A050 .
+/
+ 001T #NM-ZK (005)  (AD=DLMFHT' ' ) /*.99U050 A050 .
+/
+ 013T 'F3-Вых F5-Зап'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

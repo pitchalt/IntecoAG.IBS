@@ -1,0 +1,22 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCNAVC1
+* :UID IBS_9
+* :Mode S
+* :CP
+* :Date 19991101
+* :Time 0945330
+* <Natural Source Header /*<<RO>
+IF MAX-EL(N-DATA) = 0 THEN /* еякх бнгбпюр ме бшдекъел ярейх х ме вхрюел
+* дюммше
+*
+  CALL 'GTSX' L-DATA-B Q-DATA-B N-DATA-B /* ярей C дюмшлх
+  CALL 'NULX' ' '  N-DATA-B
+  CALL 'GTSX' L-DEL-B  Q-DEL-B  N-DEL-B  /* ярей я ISN сдюкъелшу гюохяеи
+  CALL 'NULX' ' '  N-DEL-B
+*
+  PERFORM LOAD-PROC
+  ASSIGN C-DATA1-B = T-KEY
+  ASSIGN C-DATA2-B = L-KEY
+  CALL 'SRTX' C-DATA1-B C-DATA2-B N-DATA-B
+*
+END-IF

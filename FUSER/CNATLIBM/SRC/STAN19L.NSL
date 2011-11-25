@@ -1,0 +1,20 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName STAN19L
+**C               *:UID UPA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20110216
+**C               *:Time 1518080
+**C               *<Natural Source Header
+**DF   S      2   A   5 1STAN19
+**HS1
+**I                      10000
+**DF   S      2   A   5 1STANSK
+**HS1
+**I                      30000
+**DF   S      2   A   5 1STANZT
+**HS1
+**I                      Q0000
+**DF   S      2   A   5 1STANET
+**HS1
+**I                      R0000

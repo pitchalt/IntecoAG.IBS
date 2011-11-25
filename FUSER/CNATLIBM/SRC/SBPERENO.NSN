@@ -1,0 +1,96 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SBPERENO
+* :UID IBS_3
+* :Mode S
+* :CP
+* :Date 20000630
+* :Time 2124330
+* <Natural Source Header /*<<RO>
+/**************************************************************
+/*  ÐÀÇÍÎÑ ÈÑÕÎÄÍÎÉ ÑÒÐÎÊÈ ÍÀ ÍÅÑÊÎËÜÊÎ ÏÎÄÑÒÐÎÊ ÏÎ ÏÐÎÁÅËÀÌ
+/*  ÔÎÐÌÀÒ ÇÀÄÀÍÈß :
+/*    AB(1) ÐÀÇÌÅÐ ÂÕÎÄÍÎÃÎ ÌÀÑÑÈÂÀ "STR_IN" (ÄËÈÍÀ ÑÒÐÎÊÈ)
+/*    AB(2) ÊÎËÈ×ÅÑÒÂÎ ÏÎÄÑÒÐÎÊ
+/*    AB(3) ÄËÈÍÀ 1 ÏÎÄÑÒÐÎÊÈ
+/*      .   ÄËÈÍÀ 2 ÏÎÄÑÒÐÎÊÈ
+/*      .....................
+/*      .   ÄËÈÍÀ AB(2)-ÎÉ ÏÎÄÑÒÐÎÊÈ
+/*
+/*                                          TNA (98-01-16)
+/**************************************************************
+DEFINE DATA
+ PARAMETER
+1 AB(I2/1:V)
+1 STR_IN(A1/1:V)
+LOCAL
+1 STRLEN(N3)
+1 MAX_AB(N3)
+1 POINT(N3)
+1 N_AB(N3)
+1 C_AB(N3)
+1 T_AB(N3)
+1 RESULT(A253)
+1 REDEFINE RESULT
+ 2 RESULT_A(A1/1:253)
+1 W_BEG(N3)
+1 W_END(N3)
+1 W_LEN(N3)
+1 RES(N3)
+1 I(N3)
+1 K(N3)
+END-DEFINE
+ STRLEN := AB(1)
+ MAX_AB := AB(2) + 2
+ /* ÏÐÎÏÓÑÒÈÒÜ ÍÀ×ÀËÜÍÛÅ ÏÐÎÁÅËÛ
+ FOR POINT = 1 TO STRLEN
+  IF STR_IN(POINT) NE ' ' THEN ESCAPE BOTTOM END-IF
+ END-FOR
+ IF POINT >= STRLEN THEN ESCAPE ROUTINE END-IF
+ IF MAX_AB EQ 0 THEN ESCAPE ROUTINE END-IF
+ POINT := POINT
+ W_BEG := POINT
+ W_END := POINT
+ N_AB  := 3
+ C_AB  := 0
+ RES   := 1
+ REPEAT
+  ADD 1 TO POINT
+  IF POINT > STRLEN THEN ESCAPE BOTTOM END-IF
+  IF STR_IN(POINT) EQ ' ' OR POINT EQ STRLEN THEN
+   IF W_BEG > 0 THEN /* ÑËÎÂÎ ÍÀÉÄÅÍÎ
+    W_END := POINT
+    W_LEN := W_END - W_BEG + 1 ;
+    REPEAT
+     IF N_AB > MAX_AB THEN ESCAPE BOTTOM END-IF
+     IF POINT EQ STRLEN THEN
+      T_AB := C_AB + W_LEN ; ELSE
+      T_AB := C_AB + W_LEN - 1; END-IF
+     IF T_AB <= AB(N_AB) THEN
+      FOR I = W_BEG TO W_END
+       IF RES > 253 THEN ESCAPE BOTTOM END-IF
+       RESULT_A(RES) := STR_IN(I)
+       ADD 1 TO RES
+      END-FOR
+      W_BEG := W_END := 0 ;
+      C_AB := C_AB + W_LEN ;
+      ESCAPE BOTTOM      ELSE
+      C_AB := 0
+      RES := AB(3) + 1
+      FOR I = 4 TO N_AB
+       ADD AB(I) TO RES
+      END-FOR
+      ADD 1 TO N_AB
+      ESCAPE TOP         END-IF
+    END-REPEAT
+    IF N_AB > MAX_AB THEN ESCAPE BOTTOM END-IF
+                END-IF
+                                             ELSE
+   IF W_BEG EQ 0 THEN W_BEG := W_END := POINT ELSE
+                      ADD 1 TO W_END          END-IF
+                                             END-IF
+ END-REPEAT
+IF SUBSTRING(RESULT,1,STRLEN) NE ' ' THEN
+ RESET STR_IN(1:STRLEN);
+ STR_IN(1:STRLEN) := RESULT_A(1:STRLEN);
+                                     END-IF
+END

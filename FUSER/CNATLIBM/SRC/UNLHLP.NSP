@@ -1,0 +1,18 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UNLHLP
+* :UID UOCNEW
+* :Mode R
+* :CP
+* :Date 20020130
+* :Time 1252330
+* <Natural Source Header /*<<RO>
+RESET I(N3)
+READ ASUM-HELP
+  OBTAIN T8(1-100)
+* ACCEPT IF SYSTEM = 'UOC2002' OR = 'UFRO' OR = 'CNATLIBM' OR = 'ASUM'
+  FOR I 1 C*T7
+  MOVE INDEXED T8(1)<I> TO #T8(A70)
+  WRITE WORK 1 T1 T2 T3 T4 T5 T6 I #T8
+LOOP
+ LOOP
+ END

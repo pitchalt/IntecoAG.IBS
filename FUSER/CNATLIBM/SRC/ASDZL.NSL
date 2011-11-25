@@ -1,0 +1,26 @@
+/*C                                *>Natural Source Header 000000                                     DA:00.00ED:00.00PF:WNV:06030700
+/*C                                *:NatName ASDZL
+/*C                                *:UID MSA
+/*C                                *:Mode S
+/*C                                *:CP
+/*C                                *:Date 20110408
+/*C                                *:Time 1258140
+/*C                                *<Natural Source Header
+/*DV                               V 1UFRO-A-FILE                     UFRO-A-FILE                     DA:00.00ED:00.00PF:WNV:06030700
+/*DD                    N       5.0  2OS-F
+/*DD                    N       5.0  2TN-F
+/*DD I  C          M    A        60M 2RA-F                            (1:100)
+/*DD    *                          C 2RA-F
+/*DD                    A        10  2KY-F
+/*DD                    A        11  2BS-F
+/*DF                    A        60  1#RA
+/*DRR                              R 1#RA                             /* BEGIN REDEFINE: #RA
+/*DFR                   N         1  2RAOP
+/*DFR                   A         6  2R6X
+/*DFR                   N         6  2RADC
+/*DFR                   N         6  2RADT
+/*DFR                   N       9.2  2RASU
+/*DFR                   N         6  2RANV
+/*DFR                   N         6  2RADV
+/*DFR                   A         1  2RAPZ
+/*DFR                   A        11  2RAKS

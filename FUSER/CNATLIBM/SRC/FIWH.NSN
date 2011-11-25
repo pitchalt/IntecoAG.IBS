@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName FIWH
+* :UID UOC315
+* :Mode S
+* :CP
+* :Date 20051208
+* :Time 1457330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  PARAMETER
+  1 #RC(B4)
+END-DEFINE
+CALL 'CMS' 'READ FILE CMWKF01 A ( REP ' #RC
+END

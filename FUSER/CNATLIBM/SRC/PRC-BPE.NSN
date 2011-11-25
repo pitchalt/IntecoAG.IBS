@@ -1,0 +1,27 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName PRC-BPE
+* :UID ADMIN
+* :Mode R
+* :CP
+* :Date 20101001
+* :Time 1545000
+* <Natural Source Header /*<<RO>
+* SERVER
+* Определение текущего и предыдущего бух.периодов
+*
+DEFINE DATA PARAMETER
+1 #BPE(N6)
+1 #LPE(N6)
+END-DEFINE
+*
+FIND ASRZ-SYS-FILE KK-F = 'PO'
+REDEFINE NA-F(1X NAGM(N6)) NAGM(NAGG(N4)NAMM(N2))
+#LPE = NAGM
+ADD 1 TO NAGM
+IF NAMM = 13 THEN DO NAGG = NAGG + 1 NAMM = 01 DOEND
+#BPE = NAGM
+LOOP
+*
+INCLUDE C-ERRS
+*
+END

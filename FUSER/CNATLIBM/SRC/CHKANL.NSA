@@ -1,0 +1,22 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CHKANL
+**C               *:UID TIROD
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20080212
+**C               *:Time 0847330
+**C               *<Natural Source Header
+**DS          0         1CHKAN
+**DK          0   N   5 2ANOG
+**DK          0   N   5 2ANBS
+**DK          0   N   5 2ANOB
+**DK          0   A  31 2ANDI
+**DR          0        R2ANDI                            /* BEGIN REDEFINE: ANDI
+**DFR         0   A   3 3ANDI-TY
+**DFR         0   A  20 3ANDI-ND
+**DFR         0   N   8 3ANDI-DT
+**DK          0   N   5 2ANPO
+**DK          0   A   9 2ANZK
+**DK          0   N 6.3 2ANKL
+**DK I1       0   N   5 2ANCD                            (1:5)
+**DK          0   N   5 2ANRC

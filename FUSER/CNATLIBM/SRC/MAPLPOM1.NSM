@@ -1,0 +1,56 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPLPOM1
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20001016
+* :Time 1117330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #KD #NAME
+DEFINE DATA PARAMETER
+1 #KD (N05.0)
+1 #NAME (A050)
+END-DEFINE
+FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Ïoäpaçäeëeíèe (0-âce)........................'
+ 048T #KD  (AD=ILMFHT'_' ) /*.99U005 N05.0.
+/
+ 002T 'Haèìeíoâaíèe'
+/
+ 003T #NAME  (AD=IMT'_' ) /*.99U050 A050 .
+/
+/
+ 001T '-BBOÄ---ÏÔ1---ÏÔ2---ÏÔ3---ÏÔ4---ÏÔ5---ÏÔ6---ÏÔ7---ÏÔ8'
+/
+ 002T 'Îòáîð'
+ 010T '?'
+ 015T 'Bûx'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

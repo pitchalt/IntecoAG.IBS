@@ -1,0 +1,79 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPSS3M3
+* :UID BIG-BS
+* :Mode S
+* :CP
+* :Date 20071030
+* :Time 2152330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     SL-DI SL-KL SL-OB SL-PO SL-ST SL-ZK
+DEFINE DATA PARAMETER
+1 SL-DI (A001)
+1 SL-KL (A001)
+1 SL-OB (A001)
+1 SL-PO (A001)
+1 SL-ST (A001)
+1 SL-ZK (A001)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 003T 'Коды по виду аналитики'
+ 026T '(Вид-В)'(I)
+ 034T '..'
+ 037T SL-OB  (AD=DLMFHT' ' ) /*.99U001 A001 .
+/
+ 003T 'Стать  аналитики'
+ 020T '(Ст-С)'(I)
+ 027T '.........'
+ 037T SL-ST  (AD=DLMFHT' ' ) /*.99U001 A001 .
+/
+ 003T 'Доп.информаци '
+ 019T '(Ди-Д)'(I)
+ 026T '..........'
+ 037T SL-DI  (AD=DLMFHT' ' ) /*.99U001 A001 .
+/
+ 003T 'Подразделение'
+ 018T '(Пд-П)'(I)
+ 025T '...........'
+ 037T SL-PO  (AD=DLMFHT' ' ) /*.99U001 A001 .
+/
+ 003T 'Заказ (ШПЗ)'
+ 016T '(Зк-З)'(I)
+ 023T '.............'
+ 037T SL-ZK  (AD=DLMFHT' ' ) /*.99U001 A001 .
+/
+ 003T 'Количество'
+ 015T '(Кл-К)'(I)
+ 022T '..............'
+ 037T SL-KL  (AD=DLMFHT' ' ) /*.99U001 A001 .
+/
+ 004T 'Отметьте нужные уровни'
+ 027T 'символом 1'
+/
+ 015T 'PF3 - Вых'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

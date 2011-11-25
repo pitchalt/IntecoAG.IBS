@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName HELP
+* :UID NIMI_MS
+* :Mode S
+* :CP
+* :Date 20020109
+* :Time 1352330
+* <Natural Source Header /*<<RO>
+HELP.HSYSTEM  := 'UOC2002'
+HELP.NUMHELP  := &1&
+CALLNAT 'THELP' HELP(AD=O)

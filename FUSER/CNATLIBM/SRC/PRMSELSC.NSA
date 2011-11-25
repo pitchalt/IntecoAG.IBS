@@ -1,0 +1,13 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName PRMSELSC
+**C               *:UID IBS_9
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 19991101
+**C               *:Time 0946330
+**C               *<Natural Source Header
+**DS          0000      1SELSCPAR
+**DK          0000N   5 2SEL_OG
+**DK          0000A   5 2SEL_SHORT
+**DK          0000I   4 2SEL_CODE
+**DK          0000A  70 2SEL_NM

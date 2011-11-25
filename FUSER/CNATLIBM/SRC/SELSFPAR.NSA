@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName SELSFPAR
+**C               *:UID UOCNEW
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20010921
+**C               *:Time 1409330
+**C               *<Natural Source Header
+**DS          0000      1SELSFPAR
+**DK          0000N   5 2SEL_OG
+**DK          0000I   4 2SEL_SS
+**C           0000**********************************************************************
+**DK          0000A  30 2STAT_A
+**DS I1       0000      2OUTPUTSTAT                      (1:10)
+**DK          0000I   4 3CODE
+**DK          0000A   5 3SHORT
+**DK          0000A  70 3NAME

@@ -1,0 +1,23 @@
+/*C                                *>Natural Source Header 000000                                     DA:00.00ED:00.00PF:WNV:06030700
+/*C                                *:NatName UFRORL
+/*C                                *:UID MSA
+/*C                                *:Mode S
+/*C                                *:CP
+/*C                                *:Date 20110408
+/*C                                *:Time 1258300
+/*C                                *<Natural Source Header
+/*DV                               V 1UFRO-R-FILE                     UFRO-R-FILE                     DA:00.00ED:00.00PF:WNV:06030700
+/*DD                    N      10.0  2ID-F
+/*DD                    A         1  2SR-F
+/*DD                    N       6.0  2DR-F
+/*DD                    N       5.0  2OS-F
+/*DD                    N       5.0  2TN-F
+/*DD                    A        60  2DI-F
+/*DD I  C          M    A        60M 2RA-F                            (1:100)
+/*DD    *                          C 2RA-F
+/*DD                    A         6  2PA-F
+/*DD I  C          M    N       6.0M 2SD-F                            (1:100)
+/*DD    *                          C 2SD-F
+/*DD                    A        10  2NP-F
+/*DD                    A         1  2AC-F
+/*DD                    A        11  2BS-F

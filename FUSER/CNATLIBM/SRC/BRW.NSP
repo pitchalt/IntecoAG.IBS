@@ -1,0 +1,17 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName BRW
+* :UID UOC315
+* :Mode S
+* :CP
+* :Date 20051208
+* :Time 1457330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL
+  1 #RC(B4)
+END-DEFINE
+FETCH RETURN 'FER'
+CALLNAT 'FREH' #RC
+IF #RC = 0 CALLNAT 'BROWSERH' END-IF
+CLOSE WORK 1
+END

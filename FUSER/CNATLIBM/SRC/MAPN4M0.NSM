@@ -1,0 +1,109 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPN4M0
+* :UID IBS_9
+* :Mode S
+* :CP
+* :Date 19991101
+* :Time 0948330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     #FIELD-BS(*) #FIELD-BSC(*) #FIELD-NM(*) #FIELD-NMC(*)
+DEFINE DATA PARAMETER
+1 #FIELD-BS (N03.0/00001:00015)
+1  #FIELD-BSC (C/00001:00015)
+1 #FIELD-NM (A040/00001:00015)
+1  #FIELD-NMC (C/00001:00015)
+END-DEFINE
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************SU--N4M0200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023079        N0NNUCN____         XN       01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Наименование'
+ 040T 'Б/счет'
+/
+ 002T #FIELD-NM (1)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(1) )
+   /* A1000150000100001000010000100001100001015000001H
+ 043T #FIELD-BS (1)  (AD=YRMFHT CV=#FIELD-BSC(1) )  /*.99U003 N03.0.
+   /* A1000150000100001000010000100001100001015000001H
+/
+ 002T #FIELD-NM (2)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(2) )
+ 043T #FIELD-BS (2)  (AD=YRMFHT CV=#FIELD-BSC(2) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (3)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(3) )
+ 043T #FIELD-BS (3)  (AD=YRMFHT CV=#FIELD-BSC(3) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (4)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(4) )
+ 043T #FIELD-BS (4)  (AD=YRMFHT CV=#FIELD-BSC(4) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (5)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(5) )
+ 043T #FIELD-BS (5)  (AD=YRMFHT CV=#FIELD-BSC(5) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (6)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(6) )
+ 043T #FIELD-BS (6)  (AD=YRMFHT CV=#FIELD-BSC(6) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (7)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(7) )
+ 043T #FIELD-BS (7)  (AD=YRMFHT CV=#FIELD-BSC(7) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (8)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(8) )
+ 043T #FIELD-BS (8)  (AD=YRMFHT CV=#FIELD-BSC(8) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (9)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(9) )
+ 043T #FIELD-BS (9)  (AD=YRMFHT CV=#FIELD-BSC(9) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (10)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(10) )
+ 043T #FIELD-BS (10)  (AD=YRMFHT CV=#FIELD-BSC(10) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (11)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(11) )
+ 043T #FIELD-BS (11)  (AD=YRMFHT CV=#FIELD-BSC(11) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (12)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(12) )
+ 043T #FIELD-BS (12)  (AD=YRMFHT CV=#FIELD-BSC(12) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (13)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(13) )
+ 043T #FIELD-BS (13)  (AD=YRMFHT CV=#FIELD-BSC(13) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (14)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(14) )
+ 043T #FIELD-BS (14)  (AD=YRMFHT CV=#FIELD-BSC(14) )  /*.99U003 N03.0.
+/
+ 002T #FIELD-NM (15)  (AD=YLMFHT'.' DY=<D> /*.99U040 A040 .
+      CV=#FIELD-NMC(15) )
+ 043T #FIELD-BS (15)  (AD=YRMFHT CV=#FIELD-BSC(15) )  /*.99U003 N03.0.
+/
+ 002T 'Отметьте курсором'
+ 020T 'Б/счет' (I)
+ 027T 'и нажмите'
+ 037T 'ВВОД(ENTER)' (I)
+/
+ 002T '-Ввод---ПФ1---ПФ3---ПФ7---ПФ8---ПФ9---ПФ10-'
+/
+ 003T 'Ввод'(I)
+ 016T 'Вых'(I)
+ 022T 'Нзд'(I)
+ 028T 'Впрд'(I)
+ 034T 'Нач'(I)
+ 040T 'Кон'(I)
+/
+/
+/
+/
+* MAP2: VALIDATION ****************************************************
+* MAP2: END OF MAP *****************************************************
+END

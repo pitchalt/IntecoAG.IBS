@@ -1,0 +1,91 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CV1940BP
+* :UID UPA
+* :Mode S
+* :CP windows-1251
+* :Date 20111019
+* :Time 1857530
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+LOCAL USING IBS-RECL
+LOCAL USING IBS-RE13
+LOCAL
+1 #SUMM    (N13.2)
+1 #I          (I4)
+1 #IS-FOUND   (L)
+1 #DEB     (N13.2)
+1 #CRD     (N13.2)
+1 #DEB-6831   (N13.2)
+1 #CRD-6831   (N13.2)
+END-DEFINE
+FORMAT LS=120
+FIND IBS-REC-FILE WITH GM-F EQ 201107 AND KA-F EQ -5 AND KD-F EQ -1900 AND
+        (OS-F EQ 6831 AND KS-F EQ 1940 OR
+         KS-F EQ 6831 AND OS-F EQ 1940)
+  IF BO-F EQ 3 THEN
+     ADD SU-F TO #DEB-6831
+  ELSE
+     ADD SU-F TO #CRD-6831
+  END-IF
+/*  WRITE KD-F OS-F KS-F BO-F SU-F
+END-FIND
+WRITE #DEB-6831 #CRD-6831
+RESET #DEB-6831 #CRD-6831
+FIND NUMBER IBS-REC-FILE WITH GM-F EQ 201107 AND KA-F EQ -5 AND (OS-F EQ 1940 OR KS-F EQ 1940)
+                          RETAIN AS "CV1940BP"
+
+FIND IBS-REC-13 WITH GM-F EQ 201104 THRU 201106 AND (OS-F EQ 1940 OR KS-F EQ 1940)
+  IF KD-F EQ 1000
+  RESET #IS-FOUND
+  FOR #I = 1 TO C*DI-OS
+     IF TY-DI-OS(#I) EQ "явт" THEN
+FN.
+        FIND NUMBER IBS-REC-FILE WITH "CV1940BP" AND
+                                   DI-OS EQ IBS-REC-13.DI-OS(#I)
+
+       IF *NUMBER(FN.) > 0 THEN
+           #IS-FOUND := TRUE
+           IBS-REC-13.DT-ORD := VAL(DT-DI-OS(#I))
+           ESCAPE BOTTOM
+        END-IF
+     END-IF
+  END-FOR
+  IF NOT #IS-FOUND THEN
+     FOR #I = 1 TO C*DI-KS
+        IF TY-DI-KS(#I) EQ "явт" THEN
+FN2.
+           FIND NUMBER IBS-REC-FILE WITH "CV1940BP" AND
+                                   DI-OS EQ IBS-REC-13.DI-KS(#I)
+
+           IF *NUMBER(FN2.) > 0 THEN
+              IBS-REC-13.DT-ORD := VAL(DT-DI-KS(#I))
+              #IS-FOUND := TRUE
+              ESCAPE BOTTOM
+           END-IF
+        END-IF
+     END-FOR
+  END-IF
+  IF #IS-FOUND THEN
+     UPDATE
+     IF DT-ORD = 0 OR DT-ORD > 20110331 THEN
+        WRITE "FAIL" OS-F KS-F SU-F
+     END-IF
+     IF BO-F EQ 3 THEN
+        ADD SU-F TO #DEB
+        IF OS-F EQ 6831 OR KS-F EQ 6831 THEN
+           ADD SU-F TO #DEB-6831
+        END-IF
+     ELSE
+        ADD SU-F TO #CRD
+        IF OS-F EQ 6831 OR KS-F EQ 6831 THEN
+           ADD SU-F TO #CRD-6831
+        END-IF
+     END-IF
+  END-IF
+  END-IF
+  END TRANSACTION
+/*  WRITE #IS-FOUND DI-OS(#I) DI-KS(#I) BO-F OS-F KS-F SU-F
+END-FIND
+WRITE #DEB #CRD #DEB-6831 #CRD-6831
+END
+

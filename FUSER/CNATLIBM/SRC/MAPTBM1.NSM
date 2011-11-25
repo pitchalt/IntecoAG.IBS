@@ -1,0 +1,86 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPTBM1
+* :UID NIMI3
+* :Mode S
+* :CP
+* :Date 20010420
+* :Time 1601330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     NAMEKD(*) SHORT(*) UROV(*)
+DEFINE DATA PARAMETER
+1 NAMEKD (A050/00001:00010)
+1 SHORT (A005/00001:00010)
+1 UROV (A001/00001:00010)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 008T 'Уров.'
+ 014T 'Наименование кодификатора'
+/
+ 002T SHORT (001)  (AD=DLOFHT ) /*.01U005 A005 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+ 009T UROV (001)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+ 012T NAMEKD (001)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+/
+ 002T SHORT (002)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (002)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (002)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (003)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (003)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (003)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (004)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (004)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (004)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (005)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (005)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (005)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (006)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (006)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (006)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (007)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (007)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (007)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (008)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (008)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (008)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (009)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (009)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (009)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 002T SHORT (010)  (AD=DLOFHT ) /*.01U005 A005 .
+ 009T UROV (010)  (AD=DLMFHT' ' ) /*.99U001 A001 .
+ 012T NAMEKD (010)  (AD=DLOFHT AL=045  ) /*.01U045 A050 .
+/
+ 018T 'ПФ3-Вых'
+ 031T 'ПФ11-Выбр'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

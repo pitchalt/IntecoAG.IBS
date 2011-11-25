@@ -1,0 +1,23 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName #PTEST2
+**C               *:UID TIT_HOME
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 19990119
+**C               *:Time 0502330
+**C               *<Natural Source Header
+**DS          0000      1#PTEST2
+**DK          0000A  10 2COMMAND
+**C           0000*---------------------------------------------------------------------
+**DK          0000B   4 2NSTACK
+**C           0000*---------------------------------------------------------------------
+**DK          0000A 200 2MASK
+**DR          0000     R2MASK                            /* BEGIN REDEFINE: MASK
+**DFRI1       0000B  20 3MASKB                           (1:10)
+**DR          0000     R2MASK                            /* BEGIN REDEFINE: MASK
+**DFRI1       0000A  20 3MASKA                           (1:10)
+**C           0000*---------------------------------------------------------------------
+**DK          0000I   4 2N_VAR
+**DS I1       0000      2VARIABLE                        (1:20)
+**DK          0000A  10 3NAMEVAR
+**DK          0000P15.6 3DATAVAR

@@ -1,0 +1,25 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName PRMSELSS
+**C               *:UID IBS_8
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000706
+**C               *:Time 1318330
+**C               *<Natural Source Header
+**DS          0000      1SELSSPAR
+**DK          0000N   5 2SEL_OG
+**DK          0000I   4 2SEL_BS
+**DK          0000I   4 2SEL_SS
+**DK          0000A  70 2SEL_NM
+**DS          0000      2FLAG
+**DK          0000A   3 3FL_AN
+**DK          0000A   1 3FL_PO
+**DK          0000A   1 3FL_DI
+**DK          0000A   1 3FL_DZ
+**DK          0000A   3 3FL_VAL
+**C           0000*---------------------------------------------------------------------
+**DK          0000N   2 2CS_NN
+**DS I1       0000      2LIST_STAT                       (1:10)
+**DK          0000A   1 3BL_F
+**DK          0000A   5 3ST_F
+**DK I2       0000I   4 3NS_F                            (1:30)

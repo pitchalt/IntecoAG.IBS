@@ -1,0 +1,107 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName EDITVOM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20090920
+* :Time 1532330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     FUN_NM_G KODIF_VO.VO_ADDR KODIF_VO.VO_FLDG KODIF_VO.VO_ID
+*     KODIF_VO.VO_INN KODIF_VO.VO_NAME1 KODIF_VO.VO_NAME2 KPP OGRN OKVED
+*     REGION SHNM(*)
+DEFINE DATA PARAMETER
+1 FUN_NM_G (A060)
+1 KODIF_VO.VO_ADDR (A070)
+1 KODIF_VO.VO_FLDG (A001)
+1 KODIF_VO.VO_ID (N05.0)
+1 KODIF_VO.VO_INN (A015)
+1 KODIF_VO.VO_NAME1 (A040)
+1 KODIF_VO.VO_NAME2 (A040)
+1 KPP (A020)
+1 OGRN (A020)
+1 OKVED (A010)
+1 REGION (N03.0)
+1 SHNM (A015/00001:00005)
+END-DEFINE
+SET KEY PF11 (PB=021/050/001/010) NAMED 'Счета'
+/* 000 000 000 000
+SET KEY PF3 (PB=021/014/001/010) NAMED 'Выход'
+/* 000 000 000 000
+SET KEY TREQ (PB=021/002/001/010) NAMED 'Далее'
+/* 000 000 000 000
+SET KEY PF6 (PB=021/038/001/010) NAMED 'Удалить'
+/* 000 000 000 000
+SET KEY PF5 (PB=021/026/001/010) NAMED 'Записать'
+/* 000 000 000 000
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)к&:+(                       *
+* 023079MAP     N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 010T FUN_NM_G  (AD=DLOFHT ) /*.01U060 A060 .
+ 071T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 001T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 071T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 005T 'Код   | ИНН организации | Рег |'
+ 037T 'КПП'
+/
+ 002T '---------|-----------------|-----|------------------------'-
+      '-------------------'
+/
+ 004T KODIF_VO.VO_ID  (AD=IROFHT ) /*.01U005 N05.0.
+ 013T KODIF_VO.VO_INN  (AD=DLMFHT'_' ) /*.99U015 A015 .
+ 031T REGION  (AD=DLMFHT'_' ) /*.99U003 N03.0.
+ 037T KPP  (AD=DLMFHT'_' ) /*.99U020 A020 .
+/
+ 002T 'Наименование'
+ 016T KODIF_VO.VO_NAME1  (AD=DLMFHT'_' ) /*.99U040 A040 .
+/
+ 016T KODIF_VO.VO_NAME2  (AD=DLMFHT' ' ) /*.99U040 A040 .
+/
+ 002T 'Адрес'
+ 008T KODIF_VO.VO_ADDR  (AD=DLMFHT'_' ) /*.99U070 A070 .
+/
+/
+/
+ 002T 'Краткое наименование .......'
+ 031T SHNM (001)  (AD=DLMFHT' ' ) /*.99U015 A015 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+/
+ 002T 'Город'
+ 008T '......................'
+ 031T SHNM (002)  (AD=DLMFHT' ' ) /*.99U015 A015 .
+/
+ 002T 'Телефон'
+ 010T '....................'
+ 031T SHNM (003)  (AD=DLMFHT' ' ) /*.99U015 A015 .
+/
+ 002T 'Код отрасли ОКОНХ'
+ 020T '..........'
+ 031T SHNM (004)  (AD=DLMFHT' ' ) /*.99U015 A015 .
+/
+ 002T 'Код организации ОКПО .......'
+ 031T SHNM (005)  (AD=DLMFHT' ' ) /*.99U015 A015 .
+/
+ 002T 'ОКВЭД ......................'
+ 031T OKVED  (AD=ILMFHT ) /*.99U010 A010 .
+/
+ 002T 'ОГРН .......................'
+ 031T OGRN  (AD=ILMFHT ) /*.99U020 A020 .
+/
+ 002T 'Аналитика договор ..(Д/Н)...'
+ 031T KODIF_VO.VO_FLDG  (AD=ILMFHT' ' ) /*.99U001 A001 .
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

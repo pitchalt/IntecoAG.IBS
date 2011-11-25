@@ -1,0 +1,25 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFUNCD
+* :UID MSA
+* :Mode S
+* :CP windows-1251
+* :Date 20110324
+* :Time 1247070
+* <Natural Source Header /*<<RO>
+* определение номера карточки
+DEFINE DATA
+  PARAMETER
+  1 #BS(N5)  1 #NUM(N6)
+  LOCAL USING AUUNXX0L
+  LOCAL USING STEKL
+END-DEFINE
+*
+RESET #NUM
+READ AU-UNIT
+  IF UN-BS = #BS
+    IF UN-CODE > #NUM  #NUM := UN-CODE  END-IF
+  END-IF
+END-READ
+ADD 1 TO #NUM
+*
+END

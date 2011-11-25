@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UPDHELP
+* :UID NIMI_MS
+* :Mode R
+* :CP
+* :Date 20011022
+* :Time 1755330
+* <Natural Source Header /*<<RO>
+READ HELP-FILE
+IF SYSTEM = 'UFRO' AND NUM-HELP = 48 UPDATE SYSTEM = 'CNATLIBM'
+END OF TRANSACTION .

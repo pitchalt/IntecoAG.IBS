@@ -1,0 +1,99 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCUFRO53
+* :UID IBS_9
+* :Mode S
+* :CP
+* :Date 19991101
+* :Time 0946330
+* <Natural Source Header /*<<RO>
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* œ–Œ÷≈ƒ”–¿ œ≈–≈—€À » ƒ¿ÕÕ€’ ¬ Ã¿——»¬ › –¿Õ¿
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE ARRY-PROC
+*
+  RESET FIELD-FF(*) FIELD-ISN(*) FIELD-UP(*)
+*
+  ASSIGN C-DATA = FIRST-EL(N-DATA)
+*
+  FOR C-LINE = 1 TO Q-LINE
+    IF C-DATA > MAX-EL(N-DATA) THEN ESCAPE BOTTOM END-IF
+    ASSIGN C-DATA-B = C-DATA
+    CALL 'RWSX' C-DATA-B INPUT-REC(C-LINE) RD-REC N-DATA-B
+    ADD 1 TO C-DATA
+  END-FOR
+*
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* œ–Œ÷≈ƒ”–¿ œ–Œ—ÃŒ“–¿ —“–Œ  › –¿Õ¿
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE SCAN-PROC
+*
+ASSIGN C-DATA = FIRST-EL(N-DATA)
+RESET C-DEL
+*
+FOR C-LINE = 1 TO Q-LINE /* œ–Œ—Ã¿“–»¬¿≈Ã —“–Œ » › –¿Õ¿
+*
+  ASSIGN C-DATA-B = C-DATA
+*
+  IF #FIELD-01(C-LINE) NE ' '                    /* —“–Œ ¿ Õ≈ ”ƒ¿À≈Õ¿
+*
+    CALL 'RWSX' C-DATA-B STEK-REC RD-REC N-DATA-B
+*
+    IF STEK-REC NE INPUT-REC(C-LINE) THEN         /* —“–Œ ¿ »«Ã≈Õ≈Õ¿
+      ASSIGN FIELD-FF(C-LINE) = H'01'             /* ¬«¬Œƒ»Ã ‘À¿√ »«Ã≈Õ≈Õ»ﬂ
+      CALL 'RWSX' C-DATA-B INPUT-REC(C-LINE) WR-REC N-DATA-B
+    END-IF
+*
+    IF C-DATA > MAX-EL(N-DATA) THEN ASSIGN MAX-EL(N-DATA) = C-DATA END-IF
+*
+  ELSE                                              /* —“–Œ ¿ ”ƒ¿À≈Õ¿
+    IF C-DATA > MAX-EL(N-DATA) THEN ESCAPE BOTTOM END-IF
+    CALL 'RWSX' C-DATA-B H'FF' WR-REC N-DATA-B H'00000001' H'00000001'
+    ADD 1 TO C-DEL
+    IF FIELD-ISN(C-LINE) NE 0 THEN
+      ADD 1 TO MAX-EL(N-DEL)
+      ASSIGN C-DEL-B = MAX-EL(N-DEL)
+      CALL 'RWSX' C-DEL-B FIELD-ISN(C-LINE) WR-REC N-DEL-B
+    END-IF
+  END-IF
+*
+  ADD 1 TO C-DATA
+*
+END-FOR
+*
+IF C-DEL NE 0 THEN
+  CALL 'PRSX' H'00000001' H'00000001' N-DATA-B
+  COMPUTE MAX-EL(N-DATA) = MAX-EL(N-DATA) - C-DEL
+END-IF
+*
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* œ–Œ÷≈ƒ”–¿ ƒ”¡À»–Œ¬¿Õ»ﬂ —“–Œ 
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE ADD-PROC
+  COMPUTE C-DATA = FIRST-EL(N-DATA) + C-CURS - 1
+  IF MAX-EL(N-DATA) >= C-DATA AND #FIELD-01(C-CURS) NE ' ' THEN
+    FOR C-DATA1 MAX-EL(N-DATA) TO C-DATA STEP -1
+      COMPUTE C-DATA2 = C-DATA1 + 1
+      ASSIGN C-DATA1-B = C-DATA1
+      ASSIGN C-DATA2-B = C-DATA2
+      CALL 'MVSX' C-DATA1-B C-DATA2-B N-DATA-B
+    END-FOR
+    RESET FIELD-ISN(C-CURS) FIELD-UP(C-CURS)
+    ASSIGN FIELD-FF(C-CURS) = H'01'
+    CALL 'RWSX' C-DATA1-B INPUT-REC(C-CURS) WR-REC N-DATA-B
+    ADD 1 TO MAX-EL(N-DATA)
+    ASSIGN P-CURS = 1
+  END-IF
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* œ–Œ÷≈ƒ”–¿ —Œ–“»–Œ¬ »
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE SORT-PROC
+*
+ASSIGN C-DATA1-B = P-STEK(P-CURS,1)
+ASSIGN C-DATA2-B = P-STEK(P-CURS,2)
+CALL 'SRTX' C-DATA1-B C-DATA2-B N-DATA-B
+*
+END-SUBROUTINE
+

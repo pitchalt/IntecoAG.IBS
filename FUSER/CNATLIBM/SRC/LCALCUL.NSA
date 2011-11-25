@@ -1,0 +1,15 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCALCUL
+**C               *:UID TIT_HOME
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 19990117
+**C               *:Time 0037330
+**C               *<Natural Source Header
+**DS          0000      1LCALCUL
+**DKVI1       0000P15.6 2VAR                             (1:20)
+**DKVI1       0000P15.6 2FUN                             (1:10)
+**DS I1       0000      2TURN                            (1:70)
+**DK          0000I   1 3TYPE
+**DK          0000I   1 3POINT
+**DK          0000P15.6 3DATA

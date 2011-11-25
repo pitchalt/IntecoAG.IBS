@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLNPL
+**C               *:UID IBS_3
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20001214
+**C               *:Time 1347330
+**C               *<Natural Source Header
+**DV          0000     V1IBS-KNP-FILE                    IBS-SYS-FILE
+**DD          0000N 5.0 2OG-ID
+**DD          0000N 5.0 2NP-ID
+**DD          0000A  80 2NM-NP
+**DD          0000A   2 2KK-F
+**DD          0000N 5.0 2KB-ID

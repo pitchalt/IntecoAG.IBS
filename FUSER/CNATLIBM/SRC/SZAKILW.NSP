@@ -1,0 +1,516 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SZAKILW
+* :UID NAT22605
+* :Mode S
+* :CP
+* :Date 20060829
+* :Time 1807330
+* <Natural Source Header /*<<RO>
+*
+*  ВЕДЕНИЕ АРХИВА ЗАКАЗОВ ИЛ
+*
+DEFINE DATA
+  LOCAL USING ZAKIL     /* VIEW НА ФАЙЛ ZAKAZ
+  LOCAL USING STEKL      /* ОБЩИЕ ПЕРЕМЕННЫЕ
+  LOCAL USING PRMHELP
+  LOCAL USING LCLRECL        /* VIEW HA ФAЙЛ IBS-REC-FILE
+  LOCAL USING LCLBSL
+  LOCAL USING CHREBCD
+  LOCAL USING CHR1251
+  LOCAL USING LCLFROL4
+  LOCAL
+  1 OG-IDENT-G(N5)  1 USR-G(A8)
+  1 X-RB-FILE VIEW OF X-RB-FILE
+    2 SH-F
+  1 LEN-ST(B4) CONST < 300 >
+  1 STEK
+    2 ZAK(A9)                /* ЗАКАЗ
+    2 REDEFINE ZAK
+      3 PUS(B1)
+    2 SBS(N5)
+    2 DT-OT(N8)              /* ДАТА ОТКРЫТИЯ ЗАКАЗА
+    2 DT-ZA(N8)              /* ДАТА ЗАКРЫТИЯ
+    2 NM-ZK(A250)             /* НАИМЕНОВ РАБОТ          11
+    2 REDEFINE NM-ZK
+      3 #NM-ZK(A50/5)
+    2 Z-SP(A1)
+    2 PRZ(A1)
+    2 SGZ(N5)
+    2 SSASRZ(A4)
+    2 REDEFINE SSASRZ
+      3 SASRZ(A1/4)
+    2 STISN(N7)
+    2 STFL(A1)
+    2 STBL(A1)
+  1 INPUT-REC(A100/1:9)
+  1 REDEFINE INPUT-REC
+    2 #INPUT-REC(9)
+      3 #ZK(A9)  3 #BS(N5)  3 #DT-OT(N8)  3 #DT-ZA(N8)  3 #NM(A50)
+      3 #Z(A1)  3 #PRZ(A1)  3 #GZ(N5)
+      3 IASRZ(A4)
+      3 REDEFINE IASRZ
+        4 ASRZ(A1/4)
+      3 IISN(N7)
+      3 IFL(A1)  3 IBL(A1)
+  1 IBS(N5)  1 IZK(A9)
+  1 IST(N1) INIT < 1 >
+  1 OPSYS(A3)  1 #SL(A1/7)
+  1 C-ZK(C/9)  1 C-ZKZ(C/9) 1 C-RW(C/9)   1 C-RWS(C/9,4)
+  1 RZK(A20)  1 I30(A30)
+  1 TTLWIN(A40)  1 X1(B4)  1 RPO(N5)
+  1 I70(A70)  1 ITY(N5)
+  1 IVI(N5)
+  1 REDEFINE IVI
+    2 #IVI(A5)
+  1 OPO(N5)  1 IVAD(A3)  1 IVAP(A3)  1 MSG(A50)  1 MNM(A30/30)
+  1 IDT1(N8)  1 IDT2(N8)  1 IDT3(N8)  1 IDT4(N8)  1 #RW(A1)  1 #POS(A1/9)
+  1 KEYSS(A10)
+  1 REDEFINE KEYSS
+    2 KEYSSOG(N5)
+    2 KEYSSSS(N5)
+  1 #R-NM(A250)
+  1 REDEFINE #R-NM
+    2 R-NM(A50/5)
+  1 RTE(N5)
+  1 REDEFINE RTE
+    2 #RTE(A5)
+  1 OIS(N5)
+  1 REDEFINE OIS
+    2 #OIS(A5)
+  1 ZKZ(N5)
+  1 TNDS(N5)
+  1 REDEFINE TNDS
+    2 #TNDS(A5)
+  1 TZKZ(N5) 1 TRAB(N5)
+  1 VIDD(N5)
+END-DEFINE
+*
+INPUT OG-IDENT-G USR-G #RW
+*
+DEFINE WINDOW DOPNM
+  SIZE 10*60
+  BASE 10/10
+  TITLE 'Наименование заказа'
+  CONTROL WINDOW
+  FRAMED ON
+*
+DEFINE WINDOW SRT
+  SIZE 10*60
+  BASE 10/10
+  TITLE 'Наименование заказа'
+  CONTROL WINDOW
+  FRAMED ON
+*
+SET KEY ALL
+*
+OPSYS := *OPSYS
+INCLUDE DEFOPSYS
+KEYSSOG := OG-IDENT-G
+CALL 'GTNX' XR
+XN1 := XR  XR := 0
+FIND NUMBER ZAK-IL BS-F >= 1
+#I := *NUMBER  ADD 1000 TO #I  XW := #I
+CALL 'GTSX' LEN-ST XW XN1
+CALL 'GTNX' XR
+XN2 := XR  XR := 0  CALL 'GTSX' H'00000007' XW XN2
+XW := 1
+REPEAT
+  INPUT USING MAP 'SZAKILM6'
+  IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+  IF *PF-KEY = 'PF11'
+    IF *CURS-FIELD = POS(IBS)
+      CALLNAT 'SELBS' OG-IDENT-G IBS
+    END-IF
+    IF *CURS-FIELD = POS(OPO)
+      CALLNAT 'SELPO' OG-IDENT-G OPO
+    END-IF
+    IF *CURS-FIELD = POS(IVI)
+      CALLNAT 'SNAVVF' IVI I70 'R'
+    END-IF
+    IF *CURS-FIELD = POS(IVAD)
+      CALLNAT 'SELVA' I70 OG-IDENT-G
+      IVAD := I70
+    END-IF
+    IF *CURS-FIELD = POS(IVAP)
+      CALLNAT 'SELVA' I70 OG-IDENT-G
+      IVAP := I70
+    END-IF
+    IF *CURS-FIELD = POS(ITY)
+      CALLNAT 'SNAVSM' ITY I70 'R'
+    END-IF
+    IF *CURS-FIELD = POS(RTE)
+      CALLNAT 'SNAVRT' RTE I70 'R'
+    END-IF
+    IF *CURS-FIELD = POS(OIS)
+      CALLNAT 'SNAVOI' OIS I70 'R'
+    END-IF
+    IF *CURS-FIELD = POS(ZKZ)
+      CALLNAT 'SELVON' OG-IDENT-G ZKZ I30
+    END-IF
+    IF *CURS-FIELD = POS(TNDS)
+      CALLNAT 'SNAVND' TNDS I70 'R'
+    END-IF
+    IF *CURS-FIELD = POS(TZKZ)
+      CALLNAT 'SNAVTZ' TZKZ I70 'R'
+    END-IF
+    IF *CURS-FIELD = POS(TRAB)
+      CALLNAT 'SNAVTR' TRAB I70 'R'
+    END-IF
+    IF *CURS-FIELD = POS(VIDD)
+      CALLNAT 'SNAVVD' VIDD I70 'R'
+    END-IF
+    ESCAPE TOP
+  END-IF
+  IF IDT2 = 0  IDT2 := IDT1  END-IF
+  IF IDT2 < IDT1  REINPUT 'Интервал' MARK *IDT1 ALARM  END-IF
+  IF IDT4 = 0  IDT4 := IDT3  END-IF
+  IF IDT4 < IDT3  REINPUT 'Интервал' MARK *IDT4 ALARM  END-IF
+  RESET IS1  CALL 'NULX' ' ' XN1
+  IF IZK = ' '
+    IF IBS = 0
+      READ ZAK-IL
+        ACCEPT IF IST = 0 OR ( ( IST = 1 AND ZK-F NE ' ' ) OR
+        ( IST = 2 AND ZZ-F NE ' ' ) )
+        INCLUDE SELDT
+        PERFORM ADD-ST
+      END-READ
+      ELSE
+      FIND ZAK-IL BS-F = IBS
+        ACCEPT IF IST = 0 OR ( ( IST = 1 AND ZK-F NE ' ' ) OR
+        ( IST = 2 AND ZZ-F NE ' ' ) )
+        INCLUDE SELDT
+        PERFORM ADD-ST
+      END-FIND
+    END-IF
+    ELSE
+    FIND ZAK-IL ZK-F = IZK OR ZZ-F = IZK
+      ACCEPT IF ( IST = 0 OR ( ( IST = 1 AND ZK-F NE ' ' ) OR
+      ( IST = 2 AND ZZ-F NE ' ' ) ) AND ( IBS = 0 OR = BS-F ) )
+      INCLUDE SELDT
+      PERFORM ADD-ST
+    END-FIND
+  END-IF
+  #N := 1
+  REPEAT
+    RESET #L
+    #K := #N + 8
+    FOR #I #N #K
+      ADD 1 TO #L
+      IF #I <= IS1  XI := #I  CALL 'RWSX' XI ZAK XR XN1
+        #ZK(#L) := ZAK  #BS(#L) := SBS  #DT-OT(#L) := STEK.DT-OT
+        #DT-ZA(#L) := STEK.DT-ZA  ASRZ(#L,*) := SASRZ(*)  IBL(#L) := STBL
+        #NM(#L) := NM-ZK  #Z(#L) := STEK.Z-SP  #GZ(#L) := SGZ
+        IF STBL NE 'X'
+RB1.      FIND NUMBER X-RB-FILE SH-F = ZAK
+          IF *NUMBER(RB1.) NE 0  IBL(#L) := 'X'
+            ELSE
+REC1.       FIND NUMBER IBS-REC-FILE ( ZK-F = ZAK OR ZK-OS = ZAK )
+*           AND KD-F = OG-IDENT-G
+            IF *NUMBER(REC1.) NE 0 IBL(#L) := 'X'  END-IF
+          END-IF
+        END-IF
+        IF IBL(#L) = 'X'  C-ZK(#L) := (AD=PD)
+          IF STEK.DT-ZA NE 0  C-ZKZ(#L) := (AD=PD)  END-IF
+          ELSE  RESET C-ZK(#L) C-ZKZ(#L)
+        END-IF
+        ELSE  RESET #ZK(#L) #BS(#L) #DT-OT(#L) #DT-ZA(#L) #Z(#L)
+        C-ZKZ(#L) #GZ(#L)
+        ASRZ(#L,*) #NM(#L) IISN(#L) IFL(#L) IBL(#L) C-ZK(#L)
+      END-IF
+    END-FOR
+    IF #RW = 'R'  C-ZK(*) := C-RW(*) := C-RWS(*,*) := (AD=PD)
+      SET KEY PF5=OFF
+    END-IF
+    INPUT USING MAP 'SZAKILM7'
+    IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+    IF *PF-KEY = 'PF11'
+      FOR #I 1 9
+        IF *CURS-FIELD = POS(#GZ(#I))
+          RPO := #GZ(#I)  CALLNAT 'SELGZ' OG-IDENT-G RPO
+          #L := #N + #I - 1
+          XI := #L  CALL 'RWSX' XI ZAK XR XN1
+          SGZ := RPO  STFL := 'X'
+          CALL 'RWSX' XI ZAK XW XN1
+          ESCAPE BOTTOM
+        END-IF
+        IF *CURS-FIELD = POS(#BS(#I))
+          RPO := #BS(#I)  CALLNAT 'SELBS' OG-IDENT-G RPO
+          #L := #N + #I - 1
+          XI := #L  CALL 'RWSX' XI ZAK XR XN1
+          SBS := RPO  STFL := 'X'
+          CALL 'RWSX' XI ZAK XW XN1
+          ESCAPE BOTTOM
+        END-IF
+      END-FOR
+      ESCAPE TOP
+    END-IF
+    IF *PF-KEY = 'PF5'
+      FOR #I 1 8
+        IF #ZK(#I) NE ' '   #J := #I + 1
+          IF #J <= 9
+            FOR #L #J 9
+              IF #ZK(#L) NE ' ' AND #ZK(#L) = #ZK(#I)
+                COMPRESS 'Дублирование кода' #ZK(#L) INTO MSG
+                REINPUT MSG ALARM
+              END-IF
+            END-FOR
+          END-IF
+          FOR #L 1 IS1
+            IF NOT ( #L = #N THRU #K )
+              XI := #L  CALL 'RWSX' XI ZAK XR XN1
+              IF #ZK(#I) = ZAK
+                COMPRESS 'Дублирование кода' #ZK(#I) INTO MSG
+                REINPUT MSG ALARM
+              END-IF
+            END-IF
+          END-FOR
+          IF IISN(#I) NE 0
+Z0.         FIND ZAK-IL ZK-F = #ZK(#I) OR ZZ-F = #ZK(#I)
+              IF IISN(#I) NE *ISN(Z0.)
+                COMPRESS 'Дублирование кода' #ZK(#I) INTO MSG
+                REINPUT MSG ALARM
+              END-IF
+            END-FIND
+          END-IF
+        END-IF
+      END-FOR
+    END-IF
+    #L := #N
+    FOR #I 1 9
+      XI := #L  CALL 'RWSX' XI ZAK XR XN1
+      IF #ZK(#I) NE ' '
+        IF #BS(#I) NE SBS OR #DT-OT(#I) NE STEK.DT-OT OR
+        #DT-ZA(#I) NE STEK.DT-ZA OR SSASRZ NE IASRZ(#I) OR
+        #NM(#I) NE NM-ZK OR #GZ(#I) NE SGZ OR
+        #ZK(#I) NE ZAK OR #Z(#I) NE STEK.Z-SP OR #L > IS1
+          IF #BS(#I) NE SBS OR #BS(#I) = 0
+            IF #BS(#I) = 0
+              REINPUT 'Счет' MARK *#BS(#I) ALARM
+            END-IF
+            KEYSSSS := #BS(#I)
+BS1.        FIND IBS-BS-FILE OG-SS = KEYSS
+*              IF FL-AN NE SYS-ZK
+*                REINPUT 'Этот счет незатратный' MARK *#BS(#I) ALARM
+*              END-IF
+            END-FIND
+            IF *NUMBER(BS1.) = 0
+              REINPUT 'Нет в плане счетов' MARK *#BS(#I) ALARM
+            END-IF
+          END-IF
+          IF #DT-OT(#I) NE 0 AND #DT-OT(#I) NE MASK(YYYYMMDD)
+            REINPUT 'Дата' MARK *#DT-OT(#I) ALARM
+          END-IF
+          IF #DT-ZA(#I) NE 0 AND #DT-ZA(#I) NE MASK(YYYYMMDD)
+            REINPUT 'Дата' MARK *#DT-ZA(#I) ALARM
+          END-IF
+          IF #NM(#I) = ' '
+            REINPUT 'Наименование' MARK *#NM(#I) ALARM
+          END-IF
+          ZAK := #ZK(#I)  SBS := #BS(#I)  STEK.DT-OT := #DT-OT(#I)
+          STEK.DT-ZA := #DT-ZA(#I)  #NM-ZK(1) := #NM(#I)  STEK.Z-SP := #Z(#I)
+          SGZ := #GZ(#I)  SASRZ(*) := ASRZ(#I,*)  STBL := IBL(#I)  STFL := 'X'
+        END-IF
+        ELSE  #L := #N + #I - 1  XI := #L  CALL 'RWSX' XI ZAK XR XN1
+        IF ZAK NE ' '
+RB.       FIND NUMBER X-RB-FILE SH-F = ZAK
+          IF *NUMBER(RB.) NE 0  #ZK(#I) := ZAK
+            REINPUT 'Удаление невозможно' MARK *#ZK(#I) ALARM
+          END-IF
+REC.      FIND NUMBER IBS-REC-FILE ( ZK-F = ZAK OR ZK-OS = ZAK )
+*         AND KD-F = OG-IDENT-G
+          IF *NUMBER(REC.) NE 0  #ZK(#I) := ZAK
+            REINPUT 'Удаление невозможно' MARK *#ZK(#I) ALARM
+          END-IF
+          IF STISN NE 0
+            XI := 1  CALL 'CMPXF' STISN XI H'00000007' XN2
+            IF XI = 0  ADD 1 TO IS2  XI := IS2
+              CALL 'RWSX' XI STISN XW XN2
+            END-IF
+          END-IF
+          PUS := H'FF'
+        END-IF
+      END-IF
+      XI := #L  CALL 'RWSX' XI ZAK XW XN1
+      ADD 1 TO #L
+    END-FOR
+    CALL 'PRSX' XW XW XN1
+    XI := 1  X1 := 9 CALL 'CMPX' '         ' XI X1 XN1
+    IS1 := XI  ADD -1 TO IS1
+    IF *PF-KEY = 'PF6'
+      FOR #I 1 9
+        IF #ZK(#I) NE ' ' AND
+        ( *CURS-FIELD = POS(#ZK(#I)) OR = POS(#NM(#I))
+        OR = POS(#Z(#I)) OR = POS(#BS(#I)) OR = POS(#GZ(#I)) )
+*       OR = POS(#DT-OT(#I)) OR = POS(#DT-ZA(#I)) OR = POS(ASRZ(#I)) )
+          #L := #N + #I - 1
+          IF #L <= IS1  XI := #L  CALL 'RWSX' XI ZAK XR XN1
+            PERFORM ZK-ST STISN
+            SET CONTROL 'K0'  ESCAPE BOTTOM
+          END-IF
+        END-IF
+      END-FOR
+    END-IF
+    IF *PF-KEY = 'PF4'
+      FOR #I 1 9
+        IF #ZK(#I) NE ' ' AND *CURS-FIELD = POS(#NM(#I))
+          SET WINDOW 'DOPNM'
+          #L := #N + #I - 1  XI := #L  CALL 'RWSX' XI ZAK XR XN1
+          #R-NM := NM-ZK  R-NM(1) := #NM(#I)
+          REPEAT
+            INPUT USING MAP 'SZAKIM0'
+            IF *PF-KEY = 'PF3' OR = 'PF5'  ESCAPE BOTTOM  END-IF
+          END-REPEAT
+          IF *PF-KEY = 'PF5'
+            NM-ZK := #R-NM  STFL := 'X'
+            CALL 'RWSX' XI ZAK XW XN1
+          END-IF
+          SET WINDOW OFF
+          SET CONTROL 'K0'
+          ESCAPE BOTTOM
+        END-IF
+      END-FOR
+    END-IF
+    IF *PF-KEY = 'PF2'
+      FOR #I 1 9
+        IF #ZK(#I) NE ' ' AND
+        ( *CURS-FIELD = POS(#ZK(#I)) OR = POS(#NM(#I))
+        OR = POS(#Z(#I)) OR = POS(#BS(#I)) OR = POS(#GZ(#I))
+        OR = POS(#POS(#I)) )
+*       OR = POS(#DT-OT(#I)) OR = POS(#DT-ZA(#I)) OR = POS(ASRZ(#I))
+          #L := #N + #I - 1  XI := #L  CALL 'RWSX' XI ZAK XR XN1
+          IF STISN NE 0
+Z4.         GET ZAK-IL STISN
+          END-IF
+          PERFORM ZAP-Z
+          IF STISN = 0
+            IF ZAK-IL.DT-OT = 0  ZAK-IL.DT-OT := *DATN  END-IF
+SZ.         STORE ZAK-IL
+            STISN := *ISN(SZ.)
+            #L := #N + #I - 1  XI := #L  CALL 'RWSX' XI ZAK XW XN1
+            ELSE
+            UPDATE(Z4.)
+          END-IF
+          END OF TRANSACTION
+        END-IF
+      END-FOR
+      PERFORM SZAKIL4 OG-IDENT-G USR-G STISN #RW
+    END-IF
+    IF *PF-KEY = 'PF1'
+      MNM(1) := 'ШИФР ЗАКАЗА'  MNM(2) := 'НОМЕР СЧЕТА'
+      MNM(3) := 'НАИМЕНОВАНИЕ ЗАКАЗА'  MNM(4) := 'ДАТА ОТКРЫТИЯ'
+      MNM(5) := 'ДАТА ЗАКРЫТИЯ'  MNM(6) := 'ПРИЗНАК ЗАКРЫТИЯ'
+      WRITE WORK 7 MNM(1) SYS-TAB MNM(2) SYS-TAB MNM(3) SYS-TAB
+      MNM(4) SYS-TAB MNM(5) SYS-TAB MNM(6)
+      FOR #I 1 IS1  XI := #I  CALL 'RWSX' XI ZAK XR XN1
+        MNM(1) := ZAK  MNM(2) := SBS  MNM(3) := NM-ZK
+        MNM(4) := STEK.DT-OT  MNM(5) := STEK.DT-ZA  MNM(6) := PRZ
+        WRITE WORK 7 MNM(1) SYS-TAB MNM(2) SYS-TAB MNM(3) SYS-TAB
+        MNM(4) SYS-TAB MNM(5) SYS-TAB MNM(6)
+      END-FOR
+      ESCAPE BOTTOM
+    END-IF
+    IF *PF-KEY = 'PF5'  ESCAPE BOTTOM  END-IF
+    IF *PF-KEY = 'PF7' AND #N > 9  #N := #N - 9  END-IF
+    IF *PF-KEY = 'PF8' AND #K <= IS1  ADD 9 TO #N END-IF
+    IF *PF-KEY = 'PF9'  #N := 1  END-IF
+    IF *PF-KEY = 'PF10'  #N := IS1 - 8
+      IF #N < 1  #N := 1  END-IF
+    END-IF
+    IF *PF-KEY = 'PF12'  RESET X1 #SL(*) #L
+      SET WINDOW 'SRT'
+      REPEAT
+        INPUT USING MAP 'SZAKIM9'
+        IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+        RESET #J #L
+        FOR #I 1 7
+          IF #SL(#I) NE ' '  ADD 1 TO #J  #L := #I  END-IF
+        END-FOR
+        IF #J = 0  REINPUT 'Ничего не выбрано'  END-IF
+        IF #J > 1  REINPUT 'Выберите что-то одно'  END-IF
+        ESCAPE BOTTOM
+      END-REPEAT
+      SET WINDOW OFF
+      IF #L = 1  X1 := 1  XI := 9  END-IF
+      IF #L = 2  X1 := 10  XI := 5  END-IF
+      IF #L = 5  X1 := 15  XI := 8  END-IF
+      IF #L = 6  X1 := 23  XI := 8  END-IF
+      IF #L = 4  X1 := 43  XI := 50  END-IF
+      IF #L = 7  X1 := 31  XI := 1   END-IF
+      IF #L = 3  X1 := 33  XI := 1  END-IF
+      IF X1 NE 0  CALL 'SRTX' X1 XI XN1  END-IF
+      #N := 1   #K := IS1
+      IF IS1 > 9 THEN #K := 9  END-IF
+    END-IF
+  END-REPEAT
+  IF *PF-KEY = 'PF5'
+    IF IS2 > 0
+      FOR #I 1 IS2  XI := #I  CALL 'RWSX' XI STISN XR XN2
+Z2.     GET ZAK-IL STISN
+        DELETE(Z2.)
+        END OF TRANSACTION
+      END-FOR
+    END-IF
+    IF IS1 > 0
+      FOR #I 1 IS1  XI := #I  CALL 'RWSX' XI ZAK XR XN1
+        IF STFL = 'X'
+          IF STISN NE 0
+*           IF ZAK-IL.DT-OT = 0  ZAK-IL.DT-OT := *DATN  END-IF
+Z3.         GET ZAK-IL STISN
+          END-IF
+          PERFORM ZAP-Z
+          IF STISN NE 0
+            UPDATE(Z3.)
+            ELSE
+            IF ZAK-IL.DT-OT = 0  ZAK-IL.DT-OT := *DATN  END-IF
+            STORE ZAK-IL
+          END-IF
+          END OF TRANSACTION
+        END-IF
+      END-FOR
+    END-IF
+  END-IF
+END-REPEAT
+*
+DEFINE SUBROUTINE CMPR
+  FOR #L 2 50
+    #M := #L - 1
+    ZAK-IL.ST-USR(#M) := ZAK-IL.ST-USR(#L)
+    ZAK-IL.ST-DT(#M) := ZAK-IL.ST-DT(#L)
+    ZAK-IL.ST-TM(#M) := ZAK-IL.ST-TM(#L)
+  END-FOR
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE ADD-ST
+  ADD 1 TO IS1  XI := IS1
+  IF ZAK-IL.ZK-F NE ' '  ZAK := ZAK-IL.ZK-F  PRZ := ' '
+    ELSE  ZAK := ZZ-F  ZAK-IL.DT-ZA := ZAK-IL.DT-ZA  PRZ := 'X'
+  END-IF
+  SBS := BS-F  STEK.DT-OT := ZAK-IL.DT-OT
+  STEK.Z-SP := ZAK-IL.Z-SP  SGZ := GZ-F
+  STEK.DT-ZA := ZAK-IL.DT-ZA  SSASRZ := FD-F
+  NM-ZK := NM-F  RESET STFL
+  CALL 'RWSX' XI ZAK XW XN1
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE ZAP-Z
+  ZAK-IL.DT-OT := STEK.DT-OT  ZAK-IL.DT-ZA := STEK.DT-ZA
+  LH-F := ZAK-IL.NM-F := STEK.NM-ZK  ZAK-IL.FD-F := SSASRZ
+  IF STEK.Z-SP NE ' '  ZAK-IL.Z-SP := 'X'  ZAK-IL.FD-F := ' '
+    ELSE  RESET ZAK-IL.Z-SP
+  END-IF
+  ZAK-IL.BS-F := STEK.SBS  ZAK-IL.GZ-F := STEK.SGZ
+  ZAK-IL.ZK-F := ZAK
+  IF ( STEK.DT-ZA NE 0 OR PRZ NE ' ' ) AND ZAK NE ' '
+    ZZ-F := ZAK  RESET ZAK-IL.ZK-F
+  END-IF
+  IF STEK.DT-ZA = 0
+    ZAK-IL.ZK-F := ZAK  RESET ZZ-F
+  END-IF
+  #J := C*STATISTIC  ADD 1 TO #J
+  IF #J > 50  PERFORM CMPR  END-IF
+  ST-USR(#J) := USR-G  ST-DT(#J) := *DATN  ST-TM(#J) := *TIMN
+END-SUBROUTINE
+*
+CALL 'FRSX' XN1  CALL 'FRSX' XN2
+*
+END

@@ -1,0 +1,68 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVREM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080101
+* :Time 1647330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #KD #NAME FUN-NM-G REG-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 #KD (N05.0)
+1 #NAME (A050)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+END-DEFINE
+SET KEY TREQ (PB=017/019/002/010) NAMED 'Продолж.'
+/* 000 000 000 000
+SET KEY PF3 (PB=017/048/002/010) NAMED 'Выход'
+/* 000 000 000 000
+FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)к&:+(                       *
+* 024080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT' ' ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT' ' DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT' ' ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT' ' ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT' ' DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT' ' ) /*.01S008 A008 .
+/
+/
+/
+/
+/
+ 020T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+ 016T '--------------------------------------------------'
+/
+/
+/
+ 016T 'Группа'
+ 023T '.....................................'
+ 061T #KD  (AD=ILMFHT'_' ) /*.99U005 N05.0.
+/
+/
+ 016T 'Наименование'
+/
+ 016T #NAME  (AD=IMT'_' ) /*.99U050 A050 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,15 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName READ-RBP
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20071220
+* :Time 0111330
+* <Natural Source Header /*<<RO>
+DEFINE DATA LOCAL USING AURBXX0L
+END-DEFINE
+
+READ AU_RBP
+  WRITE RB-CODE
+END-READ
+END

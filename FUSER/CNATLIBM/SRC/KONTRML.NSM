@@ -1,0 +1,51 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName KONTRML
+* :UID IBS_3
+* :Mode S
+* :CP
+* :Date 20001201
+* :Time 1342330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     LINEST
+DEFINE DATA PARAMETER
+1 LINEST (A030)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 004T LINEST  (AD=DLMFHT' ' ) /*.99U030 A030 .
+/
+/
+ 002T '-¬¬Œƒ---œ‘2---œ‘3---œ‘4---œ‘5---œ‘6'
+/
+ 003T 'œÓ‰.'
+ 016T '¬˚ı'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

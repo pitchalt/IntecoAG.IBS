@@ -1,0 +1,52 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVSTM10
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080102
+* :Time 1312330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     C-RW LOCALSET.FILL LOCALSET.MAXLEV LOCALSET.NULL LOCALSET.POINT
+DEFINE DATA PARAMETER
+1  C-RW (C)
+1 LOCALSET.FILL (A001)
+1 LOCALSET.MAXLEV (N02.0)
+1 LOCALSET.NULL (A001)
+1 LOCALSET.POINT (A001)
+END-DEFINE
+SET KEY TREQ (PB=009/002/002/010) NAMED 'Продолж.'
+/* 000 000 000 000
+SET KEY PF3 (PB=009/015/002/010) NAMED 'Выход'
+/* 000 000 000 000
+SET KEY PF5 (PB=009/028/002/010) NAMED 'Запись'
+/* 000 000 000 000
+FORMAT PS=011 LS=044 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 011043        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 003T 'Разделитель уровней статей ....... :'
+ 040T LOCALSET.POINT  (AD=YLMFHW'_' CV=C-RW ) /*.99D001 A001 .
+/
+/
+ 003T 'Допустимы пустые уровни .......... :'
+ 040T LOCALSET.NULL  (AD=YLMFHW'_' CV=C-RW ) /*.99U001 A001 .
+/
+/
+ 003T 'Символ, заполн ющий пустой уровень :'
+ 040T LOCALSET.FILL  (AD=YLMFHW'_' CV=C-RW ) /*.99D001 A001 .
+/
+/
+ 003T 'Максимальное количество уровней .. :'
+ 040T LOCALSET.MAXLEV  (AD=YRMFHT'_' CV=C-RW ZP=ON ) /*.99D002 N02.0.
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,20 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName SU-RECL
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20110908
+**C               *:Time 0856490
+**C               *<Natural Source Header
+**DV          0        V1SU-REC-FILE                     SU-REC-FILE
+**DD          0   N 5.0 2KD-F
+**DD          0   N 6.0 2GM-F
+**DD          0   A   1 2BO-F
+**DD          0   N 3.0 2OS-F
+**DD          0   N 3.0 2KS-F
+**DD          0   N13.2 2SU-F
+**DD          0   A  40 2NM-F
+**DD          0   N 8.0 2DV-F
+**DD          0   A   5 2PR-ID
+**DD          0   A  10 2SY-F
+**DD          0   N   5 2NN-ID

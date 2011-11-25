@@ -1,0 +1,33 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName GETNMST
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050220
+* :Time 1415330
+* <Natural Source Header /*<<RO>
+*********************************************************************
+*                                                                   *
+* ¬≈ƒ≈Õ»≈  Œƒ»‘» ¿“Œ–¿ √–”œœ «¿ ¿«Œ¬                                *
+*                                                                   *
+*********************************************************************
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)  1 #VO(N5)  1 #NM(A50)
+  LOCAL  USING ASRZ-SYS
+  LOCAL  USING STEKL
+  LOCAL  USING GLL
+  LOCAL
+  1 #NB(A80)
+  1 REDEFINE #NB
+    2 NKD(N2)  2 NNM(A30)
+END-DEFINE
+*
+RESET #NM
+FIND ASRZ-SYS-FILE KK-F = 'Z0'
+  FOR #I 1 C*NB-F
+    #NB := NB-F(#I)
+    IF #VO = NKD  #NM := NNM  ESCAPE BOTTOM  END-IF
+  END-FOR
+END-FIND
+END

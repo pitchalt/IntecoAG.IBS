@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCUFRO51
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20000609
+* :Time 1256330
+* <Natural Source Header /*<<RO>
+    IF *PF-KEY = 'PF3'
+      CALL 'FRSX' N-DATA-B CALL 'FRSX' N-DEL-B
+      RESET MAX-EL(N-DATA) MAX-EL(N-DEL) COU-EL(N-DATA)
+      ESCAPE BOTTOM
+    END-IF
+

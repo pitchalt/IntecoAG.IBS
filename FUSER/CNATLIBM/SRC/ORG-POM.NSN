@@ -1,0 +1,27 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName ORG-POM
+* :UID ADMIN
+* :Mode R
+* :CP
+* :Date 20101001
+* :Time 1548000
+* <Natural Source Header /*<<RO>
+* SERVER
+* Состав организации
+*
+DEFINE DATA PARAMETER
+01 #ORG(N4)
+01 #POORG(P5/1:2000)
+01 #KPO(N4)
+END-DEFINE
+*
+RESET #POORG(*) #KPO
+*
+FIND ASRZ-SYS-FILE KK-F = 'ГП' AND KD-F = #ORG
+OBTAIN NB-F(A5/1:191)
+FOR I 1 C*NB-F
+ADD 1 TO #KPO #POORG(#KPO) = VAL(NB-F(1.I))
+LOOP
+LOOP
+*
+END

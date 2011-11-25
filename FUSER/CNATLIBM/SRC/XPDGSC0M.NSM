@@ -1,0 +1,41 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPDGSC0M
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20080229
+* :Time 0009330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     XPDGSC0L.DG-CODE XPDGSC0L.DG-NUMBER-DOG
+DEFINE DATA PARAMETER
+1 XPDGSC0L.DG-CODE (N05.0)
+1 XPDGSC0L.DG-NUMBER-DOG (A020)
+END-DEFINE
+FORMAT PS=013 LS=076 ZP=OFF SG=OFF KD=ON  IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 015075        N0NNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+/
+ 003T 'Код договора'(I)
+ 019T XPDGSC0L.DG-CODE  (AD=DLMFHT' ' ) /*.99U005 N05.0.
+/
+/
+ 003T 'Номер договора'(I)
+ 019T XPDGSC0L.DG-NUMBER-DOG  (AD=DLMFHT' ' ) /*.99U020 A020 .
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,22 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName GETOGNM
+* :UID CNATLIBM
+* :Mode S
+* :CP
+* :Date 20070115
+* :Time 1220330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)  1 #NM(A50)
+  LOCAL USING LCLNAOL
+  LOCAL
+  1 KOG(A10)
+  1 REDEFINE KOG
+    2 KOG1(N5/2)
+END-DEFINE
+KOG1(*) := #OG
+FIND IBS-NAOR-FILE OG-KD = KOG
+  #NM := NM-OG
+END-FIND
+END

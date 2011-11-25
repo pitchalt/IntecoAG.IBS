@@ -1,0 +1,28 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName GETNMBS
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20100609
+* :Time 1251550
+* <Natural Source Header /*<<RO>
+* Õ¿»Ã≈ÕŒ¬¿Õ»≈ —◊≈“¿
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)
+  1 #PO(N5)
+  1 #NM(A50)
+  LOCAL USING LCLBSL
+  LOCAL
+  1 KEYPO(A8)
+  1 REDEFINE KEYPO
+    2 KEYPOOG(N5)
+    2 KEYPOPO(N3)
+END-DEFINE
+*
+RESET #NM
+KEYPOOG := #OG  KEYPOPO := #PO
+FIND IBS-BS-FILE OG-BS = KEYPO WHERE SS-ID = 0
+  #NM := NM-BS
+END-FIND
+END

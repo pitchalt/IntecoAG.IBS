@@ -1,0 +1,51 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPUSM03
+* :UID NIMI3
+* :Mode S
+* :CP
+* :Date 20001204
+* :Time 1252330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     NAME-UD
+DEFINE DATA PARAMETER
+1 NAME-UD (A028)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 004T 'Вы действительно хотите'
+/
+ 006T 'УДАЛИТЬ кодификатор'
+/
+ 002T NAME-UD  (AD=ILOFHT ) /*.01U028 A028 .
+/
+ 004T 'Ввод - ДА   ПФ3 - НЕТ'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

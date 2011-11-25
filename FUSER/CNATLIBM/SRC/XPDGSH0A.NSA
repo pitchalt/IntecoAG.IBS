@@ -1,0 +1,44 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPDGSH0A
+**C               *:UID KOVALCHU
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20080319
+**C               *:Time 1130330
+**C               *<Natural Source Header
+**DS          0         1XPDGSH0A
+**DK          0   N 5.0 2DG-CODE
+**DK          0   A 100 2DG-TITLE
+**DK          0   A   5 2DG-CODE-CONTRAGENT
+**DK          0   N 5.0 2DG-CONTRAGENT
+**DK          0   A   5 2DG-CODE-ROLY-LICA-SACLUCH
+**DK          0   N 5.0 2DG-ROLY-LICA-SACLUCH
+**DK          0   A   5 2DG-CODE-ROLY-LICA-KOT-SACLUCH
+**DK          0   N 5.0 2DG-ROLY-LICA-KOT-SACLUCH
+**DK          0   D     2DG-DATA
+**DK          0   D     2DG-DATA-NACH
+**DK          0   D     2DG-DATA-OKONCH
+**DK          0   A  20 2DG-NUMBER-DOG
+**DK          0   A   5 2DG-CODE-LICO-ZAKLUCH
+**DK          0   N 5.0 2DG-LICO-ZAKLUCH
+**DK          0   A   5 2DG-CODE-VALUTA
+**DK          0   N 5.0 2DG-VALUTA
+**DK          0   A   5 2DG-CODE-NDS
+**DK          0   N 5.0 2DG-NDS
+**DK          0   L     2DG-LONG-CIKLE
+**DK          0   A   5 2DG-CODE-NAZNACH-POST
+**DK          0   N 5.0 2DG-NAZNACH-POST
+**DK          0   A   5 2DG-CODE-OBESPECH
+**DK          0   N 5.0 2DG-OBESPECH
+**DK          0   A   5 2DG-CODE-TYPE-PROD
+**DK          0   N 5.0 2DG-TYPE-PROD
+**DK          0   A   5 2DG-CODE-PRODUKT-PROG
+**DK          0   N 5.0 2DG-PRODUKT-PROG
+**DK          0   A   5 2DG-CODE-VALUTA-SBYT-DOG
+**DK          0   N 5.0 2DG-VALUTA-SBYT-DOG
+**DK          0   P13.2 2DG-SUMMA-SBYT-DOG
+**DK          0   P13.2 2DG-SUMMA-DOG
+**DK          0   A   5 2DG-CODE-STATUS-DOG
+**DK          0   N 5.0 2DG-STATUS-DOG
+**DK          0   D     2DG-DATA-USTANOVKI
+**DK          0   A  20 2DG-OSNOVN-DOCOVOR

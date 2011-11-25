@@ -1,0 +1,12 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TPDOCC
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20060122
+* :Time 1344330
+* <Natural Source Header /*<<RO>
+FIND IBS-KK-FILE KK-F = 'KD'
+  #I := *COUNTER
+  TYPES-DOC(#I) := NA-KD  NM-DOC(#I) := NA-NM  NM-DOC-SH(#I) := NA-SH
+END-FIND

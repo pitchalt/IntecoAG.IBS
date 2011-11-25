@@ -1,0 +1,31 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLSELL
+**C               *:UID IEN
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20010814
+**C               *:Time 1617330
+**C               *<Natural Source Header
+**DF          0000N   5 1SEL-OB
+**DF          0000C     1C-SEL-OB
+**DF          0000C     1C-SEL-ST
+**DF          0000C     1C-SEL-ZK
+**DF          0000C     1C-SEL-PO
+**DF          0000C     1C-SEL-NM
+**DF          0000C     1C-SEL-GP
+**DF          0000C     1C-SEL-DI
+**DF          0000A  20 1SEL-ST
+**DF          0000A   9 1SEL-ZK
+**DF          0000N   6 1SEL-PO
+**DF          0000N   5 1SEL-GP
+**DF          0000A  30 1SEL-NM
+**DF          0000A  20 1SEL-DI
+**DF I1       0000A   2 1REGIM                           (1:5)
+**DF          0000A  79 1NMOT
+**DF I1       0000N   1 1FLGI                            (1:15)
+**DF I1       0000N   1 1FLGO                            (1:15)
+**DF I1       0000I   4 1SEL-ST-AR                       (1:10)
+**DF          0000A  11 1KEYPO
+**DR          0000     R1KEYPO                           /* BEGIN REDEFINE: KEYPO
+**DFR         0000N   5 2KEYPOOG
+**DFR         0000N   6 2KEYPOPO

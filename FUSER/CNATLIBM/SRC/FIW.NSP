@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName FIW
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20050513
+* :Time 1601330
+* <Natural Source Header /*<<RO>
+CALL 'CMS' 'READ FILE CMWKF01 A ( REP '
+END

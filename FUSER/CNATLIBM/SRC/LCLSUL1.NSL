@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLSUL1
+**C               *:UID IBS_9
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 19991101
+**C               *:Time 0946330
+**C               *<Natural Source Header
+**DF          0000A  51 1STEK-SS
+**DR          0000     R1STEK-SS                         /* BEGIN REDEFINE: STEK-SS
+**DFR         0000N   5 2STEK-SS-SS
+**DFR         0000A  46 2STEK-BS
+**DR          0000     R2STEK-BS                         /* BEGIN REDEFINE: STEK-BS
+**DFR         0000N   3 3STEK-BS-BS
+**DFR         0000A   2 3STEK-BS-AP
+**DFR         0000A  40 3STEK-BS-NM
+**DFR         0000A   1 3STEK-BS-SL

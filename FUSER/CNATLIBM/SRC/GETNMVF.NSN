@@ -1,0 +1,28 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName GETNMVF
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050222
+* :Time 0950330
+* <Natural Source Header /*<<RO>
+* Õ¿»Ã≈ÕŒ¬¿Õ»≈ ‘»Õ¿Õ—»–Œ¬¿Õ»ﬂ
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)
+  1 #VO(N5)
+  1 #KK(A2)
+  1 #NM(A50)
+  LOCAL USING LCLKKL
+  LOCAL
+  1 RNM(A250)
+  1 REDEFINE RNM
+    2 RNM5(A35)  2 RNM45(A45)
+END-DEFINE
+*
+RESET #NM
+FIND IBS-KK-FILE OG-ID = #OG AND KK-F = #KK AND KD-F = #VO
+  RNM := #NM := NA-F
+  IF #KK = 'Z2' OR = 'Z4'  #NM := RNM45  END-IF
+END-FIND
+END

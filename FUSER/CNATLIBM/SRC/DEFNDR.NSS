@@ -1,0 +1,55 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFNDR
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20081230
+* :Time 1133330
+* <Natural Source Header /*<<RO>
+* цемепюрнп мнлепнб днйслемрнб
+DEFINE DATA
+  PARAMETER
+  1 STY(A3)
+  1 SDT(N6)
+  1 REDEFINE SDT
+    2 SGG(N4)
+  1 REDEFINE SDT
+    2 GG2(N2)  2 SGM(N4)
+  1 SND(A20)
+  1 REDEFINE SND
+    2 SNDDT(N4)  2 SNUM(N5)
+  LOCAL USING LCLKKL
+  LOCAL
+  1 #TY(A2)  1 START-ND(N10)
+END-DEFINE
+*
+DEFINE SUBROUTINE DEFNDR
+*
+SET KEY PF3 PF4 PF5 PF6
+RESET SND
+DECIDE FOR FIRST CONDITION
+  WHEN STY = 'пйн'  #TY := 'R1'
+  WHEN STY = 'ойн'  #TY := 'P1'
+  WHEN STY = 'явт'  #TY := 'S1'
+  WHEN STY = 'ятб'  #TY := 'S2'
+  WHEN STY = 'ятю'  #TY := 'S3'
+  WHEN NONE  IGNORE
+END-DECIDE
+IF #TY NE ' '
+  FIND IBS-KK-FILE OG-ID = 1000 AND KK-F = #TY
+  AND KD-F = SGG AND GM-F = SDT
+  IF NO  START-ND := 1
+    OG-ID := 1000  KK-F := #TY  KD-F := SGG
+    NREC43 := START-ND GM-F := SDT
+  END-NOREC
+    IF *NUMBER = 0  STORE IBS-KK-FILE
+      ELSE  ADD 1 TO NREC43
+      UPDATE
+    END-IF
+    SNUM := NREC43  SNDDT := SGM
+    END OF TRANSACTION
+  END-FIND
+  SET CONTROL 'K0'
+END-IF
+END-SUBROUTINE
+END

@@ -1,0 +1,16 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCINITER
+* :UID NAT226
+* :Mode S
+* :CP
+* :Date 19990201
+* :Time 1302330
+* <Natural Source Header /*<<RO>
+MOVE NAME_OF_MODULE TO *COM
+NAME_OF_MODULE := *PROGRAM
+DEFINE WINDOW ERROR_WINDOW
+              SIZE 8*50
+              BASE 8/16
+              TITLE ' Error | '
+              CONTROL WINDOW
+              FRAMED ON

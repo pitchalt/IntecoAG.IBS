@@ -1,0 +1,58 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFPRBM1
+* :UID NAT315
+* :Mode S
+* :CP
+* :Date 20060725
+* :Time 1407330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     #CV(*) NMPH(*) NUM(*)
+DEFINE DATA PARAMETER
+1  #CV (C/00001:00004)
+1 NMPH (A024/00001:00004)
+1 NUM (N01.0/00001:00004)
+END-DEFINE
+FORMAT PS=012 LS=033 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 012032        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 003T 'Р е ж и м'
+ 015T 'п е ч а т и'
+ 028T 'N'
+/
+ 003T '--------------------------'
+/
+ 003T NMPH (001)  (AD=YZOFHW CV=#CV(001) ) /*.01U024 A024 .
+   /**A1000040000100001000010000100001100004001001000001000HV
+ 028T NUM (001)  (AD=YRMFHT'_' CV=#CV(001) ) /*.99U001 N01.0.
+   /**A1000040000100001000010000100001100004001001000001000HV
+/
+ 003T NMPH (002)  (AD=YZOFHW CV=#CV(002) ) /*.01U024 A024 .
+ 028T NUM (002)  (AD=YRMFHT'_' CV=#CV(002) ) /*.99U001 N01.0.
+/
+ 003T NMPH (003)  (AD=YZOFHW CV=#CV(003) ) /*.01U024 A024 .
+ 028T NUM (003)  (AD=YRMFHT'_' CV=#CV(003) ) /*.99U001 N01.0.
+/
+ 003T NMPH (004)  (AD=YZOFHW CV=#CV(004) ) /*.01U024 A024 .
+ 028T NUM (004)  (AD=YRMFHT'_' CV=#CV(004) ) /*.99U001 N01.0.
+/
+/
+/
+ 005T 'отметьте курсором'
+ 023T 'N'(I)
+ 025T 'и'
+/
+ 005T 'нажмите'
+ 014T 'Ввод(ENTER)'(I)
+/
+ 010T 'Пф3-'
+ 015T 'Вых'(I)
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

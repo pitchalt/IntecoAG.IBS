@@ -1,0 +1,77 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName KONTRMS
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20110518
+* :Time 0722000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     INP-REC.KD(*) INP-REC.NMKD(*) KD-C(*) NMKK(*)
+DEFINE DATA PARAMETER
+1 INP-REC.KD (N06.0/00001:00005)
+1 INP-REC.NMKD (A019/00001:00005)
+1 KD-C (C/00001:00005)
+1 NMKK (A015/00001:00005)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Классификатор'
+ 019T 'Код'
+ 027T 'Наименование'
+/
+ 002T '--------------------------------------------'
+/
+ 002T NMKK (001)  (AD=DLOFHT ) /*.01U015 A015 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+ 019T INP-REC.KD (001)  (AD=YRMFHT' ' CV=KD-C(001) ) /*.99U006 N06.0.
+   /**A1000050000100001000010000100001100005001001000001000HV
+ 027T INP-REC.NMKD (001)  (AD=DLOFHT ) /*.01U019 A019 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+/
+ 002T NMKK (002)  (AD=DLOFHT ) /*.01U015 A015 .
+ 019T INP-REC.KD (002)  (AD=YRMFHT' ' CV=KD-C(002) ) /*.99U006 N06.0.
+ 027T INP-REC.NMKD (002)  (AD=DLOFHT ) /*.01U019 A019 .
+/
+ 002T NMKK (003)  (AD=DLOFHT ) /*.01U015 A015 .
+ 019T INP-REC.KD (003)  (AD=YRMFHT' ' CV=KD-C(003) ) /*.99U006 N06.0.
+ 027T INP-REC.NMKD (003)  (AD=DLOFHT ) /*.01U019 A019 .
+/
+ 002T NMKK (004)  (AD=DLOFHT ) /*.01U015 A015 .
+ 019T INP-REC.KD (004)  (AD=YRMFHT' ' CV=KD-C(004) ) /*.99U006 N06.0.
+ 027T INP-REC.NMKD (004)  (AD=DLOFHT ) /*.01U019 A019 .
+/
+ 002T NMKK (005)  (AD=DLOFHT ) /*.01U015 A015 .
+ 019T INP-REC.KD (005)  (AD=YRMFHT' ' CV=KD-C(005) ) /*.99U006 N06.0.
+ 027T INP-REC.NMKD (005)  (AD=DLOFHT ) /*.01U019 A019 .
+/
+ 002T '-ВВОД---ПФ1---ПФ3---ПФ4---ПФ5---ПФ6---ПФ11---'
+/
+ 002T 'Прод.'
+ 015T 'Вых'
+ 021T 'Новый'
+ 038T 'Выбор'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

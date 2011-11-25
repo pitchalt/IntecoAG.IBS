@@ -1,0 +1,32 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName FRE
+* :UID NAT22602
+* :Mode S
+* :CP
+* :Date 20050601
+* :Time 1350330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL
+  1 STR(A132)  1 FLG(N1)  1 #I(N7)
+END-DEFINE
+*
+FETCH RETURN 'FIW'
+REPEAT
+  RESET #I
+  READ WORK 1 STR
+    ADD 1 TO #I
+    IF STR = SCAN 'Ready;'  FLG := 1  ESCAPE BOTTOM  END-IF
+  END-WORK
+*
+  IF #I = 0  ESCAPE BOTTOM  END-IF
+  IF FLG = 1  RESET FLG
+    CLOSE WORK 1
+    FETCH RETURN 'FIW'
+    ESCAPE TOP
+    ELSE  ESCAPE BOTTOM
+  END-IF
+*
+END-REPEAT
+CLOSE WORK 1
+END

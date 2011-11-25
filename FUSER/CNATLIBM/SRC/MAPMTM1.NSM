@@ -1,0 +1,67 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPMTM1
+* :UID NIMI1
+* :Mode S
+* :CP
+* :Date 20000712
+* :Time 1338330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     SEARCH.SEARCH-01 SEARCH.SEARCH-02 SEARCH.SEARCH-05 SEARCH.SEARCH-07
+*     SEARCH.SEARCH-09 SEARCH.SEARCH-10
+DEFINE DATA PARAMETER
+1 SEARCH.SEARCH-01 (A022)
+1 SEARCH.SEARCH-02 (A050)
+1 SEARCH.SEARCH-05 (N05.0)
+1 SEARCH.SEARCH-07 (N05.0)
+1 SEARCH.SEARCH-09 (A030)
+1 SEARCH.SEARCH-10 (N05.0)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T 'Øèôp ìaòepèaëa .........:'
+ 030T SEARCH.SEARCH-01  (AD=DLMFHT'_' ) /*.99D022 A022 .
+/
+ 001T 'Haèìeíoâaíèe'
+/
+ 002T SEARCH.SEARCH-02  (AD=DLMFHT'_' ) /*.99D050 A050 .
+/
+ 001T 'Ãpyïïa :'
+ 010T SEARCH.SEARCH-05  (AD=DRMFHT'_' ) /*.99D005 N05.0.
+ 020T 'C÷eò :'
+ 027T SEARCH.SEARCH-07  (AD=DRMFHT'_' ) /*.99D005 N05.0.
+ 038T 'Cêëaä :'
+ 047T SEARCH.SEARCH-10  (AD=DRMFHT'_' ) /*.99D005 N05.0.
+/
+ 001T 'Ïoäïècü èçìeíèâøeão:'
+ 022T SEARCH.SEARCH-09  (AD=DLMFHT'_' ) /*.99D030 A030 .
+/
+/
+ 001T '-BBOÄ---ÏÔ2---ÏÔ3---ÏÔ4---ÏÔ5---ÏÔ6---ÏÔ7---ÏÔ8---ÏÔ9'
+/
+ 002T 'Îòáîð'
+ 015T 'Bûx'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

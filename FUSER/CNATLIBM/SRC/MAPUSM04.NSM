@@ -1,0 +1,31 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPUSM04
+* :UID NIMI3
+* :Mode S
+* :CP
+* :Date 20010412
+* :Time 1547330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     OTBORSCR.NAME
+DEFINE DATA PARAMETER
+1 OTBORSCR.NAME (A050)
+END-DEFINE
+FORMAT PS=006 LS=054 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 006053        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Наименование :'
+/
+ 002T OTBORSCR.NAME  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

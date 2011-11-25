@@ -1,0 +1,33 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPUNSH1L
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20110907
+**C               *:Time 1629000
+**C               *<Natural Source Header
+**DS          0         1XPUNSH1L
+**DK          0   N   6 2UN-CODE
+**DK          0   A  15 2UN-NUM
+**DK          0   A 250 2UN-NAME
+**DR          0        R2UN-NAME                         /* BEGIN REDEFINE: UN-NAME
+**DFR         0   A  50 3UN-NAME1
+**DFR         0   A  50 3UN-NAME2
+**DFR         0   A  50 3UN-NAME3
+**DFR         0   A  50 3UN-NAME4
+**DFR         0   A  50 3UN-NAME5
+**DK          0   A  20 2UN-DOC-NUM
+**DK          0   A  20 2UN-DOC-TYPE
+**DK          0   N   8 2UN-DOC-DATE
+**DK          0   N   5 2UN-PROV
+**DK          0   N13.2 2UN-FIRST-PRICE
+**DK          0   N   5 2UN-BS
+**DK          0   A 250 2UN-OSN
+**DR          0        R2UN-OSN                          /* BEGIN REDEFINE: UN-OSN
+**DFR         0   A  50 3UN-OSN1
+**DFR         0   A  50 3UN-OSN2
+**DK          0   A  20 2UN-DOG
+**DK          0   A   9 2UN-ZAK
+**DK          0   N   5 2UN-ISP
+**DK          0   N   5 2UN-PODR
+**DK          0   I   4 2UN-DOG-INT-NUM

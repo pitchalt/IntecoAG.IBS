@@ -1,0 +1,53 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CNTUS
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20110507
+* :Time 1909000
+* <Natural Source Header /*<<RO>
+*
+*  ЗАКРЫТИE ПЕРИОДА
+*
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)  1 #NP(N5)  1 #US(A8)
+  LOCAL USING LCLKKL
+  LOCAL
+  1 #RC(I4)
+END-DEFINE
+SET KEY ALL
+*
+DEFINE WINDOW WIN
+  SIZE 8*50
+  BASE 8/16
+  TITLE 'Укажите дату раньше которой ввод документов запрещен'
+  CONTROL WINDOW
+  FRAMED ON
+*
+SET KEY ALL
+FIND IBS-KK-FILE OG-ID = #OG AND KK-F = 'UC' AND KD-F = #NP
+  IF NO RECORD FOUND
+     OG-ID := #OG
+     KK-F := 'UC'
+     KD-F := #NP
+     STORE IBS-KK-FILE
+  END-NOREC
+END-FIND
+FIND IBS-KK-FILE OG-ID = #OG AND KK-F = 'UC' AND KD-F = #NP
+  IF #US = NA-USR OR = 'INTECO'
+     SET WINDOW 'WIN'
+     INPUT(AD=MIL IP=OFF SG=OFF) NA-GM
+     IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+     IF NA-GM NE MASK(YYYYMMDD)  REINPUT 'Период' MARK *NA-GM ALARM  END-IF
+CALLNAT 'TESTDTUP' #OG #NA-GM #RC
+IF NOT ( #RC = 1 OR = 3 )
+  REINPUT 'Период не доступен дл  ввода'  ALARM
+END-IF
+     UPDATE
+     SET WINDOW OFF
+     END TRANSACTION
+  END-IF
+END-FIND
+BACKOUT TRANSACTION
+END

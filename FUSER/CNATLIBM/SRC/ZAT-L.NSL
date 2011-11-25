@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName ZAT-L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090818
+**C               *:Time 0839330
+**C               *<Natural Source Header
+**DF          0   A  17 1SZF
+**DR          0        R1SZF                             /* BEGIN REDEFINE: SZF
+**DFR         0   N   2 2SZST
+**DFR         0   A   6 2SFIL
+**DFR         0   A   1 2SZNU
+**DFR         0   P13.2 2SZSU

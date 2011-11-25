@@ -1,0 +1,54 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVZKM1
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20080428
+* :Time 1455330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+SET KEY PF1 (PB=001/001/002/032) NAMED 'Открыть заказ(f1)'
+/* 000 000 000 000
+SET KEY PF2 (PB=004/001/002/032) NAMED 'Закрыть заказ(f2)'
+/* 000 000 000 000
+SET KEY PF4 (PB=007/001/002/032) NAMED 'Продолжить(f4)'
+/* 000 000 000 000
+SET KEY PF3 (PB=010/001/002/032) NAMED 'Выход(f3)'
+/* 000 000 000 000
+SET KEY PF6 (PB=013/001/002/032) NAMED 'Просроченные(f6)'
+/* 000 000 000 000
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T ' '
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,21 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLZKL1
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20081013
+**C               *:Time 1409330
+**C               *<Natural Source Header
+**DV          0        V1ZAKAZ                           ZAKAZ
+**DD          0   A  20 2ZK-F
+**DD          0   N 5.0 2BS-F
+**DD    *     0        C2GM-F
+**DD I1 *     0        C2MO-F                            (1:3)
+**DD I1 *     0        C2GR-F                            (1:3)
+**DD    C     0        P2GM-F
+**DD I3 C     0   N 5.0M3MO-F                            (1:3,1:191 )
+**DD I3 C     0   N 5.0M3GR-F                            (1:3,1:191 )
+**DD          0   A  60 2NM-F
+**DR          0        R2NM-F                            /* REDEF. BEGIN : NM-F
+**DFR         0   A  40 3NAME-ZAKAZ
+**DD          0   N 5.0 2OG-F

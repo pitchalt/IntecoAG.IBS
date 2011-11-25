@@ -1,0 +1,57 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPXXCO0L
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090919
+**C               *:Time 1234330
+**C               *<Natural Source Header
+**DS          0         1XPXXCO0L
+**DKC  S      2   N   5C2OSN-GROUP
+**HS1
+**I                      1000
+**DKC  S      2   A   5C2CODE-DOGOVOR
+**HS1
+**I                      DOG
+**DKC  S      2   A   5C2CODE-FV
+**HS1
+**I                      FV
+**DKC  S      2   A   5C2CODE-RBP
+**HS1
+**I                      RBP
+**DKC  S      2   A   5C2CODE-NIOKR
+**HS1
+**I                      NIOK
+**DKC  S      2   A   5C2CODE-TYPE-STORON-DOC
+**HS1
+**I                      00047
+**DKC  S      2   A   5C2CODE-VALUTA
+**HS1
+**I                      00001
+**DKC  S      2   A   5C2CODE-NDS
+**HS1
+**I                      00038
+**DKC  S      2   A   5C2CODE-NAZNACH-POST
+**HS1
+**I                      00017
+**DKC  S      2   A   5C2CODE-VID-OBESPECH
+**HS1
+**I                      00007
+**DKC  S      2   A   5C2CODE-NAZNACH-PROD
+**HS1
+**I                      00018
+**DKC  S      2   A   5C2CODE-PRODUCT-PROGRAM
+**HS1
+**I                      00034
+**DKC  S      2   A   5C2CODE-STATUS-DOGOVORA
+**HS1
+**I                      00039
+**DKC  S      2   A   5C2CODE-VIDE-DEATEL
+**HS1
+**I                      00003
+**DKC  S      2   A   5C2CODE-VIDE-FINANCE
+**HS1
+**I                      00013
+**DKC  S      2   A   5C2CODE-UNIT
+**HS1
+**I                      UNIT

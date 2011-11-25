@@ -1,0 +1,12 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName ST-REC
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20051106
+* :Time 1539330
+* <Natural Source Header /*<<RO>
+IBS-REC-FILE.UP-DT := *DATX
+IBS-REC-FILE.UP-TM := *TIMX
+IBS-REC-FILE.UP-PG := *PROGRAM
+IBS-REC-FILE.UP-II := *USER

@@ -1,0 +1,104 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SELVAM2
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080102
+* :Time 2046330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #DL(*) C-TSK(*) FUN-NM-G REG-NM-G SLC(*) SYS-NM-G
+DEFINE DATA PARAMETER
+1 #DL (A030/00001:00015)
+1  C-TSK (C/00001:00015)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SLC (A001/00001:00015)
+1 SYS-NM-G (A060)
+END-DEFINE
+SET KEY PF5 (PB=022/006/002/004) NAMED 'Зап'
+/* 000 000 000 000
+SET KEY PF3 (PB=022/001/002/004) NAMED 'Вых'
+/* 000 000 000 000
+SET KEY PF8 (PB=022/011/002/007) NAMED 'Вперед'
+/* 000 000 000 000
+SET KEY PF9 (PB=022/019/002/007) NAMED 'Начало'
+/* 000 000 000 000
+SET KEY PF10 (PB=022/027/002/006) NAMED 'Конец'
+/* 000 000 000 000
+SET KEY PF11 (PB=022/034/002/005) NAMED 'Выб'
+/* 000 000 000 000
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 019T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+/
+/
+ 002T '----------------------------------------------------------'-
+      '-------------------'
+/
+ 002T SLC (001)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 005T #DL (001)  (AD=YLMFHT'_' CV=C-TSK(001) ) /*.99U030 A030 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+/
+ 002T SLC (002)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (002)  (AD=YLMFHT'_' CV=C-TSK(002) ) /*.99U030 A030 .
+/
+ 002T SLC (003)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (003)  (AD=YLMFHT'_' CV=C-TSK(003) ) /*.99U030 A030 .
+/
+ 002T SLC (004)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (004)  (AD=YLMFHT'_' CV=C-TSK(004) ) /*.99U030 A030 .
+/
+ 002T SLC (005)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (005)  (AD=YLMFHT'_' CV=C-TSK(005) ) /*.99U030 A030 .
+/
+ 002T SLC (006)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (006)  (AD=YLMFHT'_' CV=C-TSK(006) ) /*.99U030 A030 .
+/
+ 002T SLC (007)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (007)  (AD=YLMFHT'_' CV=C-TSK(007) ) /*.99U030 A030 .
+/
+ 002T SLC (008)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (008)  (AD=YLMFHT'_' CV=C-TSK(008) ) /*.99U030 A030 .
+/
+ 002T SLC (009)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (009)  (AD=YLMFHT'_' CV=C-TSK(009) ) /*.99U030 A030 .
+/
+ 002T SLC (010)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (010)  (AD=YLMFHT'_' CV=C-TSK(010) ) /*.99U030 A030 .
+/
+ 002T SLC (011)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (011)  (AD=YLMFHT'_' CV=C-TSK(011) ) /*.99U030 A030 .
+/
+ 002T SLC (012)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (012)  (AD=YLMFHT'_' CV=C-TSK(012) ) /*.99U030 A030 .
+/
+ 002T SLC (013)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (013)  (AD=YLMFHT'_' CV=C-TSK(013) ) /*.99U030 A030 .
+/
+ 002T SLC (014)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (014)  (AD=YLMFHT'_' CV=C-TSK(014) ) /*.99U030 A030 .
+/
+ 002T SLC (015)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (015)  (AD=YLMFHT'_' CV=C-TSK(015) ) /*.99U030 A030 .
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

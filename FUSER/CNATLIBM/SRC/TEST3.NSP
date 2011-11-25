@@ -1,0 +1,88 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName #TEST3
+* :UID TIT_HOME
+* :Mode S
+* :CP
+* :Date 19990120
+* :Time 0355330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+ LOCAL USING LCONVERT /* ИНТЕРФЕЙС
+ LOCAL USING RESERROR /* ОПИСАНИЕ КОДОВ ОШИБКИ ВЫЗОВА
+ LOCAL USING #LSTAT /* СПИСОК ДОПУСТИМЫХ СТАТЕЙ
+ LOCAL
+1 INP_STR(A70)
+1 I(I4)
+1 K(I4)
+END-DEFINE
+ REPEAT
+  SET KEY PF3
+  INPUT (AD=MDT'_') 'Введите строку :' /  '>'INP_STR //
+                    'F3 - Quit'
+  IF *PF-KEY EQ 'PF3'
+   STOP
+  END-IF
+  RESET LCONVERT;
+  LCONVERT.CMD := INP_STR;
+  CALLNAT 'CHECKCMD' LCONVERT
+  IF LCONVERT.ERROR THEN
+    PERFORM GET_LAST_ERROR
+    ESCAPE TOP;
+   ELSE
+/* ПРОВЕРКА КОРРЕКТНОСТИ СТРОКИ
+   /* ПРОВЕРКА КОРРЕКТНОСТИ СТАТЕЙ
+   FOR I = 1 TO LCONVERT.VARCOUNT
+    IF LCONVERT.VARNAME(I) EQ STATNAME(*) THEN IGNORE
+     ELSE
+      REINPUT FULL WITH TEXT
+      'В строке присутствует не описанна  стать .'(CD=RE) ALARM
+    END-IF
+   END-FOR
+   /* ПРОВЕРКА ФУНКЦИЙ
+   IF LCONVERT.FUNCOUNT NE 1 THEN
+    REINPUT FULL WITH TEXT
+     'Здесь надо описать функцию распределени .'(CD=RE) ALARM
+    ELSE /* ФУНКЦИЯ ОДНА, НО КАКАЯ ?
+    /* ФУНКЦИЯ ДОЛЖНА БЫТЬ ОДНА В СТРОКЕ
+    K := 0
+    FOR I = 1 TO 50
+     IF LCONVERT.TYPE(I) NE 0 THEN K := I END-IF
+    END-FOR
+    IF K NE 1 THEN
+     REINPUT FULL WITH TEXT
+      'Функци  не должна входить в состав выражени .'(CD=RE) ALARM
+    END-IF
+    IF LCONVERT.FUNNAME(1) NE 'RASP' THEN
+     REINPUT FULL WITH TEXT
+     'Здесь надо описать функцию распределени  - RASP(st,sum,st1...st10).'(CD=RE) ALARM
+    END-IF
+    /* ДОЛЖНО БЫТЬ 3 ПАРАМЕТРА
+    IF LCONVERT.FUNPARCOUNT(1) NE 3 THEN
+     REINPUT FULL WITH TEXT
+     'У функции должно быть 3 параметра.'(CD=RE) ALARM
+    END-IF
+   END-IF
+  END-IF
+
+ END-REPEAT
+/********************************************************************
+/********************************************************************
+/********************************************************************
+/********************************************************************
+DEFINE SUBROUTINE GET_LAST_ERROR
+   IF LCONVERT.ERROR_CODE EQ 1 THRU NRESERROR THEN
+     IF LCONVERT.ERROR_CODE EQ 1 OR EQ 22 THEN
+       INPUT (AD=OIL) 'Ошибка с кодом :' LCONVERT.ERROR_CODE /
+                      '         Текст :' RESERROR(ERROR_CODE) /
+                      '     *ERROR-TA -' *ERROR-TA /
+                      '   *ERROR-LINE -' *ERROR-LINE /
+                      '     *ERROR-NR -' *ERROR-NR
+      ELSE
+       INPUT (AD=OIL) 'Ошибка с кодом :' LCONVERT.ERROR_CODE /
+             'Текст :' RESERROR(ERROR_CODE)
+     END-IF
+    ELSE
+     INPUT (AD=OIL) 'Ошибка с кодом :' LCONVERT.ERROR_CODE
+   END-IF
+END-SUBROUTINE
+END

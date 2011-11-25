@@ -1,0 +1,21 @@
+DB: 000 FILE: 114  - UOC-ZAGR-FILE                    DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID KBU
+*      :CP
+*
+*
+*      :Date 20080929
+*      :Time 1645330
+*      <Natural Source Header
+  1 OG OG-F                              N  5.0  N
+  1 IN IN-F                              A   15  N
+  1 GM GM-F                              N  6.0  N D
+  1 OI OI-F                              A   20  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-1(1-5)
+*      IN-1(1-15)
+  1 NA ZAGR                              N  9.6  N
+******DDM OUTPUT TERMINATED******

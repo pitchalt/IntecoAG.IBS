@@ -1,0 +1,29 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CSLDOCP1
+**C               *:UID TIROD
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090831
+**C               *:Time 1030330
+**C               *<Natural Source Header
+**DS          0         1CSLDOC-D1
+**DK          0   A  40 2INP-NM
+**DK          0   N   8 2INP-DT
+**DR          0        R2INP-DT                          /* BEGIN REDEFINE: INP-DT
+**DFR         0   N   4 3INP-GG
+**DFR         0   N   4 3INP-MD
+**DR          0        R2INP-DT                          /* BEGIN REDEFINE: INP-DT
+**DFR         0   A   8 3INP-DTA
+**DK          0   A   3 2INP-TYP
+**DK          0   N   5 2INP-OGZ
+**DK          0   N   5 2INP-OGI
+**DK          0   A  40 2INP-DOP
+**DK          0   N   8 2INP-DOP-DT
+**DR          0        R2INP-DOP-DT                      /* BEGIN REDEFINE: INP-DOP-DT
+**DFR         0   N   4 3INP-DOP-GG
+**DFR         0   N   4 3INP-DOP-MD
+**DR          0        R2INP-DOP-DT                      /* BEGIN REDEFINE: INP-DOP-DT
+**DFR         0   A   8 3INP-DOP-DTA
+**DK          0   I   4 2INP-NNID
+**DK          0   I   4 2INP-NNDP
+**DK          0   A  20 2INP-ET

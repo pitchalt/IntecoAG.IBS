@@ -1,0 +1,80 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPVOMN1
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20001016
+* :Time 1250330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #ADRES #BN #KD #NAME #RS FUN-NM-G REG-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 #ADRES (A058)
+1 #BN (N08.0)
+1 #KD (N05.0)
+1 #NAME (A058)
+1 #RS (A020)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)к&:+(                       *
+* 024080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT' ' ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT' ' DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT' ' ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT' ' ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT' ' DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT' ' ) /*.01S008 A008 .
+/
+/
+ 020T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+ 011T '----------------------------------------------------------'
+/
+/
+ 011T 'Код организации (0-вcе)..............'
+ 049T #KD  (AD=ILMFHT'_' ) /*.99U005 N05.0.
+/
+ 011T 'Код банка'
+ 022T '..........................'
+ 049T #BN  (AD=ILMT'_' ) /*.99U008 N08.0.
+/
+ 011T 'Расчетный счет.......................'
+ 049T #RS  (AD=IMT'_' ) /*.99U020 A020 .
+/
+/
+ 011T 'Наименование'
+/
+ 011T #NAME  (AD=IMT'_' ) /*.99U058 A058 .
+/
+/
+ 011T 'Адрес'
+/
+ 011T #ADRES  (AD=IMT'_' ) /*.99U058 A058 .
+/
+/
+ 011T '----------------------------------------------------------'
+/
+ 021T 'Задайте значени  и нажмите'
+ 048T 'ВВОД(ENTER)'(I)
+/
+/
+/
+/
+ 001T '-ВВОД---ПФ1---ПФ2---ПФ3---ПФ4---ПФ5---ПФ6---ПФ7---ПФ8---ПФ'-
+      '9---ПФ10--ПФ11--ПФ12-'
+/
+ 010T '?'(I)
+ 021T 'Вых'(I)
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

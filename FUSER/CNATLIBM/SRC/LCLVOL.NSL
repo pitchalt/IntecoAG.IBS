@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLVOL
+**C               *:UID KZTA01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20051008
+**C               *:Time 1250330
+**C               *<Natural Source Header
+**DV          0000     V1IBS-KVO-FILE                    IBS-SYS-FILE
+**DD          0000N 5.0 2OG-ID
+**DD          0000N 8.0 2BN-ID
+**DD          0000A  80 2NM-OG
+**DD          0000A  80 2AD-OG
+**DD          0000N 5.0 2VO-ID
+**DD          0000A  15 2NN-ID
+**DD          0000A  80 2NM-PL
+**DD          0000N 5.0 2RE-OG
+**DD I1       0000N 8.0 2BN-OG                           (1:1)
+**DD I2 C     0000A  20M2RS-OG                           (1:1,1:1)
+**DD I1       0000A  20 2KR-OG                           (1:1)
+**DD I2 C     0000A   3M2RS-VA                           (1:1,1:1)
+**DD          0000A 250 2NA-F
+**DD I1 C     0000A  30M2VO-NM-SH                        (1:150)
+**DD I1 C     0000A  40M2VO-DI                           (1:10)
+**DD          0000D     2UP-DT
+**DD          0000A   8 2UP-PG
+**DD          0000A   8 2UP-ID
+**DD          0000A   8 2UP-US

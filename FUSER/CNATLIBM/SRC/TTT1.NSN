@@ -1,0 +1,56 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TTT1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20041111
+* :Time 1530330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+ PARAMETER
+1 NAME_OF_MODULE(A8)
+ LOCAL USING IBS-ERRL
+END-DEFINE
+IF *ERROR-NR EQ 0 THEN ESCAPE ROUTINE END-IF
+DECIDE FOR FIRST CONDITION
+ WHEN ( *ERROR-NR EQ -9 )
+  ERRTXT := *COM
+ WHEN ( *ERROR-NR EQ -7 )
+  ERRTXT := 'Нарушена структура базы данных. Операци  прервана.'
+ WHEN ( *ERROR-NR EQ -6 )
+  ERRTXT := 'Некорректное поведение программы. Операци  прервана.'
+ WHEN ( *ERROR-NR EQ -1 )
+  ERRTXT := 'Некорректный вызов программы. Операци  прервана.'
+ WHEN ( *ERROR-NR EQ 3009 )
+  COMPRESS 'K бaзe дaнныx cлишкoм дoлгo нe былo oбpaщeний.'
+           '   Пoвтopитe нeoбxoдимyю oпepaцию.' TO ERRTXT
+ WHEN ( *ERROR-NR EQ 1016 )
+  COMPRESS 'Bы нe дoждaлиcь oкoнчaни  выпoлнeни '
+           'тeкyщeй oпepaции.' TO ERRTXT
+ WHEN ( *ERROR-NR EQ 3148 )
+  COMPRESS 'Бaзa дaнныx нe aктивнa, или нe дocтyпнa'
+           'Пpoкoнcyльтиpyйтecь c cиcтeмным aдминиcтpaтopoм'
+           TO ERRTXT
+ WHEN ( *ERROR-NR EQ 1586)
+  COMPRESS ' He yдaлocь oтпpaвить дaнныe нa пeчaть.'
+           'Пpoкoнcyльтиpyйтecь c cиcтeмным aдминиcтpaтopoм'
+           TO ERRTXT
+ WHEN ( *ERROR-NR <= 2999 )
+  ERRTXT := 'Oшибкa выпoлнeни  в пpoгpaммe:'
+ WHEN ( *ERROR-NR > 2999 )
+  ERRTXT := 'Oшибкa oбpaщeни  к бaзe дaнныx в пpoгpaммe:'
+ WHEN NONE
+  ERRTXT := 'Oшибкa выпoлнeни  в пpoгpaммe:'
+END-DECIDE
+#LOG := *LIBRARY-ID  #PGM := NAME_OF_MODULE
+#LINE := *ERROR-NR  #ERR := *ERROR-LINE
+IBS-ERR-FILE.OG-ID := 1000
+IBS-ERR-FILE.KK-F  := 'ER'
+IBS-ERR-FILE.NA-F  := ERRTXT
+IBS-ERR-FILE.UP-US := *USER
+IBS-ERR-FILE.DT-ID := *DATN
+STORE IBS-ERR-FILE
+CALLNAT 'MESSAGEN'
+RESET *COM   /* MNN
+END
+

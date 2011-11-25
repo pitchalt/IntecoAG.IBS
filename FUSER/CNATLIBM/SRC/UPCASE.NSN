@@ -1,0 +1,21 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UPCASE
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20110728
+* :Time 1108180
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+PARAMETER
+1 STR(A200)
+LOCAL
+1 #TBL(A66)
+1 REDEFINE #TBL
+  2 TBL(A2/33)
+END-DEFINE
+#TBL :=
+'р└с┴т┬у├ф─х┼╕иц╞ч╟ш╚щ╔ъ╩ы╦ь╠э═ю╬я╧Ё╨ё╤Є╥є╙Ї╘ї╒Ў╓ў╫°╪∙┘·┌√█№▄¤▌■▐ ▀'
+EXAMINE STR TRANSLATE INTO UPPER
+EXAMINE STR TRANSLATE USING TBL(*)
+END

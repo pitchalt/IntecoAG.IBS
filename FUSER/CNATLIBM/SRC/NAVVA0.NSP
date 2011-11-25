@@ -1,0 +1,17 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVVA0
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050411
+* :Time 1341330
+* <Natural Source Header /*<<RO>
+*************************************
+* опнцпюллю бедемхъ окюмю явернб лт *
+*************************************
+DEFINE DATA
+LOCAL USING PRMNAV       /* наыюъ оюпюлерпхвеяйюъ накюярэ ондопнцпюлл-тсмйжхи яхярелш
+END-DEFINE
+NAV_OG-IDENT-G := 1000
+CALLNAT 'SNAVVA' PRMNAV /* бшгнб тсмйжхнмюкэмни ондопнцпюллш хг STEPLIB
+END

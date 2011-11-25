@@ -1,0 +1,70 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SELCODEM
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20091117
+* :Time 1055330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     COD(*) NAM(*)
+DEFINE DATA PARAMETER
+1 COD (A003/00001:00010)
+1 NAM (A030/00001:00010)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 002T COD (1+000)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+ 007T NAM (1+000)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+/
+ 002T COD (1+001)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+001)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+002)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+002)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+003)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+003)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+004)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+004)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+005)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+005)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+006)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+006)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+007)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+007)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+008)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+008)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+ 002T COD (1+009)  (AD=DLMFHT CD=BL ) /*.99U003 A003 .
+ 007T NAM (1+009)  (AD=DLOFHT CD=BL ) /*.01U030 A030 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

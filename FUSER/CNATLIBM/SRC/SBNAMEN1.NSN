@@ -1,0 +1,280 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SBNAMEN1
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20001019
+* :Time 1559330
+* <Natural Source Header /*<<RO>
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* ПРOГРАММА МЕНЮ
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE DATA
+*  GLOBAL USING UFROG       /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ ДЛЯ ВСЕЙ СИСТЕМЫ
+  PARAMETER
+    1 OG-IDENT       (N005)
+    1 FL-ZGR         (N001)
+  PARAMETER USING PRMNAVI
+  LOCAL  USING LCLFROL1      /* ОБЩИЕ ПЕРЕМЕННЫЕ
+  LOCAL  USING LCLSYS     /* ОБЩИЕ ПЕРЕМЕННЫЕ
+  LOCAL
+    1 TEXT-OMEN      (A042)
+    1 REDEFINE TEXT-OMEN
+      2 NR-MENU      (N002)
+      2 NAME-FUNC    (A040)
+    1 #FIELD-M (A042/1:15)
+    1 REDEFINE #FIELD-M
+      2 #FIELD       (15)
+        3 #FIELD-N   (N002)
+        3 #FIELD-NM  (A040) /* ДЛЯ ВЫВОДА НА ЭКРАН
+    1 #INP-N    (N002)      /* НОМЕР РЕЖИМА
+    1 #INP-P    (N002)      /* НОМЕР РЕЖИМА
+    1 TTT(A40)              /* ТОЧКИ ЗАПОЛНИТЕЛИ
+    1 #TXT-PF7  (A003)
+    1 #TXT-PF8  (A003)
+    1 #KK-F     (A003)
+    1 S         (N002)
+    1 TEXT-MENU(A050/1:30)
+    1 #FILD-M  (A050/1:15)  /* ДЛЯ ВЫВОДА НА ЭКРАН
+    1 REDEFINE #FILD-M
+      2 FILD-M      (15)
+        3 #FILD-N   (N002)
+        3 #FILD-T   (A040)
+        3 #FILD-P   (A008)
+    1 SSW             (P0005)
+    1 SSW1            (P0005)
+    1 SSW2            (P0005)
+    1 SSW3            (P0005)
+    1 Q-SCR           (P0002)  INIT <15>
+END-DEFINE
+*
+SET KEY PF2 PF3 PF5 PF7 PF8
+*
+  OG-IDENT-G := OG-IDENT
+  ASSIGN #TXT-PF7 = 'Нзд'
+  ASSIGN #TXT-PF8 = 'Впр'
+  !0.CALLNAT 'SBUFRON1' SYS-NM-G ' '
+*
+ASSIGN N-DATA-B = 3    ASSIGN N-DEL-B  = 4
+MOVE 50 TO Q-DATA-B Q-DATA   ASSIGN L-DATA-B = 50
+CALL 'GTSX' L-DATA-B Q-DATA-B N-DATA-B
+MOVE 50 TO Q-DATA-B L-DEL    ASSIGN L-DATA-B = 42
+CALL 'GTSX' L-DATA-B Q-DATA-B N-DEL-B
+*
+REPEAT
+  CALL 'NULX' ' ' N-DATA-B    RESET C-DATA
+  FIND IBS-SYS1-FILE KK-F = 'M0'
+     ASSIGN NAME-FUNC = NA-F
+     ASSIGN NR-MENU   = KD-F
+     ADD 1 TO C-DATA   ASSIGN C-DATA-B = C-DATA
+     CALL 'RWSX' C-DATA-B TEXT-OMEN WR-REC N-DEL-B
+  END-FIND
+SSW3 := 1
+C-DEL := 1
+REPEAT
+RESET #FIELD-NM(*) #FIELD-N(*) Q-DEL FUN-NM-G
+SSW2 := SSW3
+  FOR C-LINE 1 Q-SCR
+      IF SSW2 > C-DATA  ESCAPE BOTTOM END-IF
+      ASSIGN C-DATA-B = SSW2
+      CALL 'RWSX' C-DATA-B #FIELD-M(C-LINE) RD-REC N-DEL-B
+      IF #FIELD-M(C-LINE) = ' '  ESCAPE BOTTOM  END-IF
+      ADD 1 TO SSW2
+    END-FOR
+   SET CONTROL 'L'
+*
+ INPUT  USING MAP 'MAPEN1M1'
+ FOR #INP-N 1 Q-SCR
+   IF *CURS-FIELD = POS(#FIELD-N(#INP-N)) OR = POS(#FIELD-NM(#INP-N))
+   ESCAPE BOTTOM  END-IF
+ END-FOR
+ DECIDE FOR EVERY CONDITION
+   WHEN *PF-KEY = 'PF3'
+**     ASSIGN FUN-NM-G = FUN-OLD-G
+     CALL 'FRSX' N-DATA-B   CALL 'FRSX' N-DEL-B
+     ESCAPE BOTTOM (!0)
+   WHEN *PF-KEY NE 'PF3'
+     PERFORM PROC-SCAN
+   WHEN *PF-KEY = 'PF2' AND #INP-N = 1 THRU Q-SCR
+     IF #FIELD-NM(#INP-N) NE ' '
+       ASSIGN FUN-NM-G = '<Формирование/коррекци  меню'
+       !1.CALLNAT 'SBUFRON1' FUN-NM-G ' '
+       ASSIGN REG-NM-G = #FIELD-NM(#INP-N)
+       COMPRESS 'M' #FIELD-N(#INP-N) INTO #KK-F LEAVING NO
+       PERFORM PROC-FIND
+     END-IF
+   WHEN *PF-KEY = 'PF5'
+     ASSIGN C-DATA1-B = 1   ASSIGN L-DATA-B = 2
+     CALL 'SRTX' C-DATA1-B L-DATA-B N-DEL-B
+     FIND IBS-SYS1-FILE KK-F = 'M0'
+       DELETE (!1)
+     END-FIND
+     FIND IBS-SYS1-FILE KK-F = 'M0'
+     IF NO
+       ASSIGN IBS-SYS1-FILE.KK-F  = 'M0'
+       RESET  IBS-SYS1-FILE.NB-F(*)
+       FOR S 1 C-DATA
+         ASSIGN C-DATA-B = S
+         CALL 'RWSX' C-DATA-B TEXT-OMEN RD-REC N-DEL-B
+         ASSIGN IBS-SYS1-FILE.NA-F = NAME-FUNC
+         ASSIGN IBS-SYS1-FILE.KD-F = NR-MENU
+       STORE IBS-SYS1-FILE
+       END-FOR
+     END-NOREC
+     END-FIND
+     END OF TRANSACTION
+     FL-ZGR := 1  ESCAPE BOTTOM
+   WHEN *PF-KEY = 'PF7'
+     IF C-DEL > 1  C-DEL := C-DEL - Q-SCR END-IF
+   WHEN *PF-KEY = 'PF8'
+     IF SSW2 > Q-SCR  ASSIGN SSW3 = SSW2  END-IF
+   WHEN NONE IGNORE
+ END-DECIDE
+END-REPEAT
+END-REPEAT
+*
+DEFINE SUBROUTINE PROC-CHECK
+  IF #FIELD-NM(S) NE ' ' AND #FIELD-N(S) = 0
+     REINPUT 'Введите номер меню' MARK *#FIELD-N(S)
+  END-IF
+  ASSIGN C-DATA1-B = 1   ASSIGN L-DATA-B = 2
+  CALL 'CMPXF' #FIELD-N(S) C-DATA1-B L-DATA-B N-DEL-B
+  IF C-DATA1-B NE 0 AND C-DATA1-B < SSW2
+     REINPUT 'Дублирование номера позиции' MARK *#FIELD-N(S) ALARM
+  END-IF
+  IF #FIELD-NM(S) = ' ' AND #FIELD-N(S) NE 0
+     REINPUT 'Наименование ?' MARK *#FIELD-NM(S) ALARM
+  END-IF
+END-SUBROUTINE
+DEFINE SUBROUTINE PROC-SCAN
+   ASSIGN S = 1   RESET C-DATA2
+   ASSIGN SSW2 = SSW3
+   ASSIGN C-DATA-B = SSW2
+   REPEAT UNTIL S > Q-SCR
+     IF SSW2 > C-DATA AND #FIELD-NM(S) = ' ' AND #FIELD-N(S) = 0
+       ESCAPE BOTTOM  END-IF
+        PERFORM PROC-CHECK
+     IF SSW2 > C-DATA  ASSIGN C-DATA = SSW2  END-IF
+     IF #FIELD-N(S) = 0 AND #FIELD-NM(S) = ' '
+        ASSIGN #FIELD-M(S) = H'FF'
+        ADD 1 TO C-DATA2
+     END-IF
+     IF S <= Q-SCR
+       CALL 'RWSX' C-DATA-B #FIELD-M(S) WR-REC N-DEL-B
+     END-IF
+     COMPUTE SSW2 = SSW2 + 1   ASSIGN C-DATA-B = SSW2
+     COMPUTE S = S + 1
+   END-REPEAT
+   IF C-DATA2 NE 0
+     !2.ASSIGN C-DATA1-B = 1   ASSIGN L-DATA-B = 1
+     CALL 'PRSX' C-DATA1-B L-DATA-B N-DEL-B
+     COMPUTE C-DATA = C-DATA - C-DATA2
+   END-IF
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE PROC-FIND
+  CALL 'NULX' ' ' N-DATA-B
+  FIND IBS-SYS1-FILE KK-F = #KK-F
+    ASSIGN C-DATA1 = C*NB-F(!2)
+    FOR Q-DEL 1 C*NB-F(!2)
+      IF Q-DEL > Q-DATA
+        Q-DEL := Q-DEL - 1 C-DATA1 := Q-DATA  ESCAPE BOTTOM
+      END-IF
+      ASSIGN C-DATA-B = Q-DEL
+      CALL 'RWSX' C-DATA-B NB-F(Q-DEL) WR-REC N-DATA-B
+    END-FOR
+  END-FIND
+  SSW1 := 1
+  REPEAT
+    SSW := SSW1
+    RESET #FILD-M(*) #FILD-N(*)
+    FOR C-LINE 1 Q-SCR
+      IF SSW > Q-DATA   ESCAPE BOTTOM END-IF
+      ASSIGN C-DATA-B = SSW
+      CALL 'RWSX' C-DATA-B #FILD-M(C-LINE) RD-REC N-DATA-B
+      IF #FILD-M(C-LINE) = ' '  ESCAPE BOTTOM  END-IF
+      ADD 1 TO SSW
+    END-FOR
+    INPUT USING MAP 'MAPEN1M2'
+    DECIDE FOR EVERY CONDITION
+      !3.WHEN *PF-KEY = 'PF3'
+        RESET TEXT-MENU(*)
+        ESCAPE BOTTOM
+      WHEN *PF-KEY NE 'PF3'
+        PERFORM PROC-SCAN-EKR
+      WHEN *PF-KEY = 'PF5'
+        ASSIGN C-DATA1-B = 1   ASSIGN L-DATA-B = 2
+        CALL 'SRTX' C-DATA1-B L-DATA-B N-DATA-B
+        FIND IBS-SYS1-FILE KK-F = #KK-F
+          DELETE (!3)
+        END-FIND
+        FIND IBS-SYS1-FILE KK-F = #KK-F
+        IF NO
+          ASSIGN IBS-SYS1-FILE.KK-F  = #KK-F
+*         ASSIGN IBS-SYS1-FILE.OG-ID = OG-IDENT-G
+          ASSIGN IBS-SYS1-FILE.NA-F  = REG-NM-G
+          RESET IBS-SYS1-FILE.NB-F(*)
+          FOR S 1 C-DATA1
+            ASSIGN C-DATA-B = S
+            CALL 'RWSX' C-DATA-B IBS-SYS1-FILE.NB-F(S) RD-REC N-DATA-B
+          END-FOR
+          STORE IBS-SYS1-FILE
+        END-NOREC
+        END-FIND
+        END OF TRANSACTION
+        FL-ZGR := 1  ESCAPE BOTTOM
+      WHEN *PF-KEY='PF7' AND SSW1 > Q-SCR  SSW1 := SSW1 - Q-SCR
+      WHEN *PF-KEY='PF8'
+        IF SSW  > Q-SCR  ASSIGN SSW1 = SSW  END-IF
+      WHEN NONE IGNORE
+    END-DECIDE
+  END-REPEAT
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE PROC-CHECK1
+  IF #FILD-T(S) NE ' ' AND #FILD-N(S) = 0
+     REINPUT 'Введите номер позиции в меню' MARK *#FILD-N(S)
+  END-IF
+  ASSIGN C-DATA1-B = 1   ASSIGN L-DATA-B = 2
+  CALL 'CMPXF' #FILD-N(S) C-DATA1-B L-DATA-B N-DATA-B
+  IF C-DATA1-B NE 0 AND C-DATA1-B < SSW
+     REINPUT 'Дублирование номера позиции' MARK *#FILD-N(S) ALARM
+  END-IF
+  IF #FILD-T(S) = ' ' AND #FILD-N(S) NE 0
+     REINPUT 'Наименование ?' MARK *#FILD-T(S) ALARM
+  END-IF
+END-SUBROUTINE
+DEFINE SUBROUTINE PROC-SCAN-EKR
+   ASSIGN S = 1   RESET C-DATA2
+   ASSIGN SSW = SSW1
+   ASSIGN C-DATA-B = SSW
+   REPEAT UNTIL S > Q-SCR
+     IF SSW > C-DATA1 AND #FILD-T(S) = ' ' AND #FILD-N(S) = 0
+       ESCAPE BOTTOM  END-IF
+        PERFORM PROC-CHECK1
+     IF SSW > C-DATA1
+       IF SSW > Q-DATA
+         REINPUT 'МАЛО ПАМЯТИ ДЛЯ СТЕКА:1:. ОБРАТИТЕСЬ К РАЗРАБОТЧИКУ',
+          N-DATA-B  MARK *#FILD-N(S)  ALARM
+        ELSE
+         ASSIGN C-DATA1 = SSW
+       END-IF
+     END-IF
+     IF #FILD-N(S) = 0 AND #FILD-T(S) = ' '
+        ASSIGN #FILD-M(S) = H'FF'
+        ADD 1 TO C-DATA2
+     END-IF
+     IF S <= Q-SCR
+       CALL 'RWSX' C-DATA-B #FILD-M(S) WR-REC N-DATA-B
+     END-IF
+     COMPUTE SSW = SSW + 1   ASSIGN C-DATA-B = SSW
+     COMPUTE S = S + 1
+   END-REPEAT
+   IF C-DATA2 NE 0
+     ASSIGN C-DATA1-B = 1   ASSIGN L-DATA-B = 1
+     CALL 'PRSX' C-DATA1-B L-DATA-B N-DATA-B
+     COMPUTE C-DATA1 = C-DATA1 - C-DATA2
+   END-IF
+END-SUBROUTINE
+*
+END

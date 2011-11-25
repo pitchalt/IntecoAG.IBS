@@ -1,0 +1,26 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPFVSH1L
+**C               *:UID LMV
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20080323
+**C               *:Time 1811330
+**C               *<Natural Source Header
+**DS          0         1XPFVSH1L
+**DK          0   N 5.0 2FV-CODE
+**DK          0   A 100 2FV-NAME
+**DR          0        R2FV-NAME                         /* BEGIN REDEFINE: FV-NAME
+**DFR         0   A  50 3FV-NAME1
+**DFR         0   A  50 3FV-NAME2
+**DK          0   P13.2 2FV-GM-SUMMA-M
+**DK          0   A   8 2FV-GM-DATA-A
+**DR          0        R2FV-GM-DATA-A                    /* BEGIN REDEFINE: FV-GM-DATA-A
+**DFR         0   N   8 3FV-GM-DATA-N
+**DK          0   A   1 2FV-AKCII
+**DK          0   P13.2 2FV-DO-SUMMA-M
+**DK          0   A   8 2FV-DO-DATA-A
+**DR          0        R2FV-DO-DATA-A                    /* BEGIN REDEFINE: FV-DO-DATA-A
+**DFR         0   N   8 3FV-DO-DATA-N
+**DK          0   P 3.2 2FV-DOLI
+**DK          0   P 3.2 2FV-PROCENT
+**DK          0   L     2FV-DEPOZIT-VKLAD

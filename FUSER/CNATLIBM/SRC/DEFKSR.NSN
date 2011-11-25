@@ -1,0 +1,46 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFKSR
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080120
+* :Time 1447330
+* <Natural Source Header /*<<RO>
+* счета дл  реутова
+DEFINE DATA
+  PARAMETER
+  1 #PO(N6)
+  1 #KS(N5)
+  LOCAL USING ASRZSYSL
+  LOCAL USING STEKL
+  LOCAL
+  1 #NB(A7)
+  1 REDEFINE #NB
+    2 NBPO(N5)  2 NBGP(N2)
+END-DEFINE
+*
+FIND ASRZ-SYS-FILE KK-F = 'ГП' AND KD-F = 710
+  FOR #I 1 C*NB-F
+    #NB := NB-F(#I)
+    IF NBPO = #PO AND NBGP = 1
+      DECIDE FOR FIRST CONDITION
+        WHEN #KS = 2011  #KS := 2012
+        WHEN #KS = 2013  #KS := 2014
+        WHEN #KS = 2015  #KS := 2016
+        WHEN #KS = 2021  #KS := 2022
+        WHEN #KS = 2023  #KS := 2024
+        WHEN #KS = 2043  #KS := 2044
+        WHEN #KS = 2045  #KS := 2046
+        WHEN #KS = 2051  #KS := 2052
+        WHEN #KS = 2053  #KS := 2054
+        WHEN #KS = 2057  #KS := 2058
+        WHEN #KS = 2061  #KS := 2062
+        WHEN #KS = 2071  #KS := 2072
+        WHEN #KS = 2091  #KS := 2092
+        WHEN NONE  IGNORE
+      END-DECIDE
+      ESCAPE BOTTOM
+    END-IF
+  END-FOR
+END-FIND
+END

@@ -1,0 +1,62 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SBGTST
+* :UID IBS_3
+* :Mode S
+* :CP
+* :Date 20000705
+* :Time 2138330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+ PARAMETER
+1 OG_IDENT(N5)
+1 STAT_ID(A5)
+LOCAL
+1 KEYSTTM(A16)
+1 REDEFINE KEYSTTM
+  2 KEYOG(N5)
+  2 KEYST(A5)
+  2 KEYCD(N6)
+1 MAXN(I1) CONST <40>
+1 ARR(A1/1:MAXN) CONST <'0','1','2','3','4','5','6','7','8','9',
+                        'Q','W','E','R','T','Y','U','I','O','P',
+                        'A','S','D','F','G','H','J','K','L','Z',
+                        'X','C','V','B','N','M','*','-','+','='>
+1 NNN(I1/1:5) INIT ALL <1>
+1 I(I1)
+1 J(I1)
+1 K(I1)
+1 TMPA(A5)
+1 REDEFINE TMPA
+ 2 TMP(A1/1:5)
+1 VIEWIBSYS  VIEW OF IBS-SYS-FILE
+END-DEFINE
+REPEAT
+ FOR I = 1 TO 5
+  K := NNN(I)
+  TMP(I) := ARR(K)
+ END-FOR
+ KEYSTTM.KEYOG := OG_IDENT
+ KEYSTTM.KEYST := TMPA
+ KEYSTTM.KEYCD := -1
+F. FIND NUMBER VIEWIBSYS OG-ST EQ KEYSTTM
+ IF *NUMBER(F.) EQ 0 THEN ESCAPE BOTTOM END-IF
+ I := 1
+ REPEAT
+  ADD 1 TO NNN(I)
+  IF NNN(I) > MAXN THEN
+   NNN(I) := 1
+   ADD 1 TO I
+   IF I > 5 THEN
+    CALL 'FRS'
+    RELEASE STACK
+    RELEASE SETS
+    TERMINATE 0 "Ќет пространства дл  распределени  статей"
+    STOP
+   END-IF
+   ESCAPE TOP
+  END-IF
+  ESCAPE BOTTOM
+ END-REPEAT
+END-REPEAT
+STAT_ID := TMPA
+END

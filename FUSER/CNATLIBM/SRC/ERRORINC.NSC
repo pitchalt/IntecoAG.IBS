@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName ERRORINC
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20041130
+* :Time 1337330
+* <Natural Source Header /*<<RO>
+ON ERROR
+ BACKOUT TRANSACTION
+ NAME_OF_MODULE := *PROGRAM;
+ CALLNAT 'MESSAGER' NAME_OF_MODULE ;
+ STOP
+END-ERROR

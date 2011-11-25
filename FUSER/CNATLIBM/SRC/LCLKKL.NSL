@@ -1,0 +1,47 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLKKL
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20110507
+**C               *:Time 1907000
+**C               *<Natural Source Header
+**DV          0        V1IBS-KK-FILE                     IBS-SYS-FILE
+**DD          0   N 5.0 2OG-ID
+**DD          0   A   2 2KK-F
+**DD          0   N 6.0 2KD-F
+**DD          0   N 6.0 2GM-F
+**DD          0   A 250 2NA-F
+**DR          0        R2NA-F                            /* BEGIN REDEFINE: NA-F
+**DFR         0   A  50 3NM-PROV
+**DFR         0   A   8 3NA-USR
+**DFR         0   N   8 3NA-GM
+**DR          0        R3NA-GM                           /* BEGIN REDEFINE: NA-GM
+**DFR         0   N   6 4#NA-GM
+**DR          0        R2NA-F                            /* BEGIN REDEFINE: NA-F
+**DFR         0   N  15 3NREC43
+**DR          0        R2NA-F                            /* BEGIN REDEFINE: NA-F
+**DFR         0   A   3 3NA-KD
+**DFR         0   A  50 3NA-NM
+**DFR         0   A  10 3NA-SH
+**DR          0        R2NA-F                            /* BEGIN REDEFINE: NA-F
+**DFR         0   A  35 3NA-F-TXT                        /* ÍÀÈÌÅÍÎÂÀÍÈÅ
+**DFR         0   A   1 3NA-F-FLG                        /* ÔËÀÃ ÂÊËÞ×ÅÍÈß
+**DFRI1       0   A   1 3NA-F-BF                         (1:15) /* ÁÞÄÆÅÒÛ/ÔÎÍÄÛ
+**DFR         0   A  35 3NA-F-ALT                        /* ÀËÜÒÅÐÍÀÒÈÂÍÎÅ ÍÀÈÌÅÍÎÂÀÍÈÅ
+**DR          0        R2NA-F
+**DFRI1       0   N   8 3NA-F-ARRY                       (1:15) /* ÑÈÑÒÅÌÍÛÅ ÊÎÍÑÒÀÍÒÛ
+**DFR         0   A  60 3NA-F-TEXT                       /* ÏÎÄÏÈÑÜ ÏÎÄ ÄÎÊÓÌÅÍÒÀÌÈ
+**DR          0        R2NA-F
+**DFR         0   A   8 3NA-USER
+**DFR         0   A   8 3NA-SOFT
+**DFR         0   A  60 3NA-PATH
+**DD          0   A   8 2UP-PG
+**DD          0   A  80 2NM-NP
+**DD          0   D     2UP-DT
+**DD          0   A   8 2UP-ID
+**DD          0   A   8 2UP-US
+**DD    *     0        C2VO-PE
+**DD I1 C     0        P2VO-PE                           (1:20)
+**DD          0   A   2 3VO-KK
+**DD          0   N 5.0 3VO-KD

@@ -1,0 +1,192 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SSUM250
+* :UID SUSHICKA
+* :Mode S
+* :CP
+* :Date 20071023
+* :Time 1745330
+* <Natural Source Header /*<<RO>
+************************************************************************
+* Subprog     : SSUM250
+* Author      : N. Shmatov
+* Description : Convert numeric data into text
+*             :
+* Parm'S      : #parm1 (a001) - output mode
+*             : #parm2 (a250) - in/out data
+*             : #parm3 (i002) - return code
+* --------------------------------------------------------------------
+* Cr. Date | Mod. Date |  Mod. By  |  Description of changes
+* ---------+-----------+-----------+----------------------------------
+* 94-01-01 | 94-01-01  | N.Shmatov |  Create subprogramm
+************************************************************************
+DEFINE DATA
+PARAMETER
+01 #IN-OUT-MODE     (A001)                 /* OUT MODE: "L" - LOWER CASE
+*                                                       "U" - UPPER CASE
+01 #IN-OUT-LINE     (A250)                 /* IN/OUT DATA
+01 #RETURN          (I002)                 /* RETURN CODE
+LOCAL
+01 #LEN    (I002)                          /* OUTPUT LENGTH
+01 #SUM    (N015.2)                        /* SOURCE SUM.
+01 REDEFINE #SUM                           /* SUB-STRUCT. SOURCE SUM.
+  02 #RUB (N15)                            /* RUB.
+  02 REDEFINE #RUB                         /* SUB-STRUCT. OF RUB.
+    03 #WORK-RUB(N3/5)                     /* ARRAY FOR RUB.
+  02 #COP (N02)                            /* COP.
+  02 REDEFINE #COP                         /* SUB-STRUCT. OF COP.
+    03 #C1(N01/2)                          /* ARRAY FOR COP.
+  02 REDEFINE #COP                         /* SUB-STRUCT. OF COP.
+    03 #CT(A02)                            /* NUMBER OF COP.
+01 #WORK-R(N3)                             /* WORK AREA FOR CALC.
+01 REDEFINE #WORK-R                        /* SUB-STRUCT. OF WORK AREA
+  02 #X1(N1/3)                             /* ARRAY FOR WORK AREA
+01 REDEFINE #WORK-R                        /* SUB-STRUCT. OF WORK AREA
+  02 #X2(N1)                               /* FIRST CHAR. OF WORK AREA
+  02 #X3(N2)                               /* SECOND TWO CHAR OF W.AREA
+  02 REDEFINE #X3                          /* SUB-STRUCT. OF SEC.2 CHAR.
+    03 #X4(N1)                             /* FIRST CHAR. OF SEC. PART
+    03 #X5(N1)                             /* SEC. CHAR. OF SEC. PART
+01 #I-RUB (I02)                            /* INDEX FOR FLEXI
+01 #INDEX (I02)                            /* INDEX FOR DEC.
+01 #FLAG  (I02)                            /* INTERNAL SWITCH
+01 #FLX-M1(A02/15) INIT  <' ','ÎÂ','À',    /* FLEXY FOR RUB. NAME
+  ' ','ÎÂ','À',
+  ' ','ÎÂ','À',
+  'À','  ','È',
+  'Ü','ÅÉ','ß'>
+01 REDEFINE #FLX-M1                        /* SUB-STRUCT. OF FLEXY NAME
+  02 #FLX-M (A2/1:5,1:3)
+01 #FLX-C (A03/3) INIT <'ÅÊ','ÉÊÀ','ÉÊÈ'>  /* FLEXY FOR COP. NAME
+01 #COP-T (A04)   INIT <'ÊÎÏÅ'>            /* NAME OF COP.
+01 #TEXT  (A08/5) INIT <'ÒÐÈËËÈÎÍ',        /* FIRST NAME OF MONEY
+  'ÌÈËËÈÀÐÄ',
+  'ÌÈËËÈÎÍ',
+  'ÒÛÑß×',
+  'ÐÓÁË'>
+01 #T000  (A09/9) INIT <'ÑÒÎ',              /* NAME OF HUNDREDS OF MONEY
+  'ÄÂÅÑÒÈ',
+  'ÒÐÈÑÒÀ',
+  '×ÅÒÛÐÅÑÒÀ',
+  'ÏßÒÜÑÎÒ',
+  'ØÅÑÒÜÑÎÒ',
+  'ÑÅÌÜÑÎÒ',
+  'ÂÎÑÅÌÜÑÎÒ',
+  'ÄÅÂßÒÜÑÎÒ'>
+01 #T00   (A11/9) INIT <'ÄÅÑßÒÜ',           /* NAME OF TENTH OF MONEY
+  'ÄÂÀÄÖÀÒÜ',
+  'ÒÐÈÄÖÀÒÜ',
+  'ÑÎÐÎÊ',
+  'ÏßÒÜÄÅÑßÒ',
+  'ØÅÑÒÜÄÅÑßÒ',
+  'ÑÅÌÜÄÅÑßÒ',
+  'ÂÎÑÅÌÜÄÅÑßÒ',
+  'ÄÅÂßÍÎÑÒÎ'>
+01 #T0    (A12/19) INIT <'ÎÄÈÍ',            /* NAME FOR FIRST TENTH
+  'ÄÂÀ',
+  'ÒÐÈ',
+  '×ÅÒÛÐÅ',
+  'ÏßÒÜ',
+  'ØÅÑÒÜ',
+  'ÑÅÌÜ',
+  'ÂÎÑÅÌÜ',
+  'ÄÅÂßÒÜ',
+  'ÄÅÑßÒÜ',
+  'ÎÄÈÍÍÀÄÖÀÒÜ',
+  'ÄÂÅÍÀÄÖÀÒÜ',
+  'ÒÐÈÍÀÄÖÀÒÜ',
+  '×ÅÒÛÐÍÀÄÖÀÒÜ',
+  'ÏßÒÍÀÄÖÀÒÜ',
+  'ØÅÑÒÍÀÄÖÀÒÜ',
+  'ÑÅÌÍÀÄÖÀÒÜ',
+  'ÂÎÑÅÌÍÀÄÖÀÒÜ',
+  'ÄÅÂßÒÍÀÄÖÀÒÜ'>
+END-DEFINE
+COMPUTE #SUM = VAL(#IN-OUT-LINE)           /* CULCULATE SOURCE SUM.
+RESET #IN-OUT-LINE                         /* RESET #IN-OUT AREA
+FOR #INDEX 1 5                             /* DRVOLOPING LOOP
+  IF #WORK-RUB (#INDEX) = 0                /* IF PART OF SUM EQ 0
+      AND #FLAG = 0                        /* AND INTERNAL SW. EQ 0
+    IGNORE                                 /* IGNORE
+  ELSE
+    ADD 1 TO #FLAG                         /* TURN INTERNAL SWITCH
+    MOVE #WORK-RUB (#INDEX) TO #WORK-R     /* PART OF SUM IN W.AREA
+    IF #WORK-R = 0                         /* IF WORK AREA EQ 0
+      IGNORE                               /* IGNORE
+    ELSE
+      IF #X1(1) NE 0                       /* IF FIRST CHAR. NOT 0
+        COMPRESS #IN-OUT-LINE #T000(#X2)   /* MOVE NAME OF THUNDREDS
+          TO #IN-OUT-LINE                  /* INTO OUT LINE
+        ASSIGN #I-RUB = 2                  /* SET INDEX OF FLEXY
+      END-IF
+      IF #X3 = 1  THRU 19                  /* IF LAST TWO CHAR IS ??
+        IF #INDEX = 4                      /* IF THIS IS 1 OR 2
+            AND #X3 = 1 THRU 2             /*            THOUSANDS
+          PERFORM #NAME-OF-THOUSANDS       /*    THEN TAKE A NAME
+          PERFORM #NAME-OF-MONEY           /*    THEN TAKE A NAME
+        ELSE
+          COMPRESS #IN-OUT-LINE #T0(#X3) TO #IN-OUT-LINE
+          PERFORM #NAME-OF-MONEY
+        END-IF
+      ELSE
+        IF #X1(2) NE 0
+          COMPRESS #IN-OUT-LINE #T00(#X4) TO #IN-OUT-LINE
+          ASSIGN #I-RUB = 2
+        END-IF
+        IF #X1(3) NE 0
+          IF #INDEX = 4 AND #X1(3) = 1 THRU 2
+            PERFORM #NAME-OF-THOUSANDS
+            PERFORM #NAME-OF-MONEY-ONE
+          ELSE
+            COMPRESS #IN-OUT-LINE #T0(#X5) TO #IN-OUT-LINE
+          END-IF
+          PERFORM #NAME-OF-MONEY-ONE
+        END-IF
+      END-IF
+    END-IF
+    IF #WORK-RUB (#INDEX) NE 0
+      COMPRESS #IN-OUT-LINE #TEXT(#INDEX) TO #IN-OUT-LINE
+      COMPRESS #IN-OUT-LINE
+        #FLX-M (#INDEX,#I-RUB) TO #IN-OUT-LINE LEAVING NO
+    END-IF
+  END-IF
+END-FOR
+IF #RUB = 0 MOVE 'ÍÎËÜ' TO #IN-OUT-LINE END-IF
+IF #WORK-RUB (5) = 0
+  COMPRESS #IN-OUT-LINE #TEXT(5) TO #IN-OUT-LINE
+  COMPRESS #IN-OUT-LINE #FLX-M (5,2) TO #IN-OUT-LINE LEAVING NO
+END-IF
+RESET #I-RUB
+IF #COP = 0 OR #COP = 5 THRU 19      ASSIGN #I-RUB = 1 END-IF
+IF #COP = 1                          ASSIGN #I-RUB = 2 END-IF
+IF #COP = 2 THRU 4                   ASSIGN #I-RUB = 3 END-IF
+IF #C1(1) > 1
+  IF #C1(2) = 1                      ASSIGN #I-RUB = 2 END-IF
+  IF #C1(2) = 2 THRU 4               ASSIGN #I-RUB = 3 END-IF
+  IF #C1(1) = 1 OR #C1(2) = 0 OR #C1(2) = 5 THRU 9
+    ASSIGN #I-RUB = 1
+  END-IF
+END-IF
+  COMPRESS #IN-OUT-LINE #CT  #COP-T    TO #IN-OUT-LINE
+  COMPRESS #IN-OUT-LINE #FLX-C(#I-RUB) TO #IN-OUT-LINE LEAVING NO
+IF #IN-OUT-MODE = 'L' OR = 'l'
+  CALLNAT 'CMULT0N' #IN-OUT-LINE
+END-IF
+*
+DEFINE SUBROUTINE #NAME-OF-THOUSANDS
+DECIDE FOR FIRST CONDITION
+  WHEN #X1(3) = 1 COMPRESS #IN-OUT-LINE 'ÎÄÍÀ' TO #IN-OUT-LINE
+  WHEN #X1(3) = 2 COMPRESS #IN-OUT-LINE 'ÄÂÅ'  TO #IN-OUT-LINE
+  WHEN NONE IGNORE
+END-DECIDE
+END-SUBROUTINE
+DEFINE SUBROUTINE #NAME-OF-MONEY
+IF #X3 = 1         ASSIGN #I-RUB = 1 END-IF
+IF #X3 = 2 THRU 4  ASSIGN #I-RUB = 3 END-IF
+IF #X3 = 5 THRU 19 ASSIGN #I-RUB = 2 END-IF
+END-SUBROUTINE
+DEFINE SUBROUTINE #NAME-OF-MONEY-ONE
+IF #X1(3) = 1         ASSIGN #I-RUB = 1 END-IF
+IF #X1(3) = 2 THRU 4  ASSIGN #I-RUB = 3 END-IF
+IF #X1(3) = 5 THRU 19 ASSIGN #I-RUB = 2 END-IF
+END-SUBROUTINE
+END

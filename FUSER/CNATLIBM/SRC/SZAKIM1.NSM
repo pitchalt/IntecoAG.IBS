@@ -1,0 +1,77 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SZAKIM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050123
+* :Time 1620330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #FL(*) RUK-TE-DL(*) RUK-TE-FIO(*) RUK-TE-TEL(*)
+DEFINE DATA PARAMETER
+1 #FL (A001/00001:00005)
+1 RUK-TE-DL (A030/00001:00005)
+1 RUK-TE-FIO (A030/00001:00005)
+1 RUK-TE-TEL (A010/00001:00005)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 005T 'Должность                      Ф.И.О.                     '-
+      '    Телефон'
+/
+ 002T #FL (001)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+ 005T RUK-TE-DL (001)  (AD=DLOFHT ) /*.01U030 A030 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+ 036T RUK-TE-FIO (001)  (AD=DLOFHT ) /*.01U030 A030 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+ 067T RUK-TE-TEL (001)  (AD=DLOFHT ) /*.01U010 A010 .
+   /**A1000050000100001000010000100001100005001001000001000HV
+/
+ 002T #FL (002)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T RUK-TE-DL (002)  (AD=DLOFHT ) /*.01U030 A030 .
+ 036T RUK-TE-FIO (002)  (AD=DLOFHT ) /*.01U030 A030 .
+ 067T RUK-TE-TEL (002)  (AD=DLOFHT ) /*.01U010 A010 .
+/
+ 002T #FL (003)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T RUK-TE-DL (003)  (AD=DLOFHT ) /*.01U030 A030 .
+ 036T RUK-TE-FIO (003)  (AD=DLOFHT ) /*.01U030 A030 .
+ 067T RUK-TE-TEL (003)  (AD=DLOFHT ) /*.01U010 A010 .
+/
+ 002T #FL (004)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T RUK-TE-DL (004)  (AD=DLOFHT ) /*.01U030 A030 .
+ 036T RUK-TE-FIO (004)  (AD=DLOFHT ) /*.01U030 A030 .
+ 067T RUK-TE-TEL (004)  (AD=DLOFHT ) /*.01U010 A010 .
+/
+ 002T #FL (005)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T RUK-TE-DL (005)  (AD=DLOFHT ) /*.01U030 A030 .
+ 036T RUK-TE-FIO (005)  (AD=DLOFHT ) /*.01U030 A030 .
+ 067T RUK-TE-TEL (005)  (AD=DLOFHT ) /*.01U010 A010 .
+/
+ 013T 'F3-Вых F5-Зап F11-Выб'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

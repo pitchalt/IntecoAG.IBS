@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CDRIIM0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100329
+**C               *:Time 0132330
+**C               *<Natural Source Header
+**DV          0        V1CDRIIM0L                        CDRXIM0V
+**DD          0   I   4 2RID
+**DD          0   I   4 2OID
+**DD          0   I   4 2UP-RID
+**DD          0   I   4 2TYPE
+**DD          0   I   4 2AE-1
+**DD          0   A  15 2CODE
+**DD          0   A  70 2NAME
+**DD          0   P11.0 2DT-FROM
+**DD          0   P11.0 2DT-TO
+**DD          0   A 250 2DESCRIPTION
+**DD          0   I   4 2CA-1
+**DD          0   I   4 2CB-1
+**DD          0   I   4 2ZK-OID
+**DD          0   I   4 2SZ-OID
+**DD          0   I   4 2ET-OID
+**DD          0   I   4 2AC-OID
+**DD          0   P11.4 2PORTION
+**DD          0   I   4 2PO-OID
+**DD          0   I   4 2IS-SALDO

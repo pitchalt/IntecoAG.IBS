@@ -1,0 +1,31 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName READ-IBS
+* :UID KOVALCHU
+* :Mode S
+* :CP
+* :Date 20080324
+* :Time 1455330
+* <Natural Source Header /*<<RO>
+* ÂÛÁÎÐ ÑÒÀÒÜÈ
+DEFINE DATA
+LOCAL USING LCLSTAT
+  LOCAL USING STEKL
+LOCAL
+  1 KEYST1(A16)
+  1 REDEFINE KEYST1
+    2 OG1(N5)  2 ST1(A5)  2 CD1(N6)
+  1 KEYST2(A16)
+  1 REDEFINE KEYST2
+    2 OG2(N5)  2 ST2(A5)  2 CD2(N6)
+  1 TTL(A30)  1 FLG11(N1)  1 C-ST(C/10)
+END-DEFINE
+*
+
+OG1 := OG2 := 1000
+ST1 := ST2 := 'FV'
+CD1 := 0  CD2 := 99999
+*
+FIND VIEWSTAT OG-ST >= KEYST1 AND OG-ST <= KEYST2
+  WRITE '=' ST-F '=' CT-F '=' NM-OG
+END-FIND
+END

@@ -1,0 +1,25 @@
+DB: 000 FILE: 081  - PPD-DOP-FILE                     DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID KBU
+*      :CP
+*
+*
+*      :Date 20080915
+*      :Time 1013330
+*      <Natural Source Header
+  1 OG OG-F                              N  5.0  N
+  1 TP TP-F                              A    4  N
+  1 TD TD-F                              A    2  N
+  1 KB KB-F                              I    4  N D
+  1 KR KR-F                              A   20  N D
+  1 RS RS-F                              A   20  N D
+P 1 PS PS-F                                0
+  2 TX TXT-F                             A   80  N
+  1 K1 MNKEY                             A   11    S
+*      |-> OG
+*      |-> TP
+*      |-> TD
+******DDM OUTPUT TERMINATED******

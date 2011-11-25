@@ -1,0 +1,105 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPNTM3
+* :UID LMV
+* :Mode S
+* :CP
+* :Date 20051227
+* :Time 1110330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     BSI DTO DTO-C DTZ DTZ-C FDVM(*) FUN-NM-G GZK LHI REG-NM-G SYS-NM-G
+*     TEI TX-PF11 TX-PF4 ZKI ZKI-C ZKP-C
+DEFINE DATA PARAMETER
+1 BSI (N05.0)
+1 DTO (N08.0)
+1  DTO-C (C)
+1 DTZ (N08.0)
+1  DTZ-C (C)
+1 FDVM (A001/00001:00004)
+1 FUN-NM-G (A060)
+1 GZK (N05.0)
+1 LHI (A030)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+1 TEI (A010)
+1 TX-PF11 (A004)
+1 TX-PF4 (A003)
+1 ZKI (A009)
+1 ZKI-C (C)
+1 ZKP-C (C)
+END-DEFINE
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TOTAOM      D D I I I I              <?>&$                          *
+* 023079        N0NNLCN____         X        01 SYSPROF NL             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHW DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHW DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+/
+ 019T REG-NM-G  (AD=DLOFHW ZP=ON DY=<I> ) /*.01U040 A040 .
+/
+/
+ 016T 'Зaкaз (шифр производственных затрат)'
+ 053T ZKI  (AD=YLMFHW'_' CV=ZKI-C ) /*.99U009 A009 .
+/
+ 016T 'Длинный зaкaз'
+ 032T LHI  (AD=YLMFHT'_' CV=ZKP-C ) /*.99U030 A030 .
+/
+ 016T 'Балансовый субсчeт .....................'
+ 057T BSI  (AD=YRMFHT'_' CV=ZKP-C ) /*.99U005 N05.0.
+/
+ 016T 'Teмa / Стать  .....................'
+ 052T TEI  (AD=YLM'_' CV=ZKP-C ) /*.99U010 A010 .
+/
+ 016T 'Управление .............................'
+ 057T GZK  (AD=DRMFHW'_' ) /*.99U005 N05.0.
+/
+ 016T 'Дата открыти '
+ 030T '(ггггммдд) ............'
+ 054T DTO  (AD=YRMFHW'_' CV=DTO-C ) /*.99U008 N08.0.
+/
+ 016T 'Дата закрыти '
+ 030T '(ггггммдд) ............'
+ 054T DTZ  (AD=YRMFHW'_' CV=DTZ-C ) /*.99U008 N08.0.
+/
+/
+ 016T 'ДОПУСТИМОСТЬ СПИСАНИЯ:'(U)
+/
+ 016T 'Заработной платы ...........................'
+ 061T FDVM (1+000)  (AD=YLMFHW'_' CV=ZKP-C ) /*.99U001 A001 .
+   /**A1000040000100001000010000100001100004001001000001000HV
+/
+ 016T 'Материалов .................................'
+ 061T FDVM (1+001)  (AD=YLMFHW'_' CV=ZKP-C ) /*.99U001 A001 .
+/
+ 016T 'Командировочных расходов ...................'
+ 061T FDVM (1+002)  (AD=YLMFHW'_' CV=ZKP-C ) /*.99U001 A001 .
+/
+ 016T 'Основных средств ...........................'
+ 061T FDVM (1+003)  (AD=YLMFHW'_' CV=ZKP-C ) /*.99U001 A001 .
+/
+/
+ 020T '"+"'(I)
+ 024T '- обозначает'
+ 037T 'допустимость списани '
+/
+/
+ 001T 'Ввод--ПФ1---ПФ2---ПФ3---ПФ4---ПФ5---ПФ6---ПФ7---ПФ8---ПФ9-'-
+      '--ПФ10---ПФ11---ПФ12'
+/
+ 019T 'Вых'(I)
+ 025T TX-PF4  (AD=ILOFHW ) /*.01U003 A003 .
+ 031T 'Зап'(I)
+ 068T TX-PF11  (AD=ILOFHW ) /*.01U004 A004 .
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName PORTR
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080309
+* :Time 1556330
+* <Natural Source Header /*<<RO>
+IF POSIT > 1  ADD 1 TO POSIT
+  ELSE  POSIT := 2
+END-IF

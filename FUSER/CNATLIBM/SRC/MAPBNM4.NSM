@@ -1,0 +1,54 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPBNM4
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20001016
+* :Time 1347330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #NA-F-ALT #NA-F-TXT
+DEFINE DATA PARAMETER
+1 #NA-F-ALT (A059)
+1 #NA-F-TXT (A059)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)к&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 018T 'Альтернативное наименование'(I)
+/
+ 002T #NA-F-TXT  (AD=DZOFHT ) /*.01U059 A059 .
+/
+ 002T #NA-F-ALT  (AD=IMT'_' ) /*.99U059 A059 .
+/
+ 002T '-ВВОД---ПФ2---ПФ3---ПФ4---ПФ5---ПФ6---ПФ7---ПФ8---ПФ9--ПФ1'-
+      '0'
+/
+ 016T 'Вых'(I)
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

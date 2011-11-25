@@ -1,0 +1,118 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CLPROVM1
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20090702
+* :Time 1513330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #NM(*) #NP(*) #US(*)
+DEFINE DATA PARAMETER
+1 #NM (A050/00001:00018)
+1 #NP (N05.0/00001:00018)
+1 #US (A008/00001:00018)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 020T 'Интегрированна  Бухгалтерска  Система'
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 027T 'Кодификатор проводок'
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T 'Проводка'
+ 068T 'Пользователь'
+/
+ 002T #NP (001)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+   /**A1000180000100001000010000100001100018001001000001000HV
+ 008T #NM (001)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+   /**A1000180000100001000010000100001100018001001000001000HV
+ 070T #US (001)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+   /**A1000180000100001000010000100001100018001001000001000HV
+/
+ 002T #NP (002)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (002)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (002)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (003)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (003)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (003)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (004)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (004)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (004)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (005)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (005)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (005)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (006)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (006)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (006)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (007)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (007)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (007)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (008)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (008)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (008)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (009)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (009)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (009)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (010)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (010)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (010)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (011)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (011)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (011)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (012)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (012)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (012)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (013)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (013)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (013)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (014)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (014)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (014)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (015)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (015)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (015)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (016)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (016)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (016)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (017)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (017)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (017)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 002T #NP (018)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 008T #NM (018)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+ 070T #US (018)  (AD=DLMFHT'_' ) /*.99U008 A008 .
+/
+ 001T '-ПФ1---ПФ2---ПФ3---ПФ4---ПФ5---ПФ6---ПФ7---ПФ8---ПФ9---ПФ1'-
+      '0--ПФ11--ПФ12-'
+/
+ 003T '?'(BLI)
+ 014T 'Bыx'(REI)
+ 026T 'Зап         Нзд   Впр'
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

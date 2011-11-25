@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVND
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050220
+* :Time 1539330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL
+  1 T70(A70)  1 IKD(N5)
+END-DEFINE
+CALLNAT 'SNAVND' IKD T70 'W'
+END

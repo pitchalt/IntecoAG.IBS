@@ -1,0 +1,145 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVVF
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050222
+* :Time 0923330
+* <Natural Source Header /*<<RO>
+*********************************************************************
+*                                                                   *
+* НДС                                                               *
+*                                                                   *
+*********************************************************************
+DEFINE DATA
+  PARAMETER
+  1 IKD(N5)  1 IDATA(A70)  1 TSK(A1)
+  LOCAL  USING LCLKKL
+  LOCAL  USING STEKL
+  LOCAL  USING GLL
+  LOCAL
+  1 INPUT-REC(A55/1:15)
+  1 REDEFINE INPUT-REC
+    2 #INPUT-REC(15)
+      3 #KD(N5)
+      3 #DL(A50)
+  1 STEK(A55)
+  1 REDEFINE STEK
+    2 SKD(N5)
+    2 SDL(A50)
+  1 REDEFINE STEK
+    2 PUS(B1)
+  1 RGR(N5)  1 #NUM(N7)  1 OPSYS(A3)  1 SLC(A1/15)
+  1 #KKF(A2) CONST < 'Z3' >   1 C-TSK(C/15)  1 C-ZAP(C)  1 C-VIB(C)
+  1 C-SLC(C/15)
+  1 ZAP(A3) INIT <'Зап'>
+  1 VIB(A3) INIT <'Выб'>
+END-DEFINE
+*
+FORMAT(1) ZP=OFF LS=130 PS=80
+SET KEY PF1 PF2 PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+IF TSK = 'R'  C-TSK(*) := (AD=PD)  C-ZAP := (AD=PN)
+  RESET C-VIB C-SLC(*)
+  ELSE  C-SLC(*) := C-VIB := (AD=PN)  RESET C-TSK(*) C-ZAP
+END-IF
+OPSYS := *OPSYS
+SYS-NM-G := 'ИБС  ИНТЕКО АГ'  CALLNAT 'CENTER60' SYS-NM-G
+FUN-NM-G := 'НАСТРОЙКА СИСТЕМЫ'  CALLNAT 'CENTER60' FUN-NM-G
+REG-NM-G := 'Виды финансировани '  CALLNAT 'CENTER40' REG-NM-G
+*
+CALL 'GTNX' XN1
+ASSIGN XI = 55 ASSIGN XW = 1000  CALL 'GTSX' XI XW XN1
+ASSIGN XW = 1
+F. FIND IBS-KK-FILE OG-ID = 1000 AND KK-F = #KKF SORTED KD-F
+  ASSIGN XI = *COUNTER  SDL := NA-F  SKD := KD-F
+  CALL 'RWSX' XI STEK XW XN1
+END-FIND
+MOVE *NUMBER(F.) TO IS1 #NUM
+#N := 1
+REPEAT
+  RESET #L  COMPUTE #K = #N + 14
+  FOR #I #N #K  ASSIGN XI = #I  CALL 'RWSX' XI STEK XR XN1
+    IF STEK = ' '  RESET SDL   END-IF
+    ADD 1 TO #L  ASSIGN INPUT-REC(#L) = STEK
+  END-FOR
+  INPUT USING MAP 'NAVNDM1'
+*
+  IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+  FOR #I 1 14
+    IF #KD(#I) NE 0
+      #J := #I + 1
+      FOR #L #J 15
+        IF #KD(#L) NE 0 AND #KD(#L) = #KD(#I)
+          REINPUT 'Дублирование кода' MARK *#KD(#J) ALARM
+        END-IF
+      END-FOR
+      FOR #L 1 IS1
+        IF NOT ( #L = #N THRU #K )
+          XI := #K  CALL 'RWSX' XI STEK XR XN1
+          IF #KD(#I) = SKD
+            REINPUT 'Дублирование кода' MARK *#KD(#I) ALARM
+          END-IF
+        END-IF
+      END-FOR
+    END-IF
+  END-FOR
+  ASSIGN #J = #N
+  FOR #I 1 15
+    IF #KD(#I) NE 0  STEK := INPUT-REC(#I)
+      ELSE  ASSIGN STEK.PUS = H'FF'
+    END-IF
+    ASSIGN XI = #J  CALL 'RWSX' XI STEK XW XN1
+    ADD 1 TO #J
+  END-FOR
+  ASSIGN XI = 1  CALL 'PRSX' XI XW XN1
+  CALL 'CMPX' ' ' XI XW XN1
+  ASSIGN IS1 = XI  COMPUTE IS1 = IS1 - 1
+  IF *PF-KEY = 'PF5'
+    IF IS1 > #NUM  COMPUTE #J = IS1 - #NUM
+      FOR #I 1 #J
+        IBS-KK-FILE.OG-ID := 1000  IBS-KK-FILE.KK-F := #KKF
+        STORE IBS-KK-FILE
+        END OF TRANSACTION
+      END-FOR
+    END-IF
+F2. FIND IBS-KK-FILE OG-ID = 1000 AND KK-F = #KKF
+      IF *COUNTER <= IS1  ASSIGN XI = *COUNTER
+        CALL 'RWSX' XI STEK XR XN1
+        NA-F := SDL  KD-F := SKD
+        UPDATE(F2.)
+        ELSE  DELETE(F2.)
+      END-IF
+      END OF TRANSACTION
+    END-FIND
+    ESCAPE BOTTOM
+  END-IF
+  IF *PF-KEY = 'PF9'  ASSIGN #N = 1  END-IF
+  IF *PF-KEY = 'PF10'  ASSIGN #N = IS1  END-IF
+  IF *PF-KEY = 'PF7' AND #N > 15  COMPUTE #N = #N - 15  END-IF
+  IF *PF-KEY = 'PF8' AND #K <= IS1  COMPUTE #N = #N + 15  END-IF
+  IF *PF-KEY = 'PF11'  RESET IDATA
+    FOR #I 1 15
+      IF *CURS-FIELD = POS(SLC(#I))
+        #L := #N + #I - 1
+        IF #L <= IS1  XI := #L  CALL 'RWSX' XI STEK XR XN1
+          IDATA := SDL  IKD := SKD  ESCAPE BOTTOM
+        END-IF
+      END-IF
+    END-FOR
+    IF IDATA NE ' '  ESCAPE BOTTOM  END-IF
+  END-IF
+  IF *PF-KEY = 'PF6'
+    IF *OPSYS = 'Windows/' OR = 'WNT-X86'
+      CLOSE PRINTER(1)
+      DEFINE PRINTER(1) OUTPUT 'LPT2' PROFILE 'SS'
+    END-IF
+    WRITE(1) NOTITLE 'Вид финансировани '
+    FOR #I 1 IS1
+      XI := #I  CALL 'RWSX' XI STEK XR XN1
+      WRITE(1)(SG=OFF) SDL
+    END-FOR
+    INCLUDE CLOSPRN
+  END-IF
+END-REPEAT
+CALL 'FRSX' XN1
+END

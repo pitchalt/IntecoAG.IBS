@@ -1,0 +1,33 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLOBJL
+**C               *:UID NIMI_MS
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20011022
+**C               *:Time 1756330
+**C               *<Natural Source Header
+**DV          0000     V1IBS-OBJ-FILE1                   IBS-OBJ-FILE1
+**DD          0000N 5.0 2OG-ID
+**DD          0000N 5.0 2OS-ID
+**DD          0000N 1.0 2BO-ID
+**DD          0000N 5.0 2KS-ID
+**DD          0000N 6.0 2DT-ID
+**DD          0000N 5.0 2PO-ID
+**DD          0000N 7.6 2KL-ID
+**DD          0000N13.2 2SU-RU
+**DD          0000N13.2 2SU-VA
+**DD          0000A   3 2VA-ID
+**DD          0000N 5.0 2OB-ID
+**DD          0000A   8 2ZK-ID
+**DD          0000A   3 2FL-AN
+**DD I1 C     0000A  31M2DI-ID                           (1:10)
+**DD    *     0000     C2DI-ID
+**DD          0000A  80 2TX-ID
+**DD          0000A   2 2MT-ID
+**DD          0000N 8.0 2ST-ID
+**DD          0000A  50 2ST-KD
+**DD          0000N 6.0 2FS-ID
+**DD    *     0000     C2GS-SS
+**DD I1 C     0000     P2GS-SS                           (1:10)
+**DD          0000A   5 3KK-SS
+**DD          0000I   4 3KD-SS
