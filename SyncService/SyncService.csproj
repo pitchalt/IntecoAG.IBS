@@ -39,20 +39,42 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="SyncService\SyncService.cs" />
+    <Compile Include="..\FUSER\WS-SRV\RES\xwvoxcia.Designer.cs">
+      <Link>SyncService\Messages\xwvoxcia.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwvoxcia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="..\FUSER\WS-SRV\RES\xwvoxcoa.Designer.cs">
+      <Link>SyncService\Messages\xwvoxcoa.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwvoxcoa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncService\ISyncService.cs" />
+    <Compile Include="SyncService\HTTPSyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="..\FUSER\WS-SRV\RES\xwvoxcia.xsd">
-      <Link>SyncServices\XSD\xwvoxcia.xsd</Link>
+      <Link>SyncService\Messages\xwvoxcia.xsd</Link>
       <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwvoxcia.Designer.cs</LastGenOutput>
     </None>
     <None Include="..\FUSER\WS-SRV\RES\xwvoxcoa.xsd">
-      <Link>SyncServices\XSD\xwvoxcoa.xsd</Link>
+      <Link>SyncService\Messages\xwvoxcoa.xsd</Link>
       <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwvoxcoa.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

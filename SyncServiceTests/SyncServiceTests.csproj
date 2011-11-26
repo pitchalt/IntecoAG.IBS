@@ -44,7 +44,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SyncServices\SyncService.csproj">
+    <ProjectReference Include="..\SyncService\SyncService.csproj">
       <Project>{5B9924AF-1C20-4946-B838-4626DFCFAEE8}</Project>
       <Name>SyncService</Name>
     </ProjectReference>
