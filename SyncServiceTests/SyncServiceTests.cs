@@ -7,8 +7,9 @@ using NUnit.Framework;
 
 using IntecoAG.IBS.SyncService;
 using IntecoAG.IBS.SyncService.Messages;
+using IntecoAG.IBS.SyncService.Messages.XVO;
 
-namespace SyncServiceTests {
+namespace IntecoAG.IBS.SyncService {
 
     [TestFixture]
     public class SyncServiceTests {
@@ -25,7 +26,7 @@ namespace SyncServiceTests {
             XWVOXCIA prm = new XWVOXCIA();
             XWVOXCOA res = SyncService.XWVOXC0N(prm);
             Assert.AreEqual(res.VOLIST.Count, 10);
-            foreach (VOLIST vo in res.VOLIST)
+            foreach (XWVOXCOAVOLIST vo in res.VOLIST)
                 System.Console.WriteLine(vo.VOCODE + " - " + vo.VOUPTIME);
         }
     }

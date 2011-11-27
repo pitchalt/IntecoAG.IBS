@@ -40,34 +40,86 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\FUSER\WS-SRV\RES\xwvoxcia.Designer.cs">
-      <Link>SyncService\Messages\xwvoxcia.Designer.cs</Link>
+      <Link>SyncService\Messages\XVO\xwvoxcia.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>xwvoxcia.xsd</DependentUpon>
     </Compile>
     <Compile Include="..\FUSER\WS-SRV\RES\xwvoxcoa.Designer.cs">
-      <Link>SyncService\Messages\xwvoxcoa.Designer.cs</Link>
+      <Link>SyncService\Messages\XVO\xwvoxcoa.Designer.cs</Link>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>xwvoxcoa.xsd</DependentUpon>
     </Compile>
+    <Compile Include="..\FUSER\WS-SRV\RES\xwvoxlia.Designer.cs">
+      <Link>SyncService\Messages\XVO\xwvoxlia.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwvoxlia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="..\FUSER\WS-SRV\RES\xwvoxloa.Designer.cs">
+      <Link>SyncService\Messages\XVO\xwvoxloa.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwvoxloa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="..\FUSER\WS-SRV\RES\xwvoxmia.Designer.cs">
+      <Link>SyncService\Messages\XVO\xwvoxmia.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwvoxmia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="..\FUSER\WS-SRV\RES\xwvoxmoa.Designer.cs">
+      <Link>SyncService\Messages\XVO\xwvoxmoa.Designer.cs</Link>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwvoxmoa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncService\HTTPService.cs" />
     <Compile Include="SyncService\ISyncService.cs" />
     <Compile Include="SyncService\HTTPSyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncService\Messages\IServiceMessage.cs" />
+    <Compile Include="SyncService\Messages\ServiceMessage.cs" />
+    <Compile Include="SyncService\Messages\XVO\XVOMessages.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
     <None Include="..\FUSER\WS-SRV\RES\xwvoxcia.xsd">
-      <Link>SyncService\Messages\xwvoxcia.xsd</Link>
+      <Link>SyncService\Messages\XVO\xwvoxcia.xsd</Link>
       <SubType>Designer</SubType>
       <Generator>Xsd2CodeCustomTool</Generator>
       <LastGenOutput>xwvoxcia.Designer.cs</LastGenOutput>
     </None>
     <None Include="..\FUSER\WS-SRV\RES\xwvoxcoa.xsd">
-      <Link>SyncService\Messages\xwvoxcoa.xsd</Link>
+      <Link>SyncService\Messages\XVO\xwvoxcoa.xsd</Link>
       <SubType>Designer</SubType>
       <Generator>Xsd2CodeCustomTool</Generator>
       <LastGenOutput>xwvoxcoa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\FUSER\WS-SRV\RES\xwvoxlia.xsd">
+      <Link>SyncService\Messages\XVO\xwvoxlia.xsd</Link>
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwvoxlia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\FUSER\WS-SRV\RES\xwvoxloa.xsd">
+      <Link>SyncService\Messages\XVO\xwvoxloa.xsd</Link>
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwvoxloa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\FUSER\WS-SRV\RES\xwvoxmia.xsd">
+      <Link>SyncService\Messages\XVO\xwvoxmia.xsd</Link>
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwvoxmia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="..\FUSER\WS-SRV\RES\xwvoxmoa.xsd">
+      <Link>SyncService\Messages\XVO\xwvoxmoa.xsd</Link>
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwvoxmoa.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

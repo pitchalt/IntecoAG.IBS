@@ -8,7 +8,7 @@
     <ProjectGuid>{76191CDE-C237-4A50-BBB5-B3E12AE455EB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SyncServiceTests</RootNamespace>
+    <RootNamespace>IntecoAG.IBS.SyncService</RootNamespace>
     <AssemblyName>SyncServiceTests</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Class1.cs" />
+    <Compile Include="SyncServiceTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
