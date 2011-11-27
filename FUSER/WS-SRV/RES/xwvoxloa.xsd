@@ -1,0 +1,121 @@
+﻿<?xml version='1.0' encoding='UTF-8' ?>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+<xs:element name='XWVOXLOA' >
+<xs:complexType>
+<xs:sequence>
+<xs:element ref='RETURN-CODE' />
+<xs:sequence>
+<xs:element ref='VO-TYPE' />
+<xs:element ref='VO-CODE' />
+<xs:element ref='VO-COUNTRY-CODE' />
+<xs:element ref='VO-INN' />
+<xs:element ref='VO-KPP' />
+<xs:element ref='VO-NAME' />
+<xs:element ref='VO-ADDR' />
+<xs:element ref='VO-NAME-FULL' />
+<xs:element ref='VO-UP-USER' />
+<xs:element ref='VO-UP-PGM' />
+<xs:element ref='VO-UP-TIME' />
+</xs:sequence>
+<xs:element ref='VO-LIST' minOccurs='0' maxOccurs='unbounded' />
+</xs:sequence>
+</xs:complexType>
+ </xs:element> 
+<xs:element name='RETURN-CODE' >
+<xs:simpleType>
+<xs:restriction base='xs:int'>
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-LIST' >
+<xs:complexType>
+<xs:sequence>
+<xs:element ref='VO-TYPE' />
+<xs:element ref='VO-CODE' />
+<xs:element ref='VO-COUNTRY-CODE' />
+<xs:element ref='VO-INN' />
+<xs:element ref='VO-KPP' />
+<xs:element ref='VO-NAME' />
+<xs:element ref='VO-ADDR' />
+<xs:element ref='VO-NAME-FULL' />
+<xs:element ref='VO-UP-USER' />
+<xs:element ref='VO-UP-PGM' />
+<xs:element ref='VO-UP-TIME' />
+</xs:sequence>
+</xs:complexType>
+ </xs:element> 
+<xs:element name='VO-TYPE' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='2' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-CODE' >
+<xs:simpleType>
+<xs:restriction base='xs:decimal'>
+<xs:totalDigits value='5' /><xs:fractionDigits value='0' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-COUNTRY-CODE' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='3' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-INN' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='15' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-KPP' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='15' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-NAME' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='80' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-ADDR' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='80' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-NAME-FULL' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='250' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-UP-USER' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='8' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-UP-PGM' >
+<xs:simpleType>
+<xs:restriction base='xs:string' >
+<xs:maxLength value='8' />
+</xs:restriction>
+</xs:simpleType>
+</xs:element>
+<xs:element name='VO-UP-TIME' >
+<xs:simpleType>
+<xs:restriction base='xs:string' /></xs:simpleType>
+</xs:element>
+</xs:schema>
