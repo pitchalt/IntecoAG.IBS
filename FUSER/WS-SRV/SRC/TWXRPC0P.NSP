@@ -2,7 +2,7 @@ DEFINE DATA
 LOCAL USING XXERX00A
 LOCAL USING WWXRPC0A
 END-DEFINE
-XML-IN := 
+XML-IN :=
 '<?xml version="1.0" encoding="utf-8"?>'-
 '<XWVOXCIA>'-
 '  <OG-CODE>1</OG-CODE>'-
