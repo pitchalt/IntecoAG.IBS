@@ -1,0 +1,26 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XWVOXM0N
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20111127
+* :Time 1927340
+* <Natural Source Header /*<<RO>
+/***********************************************************************
+/*
+/* SYSTEM: WS-SRV
+/* PROGRAM: XWVOXL0N
+/*
+/* DEVELOPER:  UPA
+/* MAKE DATA:
+/*
+/* NAME:  VO LIST XML INTERFACE
+/*
+/* CHANGES:
+/*
+/*
+/*
+/*
+/***********************************************************************
+INCLUDE WWXRPC0C "XWVOXM0S" "XWVOXMIA" "XWVOXMIC" "XWVOXMOA"  "XWVOXMOC"
+END

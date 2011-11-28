@@ -15,6 +15,10 @@ namespace IntecoAG.IBS.SyncService {
         private String base_uri = "http://localhost:8080/nww3d/mod/ws-srv/xml-rpc/";
 
 
+        public HTTPSyncService(String uri){
+            base_uri = uri;
+        }
+        
         protected T2 CallService<T1, T2> (String method, T1 msg_in) 
                 where T1: IServiceMessage<T1>
                 where T2: IServiceMessage<T2>, new() {
@@ -29,9 +33,9 @@ namespace IntecoAG.IBS.SyncService {
 //            PostData.Write(buffer, 0, buffer.Length);
             PostData.Close();
             //
-            WebResponse response = request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream RespData = response.GetResponseStream();
-            StreamReader reader = new StreamReader(RespData);
+            StreamReader reader = new StreamReader(RespData,Encoding.GetEncoding(response.CharacterSet));
 //            return XWVOXCOA.Deserialize(reader.ReadToEnd());
 //            return ((T1)(T1.Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))))
             T2 val = new T2().Deserialize(reader);
@@ -40,24 +44,8 @@ namespace IntecoAG.IBS.SyncService {
         }
 
         public XWVOXCOA XWVOXC0N(XWVOXCIA prm_in) {
-            WebRequest request = WebRequest.Create("http://localhost:8080/nww3d/mod/ws-srv/xml-rpc/xwvoxc0n");
-            request.Method = "POST";
-            request.ContentType = "text/xml";
-            byte[] buffer = Encoding.UTF8.GetBytes(prm_in.Serialize());
-            request.ContentLength = buffer.Length;
-            Stream PostData = request.GetRequestStream();
-            PostData.Write(buffer, 0, buffer.Length);
-            PostData.Close();
-            //
-            WebResponse response = request.GetResponse();
-            Stream RespData = response.GetResponseStream();
-            StreamReader reader = new StreamReader(RespData);
-            return XWVOXCOA.Deserialize(reader.ReadToEnd());
+            return CallService<XWVOXCIA, XWVOXCOA>("xwvoxc0n", prm_in);
         }
-
-//        public XWVOXCOA XWVOXC0N(XWVOXCIA prm_in) {
-//            return CallService<XWVOXCIA, XWVOXCOA>("xwvoxc0n", prm_in);
-//        }
 
         public  XWVOXLOA XWVOXL0N(XWVOXLIA prm_in) {
             return CallService<XWVOXLIA, XWVOXLOA>("xwvoxl0n", prm_in);

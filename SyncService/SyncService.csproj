@@ -81,7 +81,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncService\Messages\IServiceMessage.cs" />
     <Compile Include="SyncService\Messages\ServiceMessage.cs" />
-    <Compile Include="SyncService\Messages\XVO\XVOMessages.cs" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

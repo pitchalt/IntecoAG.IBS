@@ -1,0 +1,22 @@
+/*C                                *>Natural Source Header 000000                                     DA:00.00ED:00.00PF:WNV:06030900
+/*C                                *:NatName XWVOXMIA
+/*C                                *:UID PAUL
+/*C                                *:Mode S
+/*C                                *:CP
+/*C                                *:Date 20111127
+/*C                                *:Time 1844510
+/*C                                *<Natural Source Header
+/*DS                                 1XWVOXMIA
+/*DF                    A        15  2CMD
+/*DF                    N         5  2OG-CODE
+/*DF                    A         2  2VO-TYPE
+/*DF                    N         5  2VO-CODE
+/*DF                    A         3  2VO-COUNTRY-CODE
+/*DF                    A        15  2VO-INN
+/*DF                    A        15  2VO-KPP
+/*DF                    A        80  2VO-NAME
+/*DF                    A        80  2VO-ADDR
+/*DF                    A       250  2VO-NAME-FULL
+/*DF                    A         8  2VO-UP-USER
+/*DF                    A         8  2VO-UP-PGM
+/*DF                    T            2VO-UP-TIME

@@ -1,0 +1,78 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XWVOXMOC
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20111127
+* :Time 1854570
+* <Natural Source Header /*<<RO>
+* ----------------------------------------------------------------------
+* Generated from NATURAL XML TOOLKIT
+*
+*         'XWVOXMOI'
+*
+* DESCRIPTION
+*               XML serialize implementation
+*
+* Parameter Definition
+*
+* &1& 'XML'                           /* XML Document
+* &2& '#CX'                           /* Counter Variable 1st Dimension
+* &3& '#CY'                           /* Counter Variable 2nd Dimension
+* &4& '#CZ'                           /* Counter Variable 3rd Dimension
+* ----------------------------------------------------------------------
+* DTD WS-SRV XWVOXMOA
+ COMPRESS NUMERIC &1& '<XWVOXMOA'
+ '>' INTO &1& LEAVING NO
+ /* now the children
+ COMPRESS NUMERIC &1& '<RETURN-CODE'
+ '>'XWVOXMOA.RETURN-CODE
+ '</RETURN-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-TYPE'
+ '>'XWVOXMOA.VO-TYPE
+ '</VO-TYPE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-CODE'
+ '>'XWVOXMOA.VO-CODE
+ '</VO-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-COUNTRY-CODE'
+ '>'XWVOXMOA.VO-COUNTRY-CODE
+ '</VO-COUNTRY-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-INN'
+ '>'XWVOXMOA.VO-INN
+ '</VO-INN>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-KPP'
+ '>'XWVOXMOA.VO-KPP
+ '</VO-KPP>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-NAME'
+ '>'XWVOXMOA.VO-NAME
+ '</VO-NAME>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-ADDR'
+ '>'XWVOXMOA.VO-ADDR
+ '</VO-ADDR>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-NAME-FULL'
+ '>'XWVOXMOA.VO-NAME-FULL
+ '</VO-NAME-FULL>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-UP-USER'
+ '>'XWVOXMOA.VO-UP-USER
+ '</VO-UP-USER>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-UP-PGM'
+ '>'XWVOXMOA.VO-UP-PGM
+ '</VO-UP-PGM>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-UP-TIME'
+ '>'XWVOXMOA.VO-UP-TIME
+ '</VO-UP-TIME>'
+ INTO &1& LEAVING NO
+ /*
+ COMPRESS FULL &1& '</XWVOXMOA>'
+ INTO &1& LEAVING NO
