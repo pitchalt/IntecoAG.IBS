@@ -9,7 +9,7 @@
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>IntecoAG.IBS</RootNamespace>
-    <AssemblyName>SyncServices</AssemblyName>
+    <AssemblyName>IntecoAG.IBS.SyncServices</AssemblyName>
     <TargetFrameworkVersion>v3.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

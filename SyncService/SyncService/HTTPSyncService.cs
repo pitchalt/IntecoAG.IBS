@@ -31,6 +31,7 @@ namespace IntecoAG.IBS.SyncService {
             StreamWriter writer = new StreamWriter(PostData,Encoding.UTF8);
             msg_in.Serialize(writer);
 //            PostData.Write(buffer, 0, buffer.Length);
+            writer.Close();
             PostData.Close();
             //
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
@@ -39,6 +40,7 @@ namespace IntecoAG.IBS.SyncService {
 //            return XWVOXCOA.Deserialize(reader.ReadToEnd());
 //            return ((T1)(T1.Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))))
             T2 val = new T2().Deserialize(reader);
+            reader.Close();
             RespData.Close();
             return val;
         }
