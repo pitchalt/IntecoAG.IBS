@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 using NUnit.Framework;
 
-using IntecoAG.IBS.SyncService;
-using IntecoAG.IBS.SyncService.Messages;
 using IntecoAG.IBS.SyncService.Messages.XVO;
 
 namespace IntecoAG.IBS.SyncService {
@@ -19,7 +14,7 @@ namespace IntecoAG.IBS.SyncService {
 
         [TestFixtureSetUp]
         public void Init() {
-            SyncService = new HTTPSyncService("http://localhost:8080/nww3d/mod/ws-srv/xml-rpc/");
+            SyncService = new HTTPSyncService("http://sagsrv:8080/nww3d/mod/ws-tst/xml-rpc/");
         }
 
         protected void ClearTestData() {
@@ -136,12 +131,12 @@ namespace IntecoAG.IBS.SyncService {
             //
         }
         [Test]
-        public void ListTest() {
+        public void ListTest([Range(1, 10, 1)]  int counter) {
             decimal [] vocode = new decimal[20];
             XWVOXMIA iprm;
             XWVOXMOA ires;
             for (int i = 0; i < 20; i++) {
-                iprm = NewPrmFill("INSERT", i.ToString());
+                iprm = NewPrmFill("INSERT", counter.ToString() + ":" + i.ToString());
                 ires = SyncService.XWVOXM0N(iprm);
                 vocode[i] = ires.VOCODE;
             }
@@ -155,11 +150,11 @@ namespace IntecoAG.IBS.SyncService {
                 for (int i = 0; i < 20; i++) {
                     if (vocode[i] == item.VOCODE) {
 //                        System.Console.WriteLine(i + " " + item.VOCODE + " " + item.VONAME);
-                        Assert.AreEqual(item.VONAME, "Имя" + i.ToString());
-                        Assert.AreEqual(item.VONAMEFULL, "ИмяПолное" + i.ToString());
-                        Assert.AreEqual(item.VOADDR, "Адрес" + i.ToString());
-                        Assert.AreEqual(item.VOINN, "ИНН" + i.ToString());
-                        Assert.AreEqual(item.VOKPP, "КПП" + i.ToString());
+                        Assert.AreEqual(item.VONAME, "Имя" + counter.ToString() + ":" + i.ToString());
+                        Assert.AreEqual(item.VONAMEFULL, "ИмяПолное" + counter.ToString() + ":" + i.ToString());
+                        Assert.AreEqual(item.VOADDR, "Адрес" + counter.ToString() + ":" + i.ToString());
+                        Assert.AreEqual(item.VOINN, "ИНН" + counter.ToString() + ":" + i.ToString());
+                        Assert.AreEqual(item.VOKPP, "КПП" + counter.ToString() + ":" + i.ToString());
                         count++;
                     }
                 }
