@@ -41,7 +41,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CallServiceTests.cs" />
-    <Compile Include="SyncServiceTests.cs" />
+    <Compile Include="SyncServiceXDPTests.cs" />
+    <Compile Include="SyncServiceXVOTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

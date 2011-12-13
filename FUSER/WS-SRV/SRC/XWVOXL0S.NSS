@@ -1,11 +1,3 @@
-* >Natural Source Header 000000 /*<RO>>
-* :NatName XWVOXL0S
-* :UID PAUL
-* :Mode S
-* :CP windows-1251
-* :Date 20111127
-* :Time 1741530
-* <Natural Source Header /*<<RO>
 /***********************************************************************
 /*
 /* SYSTEM: WS-SRV
@@ -95,7 +87,7 @@ DEFINE SUBROUTINE VO-LIST
   MOVE #I TO XWVOXLOA.C@VO-LIST
 END-SUBROUTINE
 /*
-DEFINE SUBROUTINE CLEAR-TEST-DATA 
+DEFINE SUBROUTINE CLEAR-TEST-DATA
   IF XWVOXLIA.OG-CODE < 10000 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF
   FIND IBS-KK-FILE OG-ID = XWVOXLIA.OG-CODE AND KK-F = 'MO'
      DELETE
@@ -111,4 +103,3 @@ END-SUBROUTINE
 /*
 END-SUBROUTINE
 END
-

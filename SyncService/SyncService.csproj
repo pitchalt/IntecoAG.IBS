@@ -81,6 +81,16 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SyncService\Messages\IServiceMessage.cs" />
     <Compile Include="SyncService\Messages\ServiceMessage.cs" />
+    <Compile Include="SyncService\Messages\XDP\xwdpxlia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwdpxlia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncService\Messages\XDP\xwdpxloa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwdpxloa.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -119,6 +129,16 @@
       <SubType>Designer</SubType>
       <Generator>Xsd2CodeCustomTool</Generator>
       <LastGenOutput>xwvoxmoa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\XDP\xwdpxlia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwdpxlia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\XDP\xwdpxloa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwdpxloa.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

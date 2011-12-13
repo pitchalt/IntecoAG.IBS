@@ -7,6 +7,7 @@ using System.Text;
 
 using IntecoAG.IBS.SyncService.Messages;
 using IntecoAG.IBS.SyncService.Messages.XVO;
+using IntecoAG.IBS.SyncService.Messages.XDP;
 
 namespace IntecoAG.IBS.SyncService {
 
@@ -57,5 +58,8 @@ namespace IntecoAG.IBS.SyncService {
             return CallService<XWVOXMIA, XWVOXMOA>("xwvoxm0n", prm_in);
         }
 
+        public XWDPXLOA XWDPXL0N(XWDPXLIA prm_in) {
+            return CallService<XWDPXLIA, XWDPXLOA>("xwdpxl0n", prm_in);
+        }
     }
 }

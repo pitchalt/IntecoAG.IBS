@@ -1,11 +1,3 @@
-* >Natural Source Header 000000 /*<RO>>
-* :NatName XWVOXM0S
-* :UID PAUL
-* :Mode S
-* :CP
-* :Date 20111128
-* :Time 0357250
-* <Natural Source Header /*<<RO>
 /***********************************************************************
 /*
 /* SYSTEM: WS-SRV
@@ -165,4 +157,3 @@ END-SUBROUTINE
 /*
 END-SUBROUTINE
 END
-
