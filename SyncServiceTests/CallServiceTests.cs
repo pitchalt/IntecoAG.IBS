@@ -11,7 +11,7 @@ namespace IntecoAG.IBS.SyncService {
         [Test]
         public void EchoTest([Range(1, 10, 1)]  int counter) {
             String testxml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?><TEST><CMD>ECHO</CMD><DATA>ECHO DATA" + counter.ToString() + "</DATA></TEST>";
-            WebRequest request = WebRequest.Create("http://sagsrv:8080/nww3d/mod/ws-tst/xml-rpc/wwecho1n");
+            WebRequest request = WebRequest.Create("http://npomash:8080/nww3d/mod/ws-tst/xml-rpc/wwecho1n");
             request.Method = "POST";
             request.ContentType = "text/xml";
             Stream PostData = request.GetRequestStream();
@@ -29,7 +29,7 @@ namespace IntecoAG.IBS.SyncService {
         }
         [Test]
         public void SYSWEB3Test([Range(1, 10, 1)]  int counter) {
-            WebRequest request = WebRequest.Create("http://sagsrv:8080/nww3d/mod/sysweb3/nat-env");
+            WebRequest request = WebRequest.Create("http://npomash:8080/nww3d/mod/sysweb3/nat-env");
             //            WebRequest request = WebRequest.Create("http://sagsrv:8080/nww3d/mod/fail-srv/fail-method");
             //            WebRequest request = WebRequest.Create("http://sagsrv:8080/nww3d/mod/sysweb3/fail-method");
             request.Method = "GET";
@@ -42,7 +42,7 @@ namespace IntecoAG.IBS.SyncService {
         }
         [Test]
         public void HttpTest([Range(1, 10, 1)]  int counter) {
-            WebRequest request = WebRequest.Create("http://sagsrv:8080");
+            WebRequest request = WebRequest.Create("http://npomash:8080");
             request.Method = "GET";
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             Stream RespData = response.GetResponseStream();
