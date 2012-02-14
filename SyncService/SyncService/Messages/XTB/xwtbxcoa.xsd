@@ -1,0 +1,44 @@
+﻿<?xml version='1.0' encoding='UTF-8' ?>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+  <xs:element name='XWTBXCOA' >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name='RETURN-CODE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:int'>
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='TB-LIST' minOccurs='0' maxOccurs='unbounded' >
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name='TB-CODE' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string' >
+                    <xs:maxLength value='10' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name='TB-BUH-CODE' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:decimal'>
+                    <xs:totalDigits value='5' />
+                    <xs:fractionDigits value='0' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name='TB-DP-CODE' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:decimal'>
+                    <xs:totalDigits value='5' />
+                    <xs:fractionDigits value='0' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

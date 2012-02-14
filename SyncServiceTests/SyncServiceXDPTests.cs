@@ -13,7 +13,7 @@ namespace IntecoAG.IBS.SyncService {
 
         [TestFixtureSetUp]
         public void Init() {
-            SyncService = new HTTPSyncService("http://npomash:8080/nww3d/mod/ws-dev/xml-rpc/");
+            SyncService = new HTTPSyncService("http://npomash:8080/nww3d/mod/intecoag.ibs.ws-dev/xml-rpc/");
         }
 
         protected void ClearTestData() {

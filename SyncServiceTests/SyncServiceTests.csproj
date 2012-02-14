@@ -41,12 +41,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CallServiceTests.cs" />
+    <Compile Include="SyncServiceXTBTests.cs" />
     <Compile Include="SyncServiceXDPTests.cs" />
     <Compile Include="SyncServiceXVOTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SyncService\SyncService.csproj">
+    <ProjectReference Include="..\SyncService\IntecoAG.IBS.SyncService.csproj">
       <Project>{5B9924AF-1C20-4946-B838-4626DFCFAEE8}</Project>
       <Name>SyncService</Name>
     </ProjectReference>

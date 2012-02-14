@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncService", "SyncService\SyncService.csproj", "{5B9924AF-1C20-4946-B838-4626DFCFAEE8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IntecoAG.IBS.SyncService", "SyncService\IntecoAG.IBS.SyncService.csproj", "{5B9924AF-1C20-4946-B838-4626DFCFAEE8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SyncServiceTests", "SyncServiceTests\SyncServiceTests.csproj", "{76191CDE-C237-4A50-BBB5-B3E12AE455EB}"
 EndProject
