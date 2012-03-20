@@ -1,0 +1,214 @@
+﻿<?xml version='1.0' encoding='UTF-8' ?>
+<xs:schema xmlns:xs='http://www.w3.org/2001/XMLSchema'>
+  <xs:element name='FWSJXMIA' >
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element name='CMD' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='15' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='SJ-OID' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='36' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='OPERATION' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='5' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='VO-CODE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='5' />
+              <xs:fractionDigits value='0' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='SF-NUMBER' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='20' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='SF-DATE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:date' >
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='FI-NUMBER' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='20' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='FI-DATE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:date' >
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='DG-NUMBER' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='20' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='DG-DATE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:date' >
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='ZK-CODE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='9' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='SUMM-COST' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='15' />
+              <xs:fractionDigits value='2' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='AVT-RATE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='5' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='SUMM-AVT' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='15' />
+              <xs:fractionDigits value='2' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='SUMM-ALL' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='15' />
+              <xs:fractionDigits value='2' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='VA-CODE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='3' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='SUMM-VAL-ALL' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='15' />
+              <xs:fractionDigits value='2' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='PL-NUMBER' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='30' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='ACC-SALE-DEBET' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='30' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='ACC-SALE-CREDIT' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='30' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='ACC-AVT-DEBET' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='30' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='ACC-AVT-CREDIT' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='30' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='PERIOD' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal' >
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='UOG-CODE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal' >
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='DOC-PROV' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='5' />
+              <xs:fractionDigits value='0' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='DOC-PCK' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='5' />
+              <xs:fractionDigits value='0' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='DOC-NUMBER' >
+          <xs:simpleType>
+            <xs:restriction base='xs:decimal'>
+              <xs:totalDigits value='5' />
+              <xs:fractionDigits value='0' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='DOC-DATE' >
+          <xs:simpleType>
+            <xs:restriction base='xs:date' >
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+        <xs:element name='CNT-USER' >
+          <xs:simpleType>
+            <xs:restriction base='xs:string' >
+              <xs:maxLength value='32' />
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -79,6 +79,16 @@
     <Compile Include="SyncService\ISyncService.cs" />
     <Compile Include="SyncService\HTTPSyncService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SyncService\Messages\FSJ\fwsjxmia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>fwsjxmia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncService\Messages\FSJ\fwsjxmoa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>fwsjxmoa.xsd</DependentUpon>
+    </Compile>
     <Compile Include="SyncService\Messages\IServiceMessage.cs" />
     <Compile Include="SyncService\Messages\ServiceMessage.cs" />
     <Compile Include="SyncService\Messages\XDP\xwdpxlia.Designer.cs">
@@ -149,6 +159,16 @@
       <SubType>Designer</SubType>
       <Generator>Xsd2CodeCustomTool</Generator>
       <LastGenOutput>xwvoxmoa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\FSJ\fwsjxmia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>fwsjxmia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\FSJ\fwsjxmoa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>fwsjxmoa.Designer.cs</LastGenOutput>
     </None>
     <None Include="SyncService\Messages\XDP\xwdpxlia.xsd">
       <SubType>Designer</SubType>

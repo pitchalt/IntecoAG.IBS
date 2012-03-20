@@ -6,6 +6,7 @@ using System.IO;
 using System.Text;
 
 using IntecoAG.IBS.SyncService.Messages;
+using IntecoAG.IBS.SyncService.Messages.FSJ;
 using IntecoAG.IBS.SyncService.Messages.XVO;
 using IntecoAG.IBS.SyncService.Messages.XDP;
 using IntecoAG.IBS.SyncService.Messages.XTB;
@@ -45,6 +46,7 @@ namespace IntecoAG.IBS.SyncService {
                         msg_in.Serialize(writer);
                         //            PostData.Write(buffer, 0, buffer.Length);
                         writer.Close();
+
                     }
                     PostData.Close();
                 }
@@ -98,6 +100,10 @@ namespace IntecoAG.IBS.SyncService {
 
         public XWTBXLOA XWTBXL0N(XWTBXLIA prm_in) {
             return CallService<XWTBXLIA, XWTBXLOA>("xwtbxl0n", prm_in);
+        }
+
+        public FWSJXMOA FWSJXM0N(FWSJXMIA prm_in) {
+            return CallService<FWSJXMIA, FWSJXMOA>("fwsjxm0n", prm_in);
         }
     }
 }

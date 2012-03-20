@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using IntecoAG.IBS.SyncService.Messages;
+using IntecoAG.IBS.SyncService.Messages.FSJ;
 using IntecoAG.IBS.SyncService.Messages.XDP;
 using IntecoAG.IBS.SyncService.Messages.XTB;
 using IntecoAG.IBS.SyncService.Messages.XVO;
@@ -17,6 +18,7 @@ namespace IntecoAG.IBS.SyncService {
         XWDPXLOA XWDPXL0N(XWDPXLIA prm_in);
         XWTBXCOA XWTBXC0N(XWTBXCIA prm_in);
         XWTBXLOA XWTBXL0N(XWTBXLIA prm_in);
+        FWSJXMOA FWSJXM0N(FWSJXMIA prm_in);
     }
 
 }
