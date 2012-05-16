@@ -25,6 +25,13 @@
             </xs:restriction>
           </xs:simpleType>
         </xs:element>
+        <xs:element name='VO-IS-CLOSED' >
+          <xs:simpleType>
+            <xs:restriction base='xs:boolean' >
+              <!--              <xs:maxLength value='2' /> -->
+            </xs:restriction>
+          </xs:simpleType>
+        </xs:element>
         <xs:element name='VO-CODE' >
           <xs:simpleType>
             <xs:restriction base='xs:decimal'>
