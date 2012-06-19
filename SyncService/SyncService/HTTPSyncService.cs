@@ -8,6 +8,7 @@ using System.Text;
 using IntecoAG.IBS.SyncService.Messages;
 using IntecoAG.IBS.SyncService.Messages.FSJ;
 using IntecoAG.IBS.SyncService.Messages.XVO;
+using IntecoAG.IBS.SyncService.Messages.XZK;
 using IntecoAG.IBS.SyncService.Messages.XDP;
 using IntecoAG.IBS.SyncService.Messages.XTB;
 
@@ -104,6 +105,14 @@ namespace IntecoAG.IBS.SyncService {
 
         public FWSJXMOA FWSJXM0N(FWSJXMIA prm_in) {
             return CallService<FWSJXMIA, FWSJXMOA>("fwsjxm0n", prm_in);
+        }
+
+        public XWZKXCOA XWZKXC0N(XWZKXCIA prm_in) {
+            return CallService<XWZKXCIA, XWZKXCOA>("xwzkxc0n", prm_in);
+        }
+
+        public XWZKXMOA XWZKXM0N(XWZKXMIA prm_in) {
+            return CallService<XWZKXMIA, XWZKXMOA>("xwzkxm0n", prm_in);
         }
     }
 }

@@ -121,6 +121,26 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>xwtbxloa.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SyncService\Messages\XZK\xwzkxcia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwzkxcia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncService\Messages\XZK\xwzkxcoa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwzkxcoa.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncService\Messages\XZK\xwzkxmia.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwzkxmia.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="SyncService\Messages\XZK\xwzkxmoa.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>xwzkxmoa.xsd</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
@@ -199,6 +219,26 @@
       <SubType>Designer</SubType>
       <Generator>Xsd2CodeCustomTool</Generator>
       <LastGenOutput>xwtbxloa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\XZK\xwzkxcia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwzkxcia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\XZK\xwzkxcoa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwzkxcoa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\XZK\xwzkxmia.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwzkxmia.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\XZK\xwzkxmoa.xsd">
+      <SubType>Designer</SubType>
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwzkxmoa.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

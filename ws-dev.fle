@@ -1,4 +1,4 @@
-*H**ANAT6307201203192001211WNT-X86                          4CANG     03.7          
+*H**ANAT6307201206182109093WNT-X86                          4CANG     03.7          
 *C**                                WS-DEV  FWSJXM0N                        N S   NN
 *D01NAT6307N WS-DEV  FWSJXM0N                        PAUL    PAUL            S      
 *D02            2012031618015902012031618015900000000905    
@@ -42,8 +42,8 @@
 *S**/*WRITE WORK FILE 9 #LOG        
 *S**END     
 *C**                                WS-DEV  FWSJXM0S                        S S   NN
-*D01NAT6307S WS-DEV  FWSJXM0S                        PAUL    PAUL            S      
-*D02            2012031911482402012031911482400000006817    
+*D01NAT6307S WS-DEV  FWSJXM0S                        UPA     UPA             S      
+*D02            2012031914455502012031914455500000007627    
 *D03WNT-X86 
 *D04                 windows-1251   
 *S*** >Natural Source Header 000000/*<RO>>      
@@ -118,8 +118,10 @@
 *S**  IF FWSJXMIA.DOC-NUMBER EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF    
 *S**  IF FWSJXMIA.ACC-SALE-DEBET EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF
 *S**  IF FWSJXMIA.ACC-SALE-CREDIT EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF           
-*S**  IF FWSJXMIA.ACC-AVT-DEBET EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF 
-*S**  IF FWSJXMIA.ACC-AVT-CREDIT EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF
+-S**  IF FWSJXMIA.SUMM-AVT NE 0 AND FWSJXMIA.ACC-AVT-DEBET EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-R
+*S**EQUIRED END-IF      
+-S**  IF FWSJXMIA.SUMM-AVT NE 0 AND FWSJXMIA.ACC-AVT-CREDIT EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-
+*S**REQUIRED END-IF     
 *S**  MOVE FWSJXMIA.DOC-DATE TO #DT 
 *S**  EXAMINE #DT FOR "-" DELETE    
 *S**  MOVE EDITED #DT TO #DT-D (EM=YYYYMMDD)    
@@ -175,6 +177,22 @@
 *S**  NONE VALUE        
 *S**     KD-OS(1) := KD-KS(1) := 2  
 *S**  END-DECIDE        
+*S**  /*    
+*S**  IF FWSJXMIA.ACC-SALE-DEBET EQ 6214 THEN   
+*S**     KK-OS(2) := KK-OS(1)       
+*S**     KD-OS(2) := KD-OS(1)       
+*S**     KK-OS(1) := "40000"        
+*S**     DECIDE ON FIRST VALUE FWSJXMIA.ZK-CODE 
+*S**     VALUE "23220000"           
+*S**        KD-OS(1) := 3           
+*S**     VALUE "23210000"           
+*S**        KD-OS(1) := 1           
+*S**     VALUE "23230000"           
+*S**        KD-OS(1) := 2           
+*S**     NONE           
+*S**        IGNORE      
+*S**     END-DECIDE     
+*S**  END-IF
 *S**  /*    
 *S**  IBS-REC-FILE.TY-DI-OS(1) := SF-TYPE       
 *S**  IBS-REC-FILE.TY-DI-KS(1) := SF-TYPE       
@@ -242,9 +260,23 @@
 *S**     IBS-REC-FILE.TZ-ID   := 2  
 *S**     IBS-REC-FILE.KS-F    := FWSJXMIA.ACC-SALE-DEBET    
 *S**     IBS-REC-FILE.OS-F    := FWSJXMIA.ACC-SALE-CREDIT   
+*S**     IF KS-F EQ 6214 THEN       
+*S**        KK-KS(1) := KK-OS(1)    
+*S**        KD-KS(1) := KD-OS(1)    
+*S**        KK-KS(2) := KK-OS(2)    
+*S**        KD-KS(2) := KD-OS(2)    
+*S**        KK-OS(1) := KK-OS(2)    
+*S**        KD-OS(1) := KD-OS(2)    
+*S**        RESET KK-OS(2) KD-OS(2) 
+*S**     END-IF         
 *S**     IBS-REC-FILE.SU-F    := FWSJXMIA.SUMM-ALL          
 *S**     IBS-REC-FILE.SO-F    := FWSJXMIA.SUMM-VAL-ALL      
 *S**     STORE IBS-REC-FILE         
+*S**  END-IF
+*S**  IF FWSJXMIA.ACC-SALE-DEBET EQ 6214 THEN   
+*S**     KK-KS(1) := KK-KS(2)       
+*S**     KD-KS(1) := KD-KS(2)       
+*S**     RESET KK-KS(2) KD-KS(2)    
 *S**  END-IF
 *S**  IF FWSJXMIA.SUMM-AVT NE 0 THEN
 *S**     IBS-REC-FILE.VA-ID   := "–”Ѕ"          
@@ -938,6 +970,59 @@
 *S** /*     
 *S** COMPRESS FULL &1& '</SWVOXM0A>'
 *S** INTO &1& LEAVING NO
+*C**                                WS-DEV  TSTPARSE                        F S   NN
+*D01NAT6307F WS-DEV  TSTPARSE                        UPA     UPA             S      
+*D02            2011112717063802011112717063800000000660    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**DEFINE DATA         
+*S**LOCAL   
+*S**1 #XML (A) DYNAMIC  
+*S**1 #PATH (A) DYNAMIC 
+*S**1 #NAME (A250)      
+*S**1 #VALUE (A250)     
+*S**1 URI (A250/1:1)    
+*S**1 PRE (A10/1:1)     
+*S**END-DEFINE          
+*S**FORMAT LS=120       
+*S**#XML := 
+*S**'<TEST>'-           
+*S**'  <XBVOXM0A xmlns="http://intecoag.ru/ibs/v1/x.xsd">'- 
+*S**'    <OG-CODE>1</OG-CODE>'-     
+*S**'    <VO-CODE>1</VO-CODE>'-     
+*S**'    <VO-TIMESTAMP>1900-01-01T01:01:01+03:00</VO-TIMESTAMP>'-       
+*S**'  </XBVOXM0A>'-    
+*S**'</TEST>'           
+*S**/*      
+*S**URI(1) := 'http://intecoag.ru/ibs/v1/x.xsd' 
+*S**PRE(1) := 'nat:'    
+-S**PARSE XML #XML INTO PATH  #PATH  NAME #NAME VALUE #VALUE NORMALIZE NAMESPACE URI(*) PREFIX P
+*S**RE(*)   
+*S**  WRITE *PARSE-NAMESPACE-URI (AL=40) #PATH (AL=30) *PARSE-TYPE #NAME (AL=30) #VALUE (AL=10) 
+*S**END-PARSE           
+*S**END     
+*S**        
+*C**                                WS-DEV  TWDPXM0P                        F S   NN
+*D01NAT6307F WS-DEV  TWDPXM0P                        UPA     UPA             S      
+*D02            2011121314371402011121314371400000000260    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**DEFINE DATA         
+*S**LOCAL USING XXERX00A
+*S**LOCAL USING WWXRPC0A
+*S**END-DEFINE          
+*S**XML-IN :=           
+*S**'<?xml version="1.0" encoding="utf-8"?>'-   
+*S**'<XWDPXLIA>'-       
+*S**'  <CMD>LIST</CMD>'-
+*S**'</XWDPXLIA>'       
+*S**CALLNAT "XWDPXL0N" XXERX00A WWXRPC0A        
+*S**PRINT XML-OUT       
+*S**BACKOUT TRANSACTION 
+*S**END     
+*S**        
+*S**        
+*S**        
 *C**                                WS-DEV  TWSJXM0P                        F S   NN
 *D01NAT6307F WS-DEV  TWSJXM0P                        PAUL    PAUL            S      
 *D02            2012031615054602012031615054600000001250    
@@ -985,6 +1070,141 @@
 *S**END     
 *S**        
 *S**        
+*S**        
+*C**                                WS-DEV  TWTBXL0P                        F S   NN
+*D01NAT6307F WS-DEV  TWTBXL0P                        UPA     UPA             S      
+*D02            2012021318381402012021318381400000001028    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**DEFINE DATA         
+*S**LOCAL USING XXERX00A
+*S**LOCAL USING XWTBXCIA
+*S**LOCAL USING XWTBXCOA
+*S**LOCAL USING XWTBXLIA
+*S**LOCAL USING XWTBXLOA
+*S**LOCAL   
+*S**1 #I       (I4)     
+*S**1 #J       (I4)     
+*S**END-DEFINE          
+*S**FORMAT LS=120       
+*S**/*      
+*S**RESET #I
+*S**EXPAND AND RESET ARRAY XWTBXLIA.TB-BUH-CODE TO (1:100)  
+*S**XWTBXCIA.CMD := "CATALOG"       
+*S**PERFORM XWTBXC0S XXERX00A XWTBXCIA XWTBXCOA 
+*S**FOR #I = 1 TO XWTBXCOA.C@TB-LIST
+*S**  ADD 1 TO XWTBXLIA.C@TB-BUH-CODE           
+*S**  MOVE XWTBXCOA.TB-BUH-CODE(#I) TO XWTBXLIA.TB-BUH-CODE(C@TB-BUH-CODE)          
+*S**  IF XWTBXLIA.C@TB-BUH-CODE = 100 THEN      
+*S**     PERFORM TB-LIST
+*S**     RESET XWTBXLIA.C@TB-BUH-CODE           
+*S**     EXPAND AND RESET ARRAY XWTBXLIA.TB-BUH-CODE TO (1:100)         
+*S**  END-IF
+*S**END-FOR 
+*S**PERFORM TB-LIST     
+*S**/*      
+*S**DEFINE SUBROUTINE TB-LIST       
+*S**  XWTBXLIA.CMD := "LIST"        
+*S**  PERFORM XWTBXL0S XXERX00A XWTBXLIA XWTBXLOA           
+*S**  FOR #J = 1 TO XWTBXLOA.C@TB-LIST          
+*S**     WRITE #I (NL=5) #J (NL=5)  
+*S**           XWTBXLOA.TB-BUH-CODE(#J)         
+*S**           XWTBXLOA.TB-LAST-NAME(#J)        
+*S**           XWTBXLOA.TB-FIRST-NAME(#J)       
+*S**           XWTBXLOA.TB-DP-CODE(#J)          
+*S**  END-FOR           
+*S**END-SUBROUTINE      
+*S**/*      
+*S**END     
+*S**        
+*C**                                WS-DEV  TWVOXM0P                        F S   NN
+*D01NAT6307F WS-DEV  TWVOXM0P                        PAUL    PAUL            S      
+*D02            2012051619405202012051619405200000000946    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**DEFINE DATA         
+*S**LOCAL USING XXERX00A
+*S**LOCAL USING WWXRPC0A
+*S**LOCAL USING IBS-VOL 
+*S**LOCAL   
+*S**1 #OGVO    (B10)    
+*S**1 REDEFINE #OGVO    
+*S**2 #OGVO-OG (N5)     
+*S**2 #OGVO-VO (N5)     
+*S**END-DEFINE          
+*S**#OGVO-OG := 1000    
+*S**#OGVO-VO := 623     
+*S**FIND IBS-KVO-FILE WITH OG-VO EQ #OGVO       
+*S**  WRITE VO-ID NN-ID NM-OG(AL=40)
+*S**END-FIND
+*S**BACKOUT TRANSACTION 
+*S**ESCAPE ROUTINE      
+*S**XML-IN :=           
+*S**'<?xml version="1.0" encoding="utf-8"?>'-   
+*S**'<XWVOXMIA>'-       
+*S**'  <CMD>INSERT</CMD>'-          
+*S**'  <OG-CODE>10000</OG-CODE>'-   
+*S**'  <VO-TYPE>V1</VO-TYPE>'-      
+*S**'  <VO-CODE>1</VO-CODE>'-       
+*S**'  <VO-COUNTRY-CODE>VO1</VO-COUNTRY-CODE>'- 
+*S**'  <VO-INN>VO-INN1</VO-INN>'-   
+*S**'  <VO-KPP>VO-KPP1</VO-KPP>'-   
+*S**'  <VO-NAME>VO-NAME1</VO-NAME>'-
+*S**'  <VO-ADDR>VO-ADDR1</VO-ADDR>'-
+*S**'  <VO-NAME-FULL>VO-NAME-FULL1</VO-NAME-FULL>'-         
+*S**'  <VO-UP-USER>VO-UP-U1</VO-UP-USER>'-      
+*S**'  <VO-UP-PGM>VO-UP-P1</VO-UP-PGM>'-        
+*S**'  <VO-UP-TIME>VO-UP-TIME1</VO-UP-TIME>'-   
+*S**'</XWVOXMIA>'       
+*S**CALLNAT "XWVOXM0N" XXERX00A WWXRPC0A        
+*S**PRINT XML-OUT       
+*S**BACKOUT TRANSACTION 
+*S**END     
+*S**        
+*S**        
+*S**        
+*C**                                WS-DEV  TWXRPC0P                        F S   NN
+*D01NAT6307F WS-DEV  TWXRPC0P                        UPA     UPA             S      
+*D02            2011112717063902011112717063900000000240    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**DEFINE DATA         
+*S**LOCAL USING XXERX00A
+*S**LOCAL USING WWXRPC0A
+*S**END-DEFINE          
+*S**XML-IN :=           
+*S**'<?xml version="1.0" encoding="utf-8"?>'-   
+*S**'<XWVOXCIA>'-       
+*S**'  <OG-CODE>1</OG-CODE>'-       
+*S**'</XWVOXCIA>'       
+*S**CALLNAT "XWVOXC0N" XXERX00A WWXRPC0A        
+*S**PRINT XML-OUT       
+*S**END     
+*S**        
+*C**                                WS-DEV  TWZKXC0P                        F S   NN
+*D01NAT6307F WS-DEV  TWZKXC0P                        PAUL    PAUL            S      
+*D02            2012061819201002012061819201000000000383    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**DEFINE DATA         
+*S**LOCAL USING XXERX00A
+*S**LOCAL USING XWZKXCIA
+*S**LOCAL USING XWZKXCOA
+*S**LOCAL   
+*S**1 #I       (I4)     
+*S**1 #J       (I4)     
+*S**END-DEFINE          
+*S**FORMAT LS=120       
+*S**/*      
+*S**RESET #I
+*S**XWZKXCIA.CMD := "CATALOG"       
+*S**XWZKXCIA.OG-CODE := 10000       
+*S**PERFORM XWZKXC0S XXERX00A XWZKXCIA XWZKXCOA 
+*S**FOR #I = 1 TO XWZKXCOA.C@ZK-LIST
+*S**  WRITE #I (NL=5) XWZKXCOA.ZK-SUBJECT-CODE(#I) XWZKXCOA.ZK-CODE(#I) 
+*S**END-FOR 
+*S**/*      
+*S**END     
 *S**        
 *C**                                WS-DEV  WS-DEV                          4 S   NN
 *D01NAT63074 WS-DEV  WS-DEV                          PAUL    PAUL            S      
@@ -2904,8 +3124,8 @@
 *S** COMPRESS FULL &1& '</XWVOXLOA>'
 *S** INTO &1& LEAVING NO
 *C**                                WS-DEV  XWVOXM0N                        N S   NN
-*D01NAT6307N WS-DEV  XWVOXM0N                        UPA     UPA             S      
-*D02            2011112803480802011112803480800000000543    
+*D01NAT6307N WS-DEV  XWVOXM0N                        PAUL    PAUL            S      
+*D02            2012051618570102012051618570100000000543    
 *D03WNT-X86 
 *D04                 windows-1251   
 *S*** >Natural Source Header 000000 /*<RO>>     
@@ -2935,8 +3155,8 @@
 *S**INCLUDE WWXRPC0C "XWVOXM0S" "XWVOXMIA" "XWVOXMIC" "XWVOXMOA"  "XWVOXMOC"        
 *S**END     
 *C**                                WS-DEV  XWVOXM0S                        S S   NN
-*D01NAT6307S WS-DEV  XWVOXM0S                        UPA     UPA             S      
-*D02            2011112815094702011112815094700000005657    
+*D01NAT6307S WS-DEV  XWVOXM0S                        PAUL    PAUL            S      
+*D02            2012051619033802012051619033800000006361    
 *D03WNT-X86 
 *D04                 windows-1251   
 *S*** >Natural Source Header 000000/*<RO>>      
@@ -3042,7 +3262,10 @@
 *S**DEFINE SUBROUTINE VO-INSERT     
 *S**  IF XWVOXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
 *S**/*  IF XWVOXMIA.VO-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF     
-*S**  FIND IBS-KK-FILE OG-ID = XWVOXMIA.OG-CODE AND KK-F = 'MO'         
+*S**/* ¬ременно установлен фиксированный код организации в св€зи с подозрением,     
+*S**/* что происходит дублирование кодов        
+*S**/*  FIND IBS-KK-FILE OG-ID = XWVOXMIA.OG-CODE AND KK-F = 'MO'       
+*S**  FIND IBS-KK-FILE OG-ID = 1000 AND KK-F = 'MO'         
 *S**     IF NO RECORD FOUND         
 *S**        ASSIGN IBS-KK-FILE.OG-ID = XWVOXMIA.OG-CODE     
 *S**        ASSIGN IBS-KK-FILE.KK-F  = 'MO'     
@@ -3065,7 +3288,7 @@
 *S**  IBS-KVO-FILE.VO-NM-SH(*) := R-NM(*)       
 *S**  STORE IBS-KVO-FILE
 *S**  IF XWVOXMIA.OG-CODE EQ 1000 THEN          
-*S**     MOVE '5' TO #RES_VO        
+*S**     MOVE '4' TO #RES_VO        
 *S**     MOVE BY NAME IBS-KVO-FILE TO ADKVOPRM  
 *S**     PERFORM ADDKVO #RES_VO ADKVOPRM /* дл€ остальных орг.-ий пользователей     
 *S**  END-IF
@@ -3088,7 +3311,7 @@
 *S**     IBS-KVO-FILE.VO-NM-SH(*) := R-NM(*)    
 *S**     UPDATE         
 *S**     IF XWVOXMIA.OG-CODE EQ 1000 THEN       
-*S**        MOVE '4' TO #RES_VO     
+*S**        MOVE '5' TO #RES_VO     
 *S**        MOVE BY NAME IBS-KVO-FILE TO ADKVOPRM           
 *S**        PERFORM ADDKVO #RES_VO ADKVOPRM /* дл€ остальных орг.-ий пользователей  
 *S**     END-IF         
@@ -3124,6 +3347,16 @@
 *S**     MOVE XWVOXMIA.VO-UP-TIME TO IBS-KVO-FILE.UP-DT     
 *S**     MOVE XWVOXMIA.VO-UP-USER TO IBS-KVO-FILE.UP-US     
 *S**     MOVE XWVOXMIA.VO-UP-PGM TO IBS-KVO-FILE.UP-PG      
+*S**     IF XWVOXMIA.VO-IS-CLOSED THEN          
+*S**        IF SUBSTRING(IBS-KVO-FILE.NN-ID,1,1) NE "*" THEN
+*S**           COMPRESS "*" IBS-KVO-FILE.NN-ID INTO IBS-KVO-FILE.NN-ID  
+*S**              LEAVING NO SPACE  
+*S**        END-IF      
+*S**        IF SUBSTRING(IBS-KVO-FILE.NM-OG,1,1) NE "*" THEN
+*S**           COMPRESS "*" IBS-KVO-FILE.NM-OG INTO IBS-KVO-FILE.NM-OG  
+*S**              LEAVING NO SPACE  
+*S**        END-IF      
+*S**     END-IF         
 *S**END-SUBROUTINE      
 *S**/*      
 *S**DEFINE SUBROUTINE KDF2OUT       
@@ -3136,18 +3369,22 @@
 *S**     MOVE IBS-KVO-FILE.UP-DT TO XWVOXMOA.VO-UP-TIME     
 *S**     MOVE IBS-KVO-FILE.UP-US TO XWVOXMOA.VO-UP-USER     
 *S**     MOVE IBS-KVO-FILE.UP-PG TO XWVOXMOA.VO-UP-PGM      
+*S**     RESET XWVOXMOA.VO-IS-CLOSED
+*S**     IF SUBSTRING(IBS-KVO-FILE.NN-ID,1,1) EQ "*" THEN   
+*S**        XWVOXMOA.VO-IS-CLOSED := TRUE       
+*S**     END-IF         
 *S**END-SUBROUTINE      
 *S**/*      
 *S**END-SUBROUTINE      
 *S**END     
 *S**        
 *C**                                WS-DEV  XWVOXMIA                        P S   NN
-*D01NAT6307P WS-DEV  XWVOXMIA                        UPA     UPA             S      
-*D02            2011112803490602011112803490600000001160    
+*D01NAT6307P WS-DEV  XWVOXMIA                        PAUL    PAUL            S      
+*D02            2012051618554802012051618554800000001212    
 *D03WNT-X86 
 *D04                 windows-1251   
 -S**/*C                                *>Natural Source Header 000000   
-*S**          DA:00.00ED:00.00PF:WNV:06030900   
+*S**          DA:00.00ED:00.00PF:WNV:06030700   
 *S**/*C                                *:NatName XWVOXMIA   
 *S**/*C                                *:UID PAUL           
 *S**/*C                                *:Mode S 
@@ -3159,6 +3396,7 @@
 *S**/*DF                    A        15  2CMD   
 *S**/*DF                    N         5  2OG-CODE           
 *S**/*DF                    A         2  2VO-TYPE           
+*S**/*DF                    L            2VO-IS-CLOSED      
 *S**/*DF                    N         5  2VO-CODE           
 *S**/*DF                    A         3  2VO-COUNTRY-CODE   
 *S**/*DF                    A        15  2VO-INN
@@ -3170,18 +3408,18 @@
 *S**/*DF                    A         8  2VO-UP-PGM         
 *S**/*DF                    T            2VO-UP-TIME        
 *C**                                WS-DEV  XWVOXMIC                        G S   NN
-*D01NAT6307G WS-DEV  XWVOXMIC                        UPA     UPA             S      
-*D02            2011112803484802011112803484800000003471    
+*D01NAT6307G WS-DEV  XWVOXMIC                        PAUL    PAUL            S      
+*D02            2012051618565702012051618565700000003647    
 *D03WNT-X86 
 *D04                 windows-1251   
-*S*** >Natural Source Header 000000 /*<RO>>     
+*S*** >Natural Source Header 000000/*<RO>>      
 *S*** :NatName XWVOXMIC 
 *S*** :UID PAUL         
 *S*** :Mode S           
 *S*** :CP   
 *S*** :Date 20111127    
 *S*** :Time 1853370     
-*S*** <Natural Source Header /*<<RO>
+*S*** <Natural Source Header/*<<RO> 
 *S*** ----------------------------------------------------------------------        
 *S*** Generated from NATURAL XML TOOLKIT        
 *S***       
@@ -3236,6 +3474,14 @@
 *S** IGNORE 
 *S**VALUE 'XWVOXMIA/VO-TYPE/$'      
 *S**XWVOXMIA.VO-TYPE := &3&         
+*S**VALUE 'XWVOXMIA/VO-IS-CLOSED//' 
+*S**IGNORE  
+*S**VALUE 'XWVOXMIA/VO-IS-CLOSED'   
+*S** IGNORE 
+*S**VALUE 'XWVOXMIA/VO-IS-CLOSED/$' 
+*S**IF &3& EQ 'true' THEN           
+*S**  XWVOXMIA.VO-IS-CLOSED := TRUE 
+*S**END-IF  
 *S**VALUE 'XWVOXMIA/VO-CODE//'      
 *S**IGNORE  
 *S**VALUE 'XWVOXMIA/VO-CODE'        
@@ -3305,12 +3551,12 @@
 *S**IGNORE  
 *S**END-DECIDE          
 *C**                                WS-DEV  XWVOXMOA                        P S   NN
-*D01NAT6307P WS-DEV  XWVOXMOA                        UPA     UPA             S      
-*D02            2011112803491102011112803491100000001121    
+*D01NAT6307P WS-DEV  XWVOXMOA                        PAUL    PAUL            S      
+*D02            2012051619033002012051619033000000001173    
 *D03WNT-X86 
 *D04                 windows-1251   
 -S**/*C                                *>Natural Source Header 000000   
-*S**          DA:00.00ED:00.00PF:WNV:06030900   
+*S**          DA:00.00ED:00.00PF:WNV:06030700   
 *S**/*C                                *:NatName XWVOXMOA   
 *S**/*C                                *:UID PAUL           
 *S**/*C                                *:Mode S 
@@ -3321,6 +3567,7 @@
 *S**/*DS                                 1XWVOXMOA          
 *S**/*DF                    I         4  2RETURN-CODE       
 *S**/*DF                    A         2  2VO-TYPE           
+*S**/*DF                    L            2VO-IS-CLOSED      
 *S**/*DF                    N         5  2VO-CODE           
 *S**/*DF                    A         3  2VO-COUNTRY-CODE   
 *S**/*DF                    A        15  2VO-INN
@@ -3413,5 +3660,660 @@
 *S** INTO &1& LEAVING NO
 *S** /*     
 *S** COMPRESS FULL &1& '</XWVOXMOA>'
+*S** INTO &1& LEAVING NO
+*C**                                WS-DEV  XWZKXC0N                        N S   NN
+*D01NAT6307N WS-DEV  XWZKXC0N                        PAUL    PAUL            S      
+*D02            2012052118245802012052118245800000000393    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**/***********************************************************************        
+*S**/*      
+*S**/* SYSTEM: WS-SRV   
+*S**/* PROGRAM: XWVOXC0N
+*S**/*      
+*S**/* DEVELOPER:  UPA  
+*S**/* MAKE DATA:       
+*S**/*      
+*S**/* NAME:  VO CATALOG LIST XML INTERFACE     
+*S**/*      
+*S**/* CHANGES:         
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/***********************************************************************        
+*S**INCLUDE WWXRPC0C "XWZKXC0S" "XWZKXCIA" "XWZKXCIC" "XWZKXCOA"  "XWZKXCOC"        
+*S**/*      
+*S**END     
+*C**                                WS-DEV  XWZKXC0S                        S S   NN
+*D01NAT6307S WS-DEV  XWZKXC0S                        PAUL    PAUL            S      
+*D02            2012061819550902012061819550900000001198    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**/***********************************************************************        
+*S**/*      
+*S**/* SYSTEM: WS-SRV   
+*S**/* PROGRAM: XWVOXC0N
+*S**/*      
+*S**/* DEVELOPER:  UPA  
+*S**/* MAKE DATA:       
+*S**/*      
+*S**/* NAME:  VO CATALOG LIST       
+*S**/*      
+*S**/* CHANGES:         
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/***********************************************************************        
+*S**DEFINE DATA         
+*S**PARAMETER USING XXERX00A        
+*S**PARAMETER USING XWZKXCIA        
+*S**PARAMETER USING XWZKXCOA        
+*S**/*      
+*S**LOCAL USING XXXXEC0L
+*S**/*      
+*S**LOCAL USING LCLZKL  
+*S**/*      
+*S**LOCAL   
+*S**1 #I       (I4)     
+*S**1 #LEN     (I4)     
+*S**/*      
+*S**END-DEFINE          
+*S**DEFINE SUBROUTINE XWZKXC0S      
+*S**  IF XWZKXCIA.CMD NE "CATALOG" THEN *ERROR-NR := EC-UNKNOW-COMMAND END-IF       
+*S**  IF XWZKXCIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**  EXPAND AND RESET ARRAY XWZKXCOA.ZK-LIST TO (1:50000)  
+*S**  RESET XWZKXCOA #I 
+*S**  READ ZAKAZ PHYSICAL SEQUENCE  
+*S**/*     ACCEPT ZAKAZ 
+*S**     ADD 1 TO #I    
+*S**     MOVE ZAKAZ.ZK-F TO XWZKXCOA.ZK-CODE(#I)
+*S**     IF ZAKAZ.ZK-F EQ " " THEN  
+*S**        IF ZAKAZ.ZZ-F NE " "  THEN          
+*S**           MOVE ZAKAZ.ZZ-F TO XWZKXCOA.ZK-CODE(#I)      
+*S**           MOVE ZAKAZ.TE-F TO XWZKXCOA.ZK-SUBJECT-CODE(#I)          
+*S**           MOVE TRUE TO XWZKXCOA.ZK-IS-CLOSED(#I)       
+*S**        END-IF      
+*S**     END-IF         
+*S**  END-READ          
+*S**  MOVE #I TO XWZKXCOA.C@ZK-LIST 
+*S**END-SUBROUTINE      
+*S**END     
+*S**        
+*C**                                WS-DEV  XWZKXCIA                        P S   NN
+*D01NAT6307P WS-DEV  XWZKXCIA                        UPA     UPA             S      
+*D02            2012052114554202012052114554200000000225    
+*D03WNT-X86 
+*D04                 windows-1251   
+-S**/*DS                                 1XWZKXCIA          
+*S**          DA:00.00ED:00.00PF:WNV:06030700   
+*S**/*DF                    A        15  2CMD   
+*S**/*DF                    N         5  2OG-CODE           
+*C**                                WS-DEV  XWZKXCIC                        G S   NN
+*D01NAT6307G WS-DEV  XWZKXCIC                        UPA     UPA             S      
+*D02            2012052117280702012052117280700000001778    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S*** ----------------------------------------------------------------------        
+*S*** Generated from NATURAL XML TOOLKIT        
+*S***       
+*S***         'XWZKXCIC'
+*S***       
+*S*** DESCRIPTION       
+*S***               XML Parser implementation   
+*S***       
+*S*** Parameter Definition          
+*S***       
+*S*** &1& 'XML_PARSER_XPATH'              /* XPATH to repesent element...           
+*S*** &2& 'XML_PARSER_XPATH_TYPE'         /* Type of the XPATH:         
+*S***                                        ? Processing instruction   
+*S***                                        D DOCTYPE      
+*S***                                        ! Comment      
+*S***                                        C CDATA section
+*S***                                        T Starting Tag 
+*S***                                        @ Attribute    
+*S***                                        / Close Tag    
+*S***                                        $ Parsed Data  
+*S*** &3& 'XML_PARSER_CONTENT'            /* Content of founld element  
+*S*** &4& 'XML_PARSER_CONTENT_IS_EMPTY'   /* Is TRUE if Content is empty
+*S*** &5& '#CX'                           /* Counter variable 1st dimension         
+*S*** &6& '#CY'                           /* Counter variable 2nd dimension         
+*S*** &7& '#CZ'                           /* Counter variable 3rd dimension         
+*S*** &8& '#XML_PARSER_NAME'              /* Name of the parsed entity  
+*S*** &9& '#XML_PREV_PARSE-TYPE'          /* Previous type of the XPATH 
+*S*** ----------------------------------------------------------------------        
+*S*** DTD WS-SRV XWZKXCIA           
+*S** DECIDE ON FIRST &1&
+*S**VALUE 'XWZKXCIA//'  
+*S**IGNORE  
+*S**VALUE 'XWZKXCIA'    
+*S** RESET XWZKXCIA     
+*S**VALUE 'XWZKXCIA/CMD//'          
+*S**IGNORE  
+*S**VALUE 'XWZKXCIA/CMD'
+*S** IGNORE 
+*S**VALUE 'XWZKXCIA/CMD/$'          
+*S**XWZKXCIA.CMD := &3& 
+*S**VALUE 'XWZKXCIA/OG-CODE//'      
+*S**IGNORE  
+*S**VALUE 'XWZKXCIA/OG-CODE'        
+*S** IGNORE 
+*S**VALUE 'XWZKXCIA/OG-CODE/$'      
+*S**IF &3& IS (N5) THEN 
+*S**XWZKXCIA.OG-CODE := VAL(&3&)    
+*S**END-IF  
+*S**NONE    
+*S**IGNORE  
+*S**END-DECIDE          
+*C**                                WS-DEV  XWZKXCOA                        P S   NN
+*D01NAT6307P WS-DEV  XWZKXCOA                        PAUL    PAUL            S      
+*D02            2012052118240202012052118240200000000555    
+*D03WNT-X86 
+*D04                 windows-1251   
+-S**/*DS                                 1XWZKXCOA          
+*S**          DA:00.00ED:00.00PF:WNV:06030700   
+*S**/*DF                    I         4  2RETURN-CODE       
+*S**/*DF                    I         4  2C@ZK-LIST         
+*S**/*DS I             S0001             2ZK-LIST           
+*S**/*DF                    A         9  3ZK-CODE           
+*S**/*DF                    L            3ZK-IS-CLOSED      
+*S**/*DF                    A        15  3ZK-SUBJECT-CODE   
+*S**/*DF                    D            3ZK-DT-OPEN        
+*S**/*DF                    D            3ZK-DT-CLOSE       
+*S**/*HA0001
+*S**/*A1:*  
+*C**                                WS-DEV  XWZKXCOC                        G S   NN
+*D01NAT6307G WS-DEV  XWZKXCOC                        PAUL    PAUL            S      
+*D02            2012052118245202012052118245200000001762    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S*** ----------------------------------------------------------------------        
+*S*** Generated from NATURAL XML TOOLKIT        
+*S***       
+*S***         'XWZKXMOC'
+*S***       
+*S*** DESCRIPTION       
+*S***               XML serialize implementation
+*S***       
+*S*** Parameter Definition          
+*S***       
+*S*** &1& 'XML'                           /* XML Document   
+*S*** &2& '#CX'                           /* Counter Variable 1st Dimension         
+*S*** &3& '#CY'                           /* Counter Variable 2nd Dimension         
+*S*** &4& '#CZ'                           /* Counter Variable 3rd Dimension         
+*S*** ----------------------------------------------------------------------        
+*S*** DTD WS-SRV XWZKXCOA           
+*S** COMPRESS NUMERIC &1& '<XWZKXCOA'           
+*S** '>' INTO &1& LEAVING NO        
+*S** /* now the children
+*S** COMPRESS NUMERIC &1& '<RETURN-CODE'        
+*S** '>'XWZKXCOA.RETURN-CODE        
+*S** '</RETURN-CODE>'   
+*S** INTO &1& LEAVING NO
+*S** FOR &2& = 1 TO XWZKXCOA.C@ZK-LIST          
+*S** COMPRESS NUMERIC &1& '<ZK-LIST'
+*S** '>' INTO &1& LEAVING NO        
+*S** /* now the children
+*S** COMPRESS NUMERIC &1& '<ZK-CODE'
+*S** '>'XWZKXCOA.ZK-CODE(&2&)       
+*S** '</ZK-CODE>'       
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-IS-CLOSED'       
+*S** '>'INTO &1& LEAVING NO         
+*S**/* is boolean       
+*S**IF XWZKXCOA.ZK-IS-CLOSED(&2&)   
+*S**COMPRESS &1& 'true' INTO &1& LEAVING NO     
+*S**ELSE    
+*S**COMPRESS &1& 'false' INTO &1& LEAVING NO    
+*S**END-IF  
+*S**/* is boolean       
+*S**COMPRESS NUMERIC &1&
+*S** '</ZK-IS-CLOSED>'  
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-SUBJECT-CODE'    
+*S** '>'XWZKXCOA.ZK-SUBJECT-CODE(&2&)           
+*S** '</ZK-SUBJECT-CODE>'           
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-DT-OPEN'         
+*S** '>'XWZKXCOA.ZK-DT-OPEN(&2&)    
+*S** '</ZK-DT-OPEN>'    
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-DT-CLOSE'        
+*S** '>'XWZKXCOA.ZK-DT-CLOSE(&2&)   
+*S** '</ZK-DT-CLOSE>'   
+*S** INTO &1& LEAVING NO
+*S** /*     
+*S** COMPRESS FULL &1& '</ZK-LIST>' 
+*S** INTO &1& LEAVING NO
+*S** END-FOR
+*S** /*     
+*S** COMPRESS FULL &1& '</XWZKXCOA>'
+*S** INTO &1& LEAVING NO
+*C**                                WS-DEV  XWZKXM0N                        N S   NN
+*D01NAT6307N WS-DEV  XWZKXM0N                        PAUL    PAUL            S      
+*D02            2012061820531902012061820531900000000387    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**/***********************************************************************        
+*S**/*      
+*S**/* SYSTEM: WS-SRV   
+*S**/* PROGRAM: XWZKXM0N
+*S**/*      
+*S**/* DEVELOPER:  UPA  
+*S**/* MAKE DATA:       
+*S**/*      
+*S**/* NAME:  ZK MANAGE XML INTERFACE           
+*S**/*      
+*S**/* CHANGES:         
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/***********************************************************************        
+*S**INCLUDE WWXRPC0C "XWZKXM0S" "XWZKXMIA" "XWZKXMIC" "XWZKXMOA"  "XWZKXMOC"        
+*S**/*      
+*S**END     
+*C**                                WS-DEV  XWZKXM0S                        S S   NN
+*D01NAT6307S WS-DEV  XWZKXM0S                        PAUL    PAUL            S      
+*D02            2012061820504302012061820504300000001141    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S**/***********************************************************************        
+*S**/*      
+*S**/* SYSTEM: WS-SRV   
+*S**/* PROGRAM: XWZKXM0S
+*S**/*      
+*S**/* DEVELOPER:  UPA  
+*S**/* MAKE DATA:       
+*S**/*      
+*S**/* NAME:  ZK MANAGE LIST        
+*S**/*      
+*S**/* CHANGES:         
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/*      
+*S**/***********************************************************************        
+*S**DEFINE DATA         
+*S**PARAMETER USING XXERX00A        
+*S**PARAMETER USING XWZKXMIA        
+*S**PARAMETER USING XWZKXMOA        
+*S**/*      
+*S**LOCAL USING XXXXEC0L
+*S**/*      
+*S**LOCAL USING LCLZKL  
+*S**/*      
+*S**LOCAL   
+*S**1 #I       (I4)     
+*S**1 #LEN     (I4)     
+*S**/*      
+*S**END-DEFINE          
+*S**DEFINE SUBROUTINE XWZKXM0S      
+*S**  DECIDE ON FIRST VALUE XWZKXMIA.CMD        
+*S**  VALUE "SET"       
+*S**     PERFORM ZK-SET 
+*S**  VALUE "REOPEN"    
+*S**     PERFORM ZK-REOPEN          
+*S**  VALUE "CLOSE"     
+*S**     PERFORM ZK-CLOSE           
+*S**  NONE VALUE        
+*S**     *ERROR-NR := EC-UNKNOW-COMMAND         
+*S**  END-DECIDE        
+*S**/*      
+*S**DEFINE SUBROUTINE ZK-SET        
+*S**  IF XWZKXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**END-SUBROUTINE      
+*S**/*      
+*S**DEFINE SUBROUTINE ZK-REOPEN     
+*S**  IF XWZKXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**END-SUBROUTINE      
+*S**/*      
+*S**DEFINE SUBROUTINE ZK-CLOSE      
+*S**  IF XWZKXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**END-SUBROUTINE      
+*S**/*      
+*S**END-SUBROUTINE      
+*S**END     
+*S**        
+*C**                                WS-DEV  XWZKXMIA                        P S   NN
+*D01NAT6307P WS-DEV  XWZKXMIA                        PAUL    PAUL            R      
+*D02            2012061820421202012061820421200000001105    
+*D03WNT-X86 
+*D04                 windows-1251   
+-S**/*DS                                 1XWZKXMIA          
+*S**          DA:00.00ED:00.00PF:WNV:06030700   
+*S**/*DF                    A        15  2CMD   
+*S**/*DF                    N         5  2OG-CODE           
+*S**/*DF                    I         4  2ZK-INT-NUM        
+*S**/*DF                    A         9  2ZK-CODE           
+*S**/*DF                    N         5  2ZK-AC-BUH-CODE    
+*S**/*DF                    L            2ZK-IS-CLOSED      
+*S**/*DF                    D            2ZK-DT-OPEN        
+*S**/*DF                    D            2ZK-DT-CLOSE       
+*S**/*DF                    A        10  2ZK-SUBJECT-CODE   
+*S**/*DF                    A        70  2ZK-SHORT-NAME     
+*S**/*DF                    A       250  2ZK-FULL-NAME      
+*S**/*DF                    A       250  2ZK-DESCRIPTION    
+*S**/*DF                    N         5  2ZK-DP-BUH-CODE    
+*S**/*DF                    N         5  2ZK-TB-BUH-CODE    
+*S**/*DF                    A        50  2ZK-SOURCE         
+*S**/*DF                    A         5  2ZK-NDS-MODE       
+*S**/*DF                    A         5  2ZK-BUH-TYPE       
+*S**/*DF                    N       2.4  2ZK-KOEFF-KB       
+*S**/*DF                    N       2.4  2ZK-KOEFF-OZM      
+*C**                                WS-DEV  XWZKXMIC                        G S   NN
+*D01NAT6307G WS-DEV  XWZKXMIC                        PAUL    PAUL            S      
+*D02            2012061821071502012061821071500000004626    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S*** ----------------------------------------------------------------------        
+*S*** Generated from NATURAL XML TOOLKIT        
+*S***       
+*S***         'XWZKXMIC'
+*S***       
+*S*** DESCRIPTION       
+*S***               XML Parser implementation   
+*S***       
+*S*** Parameter Definition          
+*S***       
+*S*** &1& 'XML_PARSER_XPATH'              /* XPATH to repesent element...           
+*S*** &2& 'XML_PARSER_XPATH_TYPE'         /* Type of the XPATH:         
+*S***                                        ? Processing instruction   
+*S***                                        D DOCTYPE      
+*S***                                        ! Comment      
+*S***                                        C CDATA section
+*S***                                        T Starting Tag 
+*S***                                        @ Attribute    
+*S***                                        / Close Tag    
+*S***                                        $ Parsed Data  
+*S*** &3& 'XML_PARSER_CONTENT'            /* Content of founld element  
+*S*** &4& 'XML_PARSER_CONTENT_IS_EMPTY'   /* Is TRUE if Content is empty
+*S*** &5& '#CX'                           /* Counter variable 1st dimension         
+*S*** &6& '#CY'                           /* Counter variable 2nd dimension         
+*S*** &7& '#CZ'                           /* Counter variable 3rd dimension         
+*S*** &8& '#XML_PARSER_NAME'              /* Name of the parsed entity  
+*S*** &9& '#XML_PREV_PARSE-TYPE'          /* Previous type of the XPATH 
+*S*** ----------------------------------------------------------------------        
+*S*** DTD WS-DEV XWZKXMIA           
+*S** DECIDE ON FIRST &1&
+*S**VALUE 'XWZKXMIA//'  
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA'    
+*S** RESET XWZKXMIA     
+*S**VALUE 'XWZKXMIA/CMD//'          
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/CMD'
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/CMD/$'          
+*S**XWZKXMIA.CMD := &3& 
+*S**VALUE 'XWZKXMIA/OG-CODE//'      
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/OG-CODE'        
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/OG-CODE/$'      
+*S**IF &3& IS (N5) THEN 
+*S**XWZKXMIA.OG-CODE := VAL(&3&)    
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-INT-NUM//'   
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-INT-NUM'     
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-INT-NUM/$'   
+*S**IF &3& IS (I4) THEN 
+*S**XWZKXMIA.ZK-INT-NUM := VAL(&3&) 
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-CODE//'      
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-CODE'        
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-CODE/$'      
+*S**XWZKXMIA.ZK-CODE := &3&         
+*S**VALUE 'XWZKXMIA/ZK-AC-BUH-CODE//'           
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-AC-BUH-CODE' 
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-AC-BUH-CODE/$'           
+*S**IF &3& IS (N5) THEN 
+*S**XWZKXMIA.ZK-AC-BUH-CODE := VAL(&3&)         
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-IS-CLOSED//' 
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-IS-CLOSED'   
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-IS-CLOSED/$' 
+*S**/* INFO: boolean entity         
+*S**IF  &3& = 'true'    
+*S**XWZKXMIA.ZK-IS-CLOSED := TRUE   
+*S**ELSE    
+*S**XWZKXMIA.ZK-IS-CLOSED := FALSE  
+*S**END-IF  
+*S**/*      
+*S**VALUE 'XWZKXMIA/ZK-DT-OPEN//'   
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-DT-OPEN'     
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-DT-OPEN/$'   
+*S**IF &3& IS (D) THEN  
+*S**MOVE EDITED &3& TO  
+*S**XWZKXMIA.ZK-DT-OPEN (EM=YYYY-MM-DD)         
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-DT-CLOSE//'  
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-DT-CLOSE'    
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-DT-CLOSE/$'  
+*S**IF &3& IS (D) THEN  
+*S**MOVE EDITED &3& TO  
+*S**XWZKXMIA.ZK-DT-CLOSE (EM=YYYY-MM-DD)        
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-SUBJECT-CODE//'          
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-SUBJECT-CODE'
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-SUBJECT-CODE/$'          
+*S**XWZKXMIA.ZK-SUBJECT-CODE := &3& 
+*S**VALUE 'XWZKXMIA/ZK-SHORT-NAME//'
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-SHORT-NAME'  
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-SHORT-NAME/$'
+*S**XWZKXMIA.ZK-SHORT-NAME := &3&   
+*S**VALUE 'XWZKXMIA/ZK-FULL-NAME//' 
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-FULL-NAME'   
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-FULL-NAME/$' 
+*S**XWZKXMIA.ZK-FULL-NAME := &3&    
+*S**VALUE 'XWZKXMIA/ZK-DESCRIPTION//'           
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-DESCRIPTION' 
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-DESCRIPTION/$'           
+*S**XWZKXMIA.ZK-DESCRIPTION := &3&  
+*S**VALUE 'XWZKXMIA/ZK-DP-BUH-CODE//'           
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-DP-BUH-CODE' 
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-DP-BUH-CODE/$'           
+*S**IF &3& IS (N5) THEN 
+*S**XWZKXMIA.ZK-DP-BUH-CODE := VAL(&3&)         
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-TB-BUH-CODE//'           
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-TB-BUH-CODE' 
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-TB-BUH-CODE/$'           
+*S**IF &3& IS (N5) THEN 
+*S**XWZKXMIA.ZK-TB-BUH-CODE := VAL(&3&)         
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-SOURCE//'    
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-SOURCE'      
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-SOURCE/$'    
+*S**XWZKXMIA.ZK-SOURCE := &3&       
+*S**VALUE 'XWZKXMIA/ZK-NDS-MODE//'  
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-NDS-MODE'    
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-NDS-MODE/$'  
+*S**XWZKXMIA.ZK-NDS-MODE := &3&     
+*S**VALUE 'XWZKXMIA/ZK-BUH-TYPE//'  
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-BUH-TYPE'    
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-BUH-TYPE/$'  
+*S**XWZKXMIA.ZK-BUH-TYPE := &3&     
+*S**VALUE 'XWZKXMIA/ZK-KOEFF-KB//'  
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-KOEFF-KB'    
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-KOEFF-KB/$'  
+*S**IF &3& IS (N2.4) THEN           
+*S**XWZKXMIA.ZK-KOEFF-KB := VAL(&3&)
+*S**END-IF  
+*S**VALUE 'XWZKXMIA/ZK-KOEFF-OZM//' 
+*S**IGNORE  
+*S**VALUE 'XWZKXMIA/ZK-KOEFF-OZM'   
+*S** IGNORE 
+*S**VALUE 'XWZKXMIA/ZK-KOEFF-OZM/$' 
+*S**IF &3& IS (N2.4) THEN           
+*S**XWZKXMIA.ZK-KOEFF-OZM := VAL(&3&)           
+*S**END-IF  
+*S**NONE    
+*S**IGNORE  
+*S**END-DECIDE          
+*C**                                WS-DEV  XWZKXMOA                        P S   NN
+*D01NAT6307P WS-DEV  XWZKXMOA                        PAUL    PAUL            R      
+*D02            2012061820432702012061820432700000001062    
+*D03WNT-X86 
+*D04                 windows-1251   
+-S**/*DS                                 1XWZKXMOA          
+*S**          DA:00.00ED:00.00PF:WNV:06030700   
+*S**/*DF                    N         5  2OG-CODE           
+*S**/*DF                    I         4  2ZK-INT-NUM        
+*S**/*DF                    A         9  2ZK-CODE           
+*S**/*DF                    N         5  2ZK-AC-BUH-CODE    
+*S**/*DF                    L            2ZK-IS-CLOSED      
+*S**/*DF                    D            2ZK-DT-OPEN        
+*S**/*DF                    D            2ZK-DT-CLOSE       
+*S**/*DF                    A        10  2ZK-SUBJECT-CODE   
+*S**/*DF                    A        70  2ZK-SHORT-NAME     
+*S**/*DF                    A       250  2ZK-FULL-NAME      
+*S**/*DF                    A       250  2ZK-DESCRIPTION    
+*S**/*DF                    N         5  2ZK-DP-BUH-CODE    
+*S**/*DF                    N         5  2ZK-TB-BUH-CODE    
+*S**/*DF                    A        50  2ZK-SOURCE         
+*S**/*DF                    A         5  2ZK-NDS-MODE       
+*S**/*DF                    A         5  2ZK-BUH-TYPE       
+*S**/*DF                    N       2.4  2ZK-KOEFF-KB       
+*S**/*DF                    N       2.4  2ZK-KOEFF-OZM      
+*C**                                WS-DEV  XWZKXMOC                        G S   NN
+*D01NAT6307G WS-DEV  XWZKXMOC                        PAUL    PAUL            S      
+*D02            2012061821063402012061821063400000002836    
+*D03WNT-X86 
+*D04                 windows-1251   
+*S*** ----------------------------------------------------------------------        
+*S*** Generated from NATURAL XML TOOLKIT        
+*S***       
+*S***         'XWZKXMOC'
+*S***       
+*S*** DESCRIPTION       
+*S***               XML serialize implementation
+*S***       
+*S*** Parameter Definition          
+*S***       
+*S*** &1& 'XML'                           /* XML Document   
+*S*** &2& '#CX'                           /* Counter Variable 1st Dimension         
+*S*** &3& '#CY'                           /* Counter Variable 2nd Dimension         
+*S*** &4& '#CZ'                           /* Counter Variable 3rd Dimension         
+*S*** ----------------------------------------------------------------------        
+*S*** DTD WS-DEV XWZKXMOA           
+*S** COMPRESS NUMERIC &1& '<XWZKXMOA'           
+*S** '>' INTO &1& LEAVING NO        
+*S** /* now the children
+*S** COMPRESS NUMERIC &1& '<OG-CODE'
+*S** '>'XWZKXMOA.OG-CODE
+*S** '</OG-CODE>'       
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-INT-NUM'         
+*S** '>'XWZKXMOA.ZK-INT-NUM         
+*S** '</ZK-INT-NUM>'    
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-CODE'
+*S** '>'XWZKXMOA.ZK-CODE
+*S** '</ZK-CODE>'       
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-AC-BUH-CODE'     
+*S** '>'XWZKXMOA.ZK-AC-BUH-CODE     
+*S** '</ZK-AC-BUH-CODE>'
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-IS-CLOSED'       
+*S** '>'INTO &1& LEAVING NO         
+*S**/* is boolean       
+*S**IF XWZKXMOA.ZK-IS-CLOSED        
+*S**COMPRESS &1& 'true' INTO &1& LEAVING NO     
+*S**ELSE    
+*S**COMPRESS &1& 'false' INTO &1& LEAVING NO    
+*S**END-IF  
+*S**/* is boolean       
+*S**COMPRESS NUMERIC &1&
+*S** '</ZK-IS-CLOSED>'  
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-DT-OPEN'         
+*S** '>'XWZKXMOA.ZK-DT-OPEN         
+*S** '</ZK-DT-OPEN>'    
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-DT-CLOSE'        
+*S** '>'XWZKXMOA.ZK-DT-CLOSE        
+*S** '</ZK-DT-CLOSE>'   
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-SUBJECT-CODE'    
+*S** '>'XWZKXMOA.ZK-SUBJECT-CODE    
+*S** '</ZK-SUBJECT-CODE>'           
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-SHORT-NAME'      
+*S** '>'XWZKXMOA.ZK-SHORT-NAME      
+*S** '</ZK-SHORT-NAME>' 
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-FULL-NAME'       
+*S** '>'XWZKXMOA.ZK-FULL-NAME       
+*S** '</ZK-FULL-NAME>'  
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-DESCRIPTION'     
+*S** '>'XWZKXMOA.ZK-DESCRIPTION     
+*S** '</ZK-DESCRIPTION>'
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-DP-BUH-CODE'     
+*S** '>'XWZKXMOA.ZK-DP-BUH-CODE     
+*S** '</ZK-DP-BUH-CODE>'
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-TB-BUH-CODE'     
+*S** '>'XWZKXMOA.ZK-TB-BUH-CODE     
+*S** '</ZK-TB-BUH-CODE>'
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-SOURCE'          
+*S** '>'XWZKXMOA.ZK-SOURCE          
+*S** '</ZK-SOURCE>'     
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-NDS-MODE'        
+*S** '>'XWZKXMOA.ZK-NDS-MODE        
+*S** '</ZK-NDS-MODE>'   
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-BUH-TYPE'        
+*S** '>'XWZKXMOA.ZK-BUH-TYPE        
+*S** '</ZK-BUH-TYPE>'   
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-KOEFF-KB'        
+*S** '>'XWZKXMOA.ZK-KOEFF-KB        
+*S** '</ZK-KOEFF-KB>'   
+*S** INTO &1& LEAVING NO
+*S** COMPRESS NUMERIC &1& '<ZK-KOEFF-OZM'       
+*S** '>'XWZKXMOA.ZK-KOEFF-OZM       
+*S** '</ZK-KOEFF-OZM>'  
+*S** INTO &1& LEAVING NO
+*S** /*     
+*S** COMPRESS FULL &1& '</XWZKXMOA>'
 *S** INTO &1& LEAVING NO
 *E          
