@@ -1,4 +1,4 @@
-*H**ANAT6307201206182109093WNT-X86                          4CANG     03.7          
+*H**ANAT6307201206211835069WNT-X86                          4CANG     03.7          
 *C**                                WS-DEV  FWSJXM0N                        N S   NN
 *D01NAT6307N WS-DEV  FWSJXM0N                        PAUL    PAUL            S      
 *D02            2012031618015902012031618015900000000905    
@@ -1183,7 +1183,7 @@
 *S**        
 *C**                                WS-DEV  TWZKXC0P                        F S   NN
 *D01NAT6307F WS-DEV  TWZKXC0P                        PAUL    PAUL            S      
-*D02            2012061819201002012061819201000000000383    
+*D02            2012062010463902012062010463900000000382    
 *D03WNT-X86 
 *D04                 windows-1251   
 *S**DEFINE DATA         
@@ -1198,7 +1198,7 @@
 *S**/*      
 *S**RESET #I
 *S**XWZKXCIA.CMD := "CATALOG"       
-*S**XWZKXCIA.OG-CODE := 10000       
+*S**XWZKXCIA.OG-CODE := 1000        
 *S**PERFORM XWZKXC0S XXERX00A XWZKXCIA XWZKXCOA 
 *S**FOR #I = 1 TO XWZKXCOA.C@ZK-LIST
 *S**  WRITE #I (NL=5) XWZKXCOA.ZK-SUBJECT-CODE(#I) XWZKXCOA.ZK-CODE(#I) 
@@ -3687,7 +3687,7 @@
 *S**END     
 *C**                                WS-DEV  XWZKXC0S                        S S   NN
 *D01NAT6307S WS-DEV  XWZKXC0S                        PAUL    PAUL            S      
-*D02            2012061819550902012061819550900000001198    
+*D02            2012062010502502012062010502500000002229    
 *D03WNT-X86 
 *D04                 windows-1251   
 *S**/***********************************************************************        
@@ -3717,27 +3717,62 @@
 *S**/*      
 *S**LOCAL   
 *S**1 #I       (I4)     
+*S**1 #NUMBER  (I4)     
 *S**1 #LEN     (I4)     
+*S**1 #DATE-N  (N8)     
+*S**1 REDEFINE #DATE-N  
+*S**2 #DATE-A  (A8)     
 *S**/*      
 *S**END-DEFINE          
 *S**DEFINE SUBROUTINE XWZKXC0S      
-*S**  IF XWZKXCIA.CMD NE "CATALOG" THEN *ERROR-NR := EC-UNKNOW-COMMAND END-IF       
+*S**  DECIDE ON FIRST VALUE XWZKXCIA.CMD        
+*S**     VALUE "CATALOG"
+*S**        PERFORM ZK-CATALOG      
+*S**     VALUE "CLEAR-TEST-DATA"    
+*S**        PERFORM ZK-CLEAR-TEST-DATA          
+*S**     NONE VALUE     
+*S**        *ERROR-NR := EC-UNKNOW-COMMAND      
+*S**  END-DECIDE        
+*S**DEFINE SUBROUTINE ZK-CATALOG    
 *S**  IF XWZKXCIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
-*S**  EXPAND AND RESET ARRAY XWZKXCOA.ZK-LIST TO (1:50000)  
 *S**  RESET XWZKXCOA #I 
-*S**  READ ZAKAZ PHYSICAL SEQUENCE  
+*S**  FIND ZAKAZ WITH OG-F EQ XWZKXCIA.OG-CODE  
 *S**/*     ACCEPT ZAKAZ 
+*S**     AT START OF DATA           
+*S**        MOVE *NUMBER TO #NUMBER 
+*S**        EXPAND AND RESET ARRAY XWZKXCOA.ZK-LIST TO (1:#NUMBER)      
+*S**     END-START      
 *S**     ADD 1 TO #I    
 *S**     MOVE ZAKAZ.ZK-F TO XWZKXCOA.ZK-CODE(#I)
 *S**     IF ZAKAZ.ZK-F EQ " " THEN  
 *S**        IF ZAKAZ.ZZ-F NE " "  THEN          
 *S**           MOVE ZAKAZ.ZZ-F TO XWZKXCOA.ZK-CODE(#I)      
-*S**           MOVE ZAKAZ.TE-F TO XWZKXCOA.ZK-SUBJECT-CODE(#I)          
 *S**           MOVE TRUE TO XWZKXCOA.ZK-IS-CLOSED(#I)       
 *S**        END-IF      
 *S**     END-IF         
-*S**  END-READ          
+*S**     MOVE ZAKAZ.TE-F TO XWZKXCOA.ZK-SUBJECT-CODE(#I)    
+*S**     MOVE ZAKAZ.DT-OT TO #DATE-N
+*S**     IF #DATE-N > 19000000 AND #DATE-A EQ MASK(YYYYMMDD) THEN       
+*S**       MOVE EDITED #DATE-A TO XWZKXCOA.ZK-DT-OPEN(#I) (EM=YYYYMMDD) 
+*S**     ELSE           
+*S**        RESET XWZKXCOA.ZK-DT-OPEN(#I)       
+*S**     END-IF         
+*S**     MOVE ZAKAZ.DT-ZA TO #DATE-N
+*S**     IF #DATE-N > 19000000 AND #DATE-A EQ MASK(YYYYMMDD) THEN       
+*S**        MOVE EDITED #DATE-A TO XWZKXCOA.ZK-DT-CLOSE(#I) (EM=YYYYMMDD)           
+*S**     ELSE           
+*S**        RESET XWZKXCOA.ZK-DT-CLOSE(#I)      
+*S**     END-IF         
+*S**  END-FIND          
 *S**  MOVE #I TO XWZKXCOA.C@ZK-LIST 
+*S**END-SUBROUTINE      
+*S**DEFINE SUBROUTINE ZK-CLEAR-TEST-DATA        
+*S**  IF XWZKXCIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**  FIND ZAKAZ WITH OG-F EQ XWZKXCIA.OG-CODE  
+*S**     DELETE         
+*S**  END-FIND          
+*S**  END TRANSACTION   
+*S**END-SUBROUTINE      
 *S**END-SUBROUTINE      
 *S**END     
 *S**        
@@ -3916,7 +3951,7 @@
 *S**END     
 *C**                                WS-DEV  XWZKXM0S                        S S   NN
 *D01NAT6307S WS-DEV  XWZKXM0S                        PAUL    PAUL            S      
-*D02            2012061820504302012061820504300000001141    
+*D02            2012061912225402012061912225400000003331    
 *D03WNT-X86 
 *D04                 windows-1251   
 *S**/***********************************************************************        
@@ -3945,12 +3980,15 @@
 *S**LOCAL USING LCLZKL  
 *S**/*      
 *S**LOCAL   
-*S**1 #I       (I4)     
-*S**1 #LEN     (I4)     
+*S**1 #I          (I4)  
+*S**1 #LEN        (I4)  
+*S**1 #IS-FOUND   (L)   
 *S**/*      
 *S**END-DEFINE          
 *S**DEFINE SUBROUTINE XWZKXM0S      
 *S**  DECIDE ON FIRST VALUE XWZKXMIA.CMD        
+*S**  VALUE "GET"       
+*S**     PERFORM ZK-GET 
 *S**  VALUE "SET"       
 *S**     PERFORM ZK-SET 
 *S**  VALUE "REOPEN"    
@@ -3961,16 +3999,80 @@
 *S**     *ERROR-NR := EC-UNKNOW-COMMAND         
 *S**  END-DECIDE        
 *S**/*      
+*S**DEFINE SUBROUTINE ZAKAZ2OUT     
+*S**     MOVE ZAKAZ.OG-F TO XWZKXMOA.OG-CODE    
+*S**     IF ZAKAZ.ZK-F NE " " THEN  
+*S**        MOVE ZAKAZ.ZK-F TO XWZKXMOA.ZK-CODE 
+*S**        MOVE FALSE TO XWZKXMOA.ZK-IS-CLOSED 
+*S**     ELSE           
+*S**        MOVE ZAKAZ.ZZ-F TO XWZKXMOA.ZK-CODE 
+*S**        MOVE TRUE TO XWZKXMOA.ZK-IS-CLOSED  
+*S**     END-IF         
+*S**     MOVE ZAKAZ.INT-NUM-ZK TO XWZKXMOA.ZK-INT-NUM       
+*S**     MOVE ZAKAZ.TE-F TO XWZKXMOA.ZK-SUBJECT-CODE        
+*S**     MOVE ZAKAZ.BS-F TO XWZKXMOA.ZK-AC-BUH-CODE         
+*S**END-SUBROUTINE      
+*S**/*      
+*S**DEFINE SUBROUTINE ZK-GET        
+*S**  IF XWZKXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**  IF XWZKXMIA.ZK-CODE EQ " " THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF     
+*S**  FIND ZAKAZ WITH (ZK-F EQ XWZKXMIA.ZK-CODE OR ZZ-F EQ XWZKXMIA.ZK-CODE)        
+*S**                 AND OG-F EQ XWZKXMIA.OG-CODE           
+*S**     PERFORM ZAKAZ2OUT          
+*S**  END-FIND          
+*S**END-SUBROUTINE      
+*S**/*      
 *S**DEFINE SUBROUTINE ZK-SET        
 *S**  IF XWZKXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**  IF XWZKXMIA.ZK-CODE EQ " " THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF     
+*S**FZ.     
+*S**  FIND ZAKAZ WITH (ZK-F EQ XWZKXMIA.ZK-CODE OR ZZ-F EQ XWZKXMIA.ZK-CODE)        
+*S**                 AND ZAKAZ.OG-F EQ XWZKXMIA.OG-CODE     
+*S**     IF NO RECORD FOUND         
+*S**        IGNORE      
+*S**     END-NOREC      
+*S**     ZAKAZ.OG-F := XWZKXMIA.OG-CODE         
+*S**     IF XWZKXMIA.ZK-IS-CLOSED THEN          
+*S**        ZAKAZ.ZK-F := " "       
+*S**        ZAKAZ.ZZ-F := XWZKXMIA.ZK-CODE      
+*S**        ZAKAZ.FD-F := " "       
+*S**     ELSE           
+*S**        ZAKAZ.ZK-F := XWZKXMIA.ZK-CODE      
+*S**        ZAKAZ.ZZ-F := " "       
+*S**        ZAKAZ.FD-F := "++++++"  
+*S**     END-IF         
+*S**     ZAKAZ.TE-F := XWZKXMIA.ZK-SUBJECT-CODE 
+*S**     PERFORM ZAKAZ2OUT          
+*S**     IF *NUMBER EQ 0 THEN       
+*S**        STORE ZAKAZ 
+*S**     ELSE           
+*S**        UPDATE      
+*S**     END-IF         
+*S**  END-FIND          
 *S**END-SUBROUTINE      
 *S**/*      
 *S**DEFINE SUBROUTINE ZK-REOPEN     
 *S**  IF XWZKXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**  IF XWZKXMIA.ZK-CODE EQ " " THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF     
+*S**  FIND ZAKAZ WITH ZZ-F EQ XWZKXMIA.ZK-CODE AND OG-F EQ XWZKXMIA.OG-CODE         
+*S**     ZAKAZ.ZK-F := XWZKXMIA.ZK-CODE         
+*S**     ZAKAZ.ZZ-F := " "          
+*S**     ZAKAZ.FD-F := "++++++"     
+*S**     PERFORM ZAKAZ2OUT          
+*S**     UPDATE         
+*S**  END-FIND          
 *S**END-SUBROUTINE      
 *S**/*      
 *S**DEFINE SUBROUTINE ZK-CLOSE      
 *S**  IF XWZKXMIA.OG-CODE EQ 0 THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF       
+*S**  IF XWZKXMIA.ZK-CODE EQ " " THEN *ERROR-NR := EC-OBJECT-ID-REQUIRED END-IF     
+*S**  FIND ZAKAZ WITH ZK-F EQ XWZKXMIA.ZK-CODE AND OG-F EQ XWZKXMIA.OG-CODE         
+*S**     ZAKAZ.ZZ-F := XWZKXMIA.ZK-CODE         
+*S**     ZAKAZ.ZK-F := " "          
+*S**     ZAKAZ.FD-F := " "          
+*S**     PERFORM ZAKAZ2OUT          
+*S**     UPDATE         
+*S**  END-FIND          
 *S**END-SUBROUTINE      
 *S**/*      
 *S**END-SUBROUTINE      

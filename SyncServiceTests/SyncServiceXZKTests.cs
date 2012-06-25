@@ -9,7 +9,7 @@ namespace IntecoAG.IBS.SyncService {
 
     [TestFixture]
     public class SyncServiceXZKTests {
-        decimal ogcode = 10000;
+        decimal ogcode = -11111;
 
         ISyncService SyncService;
 
@@ -19,6 +19,10 @@ namespace IntecoAG.IBS.SyncService {
         }
 
         protected void ClearTestData() {
+            XWZKXCIA lprm = new XWZKXCIA();
+            lprm.CMD = "CLEAR-TEST-DATA";
+            lprm.OGCODE = ogcode;
+            XWZKXCOA lres = SyncService.XWZKXC0N(lprm);
         }
 
         [SetUp]
@@ -36,24 +40,73 @@ namespace IntecoAG.IBS.SyncService {
             XWZKXMIA lprm = new XWZKXMIA();
             lprm.CMD = "SET";
             lprm.OGCODE = ogcode;
+            lprm.ZKCODE = "TEST1234";
+            lprm.ZKSUBJECTCODE = "SUBJ1234";
             XWZKXMOA lres = SyncService.XWZKXM0N(lprm);
+            lprm = new XWZKXMIA();
+            lprm.CMD = "GET";
+            lprm.OGCODE = ogcode;
+            lprm.ZKCODE = "TEST1234";
+            lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.OGCODE, ogcode);
+            Assert.AreEqual(lres.ZKCODE, "TEST1234");
+            Assert.AreEqual(lres.ZKISCLOSED, false);
+            Assert.AreEqual(lres.ZKSUBJECTCODE, "SUBJ1234");
+            lprm.CMD = "SET";
+            lprm.OGCODE = ogcode;
+            lprm.ZKCODE = "TEST1234";
+            lprm.ZKSUBJECTCODE = "SUBJ12345";
+            lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.ZKSUBJECTCODE, "SUBJ12345");
         }
         [Test]
         public void CloseTest() {
             XWZKXMIA lprm = new XWZKXMIA();
+            lprm.CMD = "SET";
+            lprm.OGCODE = ogcode;
+            lprm.ZKCODE = "TEST1234";
+            lprm.ZKSUBJECTCODE = "SUBJ1234";
+            XWZKXMOA lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.ZKISCLOSED, false);
+            lprm = new XWZKXMIA();
             lprm.CMD = "CLOSE";
             lprm.OGCODE = ogcode;
-            XWZKXMOA lres = SyncService.XWZKXM0N(lprm);
+            lprm.ZKCODE = "TEST1234";
+            lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.ZKISCLOSED, true);
         }
         [Test]
         public void ReOpenTest() {
             XWZKXMIA lprm = new XWZKXMIA();
+            lprm.CMD = "SET";
+            lprm.OGCODE = ogcode;
+            lprm.ZKCODE = "TEST1234";
+            lprm.ZKSUBJECTCODE = "SUBJ1234";
+            XWZKXMOA lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.ZKISCLOSED, false);
+            lprm = new XWZKXMIA();
+            lprm.CMD = "CLOSE";
+            lprm.OGCODE = ogcode;
+            lprm.ZKCODE = "TEST1234";
+            lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.ZKISCLOSED, true);
             lprm.CMD = "REOPEN";
             lprm.OGCODE = ogcode;
-            XWZKXMOA lres = SyncService.XWZKXM0N(lprm);
+            lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.ZKISCLOSED, false);
         }
         [Test]
         public void ListTest([Range(1, 1, 1)]  int counter) {
+            XWZKXMIA lset = new XWZKXMIA();
+            XWZKXMOA rset;
+            for (int i = 0; i < 10; i++) {
+                lset.CMD = "SET";
+                lset.OGCODE = ogcode;
+                lset.ZKCODE = "TEST-" + i.ToString();
+                lset.ZKSUBJECTCODE = "SUBJ-" + i.ToString();
+                rset = SyncService.XWZKXM0N(lset);
+            }
+            //
             XWZKXCIA lprm = new XWZKXCIA();
             lprm.CMD = "CATALOG";
             lprm.OGCODE = ogcode;
@@ -64,7 +117,7 @@ namespace IntecoAG.IBS.SyncService {
                 count++;
                 Debug.WriteLine(count.ToString() + " - " + item.ZKSUBJECTCODE + " - " +  item.ZKCODE);
             }
-//            Assert.AreEqual(count, 20);
+            Assert.AreEqual(count, 10);
         }
     }
 }

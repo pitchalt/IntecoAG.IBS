@@ -3,150 +3,139 @@
 <xs:element name='XWZKXMIA' >
 <xs:complexType>
 <xs:sequence>
-<xs:element ref='CMD' />
-<xs:element ref='OG-CODE' />
-<xs:element ref='ZK-INT-NUM' />
-<xs:element ref='ZK-CODE' />
-<xs:element ref='ZK-AC-BUH-CODE' />
-<xs:element ref='ZK-IS-CLOSED' />
-<xs:element ref='ZK-DT-OPEN' />
-<xs:element ref='ZK-DT-CLOSE' />
-<xs:element ref='ZK-SUBJECT-CODE' />
-<xs:element ref='ZK-SHORT-NAME' />
-<xs:element ref='ZK-FULL-NAME' />
-<xs:element ref='ZK-DESCRIPTION' />
-<xs:element ref='ZK-DP-BUH-CODE' />
-<xs:element ref='ZK-TB-BUH-CODE' />
-<xs:element ref='ZK-SOURCE' />
-<xs:element ref='ZK-NDS-MODE' />
-<xs:element ref='ZK-BUH-TYPE' />
-<xs:element ref='ZK-KOEFF-KB' />
-<xs:element ref='ZK-KOEFF-OZM' />
+  <xs:element name='CMD' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='15' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='OG-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:decimal'>
+        <xs:totalDigits value='5' />
+        <xs:fractionDigits value='0' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-INT-NUM' >
+    <xs:simpleType>
+      <xs:restriction base='xs:int'>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='9' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-AC-BUH-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:decimal'>
+        <xs:totalDigits value='5' />
+        <xs:fractionDigits value='0' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-IS-CLOSED' >
+    <xs:simpleType>
+      <xs:restriction base='xs:boolean' />
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-DT-OPEN' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' />
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-DT-CLOSE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' />
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-SUBJECT-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='10' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-SHORT-NAME' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='70' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-FULL-NAME' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='250' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-DESCRIPTION' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='250' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-DP-BUH-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:decimal'>
+        <xs:totalDigits value='5' />
+        <xs:fractionDigits value='0' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-TB-BUH-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:decimal'>
+        <xs:totalDigits value='5' />
+        <xs:fractionDigits value='0' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-SOURCE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='50' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-NDS-MODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='5' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-BUH-TYPE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='5' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-KOEFF-KB' >
+    <xs:simpleType>
+      <xs:restriction base='xs:decimal'>
+        <xs:totalDigits value='6' />
+        <xs:fractionDigits value='4' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ZK-KOEFF-OZM' >
+    <xs:simpleType>
+      <xs:restriction base='xs:decimal'>
+        <xs:totalDigits value='6' />
+        <xs:fractionDigits value='4' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
 </xs:sequence>
 </xs:complexType>
  </xs:element> 
-<xs:element name='CMD' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='15' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='OG-CODE' >
-<xs:simpleType>
-<xs:restriction base='xs:decimal'>
-<xs:totalDigits value='5' /><xs:fractionDigits value='0' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-INT-NUM' >
-<xs:simpleType>
-<xs:restriction base='xs:int'>
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-CODE' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='9' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-AC-BUH-CODE' >
-<xs:simpleType>
-<xs:restriction base='xs:decimal'>
-<xs:totalDigits value='5' /><xs:fractionDigits value='0' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-IS-CLOSED' >
-<xs:simpleType>
-<xs:restriction base='xs:boolean' />
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-DT-OPEN' >
-<xs:simpleType>
-<xs:restriction base='xs:string' /></xs:simpleType>
-</xs:element>
-<xs:element name='ZK-DT-CLOSE' >
-<xs:simpleType>
-<xs:restriction base='xs:string' /></xs:simpleType>
-</xs:element>
-<xs:element name='ZK-SUBJECT-CODE' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='10' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-SHORT-NAME' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='70' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-FULL-NAME' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='250' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-DESCRIPTION' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='250' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-DP-BUH-CODE' >
-<xs:simpleType>
-<xs:restriction base='xs:decimal'>
-<xs:totalDigits value='5' /><xs:fractionDigits value='0' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-TB-BUH-CODE' >
-<xs:simpleType>
-<xs:restriction base='xs:decimal'>
-<xs:totalDigits value='5' /><xs:fractionDigits value='0' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-SOURCE' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='50' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-NDS-MODE' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='5' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-BUH-TYPE' >
-<xs:simpleType>
-<xs:restriction base='xs:string' >
-<xs:maxLength value='5' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-KOEFF-KB' >
-<xs:simpleType>
-<xs:restriction base='xs:decimal'>
-<xs:totalDigits value='6' /><xs:fractionDigits value='4' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
-<xs:element name='ZK-KOEFF-OZM' >
-<xs:simpleType>
-<xs:restriction base='xs:decimal'>
-<xs:totalDigits value='6' /><xs:fractionDigits value='4' />
-</xs:restriction>
-</xs:simpleType>
-</xs:element>
 </xs:schema>

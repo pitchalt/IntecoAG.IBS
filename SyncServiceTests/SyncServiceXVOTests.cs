@@ -129,6 +129,22 @@ namespace IntecoAG.IBS.SyncService {
             Assert.AreEqual(res.VOINN, "ИНН22");
             Assert.AreEqual(res.VOKPP, "КПП22");
             //
+            prm = NewPrmFill("UPDATE", "22");
+            prm.VOCODE = vocode2;
+            prm.VOISCLOSED = true;
+            res = SyncService.XWVOXM0N(prm);
+            prm = new XWVOXMIA();
+            prm.OGCODE = ogcode;
+            prm.VOCODE = vocode2;
+            prm.CMD = "GET";
+            res = SyncService.XWVOXM0N(prm);
+            Assert.AreEqual(res.VONAME, "*Имя22");
+            Assert.AreEqual(res.VONAMEFULL, "ИмяПолное22");
+            Assert.AreEqual(res.VOADDR, "Адрес22");
+            Assert.AreEqual(res.VOINN, "*ИНН22");
+            Assert.AreEqual(res.VOKPP, "КПП22");
+
+            //
         }
         [Test]
         public void ListTest([Range(1, 10, 1)]  int counter) {

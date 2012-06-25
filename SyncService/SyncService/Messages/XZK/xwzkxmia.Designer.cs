@@ -14,54 +14,54 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
     using System.IO;
     using System.Text;
     using System.Collections.Generic;
-
-
+    
+    
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
     public partial class XWZKXMIA : ServiceMessage<XWZKXMIA> {
-
+        
         private string cMDField;
-
+        
         private decimal oGCODEField;
-
+        
         private int zKINTNUMField;
-
+        
         private string zKCODEField;
-
+        
         private decimal zKACBUHCODEField;
-
+        
         private bool zKISCLOSEDField;
-
+        
         private string zKDTOPENField;
-
+        
         private string zKDTCLOSEField;
-
+        
         private string zKSUBJECTCODEField;
-
+        
         private string zKSHORTNAMEField;
-
+        
         private string zKFULLNAMEField;
-
+        
         private string zKDESCRIPTIONField;
-
+        
         private decimal zKDPBUHCODEField;
-
+        
         private decimal zKTBBUHCODEField;
-
+        
         private string zKSOURCEField;
-
+        
         private string zKNDSMODEField;
-
+        
         private string zKBUHTYPEField;
-
+        
         private decimal zKKOEFFKBField;
-
+        
         private decimal zKKOEFFOZMField;
-
-        [System.Xml.Serialization.XmlElementAttribute(Order = 0)]
+        
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public string CMD {
             get {
                 return this.cMDField;
@@ -70,8 +70,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.cMDField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("OG-CODE", Order = 1)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("OG-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         public decimal OGCODE {
             get {
                 return this.oGCODEField;
@@ -80,8 +80,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.oGCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-INT-NUM", Order = 2)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-INT-NUM", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public int ZKINTNUM {
             get {
                 return this.zKINTNUMField;
@@ -90,8 +90,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKINTNUMField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-CODE", Order = 3)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public string ZKCODE {
             get {
                 return this.zKCODEField;
@@ -100,8 +100,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-AC-BUH-CODE", Order = 4)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-AC-BUH-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public decimal ZKACBUHCODE {
             get {
                 return this.zKACBUHCODEField;
@@ -110,8 +110,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKACBUHCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-IS-CLOSED", Order = 5)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-IS-CLOSED", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public bool ZKISCLOSED {
             get {
                 return this.zKISCLOSEDField;
@@ -120,8 +120,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKISCLOSEDField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-DT-OPEN", Order = 6)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-DT-OPEN", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public string ZKDTOPEN {
             get {
                 return this.zKDTOPENField;
@@ -130,8 +130,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKDTOPENField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-DT-CLOSE", Order = 7)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-DT-CLOSE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public string ZKDTCLOSE {
             get {
                 return this.zKDTCLOSEField;
@@ -140,8 +140,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKDTCLOSEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-SUBJECT-CODE", Order = 8)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-SUBJECT-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string ZKSUBJECTCODE {
             get {
                 return this.zKSUBJECTCODEField;
@@ -150,8 +150,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKSUBJECTCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-SHORT-NAME", Order = 9)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-SHORT-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string ZKSHORTNAME {
             get {
                 return this.zKSHORTNAMEField;
@@ -160,8 +160,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKSHORTNAMEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-FULL-NAME", Order = 10)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-FULL-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public string ZKFULLNAME {
             get {
                 return this.zKFULLNAMEField;
@@ -170,8 +170,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKFULLNAMEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-DESCRIPTION", Order = 11)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-DESCRIPTION", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public string ZKDESCRIPTION {
             get {
                 return this.zKDESCRIPTIONField;
@@ -180,8 +180,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKDESCRIPTIONField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-DP-BUH-CODE", Order = 12)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-DP-BUH-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public decimal ZKDPBUHCODE {
             get {
                 return this.zKDPBUHCODEField;
@@ -190,8 +190,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKDPBUHCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-TB-BUH-CODE", Order = 13)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-TB-BUH-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
         public decimal ZKTBBUHCODE {
             get {
                 return this.zKTBBUHCODEField;
@@ -200,8 +200,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKTBBUHCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-SOURCE", Order = 14)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-SOURCE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
         public string ZKSOURCE {
             get {
                 return this.zKSOURCEField;
@@ -210,8 +210,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKSOURCEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-NDS-MODE", Order = 15)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-NDS-MODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
         public string ZKNDSMODE {
             get {
                 return this.zKNDSMODEField;
@@ -220,8 +220,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKNDSMODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-BUH-TYPE", Order = 16)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-BUH-TYPE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=16)]
         public string ZKBUHTYPE {
             get {
                 return this.zKBUHTYPEField;
@@ -230,8 +230,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKBUHTYPEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-KOEFF-KB", Order = 17)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-KOEFF-KB", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=17)]
         public decimal ZKKOEFFKB {
             get {
                 return this.zKKOEFFKBField;
@@ -240,8 +240,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
                 this.zKKOEFFKBField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("ZK-KOEFF-OZM", Order = 18)]
+        
+        [System.Xml.Serialization.XmlElementAttribute("ZK-KOEFF-OZM", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=18)]
         public decimal ZKKOEFFOZM {
             get {
                 return this.zKKOEFFOZMField;
