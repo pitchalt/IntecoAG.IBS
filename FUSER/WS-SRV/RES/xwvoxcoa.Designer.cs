@@ -58,11 +58,23 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
     public partial class XWVOXCOAVOLIST : ServiceMessage<XWVOXCOAVOLIST> {
         
+        private string uUIDField;
+        
         private decimal vOCODEField;
         
         private string vOUPTIMEField;
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string UUID {
+            get {
+                return this.uUIDField;
+            }
+            set {
+                this.uUIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("VO-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         public decimal VOCODE {
             get {
                 return this.vOCODEField;
@@ -72,7 +84,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-UP-TIME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-UP-TIME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public string VOUPTIME {
             get {
                 return this.vOUPTIMEField;

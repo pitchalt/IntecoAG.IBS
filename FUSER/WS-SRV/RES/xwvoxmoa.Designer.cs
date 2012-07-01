@@ -25,6 +25,8 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
         
         private int rETURNCODEField;
         
+        private string uUIDField;
+        
         private string vOTYPEField;
         
         private decimal vOCODEField;
@@ -57,7 +59,17 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-TYPE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public string UUID {
+            get {
+                return this.uUIDField;
+            }
+            set {
+                this.uUIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("VO-TYPE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
         public string VOTYPE {
             get {
                 return this.vOTYPEField;
@@ -67,7 +79,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
         public decimal VOCODE {
             get {
                 return this.vOCODEField;
@@ -77,7 +89,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-COUNTRY-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-COUNTRY-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
         public string VOCOUNTRYCODE {
             get {
                 return this.vOCOUNTRYCODEField;
@@ -87,7 +99,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-INN", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-INN", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
         public string VOINN {
             get {
                 return this.vOINNField;
@@ -97,7 +109,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-KPP", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-KPP", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
         public string VOKPP {
             get {
                 return this.vOKPPField;
@@ -107,7 +119,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
         public string VONAME {
             get {
                 return this.vONAMEField;
@@ -117,7 +129,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-ADDR", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-ADDR", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
         public string VOADDR {
             get {
                 return this.vOADDRField;
@@ -127,7 +139,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-NAME-FULL", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-NAME-FULL", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
         public string VONAMEFULL {
             get {
                 return this.vONAMEFULLField;
@@ -137,7 +149,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-UP-USER", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-UP-USER", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
         public string VOUPUSER {
             get {
                 return this.vOUPUSERField;
@@ -147,7 +159,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-UP-PGM", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-UP-PGM", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
         public string VOUPPGM {
             get {
                 return this.vOUPPGMField;
@@ -157,7 +169,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
             }
         }
         
-        [System.Xml.Serialization.XmlElementAttribute("VO-UP-TIME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        [System.Xml.Serialization.XmlElementAttribute("VO-UP-TIME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
         public string VOUPTIME {
             get {
                 return this.vOUPTIMEField;
