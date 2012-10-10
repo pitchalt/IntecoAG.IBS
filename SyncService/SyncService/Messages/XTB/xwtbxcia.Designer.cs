@@ -25,6 +25,12 @@ namespace IntecoAG.IBS.SyncService.Messages.XTB {
 
         private string cMDField;
 
+        private uint dPGROUPCODEField;
+
+        private System.DateTime uPDTSTARTField;
+
+        private System.DateTime uPDTSTOPField;
+
         [System.Xml.Serialization.XmlElementAttribute(Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 0)]
         public string CMD {
             get {
@@ -32,6 +38,36 @@ namespace IntecoAG.IBS.SyncService.Messages.XTB {
             }
             set {
                 this.cMDField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("DP-GROUP-CODE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 1)]
+        public uint DPGROUPCODE {
+            get {
+                return this.dPGROUPCODEField;
+            }
+            set {
+                this.dPGROUPCODEField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("UP-DT-START", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "date", Order = 2)]
+        public System.DateTime UPDTSTART {
+            get {
+                return this.uPDTSTARTField;
+            }
+            set {
+                this.uPDTSTARTField = value;
+            }
+        }
+
+        [System.Xml.Serialization.XmlElementAttribute("UP-DT-STOP", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, DataType = "date", Order = 3)]
+        public System.DateTime UPDTSTOP {
+            get {
+                return this.uPDTSTOPField;
+            }
+            set {
+                this.uPDTSTOPField = value;
             }
         }
     }

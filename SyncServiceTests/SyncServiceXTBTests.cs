@@ -54,6 +54,30 @@ namespace IntecoAG.IBS.SyncService {
             ListTest(msg_in);
             //Assert.AreEqual(count, 20);
         }
+        [Test]
+        public void ChangesListTest([Range(1, 1, 1)]  int counter) {
+            int count = 0;
+            XWTBXCIA lprm = new XWTBXCIA();
+            XWTBXLIA msg_in = new XWTBXLIA();
+            lprm.CMD = "CHANGES";
+            lprm.DPGROUPCODE = 2;
+            lprm.UPDTSTART = new DateTime(2011, 01, 01);
+            lprm.UPDTSTOP = new DateTime(2011, 03, 31);
+            XWTBXCOA lres = SyncService.XWTBXC0N(lprm);
+            //Assert.AreEqual(lres.VOLIST.Count, 20);
+            foreach (var item in lres.TBLIST) {
+                //                System.Console.WriteLine(item.TBCODE + " " + item.TBBUHCODE + " " + item.TBDPCODE);
+                count++;
+                msg_in.TBBUHCODE.Add(item.TBBUHCODE);
+                if (count >= 100) {
+                    ListTest(msg_in);
+                    count = 0;
+                    msg_in = new XWTBXLIA();
+                }
+            }
+            ListTest(msg_in);
+            //Assert.AreEqual(count, 20);
+        }
         public void ListTest(XWTBXLIA msg_in) {
             System.Console.WriteLine("------------------");
             msg_in.CMD = "LIST";
