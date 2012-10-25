@@ -11,12 +11,12 @@ namespace IntecoAG.IBS.SyncService.Messages {
 
         private static System.Xml.Serialization.XmlSerializer serializer;
 
-        void IServiceMessage<T>.Serialize(StreamWriter stream) {
+        void IServiceMessage<T>.Serialize(TextWriter stream) {
             XmlSerializer.Serialize(stream, this);
 //            throw new NotImplementedException();
         }
 
-        T IServiceMessage<T>.Deserialize(StreamReader stream) {
+        T IServiceMessage<T>.Deserialize(TextReader stream) {
             return ((T)(XmlSerializer.Deserialize(System.Xml.XmlReader.Create(stream))));
 //            throw new NotImplementedException();
         }

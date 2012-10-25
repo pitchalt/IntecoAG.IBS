@@ -48,6 +48,13 @@
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
+              <xs:element name='TB-SEX' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string' >
+                    <xs:maxLength value='1' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
               <xs:element name='TB-DP-CODE' >
                 <xs:simpleType>
                   <xs:restriction base='xs:decimal'>

@@ -6,7 +6,7 @@ using System.Text;
 
 namespace IntecoAG.IBS.SyncService.Messages {
     public interface IServiceMessage<T> {
-        void Serialize(StreamWriter stream_write);
-        T Deserialize(StreamReader stream_read);
+        void Serialize(TextWriter stream_write);
+        T Deserialize(TextReader stream_read);
     }
 }

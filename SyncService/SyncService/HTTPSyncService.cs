@@ -59,6 +59,8 @@ namespace IntecoAG.IBS.SyncService {
                         //            return ((T1)(T1.Serializer.Deserialize(System.Xml.XmlReader.Create(stringReader))))\
                         // Паша!!! Подозрительный способ, но читать стандарт HTTP лень
                         if (response.ContentType.Substring(0,8) == "text/xml") {
+//                            String buffer = reader.ReadToEnd(); 
+//                            resp_val = new T2().Deserialize(new StringReader(buffer));
                             resp_val = new T2().Deserialize(reader);
                         }
                         else {
