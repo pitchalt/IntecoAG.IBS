@@ -16,7 +16,7 @@ namespace IntecoAG.IBS.SyncService {
             SyncService = new HTTPSyncService("http://npomash:8080/nww3d/mod/intecoag.ibs.ws-dev/xml-rpc/");
 //            SyncService = new HTTPSyncService("http://sagsrv:8080/nww3d/mod/ws-srv/xml-rpc/");
         }
-
+        
         protected void ClearTestData() {
 //            XWVOXLIA prm = new XWVOXLIA();
 //            prm.CMD = "CLEAR-TEST-DATA";
