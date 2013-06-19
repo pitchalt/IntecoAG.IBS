@@ -14,7 +14,7 @@ namespace IntecoAG.IBS.SyncService {
 
         [TestFixtureSetUp]
         public void Init() {
-            SyncService = new HTTPSyncService("http://npomash:8080/nww3d/mod/intecoag.ibs.ws-dev/xml-rpc/");
+            SyncService = new HTTPSyncService("http://npomash/natcgi/natcgi.exe/");
         }
 
         protected void ClearTestData() {
@@ -66,22 +66,22 @@ namespace IntecoAG.IBS.SyncService {
             prm.VOCODE = vocode1;
             prm.CMD = "GET";
             res = SyncService.XWVOXM0N(prm);
-            Assert.AreEqual(res.VONAME, "Имя1");
-            Assert.AreEqual(res.VONAMEFULL, "ИмяПолное1");
-            Assert.AreEqual(res.VOADDR, "Адрес1");
-            Assert.AreEqual(res.VOINN, "ИНН1");
-            Assert.AreEqual(res.VOKPP, "КПП1");
+            Assert.AreEqual("Имя1", res.VONAME);
+            Assert.AreEqual("ИмяПолное1", res.VONAMEFULL);
+            Assert.AreEqual("Адрес1", res.VOADDR);
+            Assert.AreEqual("ИНН1", res.VOINN);
+            Assert.AreEqual("КПП1", res.VOKPP);
             //
             prm = new XWVOXMIA();
             prm.OGCODE = ogcode;
             prm.VOCODE = vocode2;
             prm.CMD = "GET";
             res = SyncService.XWVOXM0N(prm);
-            Assert.AreEqual(res.VONAME, "Имя2");
-            Assert.AreEqual(res.VONAMEFULL, "ИмяПолное2");
-            Assert.AreEqual(res.VOADDR, "Адрес2");
-            Assert.AreEqual(res.VOINN, "ИНН2");
-            Assert.AreEqual(res.VOKPP, "КПП2");
+            Assert.AreEqual("Имя2", res.VONAME);
+            Assert.AreEqual("ИмяПолное2", res.VONAMEFULL);
+            Assert.AreEqual("Адрес2", res.VOADDR);
+            Assert.AreEqual("ИНН2", res.VOINN);
+            Assert.AreEqual("КПП2", res.VOKPP);
             //
         }
         [Test]

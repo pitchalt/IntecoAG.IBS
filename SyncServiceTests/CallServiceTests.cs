@@ -8,12 +8,14 @@ using NUnit.Framework;
 namespace IntecoAG.IBS.SyncService {
     [TestFixture]
     public class CallServiceTests {
-        const String http_server_name = "http://sagsrv:8080";
-        //const String http_server_name = "http://npomash:8080";
+        //const String http_server_name = "http://sagsrv:8080";
+        const String http_server_name = "http://npomash";
         [Test]
-        public void EchoTest([Range(1, 10, 1)]  int counter) {
-            String testxml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?><TEST><CMD>ECHO</CMD><DATA>ECHO DATA" + counter.ToString() + "</DATA></TEST>";
-            WebRequest request = WebRequest.Create(http_server_name + "/nww3d/mod/ws-srv/xml-rpc/wwecho1n");
+        public void EchoTest([Range(1, 1, 1)]  int counter) {
+            String testxml = "<?xml version=\"1.0\" encoding=\"windows-1251\"?><TEST><CMD>ECHO</CMD><DATA>ECHO Данные" + counter.ToString() + "</DATA></TEST>";
+
+            WebRequest request = WebRequest.Create(http_server_name + "/natcgi/natcgi.exe/WWECHO1N/ECHO");
+//            WebRequest request = WebRequest.Create(http_server_name + "/nww3d/mod/ws-srv/xml-rpc/wwecho1n");
 //            WebRequest request = WebRequest.Create(http_server_name + "/nww3d/mod/intecoag.ibs.ws-dev/xml-rpc/wwecho1n");
             request.Method = "POST";
             request.ContentType = "text/xml";
