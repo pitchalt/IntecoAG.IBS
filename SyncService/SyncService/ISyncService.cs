@@ -12,7 +12,7 @@ using IntecoAG.IBS.SyncService.Messages.XZK;
 
 namespace IntecoAG.IBS.SyncService {
 
-    public interface ISyncService {
+    public interface IIBSSyncService {
         XWVOXCOA XWVOXC0N(XWVOXCIA prm_in);
         XWVOXLOA XWVOXL0N(XWVOXLIA prm_in);
         XWVOXMOA XWVOXM0N(XWVOXMIA prm_in);

@@ -9,7 +9,7 @@ namespace IntecoAG.IBS.SyncService {
     [TestFixture]
     public class SyncServiceXTBTests {
 
-        ISyncService SyncService;
+        IIBSSyncService SyncService;
 
         [TestFixtureSetUp]
         public void Init() {

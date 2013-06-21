@@ -14,7 +14,7 @@ using IntecoAG.IBS.SyncService.Messages.XTB;
 
 namespace IntecoAG.IBS.SyncService {
 
-    public class HTTPSyncService : ISyncService {
+    public class HTTPSyncService : IIBSSyncService {
         public class CallResultFailException : Exception {
             public CallResultFailException(String msg, String context)
                 : base(msg) {

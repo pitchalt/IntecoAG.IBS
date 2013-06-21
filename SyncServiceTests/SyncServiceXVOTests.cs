@@ -10,7 +10,7 @@ namespace IntecoAG.IBS.SyncService {
     public class SyncServiceXVOTests {
         decimal ogcode = 10000;
 
-        ISyncService SyncService;
+        IIBSSyncService SyncService;
 
         [TestFixtureSetUp]
         public void Init() {

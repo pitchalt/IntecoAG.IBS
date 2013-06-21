@@ -11,11 +11,11 @@ namespace IntecoAG.IBS.SyncService {
     public class SyncServiceXZKTests {
         decimal ogcode = -11111;
 
-        ISyncService SyncService;
+        IIBSSyncService SyncService;
 
         [TestFixtureSetUp]
         public void Init() {
-            SyncService = new HTTPSyncService("http://npomash/natcgi/natcgi.exe/");
+            SyncService = new HTTPSyncService("http://npomash:8080/natcgi-dev/natcgi.exe/");
         }
 
         protected void ClearTestData() {
@@ -118,6 +118,21 @@ namespace IntecoAG.IBS.SyncService {
                 Debug.WriteLine(count.ToString() + " - " + item.ZKSUBJECTCODE + " - " +  item.ZKCODE);
             }
             Assert.AreEqual(count, 10);
+        }
+        [Test]
+        public void ListAllTest([Range(1, 1, 1)]  int counter) {
+            //
+            XWZKXCIA lprm = new XWZKXCIA();
+            lprm.CMD = "CATALOG";
+            lprm.OGCODE = 1000;
+            XWZKXCOA lres = SyncService.XWZKXC0N(lprm);
+            //            Assert.AreEqual(lres.VOLIST.Count, 20);
+            int count = 0;
+            foreach (XWZKXCOAZKLIST item in lres.ZKLIST) {
+                count++;
+                Debug.WriteLine(count.ToString() + " - " + item.ZKSUBJECTCODE + " - " + item.ZKCODE + " - " + item.ZKACCOUNTTYPE + " - " + item.ZKACCOUNTCODE);
+            }
+//            Assert.AreEqual(count, 10);
         }
     }
 }
