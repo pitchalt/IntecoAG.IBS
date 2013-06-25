@@ -53,12 +53,12 @@
   </xs:element>
   <xs:element name='ZK-DT-OPEN' >
     <xs:simpleType>
-      <xs:restriction base='xs:string' />
+      <xs:restriction base='xs:date' />
     </xs:simpleType>
   </xs:element>
   <xs:element name='ZK-DT-CLOSE' >
     <xs:simpleType>
-      <xs:restriction base='xs:string' />
+      <xs:restriction base='xs:date' />
     </xs:simpleType>
   </xs:element>
   <xs:element name='ZK-SUBJECT-CODE' >

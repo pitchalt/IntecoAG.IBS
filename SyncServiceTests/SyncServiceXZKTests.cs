@@ -76,24 +76,29 @@ namespace IntecoAG.IBS.SyncService {
             Assert.AreEqual(lres.ZKISCLOSED, true);
         }
         [Test]
-        public void ReOpenTest() {
+        public void OpenCloseTest() {
             XWZKXMIA lprm = new XWZKXMIA();
-            lprm.CMD = "SET";
+            lprm.CMD = "OPEN";
             lprm.OGCODE = ogcode;
             lprm.ZKCODE = "TEST1234";
             lprm.ZKSUBJECTCODE = "SUBJ1234";
+            lprm.ZKACBUHCODE = 2000;
+            lprm.ZKBUHTYPE = "0";
+            lprm.ZKDTOPEN = new DateTime(2013,01,01);
+            lprm.ZKDTCLOSE = new DateTime(2015,12,31);
             XWZKXMOA lres = SyncService.XWZKXM0N(lprm);
             Assert.AreEqual(lres.ZKISCLOSED, false);
+            Assert.AreNotEqual(lres.ZKINTNUM, 0);
             lprm = new XWZKXMIA();
             lprm.CMD = "CLOSE";
             lprm.OGCODE = ogcode;
+            lprm.ZKINTNUM = lres.ZKINTNUM;
             lprm.ZKCODE = "TEST1234";
+            lprm.ZKDTOPEN = new DateTime(2013, 01, 01);
+            lprm.ZKDTCLOSE = new DateTime(2014, 12, 31);
             lres = SyncService.XWZKXM0N(lprm);
+            Assert.AreEqual(lres.ZKDTCLOSE, new DateTime(2014,12,31));
             Assert.AreEqual(lres.ZKISCLOSED, true);
-            lprm.CMD = "REOPEN";
-            lprm.OGCODE = ogcode;
-            lres = SyncService.XWZKXM0N(lprm);
-            Assert.AreEqual(lres.ZKISCLOSED, false);
         }
         [Test]
         public void ListTest([Range(1, 1, 1)]  int counter) {

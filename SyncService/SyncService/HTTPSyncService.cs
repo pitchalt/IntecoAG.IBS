@@ -114,7 +114,11 @@ namespace IntecoAG.IBS.SyncService {
         }
 
         public XWZKXMOA XWZKXM0N(XWZKXMIA prm_in) {
-            return CallService<XWZKXMIA, XWZKXMOA>("xwzkxm0n", prm_in);
+            XWZKXMOA res = CallService<XWZKXMIA, XWZKXMOA>("xwzkxm0n", prm_in);
+            if (res.RETURNCODE == -1) {
+                throw new IBSServiceInternalException(res.ERRORNUMBER, res.ERRORMODULE, res.ERRORLINE);
+            }
+            return res;
         }
     }
 }
