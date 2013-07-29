@@ -61,6 +61,13 @@
       <xs:restriction base='xs:date' />
     </xs:simpleType>
   </xs:element>
+  <xs:element name='ZK-IBS-SYSTEM-PROTECT' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string'>
+        <xs:maxLength value='5' />
+      </xs:restriction >
+    </xs:simpleType>
+  </xs:element>
   <xs:element name='ZK-SUBJECT-CODE' >
     <xs:simpleType>
       <xs:restriction base='xs:string' >
@@ -85,7 +92,7 @@
   <xs:element name='ZK-DESCRIPTION' >
     <xs:simpleType>
       <xs:restriction base='xs:string' >
-        <xs:maxLength value='250' />
+        <xs:maxLength value='65536' />
       </xs:restriction>
     </xs:simpleType>
   </xs:element>

@@ -131,7 +131,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>xwzkxcoa.xsd</DependentUpon>
     </Compile>
-    <Compile Include="SyncService\Messages\XZK\xwzkxmia.Designer.cs">
+    <Compile Include="SyncService\Messages\XZK\xwzkxmia.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>xwzkxmia.xsd</DependentUpon>
@@ -236,8 +236,8 @@
       <LastGenOutput>xwzkxmia.Designer.cs</LastGenOutput>
     </None>
     <None Include="SyncService\Messages\XZK\xwzkxmoa.xsd">
-      <SubType>Designer</SubType>
       <Generator>Xsd2CodeCustomTool</Generator>
+      <SubType>Designer</SubType>
       <LastGenOutput>xwzkxmoa.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
