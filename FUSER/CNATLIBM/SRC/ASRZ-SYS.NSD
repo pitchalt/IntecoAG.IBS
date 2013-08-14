@@ -1,9 +1,0 @@
-0001DB: 000 FILE: 019  - ASRZ-SYS-FIL                     DEFAULT SEQUENCE:
-0002
-0003T L DB Name                              F Leng  S D Remark
-0004- - -- --------------------------------  - ----  - - ------------------------
-0005  1 KK KK-F                              A    3  N D
-0006  1 KD KD-F                              N  5.0  N D
-0007  1 NA NA-F                              A   60  N
-0008M 1 NB NB-F                              A    7  N
-0009******DDM OUTPUT TERMINATED******
