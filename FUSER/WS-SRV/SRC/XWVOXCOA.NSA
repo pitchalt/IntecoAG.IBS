@@ -1,8 +1,0 @@
-/*DS                                 1XWVOXCOA                                                        DA:00.00ED:00.00PF:WNV:06030900
-/*DF                    I         4  2RETURN-CODE
-/*DF                    I         4  2C@VO-LIST
-/*DS I             S0001             2VO-LIST
-/*DF                    N         5  3VO-CODE
-/*DF                    T            3VO-UP-TIME
-/*HA0001
-/*A1:*

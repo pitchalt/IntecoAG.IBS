@@ -1,9 +1,0 @@
-* >Natural Source Header 000000 /*<RO>>
-* :NatName SVIEWER
-* :UID MSA
-* :Mode S
-* :CP
-* :Date 20041108
-* :Time 1322330
-* <Natural Source Header /*<<RO>
-CALLNAT 'VIEWER' .
