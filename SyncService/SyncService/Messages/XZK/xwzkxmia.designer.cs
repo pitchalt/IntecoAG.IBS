@@ -21,7 +21,7 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-    public partial class XWZKXMIA : EntityBase<XWZKXMIA> {
+    public partial class XWZKXMIA : ServiceMessage<XWZKXMIA> {
         
         private string cMDField;
         

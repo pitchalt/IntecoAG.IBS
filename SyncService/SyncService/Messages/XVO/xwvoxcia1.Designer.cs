@@ -16,12 +16,12 @@ namespace IntecoAG.IBS.SyncService.Messages.XVO {
     using System.Collections.Generic;
     
     
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
     [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
-    public partial class XWVOXCIA : ServiceMessage<XWVOXCIA> {
+    public partial class XWVOXCIA : EntityBase<XWVOXCIA> {
         
         private string cMDField;
         
