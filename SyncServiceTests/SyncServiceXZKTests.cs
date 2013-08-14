@@ -15,7 +15,7 @@ namespace IntecoAG.IBS.SyncService {
 
         [TestFixtureSetUp]
         public void Init() {
-            SyncService = new HTTPSyncService("http://npomash:8080/natcgi-dev/natcgi.exe/");
+            SyncService = new HTTPSyncService("http://erm-dev:8080/natcgi-dev/natcgi.exe/");
         }
 
         protected void ClearTestData() {
@@ -38,7 +38,7 @@ namespace IntecoAG.IBS.SyncService {
         [Test]
         public void SetTest() {
             XWZKXMIA lprm = new XWZKXMIA();
-            lprm.CMD = "SET";
+            lprm.CMD = "OPEN";
             lprm.OGCODE = ogcode;
             lprm.ZKCODE = "TEST1234";
             lprm.ZKSUBJECTCODE = "SUBJ1234";
@@ -62,7 +62,7 @@ namespace IntecoAG.IBS.SyncService {
         [Test]
         public void CloseTest() {
             XWZKXMIA lprm = new XWZKXMIA();
-            lprm.CMD = "SET";
+            lprm.CMD = "OPEN";
             lprm.OGCODE = ogcode;
             lprm.ZKCODE = "TEST1234";
             lprm.ZKSUBJECTCODE = "SUBJ1234";

@@ -69,6 +69,28 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
         
         private decimal zKKOEFFOZMField;
         
+        private string eRMOIDField;
+        
+        private string eRMSUBJECTOIDField;
+        
+        private string eRMANWORKOIDField;
+        
+        private string eRMANPRODOIDField;
+        
+        private string eRMANGOZOIDField;
+        
+        private string eRMANTARGETOIDField;
+        
+        private string eRMANWORKCODEField;
+        
+        private string eRMANPRODCODEField;
+        
+        private string eRMANGOZCODEField;
+        
+        private string eRMANTARGETCODEField;
+        
+        private string eRMANCOUNTRYField;
+        
         [System.Xml.Serialization.XmlElementAttribute("RETURN-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
         public int RETURNCODE {
             get {
@@ -296,6 +318,116 @@ namespace IntecoAG.IBS.SyncService.Messages.XZK {
             }
             set {
                 this.zKKOEFFOZMField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-OID", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=23)]
+        public string ERMOID {
+            get {
+                return this.eRMOIDField;
+            }
+            set {
+                this.eRMOIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-SUBJECT-OID", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=24)]
+        public string ERMSUBJECTOID {
+            get {
+                return this.eRMSUBJECTOIDField;
+            }
+            set {
+                this.eRMSUBJECTOIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-WORK-OID", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=25)]
+        public string ERMANWORKOID {
+            get {
+                return this.eRMANWORKOIDField;
+            }
+            set {
+                this.eRMANWORKOIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-PROD-OID", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=26)]
+        public string ERMANPRODOID {
+            get {
+                return this.eRMANPRODOIDField;
+            }
+            set {
+                this.eRMANPRODOIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-GOZ-OID", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=27)]
+        public string ERMANGOZOID {
+            get {
+                return this.eRMANGOZOIDField;
+            }
+            set {
+                this.eRMANGOZOIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-TARGET-OID", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=28)]
+        public string ERMANTARGETOID {
+            get {
+                return this.eRMANTARGETOIDField;
+            }
+            set {
+                this.eRMANTARGETOIDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-WORK-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=29)]
+        public string ERMANWORKCODE {
+            get {
+                return this.eRMANWORKCODEField;
+            }
+            set {
+                this.eRMANWORKCODEField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-PROD-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=30)]
+        public string ERMANPRODCODE {
+            get {
+                return this.eRMANPRODCODEField;
+            }
+            set {
+                this.eRMANPRODCODEField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-GOZ-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=31)]
+        public string ERMANGOZCODE {
+            get {
+                return this.eRMANGOZCODEField;
+            }
+            set {
+                this.eRMANGOZCODEField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-TARGET-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=32)]
+        public string ERMANTARGETCODE {
+            get {
+                return this.eRMANTARGETCODEField;
+            }
+            set {
+                this.eRMANTARGETCODEField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("ERM-AN-COUNTRY", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=33)]
+        public string ERMANCOUNTRY {
+            get {
+                return this.eRMANCOUNTRYField;
+            }
+            set {
+                this.eRMANCOUNTRYField = value;
             }
         }
     }

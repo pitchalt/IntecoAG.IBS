@@ -160,6 +160,83 @@
       </xs:restriction>
     </xs:simpleType>
   </xs:element>
+  <xs:element name='ERM-OID' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:length fixed='true' value='36'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-SUBJECT-OID' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:length fixed='true' value='36'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-WORK-OID' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:length fixed='true' value='36'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-PROD-OID' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:length fixed='true' value='36'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-GOZ-OID' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:length fixed='true' value='36'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-TARGET-OID' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:length fixed='true' value='36'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-WORK-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='15' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-PROD-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='15' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-GOZ-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='15' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-TARGET-CODE' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:maxLength value='15' />
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name='ERM-AN-COUNTRY' >
+    <xs:simpleType>
+      <xs:restriction base='xs:string' >
+        <xs:length fixed='true' value='3'/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
 </xs:sequence>
 </xs:complexType>
  </xs:element> 
