@@ -1,0 +1,23 @@
+DB: 000 FILE: 093  - ADS-TXT-FILE                     DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID INTECO
+*      :CP
+*
+*
+*      :Date 20090804
+*      :Time 1410330
+*      <Natural Source Header
+*      GENERATED FROM ADABAS FNR 98
+*      ADABAS DBID 7
+  1 OG OG-ID                             N  5.0  N D ÎÐÃ-ÖÈß ÏÎËÜÇÎÂÀÒÅË
+  1 KK KK-F                              A    3  N D ÒÈÏ ÊÎÌÌÅÍÒÀÐÈÉ
+  1 NS NS-F                              N  5.0  N D N ÑÒÐÎÊÈ
+  1 TX TX-F                              A   60  N   ÒÅÊÑÒ
+  1 UR UR-ID                             N  1.0    D N ÓÐÎÂÍß ÝÒÀÏÀ
+  1 N1 NN-ID                             I    4  N D
+  1 N2 NN-DP                             I    4    D
+  1 N3 ND-E                              I    4  N D
+******DDM OUTPUT TERMINATED******

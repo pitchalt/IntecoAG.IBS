@@ -1,0 +1,12 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCUBN
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20001016
+* :Time 1359330
+* <Natural Source Header /*<<RO>
+ASSIGN IBS-KBN-FILE.UP-DT = *DATX
+ASSIGN IBS-KBN-FILE.UP-PG = *PROGRAM
+ASSIGN IBS-KBN-FILE.UP-ID = *INIT-ID
+ASSIGN IBS-KBN-FILE.UP-US = *INIT-USER

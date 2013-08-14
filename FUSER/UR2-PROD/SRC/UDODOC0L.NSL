@@ -1,0 +1,30 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDODOC0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061120
+**C               *:Time 2243000
+**C               *<Natural Source Header
+**DV          0000     V1UR-OPER-CODE-VIEW               UR-OPER-CODE
+**DD          0000P 7.0 2OC-RECORD-TYPE
+**DD          0000P 7.0 2OD-ID
+**DD          0000P 7.0 2DD-ID
+**DD          0000P 3.0 2OC-SEQ-NUM
+**DD I1 C     0000P 3.0M2OD-RULE-POS-LIST                (1:20)
+**DD    *     0000     C2OD-RULE-POS-LIST
+**DD    *     0000     C2OC-G
+**DD I1 C     0000     P2OC-G                            (1:128)
+**DD          0000A   3 3OC-CODE
+**DD          0000A   2 3OC-RES-TYPE
+**DD          0000P 7.0 3OC-RES-ATTR
+**DD          0000A   2 3OC-ARG-TYPE
+**DD          0000P 7.0 3OC-ARG-ATTR
+**DD          0000P 1.0 3OC-ARG-CONST-E
+**DD          0000P15.0 3OC-ARG-CONST
+**DF I1       0000B  10 1OC-OD-DD-SUPER                  (1:2)
+**DR          0000     R1OC-OD-DD-SUPER                  /* BEGIN REDEFINE: OC-OD-DD-SU
+**DSRI1       0000      2OC-OD-DD-SUPER-G                (1:2)
+**DFR         0000P   7 3OD-ID
+**DFR         0000P   7 3DD-ID
+**DFR         0000P   3 3OC-SEQ-NUM

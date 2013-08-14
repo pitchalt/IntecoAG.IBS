@@ -1,0 +1,37 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPTEDM2
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20000630
+* :Time 1700330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     OTBORSCR.CODE_FR OTBORSCR.CODE_TO OTBORSCR.NAME
+DEFINE DATA PARAMETER
+1 OTBORSCR.CODE_FR (I4)
+1 OTBORSCR.CODE_TO (I4)
+1 OTBORSCR.NAME (A050)
+END-DEFINE
+FORMAT PS=006 LS=054 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 006053        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 010T 'Код  :  от'
+ 022T OTBORSCR.CODE_FR  (AD=DLMFHT'_' NL=06.0  ) /*.99U006 I4   .
+ 029T ', до'
+ 035T OTBORSCR.CODE_TO  (AD=DLMFHT'_' NL=06.0  ) /*.99U006 I4   .
+/
+/
+ 002T 'Наименование :'
+/
+ 002T OTBORSCR.NAME  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

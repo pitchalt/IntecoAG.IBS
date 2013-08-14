@@ -1,0 +1,54 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPPOXU0M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20070131
+* :Time 1056000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     MPPOXU0L.PO-DATE MPPOXU0L.PO-NUMBER XPMXSM0L.MX-EDITOR-NAME
+*     XPMXSM0L.MX-EDITOR-PROGRAM XPMXSM0L.MX-FUNCTION-NAME
+DEFINE DATA PARAMETER
+1 MPPOXU0L.PO-DATE (D)
+1 MPPOXU0L.PO-NUMBER (A020)
+1  XPMXSM0L.MX-EDITOR-NAME (A061)
+1  XPMXSM0L.MX-EDITOR-PROGRAM (A008)
+1  XPMXSM0L.MX-FUNCTION-NAME (A061)
+END-DEFINE
+FORMAT PS=021 LS=080 ZP=OFF SG=OFF KD=ON  IP=OFF
+SET CONTROL 'Q' ' ' INPUT USING MAP 'XPFNSM0M'
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023079XPFNSM0MN0YNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT NO ERASE (     IP=OFF                                           /*
+                                                                       )
+/
+/
+/
+/
+/
+ 010T 'Номер прихода'(I)
+ 026T MPPOXU0L.PO-NUMBER  (AD=MDLT'_' AL=006  ) /*.99D006 A020 .
+/
+ 010T 'Дата прихода'(I)
+ 026T MPPOXU0L.PO-DATE  (AD=MDLT'_' EM=YYYYMMDD ) /*.99D008 D    .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

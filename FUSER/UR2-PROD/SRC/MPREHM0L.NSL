@@ -1,0 +1,49 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPREHM0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061121
+**C               *:Time 1417000
+**C               *<Natural Source Header
+**DS          0000      1MPREHM0L
+**DK          0000C     2REH-C
+**DK          0000P  15 2REH-ID
+**DK          0000A   6 2REH-NUMBER
+**DK          0000N   8 2REH-DATE-N
+**DR          0000     R2REH-DATE-N                      /* BEGIN REDEFINE: REH-DATE-N
+**DFR         0000A   8 3REH-DATE-A
+**DK          0000C     2IN-MO-C
+**DK          0000P  15 2IN-MO-ID
+**DK          0000A  10 2IN-MO-SEARCH
+**DK          0000N   5 2IN-MO-CODE
+**DK          0000A  60 2IN-MO-NAME
+**DK          0000P  15 2IN-DP-ID
+**DK          0000N   5 2IN-DP-CODE
+**DK          0000A  60 2IN-DP-NAME
+**DK          0000C     2OUT-MO-C
+**DK          0000P  15 2OUT-MO-ID
+**DK          0000A  10 2OUT-MO-SEARCH
+**DK          0000N   5 2OUT-MO-CODE
+**DK          0000A  60 2OUT-MO-NAME
+**DK          0000P  15 2OUT-DP-ID
+**DK          0000N   5 2OUT-DP-CODE
+**DK          0000A  60 2OUT-DP-NAME
+**DK          0000C     2ZK-C
+**DK          0000P  15 2ZK-ID
+**DK          0000A  10 2ZK-SEARCH
+**DK          0000A   9 2ZK-CODE
+**DK          0000C     2BS-C
+**DK          0000P  15 2BS-ID
+**DK          0000A   5 2BS-SEARCH
+**DK          0000N   5 2BS-CODE
+**DK          0000A  60 2BS-NAME
+**DK          0000C     2VO-C
+**DK          0000P  15 2VO-ID
+**DK          0000A  30 2VO-SEARCH
+**DK          0000N   5 2VO-CODE
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP
+**DK          0000A  60 2VO-NAME
+**DK          0000A  60 2VO-ADDR
+**DK          0000P   1 2IS-CONFIRM-REQUIRED

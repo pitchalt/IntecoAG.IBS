@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBSOGM1C
+* :UID Админист
+* :Mode S
+* :CP
+* :Date 20000102
+* :Time 0000000
+* <Natural Source Header /*<<RO>
+     MOVE CXGMS0DL.GM-CODE TO XPOTGM1L.GM-CODE(#I)
+     MOVE CXGMS0DL.GM-NAME TO XPOTGM1L.GM-NAME(#I)
+     MOVE CXGMS0DL.GM-ID TO XPOTGM1L.GM-ID(#I)
+     RESET XPOTGM1L.OT-CMD-C(#I)
+

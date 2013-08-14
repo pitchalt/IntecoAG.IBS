@@ -1,0 +1,12 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CMBICM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100324
+**C               *:Time 2301330
+**C               *<Natural Source Header
+**DS          0         1CMBICM0A
+**DK          0   A  15 2CMD
+**DK          0   I   4 2RID
+**DK          0   I   4 2SUB-TYPE

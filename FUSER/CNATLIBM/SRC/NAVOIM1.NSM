@@ -1,0 +1,104 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVOIM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050123
+* :Time 1623330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #FIO(*) #TEL(*) FUN-NM-G REG-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 #FIO (A030/00001:00015)
+1 #TEL (A010/00001:00015)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 019T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+ 003T '‘.».Œ.'
+ 035T '“ÂÎÂÙÓÌ'
+/
+/
+ 002T '----------------------------------------------------------'-
+      '-------------------'
+/
+ 003T #FIO (1+000)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 035T #TEL (001)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+/
+ 003T #FIO (1+001)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (002)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+002)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (003)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+003)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (004)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+004)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (005)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+005)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (006)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+006)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (007)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+007)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (008)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+008)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (009)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+009)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (010)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+010)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (011)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+011)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (012)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+012)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (013)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+013)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (014)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 003T #FIO (1+014)  (AD=DLMFHT'_' ) /*.99U030 A030 .
+ 035T #TEL (015)  (AD=DLMFHT'_' ) /*.99U010 A010 .
+/
+ 001T '-¬¬Œƒ---œ‘1---œ‘2---œ‘3---œ‘4---œ‘5---œ‘6---œ‘7---œ‘8---œ‘'-
+      '9---œ‘10--œ‘11--œ‘12-'
+/
+ 010T '?'(I)
+ 021T '¬˚ı'(REI)
+ 033T '«‡Ô'(PII)
+ 039T 'œ˜Ú'(I)
+ 045T 'ÕÁ‰'(I)
+ 051T '¬Ô'(I)
+ 057T 'Õ‡˜'(I)
+ 064T ' ÓÌ'(I)
+ 069T '¬˚·'(I)
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,30 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CONFL
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060112
+**C               *:Time 1006330
+**C               *<Natural Source Header
+**DV          0        V1IBS-CONF-FILE                   IBS-CONF-FILE
+**DD          0   A  20 2POLZOV
+**DD          0   A   8 2SYST
+**DD          0   N 5.0 2OG-POLZ
+**DD          0   A   8 2MENU
+**DD    *     0        C2SOSTAV
+**DD I1 C     0        P2SOSTAV                          (1:60)
+**DD          0   A   8 3PGM
+**DD          0   A   8 3STARTER
+**DD          0   A  40 3NM-PGM
+**DD          0   A  40 2NM-MENU
+**DF          0   A  33 1CKEY1
+**DR          0        R1CKEY1                           /* BEGIN REDEFINE: CKEY1
+**DFR         0   A  20 2POLZ1
+**DFR         0   A   8 2SYST1
+**DFR         0   N   5 2OG1
+**DF          0   A  41 1CKEY2
+**DR          0        R1CKEY2                           /* BEGIN REDEFINE: CKEY2
+**DFR         0   A  20 2POLZ2
+**DFR         0   A   8 2SYST2
+**DFR         0   N   5 2OG2
+**DFR         0   A   8 2MENU2

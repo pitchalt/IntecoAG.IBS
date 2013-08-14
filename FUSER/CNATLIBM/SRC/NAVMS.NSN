@@ -1,0 +1,151 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVMS
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20080317
+* :Time 1441330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  PARAMETER USING PRMNAVI
+  LOCAL USING LCLKKL
+  LOCAL USING STEKL
+  LOCAL USING LCLFROL4
+  LOCAL
+ 1 USR1053L
+   2 INPUTS
+     3 ENV-VARIABLE    (A80)
+   2 OUTPUTS
+     3 CHAR-STRING     (A253)
+     3 RESPONSE        (I04)
+    1 LEN-ST(B4) CONST < 76 >
+    1 INPUT-REC(A076/1:15)
+    1 REDEFINE INPUT-REC
+      2 #INPUT-REC(15)
+        3 FLD0102(A16)
+        3 REDEFINE FLD0102
+          4 #FIELD-01 (A8)
+          4 #FIELD-02(A8)
+        3 #FIELD-03 (A060)      /* Œ¡Œ«Õ¿◊≈Õ»≈
+*
+* —“–” “”–¿ ›À≈Ã≈Õ“¿ —“≈ ¿ — ƒ¿ÕÕ€Ã»
+*
+    1 STEK-REC(A76)
+    1 REDEFINE STEK-REC
+      2 PUS(B1)
+    1 REDEFINE STEK-REC
+      2 #STEK-REC(A76)
+      2 REDEFINE #STEK-REC
+        3 STEK-01(A08)
+        3 STEK-02(A08)
+        3 STEK-03(A60)
+    1 IUSER(A8)
+END-DEFINE
+*
+SET KEY ALL
+*
+#OPSYS := *OPSYS
+CALL 'GTNX' XN1
+XI := 1000  CALL 'GTSX' LEN-ST XI XN1
+*
+ENV-VARIABLE := 'HOSTNAME'  CALLNAT 'USR1053N'  USR1053L
+IUSER := CHAR-STRING
+REPEAT
+  INCLUDE INPPC '"NAVMSM3"' '"NAVMSM0"'
+  IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+  CALL 'NULX' ' ' XN1  RESET IS1
+R. FIND IBS-KK-FILE KK-F = 'MS'
+    ACCEPT IF IUSER = ' ' OR = NA-USER
+    STEK-REC := NA-F
+    ADD 1 TO IS1  XI := IS1  CALL 'RWSX' XI STEK-REC XW XN1
+  END-FIND
+  CALL 'SRTX' XW H'00000010' XN1
+*
+  #N := 1
+  REPEAT
+    #K := #N + 14  RESET #L
+    FOR #I #N #K
+      ADD 1 TO #L
+      IF #I <= IS1  XI := #I  CALL 'RWSX' XI INPUT-REC(#L) XR XN1
+        ELSE  RESET INPUT-REC(#L)
+      END-IF
+    END-FOR
+*
+  INCLUDE INPPC '"NAVMSM4"' '"NAVMSM1"'
+*
+    IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+    #L := #N
+    FOR #I 1 15
+      IF #FIELD-01(#I) = ' '  PUS := H'FF'
+        ELSE
+        IF #FIELD-02(#I) = ' '
+          REINPUT 'œ–Œƒ” “' MARK *#FIELD-02(#I) ALARM
+        END-IF
+        IF #FIELD-03(#I) = ' '
+          REINPUT 'œ”“‹' MARK *#FIELD-03(#I) ALARM
+        END-IF
+        FOR #J 1 15
+          IF #FIELD-01(#J) NE ' ' AND #J NE #I
+          AND #FIELD-01(#J) = #FIELD-01(#I)
+          AND #FIELD-02(#J) = #FIELD-02(#I)
+            REINPUT 'ƒ”¡À»–Œ¬¿Õ»≈ Œœ»—¿Õ»ﬂ' MARK *#FIELD-01(#I) ALARM
+          END-IF
+        END-FOR
+        IF IS1 NE 0
+          FOR #J 1 IS1
+            IF NOT ( #J = #N THRU #K )  XI := #J  CALL 'RWSX' XI STEK-REC XR XN1
+              IF STEK-01 = #FIELD-01(#I) AND STEK-02 = #FIELD-02(#I)
+                REINPUT 'ƒ”¡À»–Œ¬¿Õ»≈ Œœ»—¿Õ»ﬂ' MARK *#FIELD-01(#I) ALARM
+              END-IF
+            END-IF
+          END-FOR
+        END-IF
+        STEK-REC := INPUT-REC(#I)
+      END-IF
+      XI := #L  CALL 'RWSX' XI STEK-REC XW XN1
+      ADD 1 TO #L
+    END-FOR
+    CALL 'PRSX' XW XW XN1
+    XI := 1  CALL 'CMPX' ' ' XI XW XN1
+    IS1 := XI  IS1 := IS1 - 1
+    IF *PF-KEY = 'PF5'  ESCAPE BOTTOM  END-IF
+    IF *PF-KEY = 'PF7' AND #N > 15  #N := #N - 15  END-IF
+    IF *PF-KEY = 'PF8' AND #K <= IS1  ADD 15 TO #N  END-IF
+    IF *PF-KEY = 'PF9'  #N := 1  END-IF
+    IF *PF-KEY = 'PF10'
+      #N := IS1 - 14
+      IF #N < 1  #N := 1  END-IF
+    END-IF
+    IF *PF-KEY = 'PF4'
+      FOR #I 1 15
+        IF *CURS-FIELD = POS(#FIELD-01(#I))
+        AND #FIELD-01(#I) NE ' '
+          ADD 1 TO IS1  #L := #N + #I
+          FOR #J IS1 #L -1
+            #M := #J - 1  XI := #M  CALL 'RWSX' XI STEK-REC XR XN1
+            XI := #J  CALL 'RWSX' XI STEK-REC XW XN1
+          END-FOR
+          ESCAPE BOTTOM
+        END-IF
+      END-FOR
+    END-IF
+  END-REPEAT
+  IF *PF-KEY = 'PF5'
+    FIND IBS-KK-FILE KK-F = 'MS'
+      ACCEPT IF IUSER = ' ' OR = NA-USER
+      DELETE
+    END-FIND
+    #L := IS1
+    IBS-KK-FILE.KK-F := 'MS'
+    FOR #I 1 #L
+      XI := #I  CALL 'RWSX' XI STEK-REC XR XN1
+      IBS-KK-FILE.KK-F := 'MS'
+      NA-USER := STEK-01  NA-SOFT := STEK-02  NA-PATH := STEK-03
+      STORE IBS-KK-FILE
+    END-FOR
+    END OF TRANSACTION
+  END-IF
+END-REPEAT
+*
+CALL 'FRSX' XN1
+END

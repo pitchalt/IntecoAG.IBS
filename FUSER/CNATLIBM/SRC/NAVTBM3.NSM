@@ -1,0 +1,118 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVTBM3
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080102
+* :Time 1130330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #FIELD-01(*) #FIELD-01C(*) #FIELD-02(*) #FIELD-02C(*)
+DEFINE DATA PARAMETER
+1 #FIELD-01 (N05.0/00001:00015)
+1  #FIELD-01C (C/00001:00015)
+1 #FIELD-02 (A020/00001:00015)
+1  #FIELD-02C (C/00001:00015)
+END-DEFINE
+SET KEY PF7 (PB=017/035/002/008) NAMED 'Назад'
+/* 000 000 000 000
+SET KEY PF8 (PB=019/002/002/007) NAMED 'Вперед'
+/* 000 000 000 000
+SET KEY PF9 (PB=019/010/002/007) NAMED 'Начало'
+/* 000 000 000 000
+SET KEY PF10 (PB=019/018/002/007) NAMED 'Конец'
+/* 000 000 000 000
+SET KEY PF11 (PB=019/026/002/008) NAMED 'Выбор'
+/* 000 000 000 000
+SET KEY PF12 (PB=019/035/002/008) NAMED 'Сорт.'
+/* 000 000 000 000
+SET KEY PF4 (PB=017/018/002/007) NAMED 'Копи '
+/* 000 000 000 000
+SET KEY PF5 (PB=017/026/002/008) NAMED 'Запись'
+/* 000 000 000 000
+SET KEY TREQ (PB=017/002/002/007) NAMED 'Далее'
+/* 000 000 000 000
+SET KEY PF3 (PB=017/010/002/007) NAMED 'Выход'
+/* 000 000 000 000
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023079        N0NNUCN             X        01 SYSPROF NL           1 *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Код'
+ 008T 'Наименование'
+/
+ 002T #FIELD-01 (001)  (AD=YM'_' CV=#FIELD-01C(001) ) /*.99U005 N05.0.
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 008T #FIELD-02 (001)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(001) )
+   /**A1000150000100001000010000100001100015001001000001000HV
+/
+ 002T #FIELD-01 (002)  (AD=YM'_' CV=#FIELD-01C(002) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (002)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(002) )
+/
+ 002T #FIELD-01 (003)  (AD=YM'_' CV=#FIELD-01C(003) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (003)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(003) )
+/
+ 002T #FIELD-01 (004)  (AD=YM'_' CV=#FIELD-01C(004) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (004)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(004) )
+/
+ 002T #FIELD-01 (005)  (AD=YM'_' CV=#FIELD-01C(005) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (005)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(005) )
+/
+ 002T #FIELD-01 (006)  (AD=YM'_' CV=#FIELD-01C(006) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (006)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(006) )
+/
+ 002T #FIELD-01 (007)  (AD=YM'_' CV=#FIELD-01C(007) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (007)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(007) )
+/
+ 002T #FIELD-01 (008)  (AD=YM'_' CV=#FIELD-01C(008) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (008)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(008) )
+/
+ 002T #FIELD-01 (009)  (AD=YM'_' CV=#FIELD-01C(009) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (009)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(009) )
+/
+ 002T #FIELD-01 (010)  (AD=YM'_' CV=#FIELD-01C(010) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (010)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(010) )
+/
+ 002T #FIELD-01 (011)  (AD=YM'_' CV=#FIELD-01C(011) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (011)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(011) )
+/
+ 002T #FIELD-01 (012)  (AD=YM'_' CV=#FIELD-01C(012) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (012)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(012) )
+/
+ 002T #FIELD-01 (013)  (AD=YM'_' CV=#FIELD-01C(013) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (013)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(013) )
+/
+ 002T #FIELD-01 (014)  (AD=YM'_' CV=#FIELD-01C(014) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (014)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(014) )
+/
+ 002T #FIELD-01 (015)  (AD=YM'_' CV=#FIELD-01C(015) ) /*.99U005 N05.0.
+ 008T #FIELD-02 (015)  (AD=YO'_' AL=035  /*.01U035 A020 .
+      CV=#FIELD-02C(015) )
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

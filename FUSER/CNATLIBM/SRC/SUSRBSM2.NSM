@@ -1,0 +1,63 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SUSRBSM2
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050225
+* :Time 1209330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #SS(*)
+DEFINE DATA PARAMETER
+1 #SS (N05.0/00001:00015)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T #SS (001)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+   /**A1000150000100001000010000100001100015001001000001000HV
+/
+ 001T #SS (002)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (003)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (004)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (005)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (006)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (007)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (008)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (009)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (010)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (011)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (012)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (013)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (014)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+ 001T #SS (015)  (AD=DRMFHT'_' ) /*.99U005 N05.0.
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

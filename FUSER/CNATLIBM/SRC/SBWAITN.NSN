@@ -1,0 +1,39 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SBWAITN
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20000705
+* :Time 1618330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  PARAMETER
+    1 #COUNTER(P10)
+    1 #NUMBER(P10)
+    1 #OLD(N2)
+    1 #W-TITL(A40)
+    1 #TIME(N7)
+  LOCAL
+    1 #ZAP(N2.3)
+    1 REDEFINE #ZAP
+      2 #CCC(N2)
+    1 #LINE(A31)
+    1 REDEFINE #LINE
+      2 #LINEA(A1/1:31)
+    1 #PRC(N3.2)
+END-DEFINE
+*
+DEFINE WINDOW WAIT SIZE 6 * 40 BASE 10/20 TITLE #W-TITL
+CONTROL SCREEN
+*
+COMPUTE ROUNDED #ZAP = ( #COUNTER / #NUMBER ) * 30
+COMPUTE ROUNDED #PRC = ( #COUNTER / #NUMBER ) * 100
+IF #CCC NE 0 AND #CCC NE #OLD /* AND #CCC < 31
+  ASSIGN #LINEA(#CCC + 1) = '<'
+  SET CONTROL 'N'
+  INPUT WINDOW = 'WAIT' (IP=OFF SG=OFF) / 1X #LINE (AD=VM CD=BL DY=<D>)
+                       / 1X 'Врем ' #TIME (AD=O  CD=RE EM=99:99:99'.'9)
+                         10X         #PRC (AD=OR CD=RE NL=3) '%'
+  ASSIGN #OLD = #CCC
+END-IF
+END

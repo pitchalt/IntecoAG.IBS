@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XDRBSM0C
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20070716
+* :Time 2039000
+* <Natural Source Header /*<<RO>
+/* Хак дл  выравнивани  уровней copycode
+MOVE &1&.&2& TO &3&.&4&

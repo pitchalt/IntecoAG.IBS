@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBOTSL0L
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060911
+**C               *:Time 1024000
+**C               *<Natural Source Header
+**DS          0000      1MBOTSL0L
+**DK          0000A  61 2OT-FUNCTION-NAME
+**DK          0000A   8 2OT-VIEW-PROGRAM
+**DS I1       0000      2STRING                          (1:15)
+**DK          0000A   2 3SL-CMD
+**DK          0000C     3SL-CMD-C
+**DK          0000P   7 3SL-CODE-AT
+**DK          0000A  30 3SL-NAME

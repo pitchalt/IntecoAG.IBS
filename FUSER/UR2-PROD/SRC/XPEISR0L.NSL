@@ -1,0 +1,13 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPEISR0L
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20050916
+**C               *:Time 2215000
+**C               *<Natural Source Header
+**DS          0000      1XPEISR0L
+**DS I1       0000      2EI-LIST                         (1:7)
+**DK          0000A   2 3CP-CMD
+**DK          0000N   5 3EI-CODE
+**DK          0000A  72 3EI-NAME

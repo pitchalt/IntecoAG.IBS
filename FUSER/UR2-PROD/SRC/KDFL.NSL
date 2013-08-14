@@ -1,0 +1,43 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName KDFL
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060828
+**C               *:Time 1227000
+**C               *<Natural Source Header
+**DV          0000     V1ASUM-KODIF-FILE                 ASUM-KODIF-FILE
+**DD          0000N 5.0 2OG-F
+**DD          0000A  22 2KM-F
+**DD I1 C     0000A  50M2NM-F                            (1:10)
+**DD          0000N12.2 2CE-F
+**DD          0000N 5.0 2SR-F
+**DD          0000N 5.0 2EI-F
+**DD    *     0000     C2SD-F
+**DD I1 C     0000     P2SD-F                            (1:12)
+**DD          0000N 5.0 3KD-F
+**DD          0000N 5.0 3KG-F
+**DD          0000N 6.6 3NS-F
+**DD          0000N 5.0 2SK-F
+**DD          0000A   4 2SG-F
+**DD I1 C     0000A   4M2NY-F                            (1:1)
+**DD          0000N 5.0 2GR-F
+**DD          0000N 5.0 2ML-F
+**DD          0000N 5.0 2BS-F
+**DD    *     0000     C2PE-F
+**DD I1 C     0000     P2PE-F                            (1:12)
+**DD          0000N 5.0 3EP-F
+**DD          0000N 6.3 3KF-F
+**DD          0000N 8.0 2DT-F
+**DD          0000A  30 2DI-F
+**DD          0000A   5 2NR-F
+**DD          0000A  60 2TA-F
+**DD I1 C     0000A  30M2NM-SHORT                        (1:50)
+**DD          0000P11.0 2INT-NUM-KM
+**DD          0000N 5.0 2GRSNAB
+**DD          0000A  50 2PROF
+**DD          0000A  50 2GOSTS
+**DD          0000A  10 2VPR
+**DD          0000A  50 2GOST
+**DD I1 C     0000A  50M2OBOZ                            (1:2)
+**DD          0000P 7.0 2KODSYS

@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPOPST0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060611
+**C               *:Time 2248000
+**C               *<Natural Source Header
+**C           0000*описание типов дл  отображени  документов
+**DS          0000      1MPOPST0L
+**DS I1       0000      2LS-ARRAY                        (1:20)
+**DK          0000P   4 3LS-TYPE-ID
+**DK          0000P   7 3LS-ATRIB-SUPPLIER-ID
+**DK          0000P   7 3LS-ATRIB-CUSTOMER-ID
+**DK          0000P   7 3LS-ATRIB-VO-ID
+**DK          0000P   7 3LS-ATRIB-ZAKAZ-ID

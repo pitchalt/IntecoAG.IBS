@@ -1,0 +1,24 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLNAVW
+**C               *:UID NIMI
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20001209
+**C               *:Time 0923330
+**C               *<Natural Source Header
+**DF   F      0002B   4 1L-ST-B
+**HF0001
+**I                      INIT <H'0000003F'>
+**DF   F      0002B   4 1Q-ST-B
+**HF0001
+**I                      INIT <H'00000032'>
+**DF          0000A  63 1TLINE
+**DR          0000     R1TLINE                           /* BEGIN REDEFINE: TLINE
+**DFR         0000N   5 2SSS
+**DFR         0000N   5 2SVO
+**DR          0000     R2SVO                             /* BEGIN REDEFINE: SVO
+**DFR         0000B   5 3SVOB
+**DFR         0000N   5 2SOB
+**DFR         0000A  10 2SZK
+**DFR         0000A  30 2SSTAT
+**DFR         0000N   8 2SDATE

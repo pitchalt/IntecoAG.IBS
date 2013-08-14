@@ -1,0 +1,22 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDITMN0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060514
+**C               *:Time 1111000
+**C               *<Natural Source Header
+**DV          0000     V1UR-ACC-META-VIEW                UR-ACC-META
+**DD          0000P 7.0 2IT-RECORD-TYPE
+**DD          0000A  10 2IT-CODE
+**DD          0000A  70 2IT-NAME
+**DD          0000P 1.0 2IT-SALDO-TYPE
+**DD          0000P 7.0 2CL-ID
+**DD          0000P 7.0 2IT-ID
+**DD I1 C     0000     P2MA-G                            (1:30)
+**DD          0000P 7.0 3MA-ID
+**DD          0000P 7.0 3MA-TYPE-ID
+**DD          0000A   1 3MA-TYPE
+**C           0000*A - аналитика, M - измеритель, С - конвертер, I - начальна  константа
+**DD          0000P 7.0 3MA-CONV-TYPE-ID
+**DD          0000P 1.0 3MA-COMB-INDEX-NUM

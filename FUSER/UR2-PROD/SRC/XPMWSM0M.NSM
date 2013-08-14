@@ -1,0 +1,53 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPMWSM0M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20060703
+* :Time 1420000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     XPMXSM0L.CB-BAR-NAME(*) XPMXSM0L.CB-SHIFT-LEFT
+*     XPMXSM0L.CB-SHIFT-RIGHT
+DEFINE DATA PARAMETER
+1 XPMXSM0L.CB-BAR-NAME (A010/00001:00006)
+1 XPMXSM0L.CB-SHIFT-LEFT (A001)
+1 XPMXSM0L.CB-SHIFT-RIGHT (A001)
+END-DEFINE
+FORMAT PS=018 LS=076 ZP=OFF SG=OFF KD=ON  IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 020075        N0NNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 004T XPMXSM0L.CB-SHIFT-LEFT  (AD=ULOFHT ) /*.01U001 A001 .
+ 006T XPMXSM0L.CB-BAR-NAME (1+000)  (AD=ULOFHT ) /*.01U010 A010 .
+   /**A1000060000100001000010000100001010001006001001001000HV
+ 017T XPMXSM0L.CB-BAR-NAME (1+001)  (AD=ULOFHT ) /*.01U010 A010 .
+ 028T XPMXSM0L.CB-BAR-NAME (1+002)  (AD=ULOFHT ) /*.01U010 A010 .
+ 039T XPMXSM0L.CB-BAR-NAME (1+003)  (AD=ULOFHT ) /*.01U010 A010 .
+ 050T XPMXSM0L.CB-BAR-NAME (1+004)  (AD=ULOFHT ) /*.01U010 A010 .
+ 061T XPMXSM0L.CB-BAR-NAME (1+005)  (AD=ULOFHT ) /*.01U010 A010 .
+ 072T XPMXSM0L.CB-SHIFT-RIGHT  (AD=ULOFHT ) /*.01U001 A001 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

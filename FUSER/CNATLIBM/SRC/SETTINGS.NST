@@ -1,0 +1,117 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SETTINGS
+* :UID PC11_51
+* :Mode S
+* :CP
+* :Date 20061121
+* :Time 1455330
+* <Natural Source Header /*<<RO>
+
+ -->
+</style>
+<!--[if gte mso 9]><xml>
+ <x:ExcelWorkbook>
+  <x:ExcelWorksheets>
+   <x:ExcelWorksheet>
+    <x:Name>Report</x:Name>
+    <x:WorksheetOptions>
+     <x:Print>
+      <x:ValidPrinterInfo/>
+      <x:PaperSizeIndex>9</x:PaperSizeIndex>
+      <x:HorizontalResolution>300</x:HorizontalResolution>
+      <x:VerticalResolution>300</x:VerticalResolution>
+     </x:Print>
+     <x:Selected/>
+     <x:Panes>
+      <x:Pane>
+       <x:Number>3</x:Number>
+       <x:ActiveRow>3</x:ActiveRow>
+       <x:ActiveCol>2</x:ActiveCol>
+      </x:Pane>
+     </x:Panes>
+     <x:ProtectContents>False</x:ProtectContents>
+     <x:ProtectObjects>False</x:ProtectObjects>
+     <x:ProtectScenarios>False</x:ProtectScenarios>
+    </x:WorksheetOptions>
+   </x:ExcelWorksheet>
+  </x:ExcelWorksheets>
+  <x:WindowHeight>8715</x:WindowHeight>
+  <x:WindowWidth>15360</x:WindowWidth>
+  <x:WindowTopX>0</x:WindowTopX>
+  <x:WindowTopY>1800</x:WindowTopY>
+  <x:TabRatio>570</x:TabRatio>
+  <x:ProtectStructure>False</x:ProtectStructure>
+  <x:ProtectWindows>False</x:ProtectWindows>
+ </x:ExcelWorkbook>
+ <x:ExcelName>
+  <x:Name>HTML_CodePage</x:Name>
+  <x:Hidden/>
+  <x:Formula>=1251</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_Control</x:Name>
+  <x:Hidden/>
+  <x:Formula>={&quot;'notebook'!$B$2:$H$84&quot;}</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_Description</x:Name>
+  <x:Hidden/>
+  <x:Formula>=&quot;&quot;</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_Email</x:Name>
+  <x:Hidden/>
+  <x:Formula>=&quot;intecoag@edunet.ru&quot;</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_Header</x:Name>
+  <x:Hidden/>
+  <x:Formula>=&quot;&quot;</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_LastUpdate</x:Name>
+  <x:Hidden/>
+  <x:Formula>=&quot;16.07.99&quot;</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_LineAfter</x:Name>
+  <x:Hidden/>
+  <x:Formula>=FALSE</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_LineBefore</x:Name>
+  <x:Hidden/>
+  <x:Formula>=FALSE</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_Name</x:Name>
+  <x:Hidden/>
+  <x:Formula>=&quot;&quot;</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_OBDlg2</x:Name>
+  <x:Hidden/>
+  <x:Formula>=TRUE</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_OBDlg4</x:Name>
+  <x:Hidden/>
+  <x:Formula>=TRUE</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_OS</x:Name>
+  <x:Hidden/>
+  <x:Formula>=0</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>HTML_Title</x:Name>
+  <x:Hidden/>
+  <x:Formula>=&quot;&quot;</x:Formula>
+ </x:ExcelName>
+ <x:ExcelName>
+  <x:Name>Print_Titles</x:Name>
+  <x:SheetIndex>1</x:SheetIndex>
+  <x:Formula>=Report!$1:$1</x:Formula>
+ </x:ExcelName>
+</xml><![endif]-->
+</head>

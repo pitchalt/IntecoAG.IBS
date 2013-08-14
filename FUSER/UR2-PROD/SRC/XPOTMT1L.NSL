@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPOTMT1L
+**C               *:UID OLEG
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061011
+**C               *:Time 2344000
+**C               *<Natural Source Header
+**DS          0000      1XPOTMT1L
+**DS I1       0000      2STRING                          (1:3)
+**DK          0000P  15 3MT-ID
+**DK          0000P  15 3EI-ID
+**DK          0000A   2 3OT-CMD
+**DK          0000C     3OT-CMD-C
+**DK          0000A  22 3MT-CODE
+**DK          0000A 150 3MT-NAME
+**DR          0000     R3MT-NAME                         /* BEGIN REDEFINE: MT-NAME
+**DFR         0000A  71 4MT-NAME1
+**DK          0000A   5 3OT-EI
+**DS I1       0000      2POKAZAT                         (1:4)
+**DK          0000A  17 3OT-COL-IN
+**DK          0000A  17 3OT-COL-OUT
+**DK          0000A  17 3OT-COL-OP-D
+**DK          0000A  17 3OT-COL-OP-K
+**DK          0000A  17 3OT-SUMMA-IN
+**DK          0000A  17 3OT-SUMMA-OUT
+**DK          0000A  17 3OT-SUMMA-OP-D
+**DK          0000A  17 3OT-SUMMA-OP-K

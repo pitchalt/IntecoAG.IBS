@@ -1,0 +1,110 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MENU_015
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20080117
+* :Time 1126000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+PARAMETER USING XXERX00A
+PARAMETER USING XXCTXX0A
+PARAMETER USING XABOXX0A
+LOCAL USING XPMXSM0L
+LOCAL USING MENUXXXL
+LOCAL
+1 #ITEM (I4)
+END-DEFINE
+/*
+MOVE 'АОЗТ ИНТЕКО АГ СИСТЕМА МТС ПОДСИСТЕМА СКЛАД'
+     TO MX-FUNCTION-NAME
+MOVE 'Ведение документов по отпуску в производство' TO MX-EDITOR-NAME
+/*
+RESET #ITEM
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Hовый отпуск на участок'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 320
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Hовый отпуск комплектование материалом'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 326
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Hовый давальческий отпуск на участок'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 361
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bозврат с участка'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 323
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bозврат с участка комплектование материалом'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 327
+/*
+/*ADD 1 TO #ITEM
+/*NAME(#ITEM) := 'Bозврат на склад'
+/*PRG(#ITEM)  := "MAROXX0N"
+/*CMD(#ITEM)  := "NEW"
+/*ODID(#ITEM) := 307
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Исправить документ'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "EDIT"
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Поиск документов'
+PRG(#ITEM)  := "MADCSH0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Карточка складского учета'
+PRG(#ITEM)  := "MAMTSK2N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Остатки в кладовой'
+PRG(#ITEM)  := "MASAMT2N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 300
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Форма 25'
+PRG(#ITEM)  := "MSOAXS0N"
+CMD(#ITEM)  := "SEARCH"
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Oстатки в EXCEL'
+PRG(#ITEM)  := "MASAEX1N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 2
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Карточка учета на участке'
+PRG(#ITEM)  := "MAMTSK3N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Расход на участок'
+PRG(#ITEM)  := "MASAMT3N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 300
+/*
+INCLUDE MENU000C
+END

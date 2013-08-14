@@ -1,0 +1,29 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName ASUMGMAT
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060721
+**C               *:Time 1221000
+**C               *<Natural Source Header
+**C           0000*BÈÄ HA ASUM-SYS-FILE  : ÃPÓÏÏA  MATEPÈAËOB
+**DV          0000     V1ASUMGMAT                        ASUM-SYS-FILE
+**DD          0000N 5.0 2OG-F
+**DD          0000A   2 2KK-F                            /*  = MA
+**DD          0000N 5.0 2KD-F                            /* KOÄ
+**DD          0000A   2 2TI-F
+**DD I1 C     0000A  60M2YN-F                            (1:1)
+**DRR         0000     R2YN-F                            /* BEGIN REDEFINE: YN-F
+**DFR         0000A  60 3NMGROUP                         /* HAÈMEHOBAHÈE
+**DD    *     0000     C2AR_CRIT
+**DD    C     0000     P2AR_CRIT
+**DD I1       0000A   1 3TP_CRIT                         (1:4)
+**DD I1       0000A  15 3VAL_CRIT                        (1:4)
+**DRR         0000     R3VAL_CRIT                        /* BEGIN REDEFINE: VAL_CRIT
+**DSRI1       0000      4VAL_CRIT_STR                    (1:4)
+**DFRI2       0000A   1 5ATTRIBUT                        (1:15)
+**C           0000**********************************************************************
+**DD    *     0000     C2LIST
+**DD    C     0000     P2LIST
+**DD I1       0000P 5.0 3SKLAD                           (1:99)
+**DD I1       0000P 5.0 3SMO                             (1:99)

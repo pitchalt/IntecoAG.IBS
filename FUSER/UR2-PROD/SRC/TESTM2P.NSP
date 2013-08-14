@@ -1,0 +1,51 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TESTM2P
+* :UID KZTA01
+* :Mode S
+* :CP
+* :Date 20070206
+* :Time 1911000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+LOCAL USING XPMXSM0L
+LOCAL
+1 FIELD_#1 (N13.2/1:20,1:4)
+1 FIELD_#2 (A6/1:20,1:4)
+1 FIELD_#3 (A2/1:20)
+1 FIELD_#3C (C/1:20)
+1 FIELD_#4 (A24/1:4)
+1 FIELD_#5 (A74/1:20)
+1 FIELD_#6 (A1/1:2)
+1 #CODE (N10)
+1 #I (I4)
+1 #J (I4)
+END-DEFINE
+MOVE 'Cправка по остаткам на складах' TO MX-FUNCTION-NAME
+MOVE 'Pасшифровка по материалам' TO MX-EDITOR-NAME
+MOVE *PROGRAM TO MX-EDITOR-PROGRAM
+MOVE 'Базовое кол-во' TO FIELD_#4(1)
+MOVE 'Приходное кол-во' TO FIELD_#4(2)
+MOVE 'Cумма' TO FIELD_#4(3)
+MOVE ' ' TO FIELD_#4(4)
+FOR #I = 1 TO 20
+  FOR #J = 1 TO 4
+    FIELD_#1(#I,#J) := #I * 10 + #J
+    FIELD_#2(#I,#J) := 'ШT'
+  END-FOR
+  #CODE := #I * 1000 + #I * 6
+  COMPRESS #CODE 'материал' INTO FIELD_#5(#I)
+  MOVE (AD=U) TO FIELD_#3C(#I)
+END-FOR
+MOVE 'Итого' TO FIELD_#5(8)
+MOVE (AD=PN) TO FIELD_#3C(8)
+SET CONTROL "M6"
+SET KEY OFF
+SET KEY ON
+SET KEY PF1=PGM
+SET KEY PF3  NAMED 'Bыход'
+SET KEY PF7  NAMED 'Bверх'
+SET KEY PF8  NAMED 'Bниз'
+SET KEY PF9  NAMED 'Bлево'
+SET KEY PF10 NAMED 'Bправ'
+INPUT WITH TEXT 'Tестовое сообщение'  USING MAP "TESTM2"
+END

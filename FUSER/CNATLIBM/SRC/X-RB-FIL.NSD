@@ -1,0 +1,49 @@
+DB: 000 FILE: 046  - X-RB-FILE                        DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID INTECO
+*      :CP
+*
+*
+*      :Date 20090209
+*      :Time 1535330
+*      <Natural Source Header
+*      GENERATED FROM ADABAS FNR 46
+*      ADABAS DBID 7
+  1 OG OG-F                              N  5.0  N D
+  1 DG DG-F                              A    5  N D
+  1 RB RB-F                              A    4  N
+  1 IS IS-F                              N  5.0  N D
+M 1 SZ SZ-F                              A   40  N
+  1 PS PS-F                              A    1  F D
+  1 SH SH-F                              A   10    D
+M 1 MA MA-F                              A   46  N
+M 1 PK PK-F                              A   46  N
+M 1 KI KI-F                              A   46  N
+M 1 SO SO-F                              A   46  N
+M 1 KA KA-F                              A   46  N
+  1 P1 P1-F                              N  5.0  N
+  1 P2 P2-F                              N  5.0  N
+  1 P3 P3-F                              N  5.0  N
+  1 P4 P4-F                              N  5.0  N
+  1 P5 P5-F                              N  5.0  N
+  1 GZ GZ-F                              N  5.0  N D
+  1 KD KD-F                              N  5.0  N D
+  1 BS BS-F                              N  5.0  N D
+M 1 ZO ZO-F                              A   12
+  1 DI DI-F                              N  6.0  N D
+  1 GM GM-F                              N  6.0  N D
+  1 TE TE-F                              A   10  N D
+  1 XY XY-F                              N  7.0  N
+  1 ZK ZK-S                              A    9    S
+*      -------- SOURCE FIELD(S) -------
+*      DG-1(1-5)
+*      RB-1(1-4)
+  1 ZI ZI-S                              A   14    S
+*      -------- SOURCE FIELD(S) -------
+*      DG-1(1-5)
+*      RB-1(1-4)
+*      IS-1(1-5)
+******DDM OUTPUT TERMINATED******

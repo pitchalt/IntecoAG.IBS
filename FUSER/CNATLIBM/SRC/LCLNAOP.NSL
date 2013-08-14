@@ -1,0 +1,37 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLNAOP
+**C               *:UID IBS_8
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000706
+**C               *:Time 1248330
+**C               *<Natural Source Header
+**DV          0000     V1IBS-NAOR-FILE                   IBS-SYS-FILE
+**DD          0000N 5.0 2OG-ID
+**DD          0000A  80 2NM-OG
+**DD          0000A  80 2AD-OG
+**DD    *     0000     C2PR-ID                           /* Ñ×ÅÒ×ÈÊ ÊÎË-ÂÀ ÁÀÍÊÎÂ
+**DD I1 *     0000     C2RS-OG                           (1:1)
+**DD I1 *     0000     C2RS-VA                           (1:1)
+**DD I1 C     0000     P2PR-ID                           (1:1)
+**DD          0000N 8.0 3BN-OG
+**DD          0000A  20 3KR-OG
+**DD I2 C     0000A  20M3RS-OG                           (1:191)
+**DD I2 C     0000A   3M3RS-VA                           (1:191)
+**DD          0000N 5.0 2KD-ID
+**DD          0000A 250 2NA-F
+**DR          0000     R2NA-F                            /* BEGIN REDEFINE: NA-F
+**DFR         0000A  60 3NA-F-NAM
+**DFR         0000A  60 3NA-F-ADR
+**DFR         0000A  30 3NA-F-TEL
+**DFR         0000A  30 3NA-F-DEP
+**DD          0000A  15 2NN-ID
+**DD          0000D     2UP-DT
+**DD          0000A   8 2UP-PG
+**DD          0000A   8 2UP-ID
+**DD          0000A   8 2UP-US
+**DD I1 C     0000A  40M2VO-DI                           (1:10)
+**DD I1 C     0000A 170M2NB-F                            (1:3)
+**DD    *     0000     C2NB-F
+**DD          0000A  80 2NM-BN
+**DD          0000A  80 2AD-BN

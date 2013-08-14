@@ -1,0 +1,28 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MMXXMN5C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060609
+* :Time 1629000
+* <Natural Source Header /*<<RO>
+/* СТАНДАРТНЫЙ ИНТЕРФЕЙС ПОЛЬЗОВАТЕЛЯ
+DEFINE SUBROUTINE INTERFACE-BUILD
+/* RESET COMMAND
+  INCLUDE XPCPRS0C
+/* COMMON COMMAND
+  INCLUDE XPCKAD0C "'EXIT'" "'EXIT'" "'PF3'" '"Выход"'
+  INCLUDE XPCKAD0C "'EXIT'" "'EXIT'" "'CLR'" '"Выход"'
+  DECIDE ON EVERY VALUE BM-COMMAND-PROCESS
+/* KEY COMMAND
+     VALUE "NEW"
+        INCLUDE XPCKAD0C "'NEW'" "'SAVE'" "'PF5'" '"Добав"'
+     VALUE "EDIT"
+        INCLUDE XPCKAD0C "'SAVE'" "'SAVE'" "'PF5'" '"Сохрн"'
+     VALUE "NEW", "EDIT"
+        INCLUDE XPCKAD1C "'SELECT'" "'PF11'" '"Выбор"'
+        INCLUDE XPCKAD1C "'CHECK'"  "'ENTR'" '"Провр"'
+     NONE VALUE
+        IGNORE
+  END-DECIDE
+END-SUBROUTINE

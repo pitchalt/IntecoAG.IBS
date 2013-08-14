@@ -1,0 +1,91 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName VIEWER
+* :UID NAT22606
+* :Mode S
+* :CP
+* :Date 20041202
+* :Time 1235330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL
+  1 DT1(N8)  1 DT2(N8)  1 ISYS(A8)
+  1 INPUT-REC(A83/9)
+  1 REDEFINE INPUT-REC
+    2 #INPUT-REC(9)
+     3 DTER(N8)
+     3 ERUS(A8)
+     3 LGER(A8)
+     3 PGER(A8)
+     3 STER(N4)
+     3 NRER(N7)
+     3 TXER(A40)
+  1 STEK(A90)
+  1 REDEFINE STEK
+    2 STDT(N8)
+    2 STUS(A8)
+    2 STLG(A8)
+    2 STPG(A8)
+    2 STST(N4)
+    2 STNR(N7)
+    2 STTX(A40)
+    2 STISN(N7)
+  1 REDEFINE STEK
+    2 ST16(A16)
+    2 ST67(A67)
+  1 LENST(N4) CONST < 1000 >
+  LOCAL USING STEKL
+  LOCAL USING IBS-ERRL
+END-DEFINE
+SET KEY ALL
+CALL 'GTNX' XN1
+XI := 90  XW := LENST  CALL 'GTSX' XI XW XN1
+XW := 1
+REPEAT
+  INPUT USING MAP 'VIEWERM1'
+  IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+  IF DT1 = 0 AND DT2 = 0  DT1 := 1  DT2 := 99999999  END-IF
+  IF DT2 = 0  DT2 := DT1  END-IF
+  IF DT1 = 0  REINPUT 'œÂËÓ‰' MARK *DT1  ALARM  END-IF
+  IF DT2 < DT1  REINPUT '»ÌÚÂ‚‡Î' MARK *DT2  ALARM  END-IF
+  CALL 'NULX' ' ' XN1  RESET IS1
+E1. FIND IBS-ERR-FILE DT-ID = DT1 THRU DT2 AND KK-F = 'ER'
+    ACCEPT IF ISYS = ' ' OR = #LOG
+    STDT := DT-ID  STUS := UP-US  ST67 := NA-F
+    ADD 1 TO IS1  XI := IS1  STISN := *ISN
+    IF IS1 <= LENST  CALL 'RWSX' XI STEK XW XN1
+      ELSE  ESCAPE BOTTOM
+    END-IF
+  END-FIND
+  IF IS1 > LENST  IS1 := LENST
+    WRITE /////// 20T '¡”ƒ≈“ œŒ ¿«¿Õ¿ œ≈–¬¿ﬂ' LENST '«¿œ»—≈…'
+          //      20T '”Ã≈Õ‹ÿ»“≈ œ≈–»Œƒ'
+  END-IF
+  #N := 1
+  REPEAT
+    #K := #N + 8  RESET #L
+    FOR #I #N #K
+      ADD 1 TO #L
+      IF #I <= IS1  XI := #I  CALL 'RWSX' XI STEK XR XN1
+        INPUT-REC(#L) := STEK
+        ELSE  RESET DTER(#L) ERUS(#L) LGER(#L) PGER(#L) STER(#L)
+                    NRER(#L) TXER(#L)
+      END-IF
+    END-FOR
+    INPUT USING MAP 'VIEWERM2'
+    IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+    IF *PF-KEY = 'PF2'
+      FOR #I 1 IS1  XI := #I  CALL 'RWSX' XI STEK XR XN1
+        GET IBS-ERR-FILE STISN
+        DELETE
+        END OF TRANSACTION
+      END-FOR
+      ESCAPE BOTTOM
+    END-IF
+    IF *PF-KEY = 'PF9'  #N := 1  END-IF
+    IF *PF-KEY = 'PF10' AND IS1 > 9  #N := IS1 - 8  END-IF
+    IF *PF-KEY = 'PF7' AND #N > 9  #N := #N - 9  END-IF
+    IF *PF-KEY = 'PF8' AND #K < IS1  ADD 9 TO #N  END-IF
+  END-REPEAT
+END-REPEAT
+CALL 'FRSX' XN1
+END

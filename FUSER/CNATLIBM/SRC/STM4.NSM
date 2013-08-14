@@ -1,0 +1,84 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName STM4
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080117
+* :Time 1847330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     SCRCODE(*)
+DEFINE DATA PARAMETER
+1 SCRCODE (I4/00001:00010)
+END-DEFINE
+SET KEY PF3 (PB=019/005/001/010) NAMED 'Далее'
+/* 000 000 000 000
+FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024080        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+/
+/
+/
+ 004T '+----------+'
+/
+ 004T '|Допустимые|'
+/
+ 004T '| значени  |'
+/
+ 004T '|'
+ 006T SCRCODE (001)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+   /**A1000100000100001000010000100001100010001001000001000HV
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (002)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (003)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (004)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (005)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (006)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (007)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (008)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (009)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '|'
+ 006T SCRCODE (010)  (AD=DRMFHT'_' NL=08.0  ) /*.99U008 I4   .
+ 015T '|'
+/
+ 004T '+==========+'
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

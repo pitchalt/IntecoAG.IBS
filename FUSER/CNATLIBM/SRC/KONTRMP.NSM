@@ -1,0 +1,53 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName KONTRMP
+* :UID IBS_3
+* :Mode S
+* :CP
+* :Date 20001201
+* :Time 1308330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     PODR
+DEFINE DATA PARAMETER
+1 PODR (N05.0)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 003T 'Код подразделени        :'
+ 030T PODR  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+/
+/
+ 001T '-ВВОД---ПФ1---ПФ3---ПФ4---ПФ5---ПФ6---ПФ11---'
+/
+ 002T 'Прод.'
+ 015T 'Вых'
+ 038T 'Выбор'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

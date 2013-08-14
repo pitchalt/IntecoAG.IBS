@@ -1,0 +1,56 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MERXPM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070611
+**C               *:Time 1738000
+**C               *<Natural Source Header
+**DS          0000      1MERXPM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000I   4 2STACK-POS
+**DK          0000P   7 2DR-COL-RECORD
+**DK          0000P  15 2RXH-DD-ID
+**DK          0000P  15 2RXM-DD-ID
+**DK          0000P  15 2DD-ID
+**DK          0000P  15 2DR-UP-ID
+**DK          0000P  15 2DR-ID
+**DK          0000P  15 2IX-ID
+**DK          0000P  15 2LK-ID
+**DK          0000P  15 2PR-ID
+**DK          0000N   9 2PR-CODE
+**DK          0000P  15 2DT-ID
+**DK          0000P  15 2VO-ID
+**DK          0000N   5 2VO-CODE
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP
+**DK          0000A  80 2VO-NAME
+**DK          0000A  80 2VO-ADDRESS
+**DK          0000P  15 2PO-ID
+**DK          0000A  30 2PO-NUMBER
+**DK          0000D     2PO-DATE
+**DK          0000P 8.7 2COL
+**DK          0000A   1 2COL-TYPE
+**DK          0000P13.2 2CENA
+**DK          0000P13.2 2CENA-SUMMA
+**DK          0000P13.2 2BALC-SUMMA
+**DK          0000P13.2 2BALC-SUMMA-LIMIT
+**DK          0000P13.2 2BALC-SUMMA-MIN
+**DK          0000P 8.7 2PRIH-COL
+**DK          0000P 8.7 2PRIH-COL-LIMIT
+**DK          0000P 8.7 2PRIH-COL-MIN
+**DK          0000P  15 2PRIH-EI-ID
+**DK          0000N   5 2PRIH-EI-CODE
+**DK          0000A   5 2PRIH-EI-SHORT-NAME
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P 8.7 2BASE-COL-LIMIT
+**DK          0000P 8.7 2BASE-COL-MIN
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000N   5 2BASE-EI-CODE
+**DK          0000A   5 2BASE-EI-SHORT-NAME
+**DK          0000P 8.7 2PLAN-COL
+**DK          0000P 8.7 2PLAN-COL-LIMIT
+**DK          0000P 8.7 2PLAN-COL-MIN
+**DK          0000P  15 2PLAN-EI-ID
+**DK          0000N   5 2PLAN-EI-CODE
+**DK          0000A   5 2PLAN-EI-SHORT-NAME

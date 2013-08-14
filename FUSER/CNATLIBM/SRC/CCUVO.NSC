@@ -1,0 +1,12 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCUVO
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20001016
+* :Time 1255330
+* <Natural Source Header /*<<RO>
+ASSIGN IBS-KVO-FILE.UP-DT = *DATX
+ASSIGN IBS-KVO-FILE.UP-PG = *PROGRAM
+ASSIGN IBS-KVO-FILE.UP-ID = *INIT-ID
+ASSIGN IBS-KVO-FILE.UP-US = *INIT-USER

@@ -1,0 +1,33 @@
+DB: 000 FILE: 047  - C-SYS-GENERAL                    DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID PAUL
+*      :CP
+*
+*
+*      :Date 20100324
+*      :Time 2118330
+*      <Natural Source Header
+  1 AA RID                               I    4  N D
+  1 AB OID                               I    4  N D
+  1 AC UP-RID                            I    4  N D
+  1 AD TYPE                              I    4  N D
+  1 AE AE-1                              I    4  N D
+  1 BA CODE                              A   15  N D
+  1 BB NAME                              A   70  N
+  1 BC DT-FROM                           P 11.0  N
+  1 BD DT-TO                             P 11.0  N
+  1 BE DESCRIPTION                       A  250  N
+  1 CA CA-1                              I    4  N D
+  1 CB CB-1                              I    4  N D
+  1 DA DA-1                              I    4  N
+  1 DB DB-1                              I    4  N
+  1 DC DC-1                              I    4  N
+  1 DD DD-1                              I    4  N
+  1 DE DE-1                              P 15.0  N
+  1 DF DF-1                              P 15.0  N
+  1 DG DG-1                              P 15.0  N
+  1 DH DH-1                              P 15.0  N
+******DDM OUTPUT TERMINATED******

@@ -1,0 +1,25 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName ADVBSPRM
+**C               *:UID IEN
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20101115
+**C               *:Time 0918040
+**C               *<Natural Source Header
+**DS                    1ADVBSPRM
+**DF              N 5.0 2OG-ID
+**DF              N 3.0 2BS-ID
+**DF              N 5.0 2SS-ID
+**DF              A  80 2NM-BS
+**DF              A   3 2FL-AN
+**DF              A   1 2FL-PO
+**DF              A   1 2FL-DI
+**DF              A   1 2FL-DZ
+**DF              A   3 2VA-ID
+**C               *-  --------------------------------------------------------------------
+**DF              N 2.0 2CS-NN
+**DD I  C              P2GS-F                            (1:10)
+**DF              A   1 3BL-F
+**DF              A   5 3ST-F
+**DD I  C         B   4M3NS-F                            (1:30)
+**C               *-  --------------------------------------------------------------------

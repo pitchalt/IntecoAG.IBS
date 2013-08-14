@@ -1,0 +1,38 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName INS-ERR
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20041109
+* :Time 1925330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL USING STEKL
+  LOCAL
+  1 STR(A250)
+  1 REDEFINE STR
+    2 D01(A4)
+    2 VERS(A7)
+    2 PRZ(A1)
+  1 REDEFINE STR
+    2 DE1(A50)
+  1 #PRZ(A1)
+  1 CNT(N7)
+  1 STR1(A250) INIT < '*S**INCLUDE ERRORINC' >
+END-DEFINE
+XI := 250  XW := 5000  CALL 'GTSX' XI XW XN1
+XW := 1
+READ WORK 1 STR
+  IF D01 = '*C**'
+    EXAMINE STR 'UFRO-AIL' REPLACE 'UFROTEST'
+  END-IF
+  IF D01 = '*D01'
+    EXAMINE STR 'UFRO-AIL' REPLACE 'UFROTEST'
+    #PRZ := PRZ
+  END-IF
+  IF #PRZ = 'G' OR = 'F' OR = 'S' OR = 'N' AND DE1 = '*S**END            '
+      WRITE WORK 11 STR1
+  END-IF
+  WRITE WORK 11 STR
+END-WORK
+END

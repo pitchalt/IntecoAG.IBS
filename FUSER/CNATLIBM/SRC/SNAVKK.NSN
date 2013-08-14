@@ -1,0 +1,546 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVKK
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20101018
+* :Time 1406140
+* <Natural Source Header /*<<RO>
+**************************************************
+* бедемхе йндхтхйюрнпнб днонкмхрекэмшу юрпхасрнб *
+**************************************************
+DEFINE DATA
+*  GLOBAL USING UFROG       /* цкнаюкэмше оепелеммше дкъ бяеи яхярелш
+PARAMETER USING PRMNAVI
+*
+  LOCAL  USING LCLKKL     /* VIEW мю тюик IBS-SYS-FILE
+  LOCAL  USING LCLVOL1    /* VIEW мю тюик IBS-SYS-FILE
+  LOCAL  USING LCLFROL1      /* наыхе оепелеммше
+  LOCAL
+    1 SELFUN(A60) INIT<'дНОНКМХРЕКЭМШЕ ЮРПХАСРШ'>
+    1 SELREG(A40)
+    1 INPUT-REC         (A65/15)
+    1 REDEFINE INPUT-REC
+      2 #INPUT-REC      (15)
+* онкъ мебшбндхлше мю щйпюм
+        3 FIELD-FF      (B001)     /* ткюц хглемемхъ/сдюкемхъ гюохях
+        3 FIELD-ISN     (I4)     /* ISN гюохях
+        3 FIELD-UP      (A001)     /* ткюц гюыхрш гюохях
+* онкъ бшбндхлше мю щйпюм
+        3 #FIELD-01     (A002)     /* йнд
+        3 #FIELD-05     (A001)
+        3 #FIELD-02     (A050)     /* нангмювемхе
+        3 #FIELD-03     (A001)
+        3 #FIELD-04     (N005)
+        3 REDEFINE #FIELD-04
+          4 #FIELD-04S  (A005)
+* дхмюлхвеяйхе юрпхасрш дкъ бшбндхлшу онкеи
+    1 #FIELD-01C        (C/15)
+    1 #FIELD-02C        (C/15)
+*
+* ярпсйрспю щкелемрю ярейю я дюммшлх
+*
+    1 STEK-REC          (A065)
+    1 REDEFINE STEK-REC
+      2 STEK-FF         (B001)
+      2 STEK-ISN        (I4)
+      2 STEK-UP         (A001)
+      2 STEK-01         (A002)
+      2 STEK-52         (A051)
+      2 REDEFINE STEK-52
+        3 STEK-05       (A001)
+        3 STEK-02       (A050)
+      2 STEK-03         (A001)
+      2 STEK-04         (N005)
+    1 KEY1              (A010)     /*  онхяйнбши йкчв мювюкэмши
+    1 REDEFINE KEY1
+      2 KEYOG1          (N005)     /*  нпцюмхгюжхъ
+      2 KEYKD1          (N005)     /*  йнд
+    1 KEY2              (A010)     /*  онхяйнбши йкчв йнмевмши
+    1 REDEFINE KEY2
+      2 KEYOG2          (N005)
+      2 KEYKD2          (N005)
+    1 KEY3              (A010)     /*  онхяйнбши йкчв йнмрпнкэмши
+    1 REDEFINE KEY3
+      2 KEYOG3          (N005)
+      2 KEYKD3          (N005)
+    1 #DATA             (N003)
+* FOR MAP
+    1 #KD               (N005)     /*  йнд ондп.
+    1 #KK               (A002)     /*  йкюяяхтхйюрнп
+    1 #NAME             (A050)
+    1 III               (I004)
+    1 DATAV             (N001)
+    1 N-DATD            (N002)
+    1 N-DAT-BD          (B004)
+    1 TXT-PF11          (A003)
+    1 N-DAT-RB          (B004)
+    1 II                (I004)
+    1 N-DAT-BK          (B004)
+    1 N-DATK            (N003)
+    1 KK-OLD            (A2/60)
+    1 R-DATA            (P007)
+    1 N-DATA-R          (B004)
+    1 REG-NM-OLD        (A040)
+END-DEFINE
+*
+SET KEY PF1 PF2 PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+INCLUDE CCASKOG
+*
+DEFINE WINDOW WIN
+  SIZE 16 * 32
+  BASE 06 / 24
+  TITLE 'йндш опнвху йндхтхйюрнпнб'
+  CONTROL SCREEN
+  FRAMED ON
+*
+  DATAV := *DATA
+  REG-NM-OLD := REG-NM-G
+  REG-NM-G := 'дНОНКМХРЕКЭМШЕ ЮРПХАСРШ'
+  CALLNAT 'SBUFRON2' REG-NM-G ' '
+  INCLUDE CCRFUNNM
+  N-DAT-BK := 197  C-DATA-B := 1
+  CALL 'RWSX' C-DATA-B KK-OLD(1) RD-REC N-DAT-BK
+*
+MOVE 1        TO N-DATA N-DATA-B  /* мнлеп ярейю я дюммшлх
+MOVE 2        TO N-DEL N-DEL-B    /* мнлеп ярейю я дюммшлх
+*
+ASSIGN Q-LINE = 15          /* ярпнй мю щйпюме
+ASSIGN T-KEY = 7            /* мювюкэмюъ онгхжхъ йкчвебнцн юрпхасрю
+ASSIGN L-KEY = 2            /* дкхмю йкчвебнцн юрпхасрю
+*
+ASSIGN P-STEK(1,1) = 7
+ASSIGN P-STEK(2,1) = 10
+ASSIGN P-STEK(3,1) = 61
+ASSIGN P-STEK(1,2) = 2
+ASSIGN P-STEK(2,2) = 50
+ASSIGN P-STEK(3,2) = 5
+*
+* нямнбмни жхйк
+*
+REPEAT
+  INPUT USING MAP 'MAPKKM1'
+  INCLUDE CCUFRO50
+  INCLUDE CCUFRO51
+  IF #KD = 0
+    ASSIGN KEYKD1 = 1  ASSIGN KEYKD2 = 99999
+    ELSE  ASSIGN KEYKD1 = #KD  ASSIGN KEYKD2 = #KD
+  END-IF
+*
+IF MAX-EL(N-DATA) = 0            /* ме бшдек. ярейх, ме вхрюел дюммше
+*
+  MOVE 65    TO L-DATA L-DATA-B  /* дкхмю щкелемрю б ярейе я дюммшлх
+  MOVE 100   TO Q-DATA Q-DATA-B  /* йнк-бн щкелемрнб б ярейе я дюммшлх
+  MOVE 4     TO L-DEL L-DEL-B    /* дкхмю щкелемрю б ярейе я ISN
+  MOVE 1000  TO Q-DEL Q-DEL-B    /* йнк-бн щкелемрнб б ярейе я ISN
+*
+  CALL 'GTSX' L-DATA-B Q-DATA-B N-DATA-B /* ярей C дюмHшлх
+  CALL 'NULX' ' '  N-DATA-B
+  CALL 'GTSX' L-DEL-B  Q-DEL-B  N-DEL-B  /* ярей я ISN сдюкъелшу гюохя.
+  CALL 'NULX' ' '  N-DEL-B
+*
+  PERFORM LOAD-PROC
+END-IF
+REPEAT
+  N-DATA-R := N-DATA-B  R-DATA := N-DATA
+  IF #DATA = 0  PERFORM ARRY-PROC  END-IF
+  INPUT MARK III USING MAP 'MAPKKM2'
+  III := *CURS-FIELD
+  RESET #DATA FL-CURS
+  FOR C-CURS 1 Q-LINE
+    IF III = POS(#FIELD-01(C-CURS)) P-CURS := 1 ESCAPE BOTTOM END-IF
+    IF III = POS(#FIELD-02(C-CURS)) P-CURS := 2 ESCAPE BOTTOM END-IF
+  END-FOR
+*
+  DECIDE FOR EVERY CONDITION
+    WHEN *PF-KEY = 'PF3'
+      CALL 'FRSX' N-DATA-B CALL 'FRSX' N-DEL-B
+      RESET MAX-EL(N-DATA) MAX-EL(N-DEL)  COU-EL(N-DATA)
+      ESCAPE BOTTOM
+    WHEN *PF-KEY = 'PF6'
+      SET WINDOW 'WIN'
+      INPUT USING MAP 'MAPKKM4'
+      SET WINDOW OFF #DATA := 1  ESCAPE TOP
+    WHEN *PF-KEY NE 'PF3'
+      PERFORM CHECK-PROC
+      PERFORM SCAN-PROC
+    WHEN *PF-KEY = 'PF4' AND FL-CURS = 0  PERFORM ADD-PROC
+    WHEN *PF-KEY = 'PF5'
+      PERFORM UPD-PROC
+      IF DATAV <= 0
+        CALL 'FRSX' N-DATA-B CALL 'FRSX' N-DEL-B
+        RESET MAX-EL(N-DATA) MAX-EL(N-DEL)  COU-EL(N-DATA)
+        ESCAPE BOTTOM
+      END-IF
+    WHEN *PF-KEY = 'PF7'
+      RESET III
+      COMPUTE FIRST-EL(N-DATA) = FIRST-EL(N-DATA) - Q-LINE
+      IF FIRST-EL(N-DATA) <= 0 THEN ASSIGN FIRST-EL(N-DATA) = 1 END-IF
+    WHEN *PF-KEY = 'PF8'
+      RESET III
+      COMPUTE C-DATA1 = FIRST-EL(N-DATA) + Q-LINE - 1
+      IF C-DATA1 <= MAX-EL(N-DATA) THEN
+        COMPUTE FIRST-EL(N-DATA) = C-DATA1 + 1
+      END-IF
+    WHEN *PF-KEY = 'PF9'
+      RESET III
+      ASSIGN FIRST-EL(N-DATA) = 1
+    WHEN *PF-KEY = 'PF10'
+      RESET III
+      ASSIGN FIRST-EL(N-DATA) = MAX-EL(N-DATA)
+    WHEN *PF-KEY = 'PF11' AND #FIELD-01(C-CURS) NE ' '
+      KKF-G := #FIELD-01(C-CURS)
+      PERFORM PROC-ZAPOL
+      IF DATAV > 0 ESCAPE BOTTOM  END-IF
+    WHEN *PF-KEY = 'PF12'
+      IF MAX-EL(R-DATA) > 1  PERFORM SORT-PROC  END-IF
+    WHEN NONE IGNORE
+  END-DECIDE
+END-REPEAT
+SET CONTROL 'K0'
+IF DATAV > 0 ESCAPE BOTTOM  END-IF
+END-REPEAT
+REG-NM-G := REG-NM-OLD
+CALLNAT 'SBUFRON2' REG-NM-G ' '
+INCLUDE CCRFUNNM
+CALL 'FRSX' N-DATA-B CALL 'FRSX' N-DEL-B
+RESET MAX-EL(N-DATA) MAX-EL(N-DEL)  COU-EL(N-DATA)
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю оепеяшкйх дюммшу б люяяхб щйпюмю
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE ARRY-PROC
+  RESET INPUT-REC(*) FIELD-FF(*) FIELD-ISN(*) #FIELD-04(*)
+  ASSIGN C-DATA = FIRST-EL(R-DATA)
+  MOVE (AD=I) TO #FIELD-01C(*)
+  FOR C-LINE = 1 TO Q-LINE
+    IF C-DATA > MAX-EL(R-DATA) THEN ESCAPE BOTTOM END-IF
+    ASSIGN C-DATA-B = C-DATA
+    CALL 'RWSX' C-DATA-B INPUT-REC(C-LINE) RD-REC N-DATA-R
+    IF #FIELD-05(C-LINE) = '*'
+      #FIELD-01C(C-LINE) := (AD=PD) END-IF
+    ADD 1 TO C-DATA
+  END-FOR
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю опнялнрпю ярпнй щйпюмю
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE SCAN-PROC
+ASSIGN C-DATA = FIRST-EL(N-DATA)
+RESET C-DEL
+FOR C-LINE = 1 TO Q-LINE                          /* опнялOрп ярпнй щйп.
+  ASSIGN C-DATA-B = C-DATA
+  IF #FIELD-01(C-LINE) NE ' '                     /* ярпнйю ме сдюкемю
+    CALL 'RWSX' C-DATA-B STEK-REC RD-REC N-DATA-B
+    IF STEK-REC NE INPUT-REC(C-LINE) THEN         /* ярпнйю хглемемю
+      ASSIGN FIELD-FF(C-LINE) = H'01'             /* ткюц хглемемхъ
+      CALL 'RWSX' C-DATA-B INPUT-REC(C-LINE) WR-REC N-DATA-B
+    END-IF
+    IF C-DATA > MAX-EL(N-DATA)  MAX-EL(N-DATA) := C-DATA END-IF
+  ELSE                                            /* ярпнйю сдюкемю
+    IF C-DATA > MAX-EL(N-DATA)
+      IF #FIELD-01(C-LINE:Q-LINE) NE ' ' IGNORE
+       ELSE ESCAPE BOTTOM END-IF
+    END-IF
+    CALL 'RWSX' C-DATA-B H'FF' WR-REC N-DATA-B WR-REC WR-REC
+    ADD 1 TO C-DEL
+    IF FIELD-ISN(C-LINE) NE 0
+      ADD 1 TO MAX-EL(N-DEL)
+      ASSIGN C-DEL-B = MAX-EL(N-DEL)
+      CALL 'RWSX' C-DEL-B FIELD-ISN(C-LINE) WR-REC N-DEL-B
+    END-IF
+  END-IF
+  ADD 1 TO C-DATA
+END-FOR
+IF C-DEL NE 0 THEN
+  CALL 'PRSX' H'00000001' H'00000001' N-DATA-B
+  COMPUTE MAX-EL(N-DATA) = MAX-EL(N-DATA) - C-DEL
+END-IF
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю дсакхпнбюмхъ ярпнй
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE ADD-PROC
+  COMPUTE C-DATA = FIRST-EL(R-DATA) + C-CURS - 1
+  IF MAX-EL(R-DATA) >= C-DATA AND #FIELD-02(C-CURS) NE ' '
+    FOR C-DATA1 MAX-EL(R-DATA) TO C-DATA STEP -1
+      COMPUTE C-DATA2 = C-DATA1 + 1
+      ASSIGN C-DATA1-B = C-DATA1
+      ASSIGN C-DATA2-B = C-DATA2
+      CALL 'MVSX' C-DATA1-B C-DATA2-B N-DATA-R
+    END-FOR
+    RESET FIELD-ISN(C-CURS) FIELD-UP(C-CURS)
+    FIELD-FF(C-CURS) := H'01' RESET #FIELD-03(C-CURS)
+    CALL 'RWSX' C-DATA1-B INPUT-REC(C-CURS) WR-REC N-DATA-R
+    ADD 1 TO MAX-EL(R-DATA)
+  END-IF
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю янпрхпнбйх
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE SORT-PROC
+  ASSIGN C-DATA1-B = P-STEK(P-CURS,1)
+  ASSIGN C-DATA2-B = P-STEK(P-CURS,2)
+  CALL 'SRTX' C-DATA1-B C-DATA2-B N-DATA-R
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* времхе дюммшу хг IBS-SYS-FILE б ярей я дюммшлх
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE LOAD-PROC
+  RESET C-DATA C-DEL C-DUBL C-DATA2 F-MARK
+  FIND NUMBER IBS-KK-FILE OG-ID = OG-IDENT-G AND KK-F NE ' '
+    AND KD-F = 0 RETAIN AS 'LIST1'
+  FIND IBS-KK-FILE WITH 'LIST1'
+    RESET STEK-REC STEK-04
+    ACCEPT IF NM-NP = 'DOP'
+      COMPUTE C-DATA2 = C-DATA + 1
+      IF C-DATA2 > Q-DATA THEN ESCAPE BOTTOM END-IF
+      ASSIGN STEK-FF  = H'00'
+      ASSIGN STEK-ISN = *ISN
+      ASSIGN STEK-01  = KK-F
+      ASSIGN STEK-03  = 'A'
+      ASSIGN STEK-52  = NA-F
+      IF #KK NE ' ' AND STEK-01 = #KK
+        RESET STEK-03 ADD 1 TO F-MARK  END-IF
+      IF #NAME NE ' ' AND STEK-02 = SCAN #NAME
+        RESET STEK-03 ADD 1 TO C-DUBL  END-IF
+      ADD 1 TO C-DATA
+      ASSIGN C-DATA-B = C-DATA
+      CALL 'RWSX' C-DATA-B STEK-REC WR-REC N-DATA-B
+  END-FIND
+  IF #KK NE ' ' AND KK-OLD(*) = #KK
+     REINPUT 'йндхтхйюрнп:1:ме хяонкэгсеряъ дкъ дно.хмтнплюжхх',#KK
+     MARK *#KK ALARM
+  END-IF
+  IF #KK NE ' ' AND F-MARK = 0
+     REINPUT 'йндхтхйюрнп:1:ме мюидем',#KK MARK *#KK ALARM
+  END-IF
+  IF #NAME  = ' ' AND  #KK = ' '  MAX-EL(N-DATA) := C-DATA END-IF
+  IF #NAME NE ' '                 MAX-EL(N-DATA) := C-DUBL END-IF
+  IF #KK   NE ' ' AND C-DATA NE 0 MAX-EL(N-DATA) := 1      END-IF
+  ASSIGN FIRST-EL(N-DATA) = 1
+  ASSIGN MAX-EL(N-DEL)    = 0   RESET F-MARK
+  C-DATA1-B := 60  C-DATA2-B := 1
+  CALL 'SRTX' C-DATA1-B C-DATA2-B N-DATA-B
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю опнбепйх дюммшу щйпюмю
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE CHECK-PROC
+FOR C-LINE = 1 TO Q-LINE                       /* опнялOрп ярпнй щйпюмю
+  IF #FIELD-01(C-LINE) NE ' '                  /* ярпнйю ме сдюкемю
+    EXAMINE #FIELD-01(*) #FIELD-01(C-LINE) NUMBER C-DUBL INDEX C-DATA1
+    IF C-DUBL > 1 AND C-DATA1 NE C-LINE
+      REINPUT'дсакхпнбюмхе хдемрхтхйюрнпю'
+      MARK *#FIELD-01(C-LINE) ALARM
+    END-IF
+    IF #FIELD-01(C-LINE) NE ' ' AND KK-OLD(*) = #FIELD-01(C-LINE)
+     REINPUT'дсакхпнбюмхе хдемрхтхйюрнпю' MARK *#FIELD-01(C-LINE) ALARM
+    END-IF
+    ASSIGN C-DATA1-B = 7   ASSIGN L-DATA-B = 2
+    CALL 'CMPXF' #FIELD-01(C-LINE) C-DATA1-B L-DATA-B N-DATA-B
+    IF (C-DATA1-B NE 0 AND C-DATA1-B < FIRST-EL(N-DATA)) OR
+       (C-DATA1-B NE 0 AND C-DATA1-B > 1 AND MAX-EL(N-DATA) = 1)
+     REINPUT'дсакхпнбюмхе хдемрхтхйюрнпю' MARK *#FIELD-01(C-LINE) ALARM
+    END-IF
+    IF #FIELD-02(C-LINE) = ' '
+      REINPUT 'мюхлемнбюмхе' MARK *#FIELD-02(C-LINE) ALARM
+    END-IF
+    ELSE                                       /* ярпнйю сдюкемю
+    IF C-DATA > MAX-EL(N-DATA)
+     IF #FIELD-01(C-LINE:Q-LINE) NE' ' IGNORE ELSE ESCAPE BOTTOM END-IF
+    END-IF
+  END-IF
+END-FOR
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю хглемемхъ дюммшу
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE UPD-PROC
+FOR C-DEL 1 TO MAX-EL(N-DEL)
+  ASSIGN C-DEL-B = C-DEL
+  CALL 'RWSX' C-DEL-B STEK-ISN RD-REC N-DEL-B
+  GET IBS-KK-FILE STEK-ISN
+  RESET IBS-KK-FILE
+  INCLUDE CCUKK
+  UPDATE
+END-FOR
+FOR C-DATA 1 TO MAX-EL(N-DATA)
+  ASSIGN C-DATA-B = C-DATA
+  CALL 'RWSX' C-DATA-B STEK-REC RD-REC N-DATA-B
+  IF STEK-FF = H'01' THEN
+    IF STEK-ISN NE 0 THEN GET IBS-KK-FILE STEK-ISN END-IF
+    ASSIGN IBS-KK-FILE.OG-ID = OG-IDENT-G
+    ASSIGN IBS-KK-FILE.KK-F  = STEK-01
+    ASSIGN IBS-KK-FILE.NA-F  = STEK-52
+    ASSIGN IBS-KK-FILE.NM-NP = 'DOP'
+    INCLUDE CCUKK
+    IF STEK-ISN NE 0
+      THEN UPDATE
+      ELSE STORE IBS-KK-FILE
+    END-IF
+  END-IF
+  END OF TRANSACTION
+END-FOR
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE PROC-ZAPOL
+  MOVE 5    TO N-DATK N-DAT-BK    /* мнлеп ярейю я дюммшлх
+  MOVE 65   TO L-DATA L-DATA-B    /* дкхмю щкелемрю б ярейе я дюммшлх
+  MOVE 100   TO Q-DATA Q-DATA-B    /* йнк-бн щкелемрнб б ярейе я дюммшлх
+  CALL 'GTSX' L-DATA-B Q-DATA-B N-DAT-BK
+  MOVE 7    TO N-DATD N-DAT-BD    /* мнлеп ярейю я сдюк. ISN
+  MOVE 4    TO L-DATA L-DATA-B    /* дкхмю щкелемрю б ярейе я дюммшлх
+  MOVE 100   TO Q-DATA Q-DATA-B    /* йнк-бн щкелемрнб б ярейе я дюммшлх
+  CALL 'GTSX' L-DATA-B Q-DATA-B N-DAT-BD
+  RESET C-DATA C-DEL C-DUBL C-DATA2
+  FIND IBS-KK-FILE OG-ID = OG-IDENT-G AND KK-F = #FIELD-01(C-CURS)
+    ACCEPT IF KD-F NE 0
+    ASSIGN STEK-FF  = H'00'
+    ASSIGN STEK-ISN = *ISN
+    ASSIGN STEK-03  = 'A'
+    ASSIGN STEK-04  = KD-F
+    ASSIGN STEK-52 = NA-F
+    ADD 1 TO C-DATA
+    ASSIGN C-DATA-B = C-DATA
+    CALL 'RWSX' C-DATA-B STEK-REC WR-REC N-DAT-BK
+  END-FIND
+  ASSIGN MAX-EL(N-DATK)   = C-DATA
+  ASSIGN FIRST-EL(N-DATK) = 1
+  ASSIGN MAX-EL(N-DATD)   = 0
+  C-DATA1-B := 60  C-DATA2-B := 5
+  CALL 'SRTX' C-DATA1-B C-DATA2-B N-DAT-BK
+  RESET II
+  REPEAT
+    N-DATA-R := N-DAT-BK   R-DATA := N-DATK
+    IF DATAV > 0  TXT-PF11 := 'бША'  END-IF
+    PERFORM ARRY-PROC
+    INPUT MARK II USING MAP 'MAPKKM3'
+    II := *CURS-FIELD
+    RESET FL-CURS
+    FOR F-MARK 1 Q-LINE
+      IF II = POS(#FIELD-02(F-MARK)) P-CURS := 2 ESCAPE BOTTOM END-IF
+      IF II = POS(#FIELD-04(F-MARK)) P-CURS := 3 ESCAPE BOTTOM END-IF
+    END-FOR
+  DECIDE FOR EVERY CONDITION
+    WHEN *PF-KEY = 'PF3'
+      CALL 'FRSX' N-DAT-BK   CALL 'FRSX' N-DAT-BD
+      RESET MAX-EL(N-DATK) MAX-EL(N-DATD)  COU-EL(N-DATK)
+      ESCAPE BOTTOM
+    WHEN *PF-KEY NE 'PF3'
+      PERFORM CHECK-PROC1
+      PERFORM SCAN-PROC1
+    WHEN *PF-KEY = 'PF4' AND FL-CURS = 0  PERFORM ADD-PROC
+    WHEN *PF-KEY = 'PF5'
+      PERFORM UPD-PROC1
+    WHEN *PF-KEY = 'PF7'
+      RESET II
+      COMPUTE FIRST-EL(N-DATK) = FIRST-EL(N-DATK) - Q-LINE
+      IF FIRST-EL(N-DATK) <= 0 THEN ASSIGN FIRST-EL(N-DATK) = 1 END-IF
+    WHEN *PF-KEY = 'PF8'
+      RESET II
+      COMPUTE C-DATA1 = FIRST-EL(N-DATK) + Q-LINE - 1
+      IF C-DATA1 <= MAX-EL(N-DATK) THEN
+        COMPUTE FIRST-EL(N-DATK) = C-DATA1 + 1
+      END-IF
+    WHEN *PF-KEY = 'PF9'
+      RESET II
+      ASSIGN FIRST-EL(N-DATK) = 1
+    WHEN *PF-KEY = 'PF10'
+      RESET II
+      ASSIGN FIRST-EL(N-DATK) = MAX-EL(N-DATK)
+    WHEN *PF-KEY = 'PF11' AND #FIELD-04(C-CURS) NE 0 AND DATAV > 0
+      BN-IDENT-G := #FIELD-04(F-MARK)
+      CALL 'FRSX' N-DAT-BK CALL 'FRSX' N-DAT-BD
+      RESET MAX-EL(N-DATK) MAX-EL(N-DATD)   COU-EL(N-DATK)
+      ESCAPE BOTTOM
+    WHEN *PF-KEY = 'PF12'  PERFORM SORT-PROC
+    WHEN NONE IGNORE
+  END-DECIDE
+  END-REPEAT
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE CHECK-PROC1
+FOR C-LINE = 1 TO Q-LINE
+  IF #FIELD-04(C-LINE) NE 0
+    EXAMINE #FIELD-04S(*) #FIELD-04S(C-LINE) NUMBER C-DUBL INDEX Q-DEL
+    IF C-DUBL > 1 AND Q-DEL NE C-LINE
+      REINPUT 'дсакхпнбюмхе йндю' MARK *#FIELD-04(C-LINE) ALARM
+    END-IF
+    ASSIGN C-DATA1-B = 61   ASSIGN L-DATA-B = 5
+    CALL 'CMPXF' #FIELD-04(C-LINE) C-DATA1-B L-DATA-B N-DAT-BK
+    IF C-DATA1-B NE 0 AND C-DATA1-B < FIRST-EL(N-DATK)
+      REINPUT 'дсакхпнбюмхе йндю' MARK *#FIELD-04(C-LINE) ALARM
+    END-IF
+    IF #FIELD-02(C-LINE) = ' '
+      REINPUT 'мюхлемнбюмхе' MARK *#FIELD-02(C-LINE) ALARM
+    END-IF
+    ELSE                                          /* ярпнйю сдюкемю
+    IF C-DATA > MAX-EL(N-DATK)
+     IF #FIELD-04(C-LINE:Q-LINE) NE 0 IGNORE ELSE ESCAPE BOTTOM END-IF
+    END-IF
+  END-IF
+END-FOR
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE SCAN-PROC1
+ASSIGN C-DATA = FIRST-EL(N-DATK)
+RESET C-DEL
+FOR C-LINE = 1 TO Q-LINE                      /* опнялOрп ярпнй щйпюмю
+  ASSIGN C-DATA-B = C-DATA
+  IF #FIELD-04(C-LINE) NE 0                   /* ярпнйю ме сдюкемю
+    CALL 'RWSX' C-DATA-B STEK-REC RD-REC N-DAT-BK
+    IF STEK-REC NE INPUT-REC(C-LINE)          /* ярпнйю хглемемю
+      ASSIGN FIELD-FF(C-LINE) = H'01'         /* ткюц хглемемхъ
+      CALL 'RWSX' C-DATA-B INPUT-REC(C-LINE) WR-REC N-DAT-BK
+    END-IF
+    IF C-DATA > MAX-EL(N-DATK)  MAX-EL(N-DATK) := C-DATA END-IF
+  ELSE                                        /* ярпнйю сдюкемю
+    IF C-DATA > MAX-EL(N-DATK)
+      IF #FIELD-04(C-LINE:Q-LINE) NE 0 IGNORE
+       ELSE ESCAPE BOTTOM END-IF
+    END-IF
+    CALL 'RWSX' C-DATA-B H'FF' WR-REC N-DAT-BK WR-REC WR-REC
+    ADD 1 TO C-DEL
+    IF FIELD-ISN(C-LINE) NE 0
+      ADD 1 TO MAX-EL(N-DEL)
+      ASSIGN C-DEL-B = MAX-EL(N-DEL)
+      CALL 'RWSX' C-DEL-B FIELD-ISN(C-LINE) WR-REC N-DAT-BD
+    END-IF
+  END-IF
+  ADD 1 TO C-DATA
+END-FOR
+IF C-DEL NE 0 THEN
+  CALL 'PRSX' H'00000001' H'00000001' N-DAT-BK
+  COMPUTE MAX-EL(N-DATK) = MAX-EL(N-DATK) - C-DEL
+END-IF
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE UPD-PROC1
+  FOR C-DEL 1 TO MAX-EL(N-DATD)
+    ASSIGN C-DEL-B = C-DEL
+    CALL 'RWSX' C-DEL-B STEK-ISN RD-REC N-DAT-BD
+    GET IBS-KK-FILE STEK-ISN
+    RESET IBS-KK-FILE
+    INCLUDE CCUKK
+    UPDATE
+  END-FOR
+FOR C-DATA 1 TO MAX-EL(N-DATK)
+  ASSIGN C-DATA-B = C-DATA
+  CALL 'RWSX' C-DATA-B STEK-REC RD-REC N-DAT-BK
+  IF STEK-FF = H'01' THEN
+    IF STEK-ISN NE 0 THEN GET IBS-KK-FILE STEK-ISN END-IF
+    ASSIGN IBS-KK-FILE.OG-ID = OG-IDENT-G
+    ASSIGN IBS-KK-FILE.KK-F  = KKF-G
+    ASSIGN IBS-KK-FILE.NA-F  = STEK-52
+    ASSIGN IBS-KK-FILE.KD-F  = STEK-04
+    ASSIGN IBS-KK-FILE.NM-NP = 'DOP'
+    INCLUDE CCUKK
+    IF STEK-ISN NE 0
+      THEN UPDATE
+      ELSE STORE IBS-KK-FILE
+    END-IF
+  END-IF
+  END OF TRANSACTION
+END-FOR
+END-SUBROUTINE
+END

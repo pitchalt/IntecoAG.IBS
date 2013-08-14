@@ -1,0 +1,15 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPCSCH1C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060626
+* :Time 1257000
+* <Natural Source Header /*<<RO>
+IF CP-LINE-CURRENT EQ 0 THEN
+     IF CP-CURS-FIELD EQ POS(&1&(CP-LINE-INDEX)) THEN
+        CP-LINE-CURRENT := CP-LINE-INDEX
+        ESCAPE BOTTOM
+     END-IF
+END-IF
+

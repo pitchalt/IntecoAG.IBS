@@ -1,0 +1,27 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDDCMN0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060501
+**C               *:Time 2310000
+**C               *<Natural Source Header
+**DS          0000      1UDDCMN0A
+**DK          0000A  10 2DL-COMMAND
+**DK          0000P  15 2TX-ID
+**DK          0000L     2DD-TX-IS-REQUIRED
+**DK          0000P  15 2DR-ID
+**DK          0000P   7 2DR-TYPE-ID
+**DK          0000P 1.0 2DR-LEVEL
+**DK          0000P15.0 2DR-UP-ID
+**DK          0000P 7.0 2DR-SORT
+**DK I1       0000P15.0 2DR-UP-LEVEL-IDS                 (1:5)
+**DK          0000P 7.0 2DR-COL-RECORD
+**DK          0000P 7.0 2DR-COL-SORT
+**DK          0000I   2 2DR-AP-C
+**DK I1       0000      2DR-AP-G                         (1:30)
+**DK          0000L     3DR-AP-IS-INDEX
+**DK          0000P 7.0 3DR-AP-TYPE-ID
+**DK          0000P 7.0 3DR-AP-ATTR-ID
+**DK          0000P 1.0 3DR-AP-VALUE-E
+**DK          0000P15.0 3DR-AP-VALUE

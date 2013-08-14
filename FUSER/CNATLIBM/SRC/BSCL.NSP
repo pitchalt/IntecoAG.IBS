@@ -1,0 +1,12 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName BSCL
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20050226
+* :Time 1321330
+* <Natural Source Header /*<<RO>
+#OG(N5) := 1000  USR-G(A8) := 'MSA'  SYST-G(A8) := 'UFRO'  #BS(N5) = 60
+#RC(N5) = 0
+CALLNAT 'SBSCL' #OG USR-G SYST-G #BS #RC
+WRITE #RC .

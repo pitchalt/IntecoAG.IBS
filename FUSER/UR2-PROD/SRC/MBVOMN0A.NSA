@@ -1,0 +1,22 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBVOMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070717
+**C               *:Time 2339000
+**C               *<Natural Source Header
+**DS          0000      1MBVOMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P  15 2VO-OG-ID
+**DK          0000P  15 2VO-ID
+**DK          0000N   5 2VO-CODE
+**DK          0000N   5 2VO-RE-CODE
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP
+**DK          0000A  80 2VO-NAME
+**DK          0000A  80 2VO-ADDRESS
+**DK          0000I   2 2RS-C
+**DS I1       0000      2RS-G                            (1:15)
+**DK          0000P  15 3BN-ID
+**DK I2       0000A  20 3RS-NUMBER                       (1:15)

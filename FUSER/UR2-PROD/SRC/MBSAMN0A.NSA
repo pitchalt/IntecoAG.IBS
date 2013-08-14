@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBSAMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070115
+**C               *:Time 1336000
+**C               *<Natural Source Header
+**DS          0000      1MBSAMN0A
+**DK          0000P   7 2IT-ID-L
+**DK          0000P   1 2IT-SALDO-TYPE
+**DK          0000P  15 2IX-ID
+**DK          0000P  15 2MO-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2DT-ID
+**DK          0000P  15 2DF-ID
+**DK          0000P  15 2GM-ID
+**DK          0000P  15 2PR-ID
+**DK          0000P  15 2LK-ID
+**DK          0000P  15 2ZK-ID
+**DK          0000P  15 2BS-ID
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P  15 2PRIH-EI-ID
+**DK          0000P 8.7 2PRIH-COL
+**DK          0000P  15 2PLAN-EI-ID
+**DK          0000P 8.7 2PLAN-COL
+**DK          0000P13.2 2BALC-SUMMA

@@ -1,0 +1,48 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MSDBMU0C
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20070721
+* :Time 1209000
+* <Natural Source Header /*<<RO>
+  INCLUDE XDRBSM0C &1& "DR-ID" &2& "RID"
+  INCLUDE XDRBSM0C &1& "DR-UP-ID" &2& "SDH-RID"
+  /* Числовые данные
+  INCLUDE XDRBSUHC &1& "DR-AX-NUMBER" "DR-AP-ATTR-ID"  "30"
+  /*
+  INCLUDE XDRBSUIC &1& "DR-AX-NUMBER" "DR-GM-ATTR-ID"
+                   &2& "GM-ID"
+  INCLUDE XDRBSUIC &1& "DR-AX-NUMBER" "DR-MT-ATTR-ID"
+                   &2& "MT-ID"
+  INCLUDE XDRBSUIC &1& "DR-AX-NUMBER" "DR-PRIH-EI-ATTR-ID"
+                   &2& "PRIH-EI-ID"
+  INCLUDE XDRBSU7C &1& "DR-AX-NUMBER" "DR-PRIH-COL-ATTR-ID"
+                   &2& "PRIH-COL"
+  INCLUDE XDRBSU2C &1& "DR-AX-NUMBER" "DR-CENA-ATTR-ID"
+                   &2& "CENA"
+  INCLUDE XDRBSU2C &1& "DR-AX-NUMBER" "DR-CENA-SUMMA-ATTR-ID"
+                   &2& "CENA-SUMMA"
+  INCLUDE XDRBSUIC &1& "DR-AX-NUMBER" "DR-NDS-STAVKA-ATTR-ID"
+                   &2& "ND-ID"
+  INCLUDE XDRBSU2C &1& "DR-AX-NUMBER" "DR-NDS-ATTR-ID"
+                   &2& "NDS"
+  INCLUDE XDRBSU2C &1& "DR-AX-NUMBER" "DR-NDS-SUMMA-ATTR-ID"
+                   &2& "NDS-SUMMA"
+  INCLUDE XDRBSU2C &1& "DR-AX-NUMBER" "DR-ALL-SUMMA-ATTR-ID"
+                   &2& "ALL-SUMMA"
+  INCLUDE XDRBSU7C &1& "DR-AX-NUMBER" "DR-PLACE-COL-ATTR-ID"
+                   &2& "PLACE-COL"
+  INCLUDE XDRBSUIC &1& "DR-AX-NUMBER" "DR-PLACE-EI-ATTR-ID"
+                   &2& "PT-ID"
+  INCLUDE XDRBSU7C &1& "DR-AX-NUMBER" "DR-MASS-COL-ATTR-ID"
+                   &2& "MASS-COL"
+  INCLUDE XDRBSUFC
+  /* Строковые данные
+/*  INCLUDE XDRBSUHC &1& "DR-AX-NUMBER" "DR-AS-ATTR-ID"  "10"
+/*
+/*  INCLUDE XDRBSUAC &1& "DR-AX-NUMBER" "DC-TT-NUMBER-ATTR-ID"
+/*                   &2& "TT-NUMBER"
+/*  INCLUDE XDRBSUFC
+
+

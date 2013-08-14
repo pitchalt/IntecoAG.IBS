@@ -1,0 +1,13 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MCNBRM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070715
+**C               *:Time 2141000
+**C               *<Natural Source Header
+**DS          0000      1MCNBRM0A
+**DK          0000A  10 2CMD
+**DK          0000P   7 2DD-ID
+**DK          0000N   4 2YEAR
+**DK          0000N   7 2SEQ-NUM

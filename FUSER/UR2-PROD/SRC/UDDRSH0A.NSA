@@ -1,0 +1,23 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDDRSH0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20080302
+**C               *:Time 2358000
+**C               *<Natural Source Header
+**DS          0000      1UDDRSH0A
+**DK          0000A  10 2DL-COMMAND
+**DK          0000P  15 2TX-ID
+**DK          0000P  15 2DD-ID
+**DK          0000P  15 2DR-ID
+**DK          0000A   8 2SH-RETAIN
+**DK          0000P  10 2SH-NUMBER
+**DK          0000I   2 2SH-C
+**DR          0000     R2SH-C                            /* BEGIN REDEFINE: SH-C
+**DFR         0000I   2 3UDDRSH0A-SH-C
+**DS I1       0000      2SH-G                            (1:20)
+**DK I2       0000P   7 3SH-AT-ID                        (1:5) /*АТРИБУТ
+**DK          0000A   2 3SH-OPER                         /*арифметический знак
+**DK          0000A  50 3SH-VALUE-A
+**DK I2       0000P  15 3SH-VALUE-P                      (1:2)

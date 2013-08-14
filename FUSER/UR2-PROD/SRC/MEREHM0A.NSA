@@ -1,0 +1,44 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEREHM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070219
+**C               *:Time 1059000
+**C               *<Natural Source Header
+**DS          0000      1MEREHM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2REH-ID
+**DK          0000A  30 2REH-NUMBER
+**DK          0000D     2REH-DATE
+**DK          0000P  15 2IN-MO-ID
+**DK          0000N   5 2IN-MO-CODE
+**DK          0000A  60 2IN-MO-NAME
+**DK          0000P  15 2IN-DP-ID
+**DK          0000N   5 2IN-DP-CODE
+**DK          0000A  60 2IN-DP-NAME
+**DK          0000P  15 2OUT-MO-ID
+**DK          0000N   5 2OUT-MO-CODE
+**DK          0000A  60 2OUT-MO-NAME
+**DK          0000P  15 2OUT-DP-ID
+**DK          0000N   5 2OUT-DP-CODE
+**DK          0000A  60 2OUT-DP-NAME
+**DK          0000P  15 2VO-ID
+**DK          0000N   5 2VO-CODE
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP
+**DK          0000A  60 2VO-NAME
+**DK          0000A  60 2VO-ADDR
+**DK          0000L     2IS-ZK-REQUIRED
+**DK          0000L     2IS-VO-REQUIRED
+**DK          0000P  15 2ZK-ID
+**DK          0000A   9 2ZK-CODE
+**DK          0000L     2IS-DC-CONFIRMED
+**DK          0000L     2IS-DR-CONFIRMED
+**DK          0000P  15 2OUT-BS-ID
+**DK          0000N   5 2OUT-BS-CODE
+**DK          0000A  80 2OUT-BS-NAME
+**DK          0000P  15 2NDS-BS-ID
+**DK          0000N   5 2NDS-BS-CODE
+**DK          0000A  80 2NDS-BS-NAME
+**DK          0000P   5 2DC-PACKAGE

@@ -1,0 +1,25 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPOTMT0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070531
+**C               *:Time 1454000
+**C               *<Natural Source Header
+**DS          0000      1XPOTMT0L
+**DS I1       0000      2STRING                          (1:5)
+**DK          0000P  15 3MT-ID
+**DK          0000A   2 3OT-CMD
+**DK          0000C     3OT-CMD-C
+**DK          0000A  22 3MT-CODE
+**DK          0000A 150 3MT-NAME
+**DR          0000     R3MT-NAME                         /* BEGIN REDEFINE: MT-NAME
+**DFR         0000A  71 4MT-NAME1
+**DK          0000A   5 3OT-PLAN-EI
+**DK          0000A   5 3OT-BASE-EI
+**DK          0000A   5 3OT-PRIH-EI
+**DS I1       0000      2POKAZAT                         (1:6)
+**DK          0000A  17 3OT-PLAN-COL
+**DK          0000A  17 3OT-BASE-COL
+**DK          0000A  17 3OT-PRIH-COL
+**DK          0000A  17 3OT-BALC-SUMMA

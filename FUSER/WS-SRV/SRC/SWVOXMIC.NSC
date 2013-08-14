@@ -1,0 +1,79 @@
+0010* ----------------------------------------------------------------------
+0020* Generated from NATURAL XML TOOLKIT
+0030*
+0040*         'SWI'
+0050*
+0060* DESCRIPTION
+0070*               XML Parser implementation
+0080*
+0090* Parameter Definition
+0100*
+0110* &1& 'XML_PARSER_XPATH'              /* XPATH to repesent element...
+0120* &2& 'XML_PARSER_XPATH_TYPE'         /* Type of the XPATH:
+0130*                                        ? Processing instruction
+0140*                                        D DOCTYPE
+0150*                                        ! Comment
+0160*                                        C CDATA section
+0170*                                        T Starting Tag
+0180*                                        @ Attribute
+0190*                                        / Close Tag
+0200*                                        $ Parsed Data
+0210* &3& 'XML_PARSER_CONTENT'            /* Content of founld element
+0220* &4& 'XML_PARSER_CONTENT_IS_EMPTY'   /* Is TRUE if Content is empty
+0230* &5& '#CX'                           /* Counter variable 1st dimension
+0240* &6& '#CY'                           /* Counter variable 2nd dimension
+0250* &7& '#CZ'                           /* Counter variable 3rd dimension
+0260* &8& '#XML_PARSER_NAME'              /* Name of the parsed entity
+0270* &9& '#XML_PREV_PARSE-TYPE'          /* Previous type of the XPATH
+0280* ----------------------------------------------------------------------
+0290* DTD SYNC-SRV SWVOXM0A
+0300 DECIDE ON FIRST &1&
+0310VALUE 'SWVOXM0A//'
+0320IGNORE
+0330VALUE 'SWVOXM0A'
+0340 RESET SWVOXM0A
+0350VALUE 'SWVOXM0A/RETURN-CODE//'
+0360IGNORE
+0370VALUE 'SWVOXM0A/RETURN-CODE'
+0380 IGNORE
+0390VALUE 'SWVOXM0A/RETURN-CODE/$'
+0400IF &3& IS (I4) THEN
+0410SWVOXM0A.RETURN-CODE := VAL(&3&)
+0420END-IF
+0430VALUE 'SWVOXM0A/CMD//'
+0440IGNORE
+0450VALUE 'SWVOXM0A/CMD'
+0460 IGNORE
+0470VALUE 'SWVOXM0A/CMD/$'
+0480SWVOXM0A.CMD := &3&
+0490VALUE 'SWVOXM0A/OG-CODE//'
+0500IGNORE
+0510VALUE 'SWVOXM0A/OG-CODE'
+0520 IGNORE
+0530VALUE 'SWVOXM0A/OG-CODE/$'
+0540IF &3& IS (N5) THEN
+0550SWVOXM0A.OG-CODE := VAL(&3&)
+0560END-IF
+0570VALUE 'SWVOXM0A/VO-CODE//'
+0580IGNORE
+0590VALUE 'SWVOXM0A/VO-CODE'
+0600 IGNORE
+0610VALUE 'SWVOXM0A/VO-CODE/$'
+0620IF &3& IS (N5) THEN
+0630SWVOXM0A.VO-CODE := VAL(&3&)
+0640END-IF
+0650VALUE 'SWVOXM0A/VO-NAME//'
+0660IGNORE
+0670VALUE 'SWVOXM0A/VO-NAME'
+0680 IGNORE
+0690VALUE 'SWVOXM0A/VO-NAME/$'
+0700SWVOXM0A.VO-NAME := &3&
+0710VALUE 'SWVOXM0A/VO-ADDR//'
+0720IGNORE
+0730VALUE 'SWVOXM0A/VO-ADDR'
+0740 IGNORE
+0750VALUE 'SWVOXM0A/VO-ADDR/$'
+0760SWVOXM0A.VO-ADDR := &3&
+0770NONE
+0780IGNORE
+0790END-DECIDE

@@ -1,0 +1,46 @@
+* ----------------------------------------------------------------------
+* Generated from NATURAL XML TOOLKIT
+*
+*         'SWO'
+*
+* DESCRIPTION
+*               XML serialize implementation
+*
+* Parameter Definition
+*
+* &1& 'XML'                           /* XML Document
+* &2& '#CX'                           /* Counter Variable 1st Dimension
+* &3& '#CY'                           /* Counter Variable 2nd Dimension
+* &4& '#CZ'                           /* Counter Variable 3rd Dimension
+* ----------------------------------------------------------------------
+* DTD SYNC-SRV SWVOXM0A
+ COMPRESS NUMERIC &1& '<SWVOXM0A'
+ '>' INTO &1& LEAVING NO
+ /* now the children
+ COMPRESS NUMERIC &1& '<RETURN-CODE'
+ '>'SWVOXM0A.RETURN-CODE
+ '</RETURN-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<CMD'
+ '>'SWVOXM0A.CMD
+ '</CMD>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<OG-CODE'
+ '>'SWVOXM0A.OG-CODE
+ '</OG-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-CODE'
+ '>'SWVOXM0A.VO-CODE
+ '</VO-CODE>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-NAME'
+ '>'SWVOXM0A.VO-NAME
+ '</VO-NAME>'
+ INTO &1& LEAVING NO
+ COMPRESS NUMERIC &1& '<VO-ADDR'
+ '>'SWVOXM0A.VO-ADDR
+ '</VO-ADDR>'
+ INTO &1& LEAVING NO
+ /*
+ COMPRESS FULL &1& '</SWVOXM0A>'
+ INTO &1& LEAVING NO

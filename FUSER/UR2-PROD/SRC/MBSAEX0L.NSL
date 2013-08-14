@@ -1,0 +1,35 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBSAEX0L
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20071226
+**C               *:Time 1107000
+**C               *<Natural Source Header
+**DS          0000      1MBSAEX0L
+**DK          0000N   7 2NOMPARTY
+**DK          0000A  10 2NOM
+**DK          0000A  12 2NOMDOK
+**DK          0000A   8 2DATE
+**DRR         0000     R2DATE                            /* REDEF. BEGIN : DATE
+**DFR         0000N   8 3DATE-N
+**DK          0000A  10 2KODPOST
+**DK          0000N 8.3 2BASE-COL
+**DK          0000N 8.3 2SUMMA
+**DK          0000A   8 2DATA-IZG
+**DRR         0000     R2DATA-IZG                        /* REDEF. BEGIN : DATA-IZG
+**DFR         0000N   8 3DATA-IZF-N
+**DK          0000N 8.7 2ZOL
+**DK          0000N 8.7 2SER
+**DK          0000N 8.7 2PLAT
+**DK          0000N 8.7 2PALAD
+**DK          0000N 8.7 2OTHER
+**DK          0000A   9 2ZAKAZ
+**DK          0000N   7 2REGISTER
+**DK          0000N 8.7 2PRIH-COL
+**DK          0000N 8.7 2PLAN-COL
+**DK          0000N   5 2BASE-EI-CODE
+**DK          0000N   5 2PRIH-EI-CODE
+**DK          0000N   5 2PLAN-EI-CODE
+**DK          0000A  10 2BASE-MT-CODE
+**DK          0000N   5 2DP-RASH-CODE

@@ -1,0 +1,19 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MMXXMN0C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060508
+* :Time 2217000
+* <Natural Source Header /*<<RO>
+/* ярюмдюпрмше накюярх
+/* ахгмея лернд педюйрнпю брнпнцн спнбмъ
+DEFINE DATA
+PARAMETER USING XXERX00A
+PARAMETER USING XXCTXX0A
+PARAMETER USING XMBMXX0A
+PARAMETER USING UXCSXX0A
+/*
+LOCAL USING XPMXXX0A
+END-DEFINE
+

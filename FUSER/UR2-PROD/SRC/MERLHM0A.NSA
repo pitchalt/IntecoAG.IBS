@@ -1,0 +1,37 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MERLHM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070219
+**C               *:Time 1058000
+**C               *<Natural Source Header
+**DS          0000      1MERLHM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2RL-ID
+**DK          0000A  30 2RL-NUMBER
+**DK          0000D     2RL-DATE
+**DK          0000D     2RL-DATE-OTR
+**DK          0000P  15 2IN-MO-ID
+**DK          0000N   5 2IN-MO-CODE
+**DK          0000A  60 2IN-MO-NAME
+**DK          0000P  15 2IN-DP-ID
+**DK          0000N   5 2IN-DP-CODE
+**DK          0000A  60 2IN-DP-NAME
+**DK          0000P  15 2OUT-MO-ID
+**DK          0000N   5 2OUT-MO-CODE
+**DK          0000A  60 2OUT-MO-NAME
+**DK          0000P  15 2OUT-DP-ID
+**DK          0000N   5 2OUT-DP-CODE
+**DK          0000A  60 2OUT-DP-NAME
+**DK          0000P  15 2ZK-ID
+**DK          0000A   9 2ZK-CODE
+**DK          0000P  15 2BS-ID
+**DK          0000N   5 2BS-CODE
+**DK          0000A  60 2BS-NAME
+**DK          0000P  15 2MT-ID
+**DK          0000A  22 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000L     2IS-DC-CONFIRMED
+**DK          0000L     2IS-DR-CONFIRMED
+**DK          0000P   5 2DC-PACKAGE

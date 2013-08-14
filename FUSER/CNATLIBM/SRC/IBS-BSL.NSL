@@ -1,0 +1,47 @@
+/*C                                *>Natural Source Header 000000                                     DA:00.00ED:00.00PF:WNV:06030700
+/*C                                *:NatName IBS-BSL
+/*C                                *:UID UPA
+/*C                                *:Mode S
+/*C                                *:CP
+/*C                                *:Date 20101020
+/*C                                *:Time 1705470
+/*C                                *<Natural Source Header
+/*DV                               V 1IBS-BS-FILE                     IBS-BS-FILE                     DA:00.00ED:00.00PF:WNV:06030700
+/*DD                    N       5.0  2OG-ID
+/*DD                    N       5.0  2SS-ID
+/*DD                    N       3.0  2BS-ID
+/*DD                    A        80  2NM-BS
+/*DD                    A         8  2PG-ID
+/*DD                    N       2.0  2RZ-ID
+/*DD                    A         3  2FL-AN
+/*DD                    A         3  2AP-ID
+/*DD                    A         1  2FL-DI
+/*DD                    A         1  2FL-PO
+/*DD                    A         1  2FL-BL
+/*DD                    A         3  2VA-ID
+/*DD                    A         1  2FL-DZ
+/*DD                    A         1  2FL-ST
+/*DD                    A         1  2FL-DG
+/*DD                    N       2.0  2SL-ID
+/*DD                    A         6  2SL-UR
+/*DRR                              R 2SL-UR                           /* BEGIN REDEFINE: SL-UR
+/*DFRI             S0001N         1  3MSL-UR-N
+/*DRR                              R 2SL-UR                           /* BEGIN REDEFINE: SL-UR
+/*DFRI             S0002A         1  3MSL-UR
+/*DD                    A         1  2FL-ZK
+/*DD                    A         1  2FL-KL
+/*DD                    A       250  2NAME-FULL
+/*C                     -----------*- ---------------------------------------------------------
+/*DD                    N       2.0  2CS-NN
+/*DD                    N       2.0  2CS-ST
+/*DD    *                          C 2GS-F
+/*DD I  *          M               C 2NS-F                            (1:10)
+/*DD I  C          M               P 2GS-F                            (1:10)
+/*DD                    A         1  3BL-F
+/*DD                    A         5  3ST-F
+/*DD I  C          M    B         4M 3NS-F                            (1:30)
+/*C                     -----------*- ---------------------------------------------------------
+/*HA0001
+/*A1:6
+/*HA0002
+/*A1:6

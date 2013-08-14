@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName READZK
+* :UID KBDUO
+* :Mode R
+* :CP
+* :Date 20090217
+* :Time 1004330
+* <Natural Source Header /*<<RO>
+FIND ZAK-IL ZK-F = '0287' OR ZZ-F = '0287'
+  DISPLAY ZK ZZ BS DT-ZA Z-SP DT-OT .

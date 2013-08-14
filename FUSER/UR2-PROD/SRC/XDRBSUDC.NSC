@@ -1,0 +1,15 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XDRBSUDC
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20070716
+* :Time 1333000
+* <Natural Source Header /*<<RO>
+/* –аспаковать дату из записи документа
+VALUE &3&
+  MOVE &1&.DR-AP-VALUE(&2&) TO SX-DATE-NUMBER
+  IF SX-DATE-NUMBER NE 0 THEN
+     MOVE EDITED SX-DATE-VALUE TO &4&.&5& (EM=YYYYMMDD)
+  END-IF
+

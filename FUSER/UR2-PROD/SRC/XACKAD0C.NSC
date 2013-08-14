@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XACKAD0C
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20050113
+* :Time 2228000
+* <Natural Source Header /*<<RO>
+ADD 1 TO BM-CMD-LIST-C
+BM-CMD-CODE(BM-CMD-LIST-C) := &1&
+BM-CMD-ORIG(BM-CMD-LIST-C) := &2&
+BM-CMD-PFKEY-CODE(BM-CMD-LIST-C) := &3&
+BM-CMD-PFKEY-NAME(BM-CMD-LIST-C) := &4&
+

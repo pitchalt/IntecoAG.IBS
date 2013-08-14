@@ -1,0 +1,15 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPOTSM0L
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060911
+**C               *:Time 1024000
+**C               *<Natural Source Header
+**DS          0000      1XPOTSM0L
+**DK          0000A  44 2OT-FUNCTION-NAME                /*Заголовок дл  отбора
+**DK          0000A  53 2OT-NAME                         /*Заголовок дл  view
+**DK          0000N   3 2OT-LEVEL                        /*Уровень
+**DK          0000A  73 2OT-WAY                          /*Путь
+**DK          0000A  79 2OT-WINDOW-TITLE
+**DK          0000A   8 2OT-VIEW-PROGRAM                 /*Программа отображени

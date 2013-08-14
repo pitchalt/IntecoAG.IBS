@@ -1,0 +1,117 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBSOST0L
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20071211
+**C               *:Time 1127000
+**C               *<Natural Source Header
+**DS          0000      1MBSOST0L-CONST
+**DKC  S      0002I   4C2MBSOST0L-REC-LEN
+**HS0001
+**I                      245
+**DRR         0000     R2MBSOST0L-REC-LEN                /* BEGIN REDEFINE: MBSOST0L-RE
+**DFR         0000I   4 3STACK-REC-LEN
+**DKC  S      0002I   4C2STACK-ALLOC-COUNT
+**HS0001
+**I                      10000
+**DKC  S      0002I   4C2STACK-KEY-START
+**HS0001
+**I                      5
+**DKC  S      0002I   4C2MBSOST0L-KEY-LEN
+**HS0001
+**I                      8
+**DRR         0000     R2MBSOST0L-KEY-LEN                /* BEGIN REDEFINE: MBSOST0L-KE
+**DFR         0000I   4 3STACK-KEY-LEN
+**DS          0000      1MBSOST0L
+**DK          0000B   4 2STACK-POS
+**DK          0000I   4 2STACK-POS-I
+**DK          0000B   4 2STACK-TMP-B1
+**DK          0000B   4 2STACK-TMP-B2
+**DK          0000B   4 2STACK-FIELD-POS
+**DK          0000B   4 2STACK-FIELD-LEN
+**DK I1       0000B   1 2STACK-REC-B                     (1:MBSOST0L-REC-LEN)
+**DRR         0000     R2STACK-REC-B                     /* BEGIN REDEFINE: STACK-REC-B
+**DSR         0000      3STACK-REC-G
+**DFR         0000B   4 4SA-ID
+**DFRI1       0000B   1 4STACK-KEY-B                     (1:MBSOST0L-KEY-LEN)
+**DRR         0000     R4STACK-KEY-B                     /* BEGIN REDEFINE: STACK-KEY-B
+**DSR         0000      5STACK-KEY-G
+**DFR         0000P  15 6IX-ID
+**DFR         0000B   4 4SA-NEXT-FREE
+**DFR         0000P  15 4DT-ID
+**DFR         0000P   7 4IT-ID
+**DFR         0000P   1 4IT-SALDO-TYPE
+**DFR         0000P  15 4MO-ID
+**DFR         0000P  15 4MT-ID
+**DFR         0000P  15 4GM-ID
+**DFR         0000P  15 4PR-ID
+**DFR         0000P  15 4DF-ID
+**DFR         0000P  15 4LK-ID
+**DFR         0000P  15 4ZK-ID
+**DFR         0000P  15 4BS-ID
+**DFR         0000P  15 4BASE-EI-ID
+**DFR         0000P 8.7 4BASE-COL-IN
+**DFR         0000P 8.7 4BASE-COL-OUT
+**DFR         0000P 8.7 4BASE-COL-OP-D
+**DFR         0000P 8.7 4BASE-COL-OP-K
+**DFR         0000P  15 4PRIH-EI-ID
+**DFR         0000P 8.7 4PRIH-COL-IN
+**DFR         0000P 8.7 4PRIH-COL-OUT
+**DFR         0000P 8.7 4PRIH-COL-OP-D
+**DFR         0000P 8.7 4PRIH-COL-OP-K
+**DFR         0000P  15 4PLAN-EI-ID
+**DFR         0000P 8.7 4PLAN-COL-IN
+**DFR         0000P 8.7 4PLAN-COL-OUT
+**DFR         0000P 8.7 4PLAN-COL-OP-D
+**DFR         0000P 8.7 4PLAN-COL-OP-K
+**DFR         0000P13.2 4BALC-SUMMA-IN
+**DFR         0000P13.2 4BALC-SUMMA-OUT
+**DFR         0000P13.2 4BALC-SUMMA-OP-D
+**DFR         0000P13.2 4BALC-SUMMA-OP-K
+**DS          0000      1MBSOST1L
+**DK          0000B   4 2STACK-POS
+**DK          0000I   4 2STACK-POS-I
+**DK          0000B   4 2STACK-TMP-B1
+**DK          0000B   4 2STACK-TMP-B2
+**DK          0000B   4 2STACK-FIELD-POS
+**DK          0000B   4 2STACK-FIELD-LEN
+**DK I1       0000B   1 2STACK-REC-B                     (1:MBSOST0L-REC-LEN)
+**DRR         0000     R2STACK-REC-B                     /* BEGIN REDEFINE: STACK-REC-B
+**DSR         0000      3STACK-REC-G
+**DFR         0000B   4 4SA-ID
+**DFRI1       0000B   1 4STACK-KEY-B                     (1:MBSOST0L-KEY-LEN)
+**DRR         0000     R4STACK-KEY-B                     /* BEGIN REDEFINE: STACK-KEY-B
+**DSR         0000      5STACK-KEY-G
+**DFR         0000P  15 6IX-ID
+**DFR         0000B   4 4SA-NEXT-FREE
+**DFR         0000P  15 4DT-ID
+**DFR         0000P   7 4IT-ID
+**DFR         0000P   1 4IT-SALDO-TYPE
+**DFR         0000P  15 4MO-ID
+**DFR         0000P  15 4MT-ID
+**DFR         0000P  15 4GM-ID
+**DFR         0000P  15 4PR-ID
+**DFR         0000P  15 4DF-ID
+**DFR         0000P  15 4LK-ID
+**DFR         0000P  15 4ZK-ID
+**DFR         0000P  15 4BS-ID
+**DFR         0000P  15 4BASE-EI-ID
+**DFR         0000P 8.7 4BASE-COL-IN
+**DFR         0000P 8.7 4BASE-COL-OUT
+**DFR         0000P 8.7 4BASE-COL-OP-D
+**DFR         0000P 8.7 4BASE-COL-OP-K
+**DFR         0000P  15 4PRIH-EI-ID
+**DFR         0000P 8.7 4PRIH-COL-IN
+**DFR         0000P 8.7 4PRIH-COL-OUT
+**DFR         0000P 8.7 4PRIH-COL-OP-D
+**DFR         0000P 8.7 4PRIH-COL-OP-K
+**DFR         0000P  15 4PLAN-EI-ID
+**DFR         0000P 8.7 4PLAN-COL-IN
+**DFR         0000P 8.7 4PLAN-COL-OUT
+**DFR         0000P 8.7 4PLAN-COL-OP-D
+**DFR         0000P 8.7 4PLAN-COL-OP-K
+**DFR         0000P13.2 4BALC-SUMMA-IN
+**DFR         0000P13.2 4BALC-SUMMA-OUT
+**DFR         0000P13.2 4BALC-SUMMA-OP-D
+**DFR         0000P13.2 4BALC-SUMMA-OP-K

@@ -1,0 +1,21 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MERMLS0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070201
+**C               *:Time 1149000
+**C               *<Natural Source Header
+**DS          0000      1MERMLS0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2RO-ID
+**DK          0000P   7 2LI-START
+**DK          0000P   7 2LI-END
+**DK          0000L     2IS-TOP
+**DK          0000L     2IS-BOTTOM
+**DK          0000P   7 2DT-COL-RECORD
+**DK          0000I   2 2DR-LIST-READ
+**DK          0000I   2 2DR-LIST-C
+**DS I1       0000      2DR-LIST                         (1:20)
+**DK          0000P  15 3RM-ID
+**DK          0000P   7 3RM-SORT

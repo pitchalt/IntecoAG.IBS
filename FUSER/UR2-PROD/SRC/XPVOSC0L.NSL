@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPVOSC0L
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20050916
+**C               *:Time 2215000
+**C               *<Natural Source Header
+**DS          0000      1XPVOSC0L
+**DK          0000N   5 2VO-CODE
+**DK          0000A  50 2VO-NAME
+**DK          0000A  50 2VO-ADDR
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP

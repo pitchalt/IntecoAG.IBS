@@ -1,0 +1,43 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UPDSYS
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080426
+* :Time 1854330
+* <Natural Source Header /*<<RO>
+define data
+local using lclSTAT
+LOCAL USING AURBXX0L
+local
+1 tbl(a66)
+1 redefine tbl
+  2 #tbl(a2/33)
+1 #NM(A50)  1 #VO(A5)  1 KKK(A10)
+end-define
+FIND VIEWSTAT OG-ID = 1000
+  IF ST-F = 'RBP'
+    IF CT-F = 1 THRU 34  ADD 10000 TO CT-F  END-IF
+    IF CT-F = 300 THRU 366  ADD 60000 TO CT-F
+      CT-F := CT-F - 300
+    END-IF
+    IF CT-F = 100 THRU 199  ADD 30000 TO CT-F
+      CT-F := CT-F - 100
+    END-IF
+    UPDATE
+  END-IF
+  END OF TRANSACTION
+END-FIND
+*
+READ AU_RBP
+  IF RB-CODE = 1 THRU 34  ADD 10000 TO RB-CODE  END-IF
+  IF RB-CODE = 300 THRU 366  ADD 60000 TO RB-CODE
+    RB-CODE := RB-CODE - 300
+  END-IF
+  IF RB-CODE = 100 THRU 199  ADD 30000 TO RB-CODE
+    RB-CODE := RB-CODE - 100
+  END-IF
+  UPDATE
+  END OF TRANSACTION
+END-READ
+END

@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBTBMN0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060611
+**C               *:Time 2248000
+**C               *<Natural Source Header
+**DS          0000      1MBTBMN0A
+**DK          0000A  10 2TB-COMMAND
+**DK          0000P   7 2TB-CODE
+**DS I1       0000      2MN-STRUCTURA                    (1:20)
+**DK          0000P   5 3MN-TYPE-NABOR
+**DK          0000P   5 3MN-TYPE-REC
+**DK I2       0000P   7 3MN-CODE                         (1:5) /*АТРИБУТ
+**DK          0000A   2 3MN-ARIFM                        /*арифметический знак
+**DK          0000N   1 3MN-LEVEL                        /*уровень на котором ищем

@@ -1,0 +1,55 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBOTMT0C
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20061114
+* :Time 1350000
+* <Natural Source Header /*<<RO>
+  DEFINE SUBROUTINE SORT-CRITERION
+     RESET #SEL-SORT(*)
+     /* AD=DLMFHT'_'
+     SET KEY PF4=OFF PF5=OFF PF6=OFF PF7=OFF PF8=OFF PF9=OFF
+     INPUT WINDOW= 'SMALL' /
+          '   Код материала ........ - ' #SEL-SORT(1) (SG=OFF AD=IT'_' ) //
+          '   Наименование материала - ' #SEL-SORT(2) (SG=OFF AD=IT'_' ) //
+          'Bведите цифровое значение и нажмите ''BBOД''' (AD=I CD=RE)
+     DECIDE ON FIRST VALUE *PF-KEY
+        VALUE "ENTR"
+           SET KEY PF4=ON PF5=ON PF6=ON PF7=ON PF8=ON PF9=ON
+           SET WINDOW OFF
+        VALUE "PF3"
+           SET KEY PF4=ON PF5=ON PF6=ON PF7=ON PF8=ON PF9=ON
+           SET WINDOW OFF
+           ESCAPE TOP
+        NONE VALUE
+           REINPUT ' '
+     END-DECIDE
+     RESET #I
+     DECIDE FOR EVERY CONDITION
+        WHEN #SEL-SORT(1) NE 0
+           ADD 1 TO #I
+           #SORT-FIELD(#I) := "C"
+        WHEN #SEL-SORT(2) NE 0
+           ADD 1 TO #I
+           #SORT-FIELD(#I) := "N"
+        WHEN NONE
+          REINPUT ' '
+     END-DECIDE
+  END-SUBROUTINE
+/*
+  DEFINE SUBROUTINE SORT-VALUE
+     FOR #I 1 TO 5
+        IF #SORT-FIELD(#I) = ' '
+           ESCAPE BOTTOM
+        END-IF
+        DECIDE ON FIRST VALUE #SORT-FIELD(#I)
+           VALUE "C"
+              MOVE CXMTS0DL.MT-CODE TO #SORT-VALUE(#I)
+           VALUE "N"
+              MOVE CXMTS0DL.MT-NAME TO #SORT-VALUE(#I)
+           NONE VALUE
+              IGNORE
+        END-DECIDE
+     END-FOR
+  END-SUBROUTINE

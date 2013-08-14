@@ -1,0 +1,68 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName KDFTAS
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20060205
+* :Time 1341330
+* <Natural Source Header /*<<RO>
+*
+* Кодификатор товаров
+*
+DEFINE DATA
+  PARAMETER
+  1 NM50(A50)
+  LOCAL USING LCLKKL
+  LOCAL  USING STEKL
+  LOCAL
+  1 STEK(A50)
+  1 REDEFINE STEK
+    2 PUS(B1)
+  1 INPUT-REC(A50/20)
+END-DEFINE
+*
+CALL 'GTNX' XN1
+XI := 50  XW := 1000  CALL 'GTSX' XI XW XN1
+XW := 1
+F1. FIND IBS-KK-FILE KK-F = 'TA'
+  XI := IS1 := *COUNTER  CALL 'RWSX' XI NA-F XW XN1
+END-FIND
+*
+SET KEY ALL
+#N := 1
+REPEAT
+  #K := #N + 19  #L := 0
+  FOR #I #N #K
+    ADD 1 TO #L
+    IF #I <= IS1  XI := #I  CALL 'RWSX' XI INPUT-REC(#L) XR XN1
+      ELSE  RESET INPUT-REC(#L)
+    END-IF
+  END-FOR
+  INPUT USING MAP 'KDFTAM1'
+  IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+  #L := #N
+  FOR #I 1 20
+    IF INPUT-REC(#I) = ' '  PUS := H'FF'
+      ELSE  STEK := INPUT-REC(#I)
+    END-IF
+    XI := #L  CALL 'RWSX' XI STEK XW XN1
+    ADD 1 TO #L
+  END-FOR
+  CALL 'PRSX' XW XW XN1
+  XI := 1  CALL 'CMPX' '   ' XI H'00000003' XN1
+  IS1 := XI  ADD -1 TO IS1
+  IF *PF-KEY = 'PF7' AND #K > 20  ADD -20 TO #N  END-IF
+  IF *PF-KEY = 'PF8' AND #K <= IS1  ADD 20 TO #N  END-IF
+  IF *PF-KEY = 'PF9'  #N := 1  END-IF
+  IF *PF-KEY = 'PF10'  #N := IS1 - 19
+    IF #N < 1  #N := 1  END-IF
+  END-IF
+  IF *PF-KEY = 'PF11'
+    FOR #I 1 20
+      IF *CURS-FIELD = POS(INPUT-REC(#I))  NM50 := INPUT-REC(#I)  END-IF
+    END-FOR
+    IF NM50 NE ' '  ESCAPE BOTTOM  END-IF
+  END-IF
+END-REPEAT
+CALL 'FRSX' XN1
+END

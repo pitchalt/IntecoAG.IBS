@@ -1,0 +1,148 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBOTCM0C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060612
+* :Time 0135000
+* <Natural Source Header /*<<RO>
+  DECIDE ON FIRST VALUE *PF-KEY
+     VALUE 'PF3' /* мю спнбемэ бшье еякх спнбемэ оепбши рн бшундхл хг
+                 /* нрнапюфемхъ я нвхярйни ярейнб
+        RESET MBXXDO0L.STACK-POS-I
+        IF MBOTXX0A.OT-LEVEL = 1 THEN
+           MBOTXX0A.XX-COMMAND := 'EXIT'
+        ELSE
+           MBOTXX0A.XX-COMMAND := 'TOP'
+        END-IF
+        ESCAPE ROUTINE
+     VALUE 'PF4' /* срнвмемхе
+        #CURS-FIELD := *CURS-FIELD
+        FOR #I = 1 TO #KOL-STROK
+           IF #CURS-FIELD EQ POS(&9&.OT-CMD(#I))
+              RESET MBOTXX0A.DO-AD-VALUE
+              MBOTXX0A.DO-PD-ATTR-NAME := MBOTXX0A.DO-ATTR-NAME
+              MBOTXX0A.DO-PD-VALUE := &10&(#I)
+              ESCAPE BOTTOM
+           END-IF
+        END-FOR
+        MOVE MBOTXX0A.DO-ATTR-NAME TO #DO-CODE
+        /*RESET MBOTXX0A.DO-CODE
+        RESET MBOTXX0A.XX-COMMAND
+        PERFORM MBOTSL0S XXERX00A MBOTXX0A
+        IF MBOTXX0A.XX-COMMAND NE 'EXIT' THEN
+           MBOTXX0A.XX-COMMAND := 'DOWN'
+           IF MBOTXX0A.DO-PD-VALUE NE 0
+              COMPRESS &1& MBOTXX0A.DO-PD-VALUE TO #STRING LEAVING NO
+           END-IF
+           COMPRESS MBOTXX0A.OT-WAY #STRING TO MBOTXX0A.OT-WAY LEAVING NO
+           MOVE LEFT  MBOTXX0A.OT-WAY TO XPOTSM0L.OT-WAY
+           ESCAPE ROUTINE
+        END-IF
+     VALUE 'PF5' /* оепеянапюрэ мю щрнл фе спнбме
+        /* RESET MBOTXX0A.DO-CODE
+        #DO-CODE := MBOTXX0A.DO-ATTR-NAME
+        PERFORM MBOTSL0S XXERX00A MBOTXX0A
+        IF MBOTXX0A.XX-COMMAND NE 'EXIT' THEN
+           FOR #J = 1 TO 20
+              IF MBOTXX0A.OT-FIX-ANALITIK(#J) = #DO-CODE THEN
+                 RESET MBOTXX0A.OT-FIX-ANALITIK(#J)
+                 ESCAPE BOTTOM
+              END-IF
+           END-FOR
+           MBOTXX0A.XX-COMMAND := 'REFRESH'
+           ESCAPE ROUTINE
+        END-IF
+     VALUE 'PF6'
+
+        INCLUDE &8&  /* бшанп онкеи янпрхпнбйх
+
+        PERFORM SORT-FIELD
+
+     VALUE 'PF7' /* ббепу
+        IF #END = TRUE
+           #END:= FALSE
+        END-IF
+        #START := #START - 6
+        MBXXDO0L.STACK-POS-I := #START
+        IF MBXXDO0L.STACK-POS-I < 0
+           MBXXDO0L.STACK-POS-I := 0
+        END-IF
+        PERFORM READ-STEK
+     VALUE 'PF8' /* бмхг
+        IF #END = FALSE
+           #START := MBXXDO0L.STACK-POS-I + 1
+           PERFORM READ-STEK
+        END-IF
+     NONE VALUE   /* времхе ярейю я гюонкмемхел щкелемрнб щйпюмю
+        IGNORE
+  END-DECIDE
+/***************************************************
+  DEFINE SUBROUTINE SORT-FIELD
+        /* бшгнб опнцпюллш дкъ янпрхпнбйх бяонлнцюрекэмнцн ярейю
+        EXAMINE MBXXSS0A.DS-TYPE-STEK(*) FOR &2& GIVING INDEX #NS
+        MOVE MBXXSS0A.STACK-NUMBER(#NS) TO CXXXS0CA.STACK-NUMBER
+        MOVE MBXXSS0A.STACK-COUNT(#NS) TO CXXXS0CA.STACK-COUNT
+        MOVE MBXXSS0A.STACK-LEN(#NS) TO CXXXS0CA.STACK-LEN
+        MOVE MBXXSS0A.STACK-ID(#NS) TO CXXXS0CA.STACK-ID
+        MOVE 'SORT' TO &3&
+        PERFORM &4& XXERX00A &5& CXXXS0CA MBXXOP0A XXCTXX0A
+        IF RETURN-CODE NE 0 THEN *ERROR-NR := EC-QUIT-STACK-TRACE END-IF
+
+        /** янпрхнбйю нямнбмнцн ярейю *********************************
+        /* бшдекемхе ярейю дкъ янпрхпнбйх
+        CALL 'GTNX' #OUT-STEK
+        MOVE MBXXSS0A.STACK-LEN(#NS) TO &6&.STACK-POS /* йнкхвеярбн щкелемрнб
+        MOVE MBOTXX0A.STACK-ELEM-LEN TO &6&.STACK-FIELD-LEN
+        CALL 'GTSX' &6&.STACK-FIELD-LEN &6&.STACK-POS #OUT-STEK
+        MOVE &6&.STACK-POS TO MBXXDO0L.STACK-POS-I
+        MOVE H'FF000000' TO MBXXDO0L.OS-NPP
+        FOR #I = 1 TO MBXXDO0L.STACK-POS-I
+           MOVE #I TO MBXXDO0L.STACK-TMP-B
+           CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC(1) MBXXDO0L.STACK-WRITE
+                       #OUT-STEK
+        END-FOR
+        /* оепейкюдшбюел мю нямнбе онкъ янпр бяонлнцюрекэмнцн ярейю
+        /* опнялнрп нямнбмнцн ярейю
+        RESET MBXXDO0L.STACK-POS-I
+        MOVE MBOTXX0A.STACK-OUT TO #STEK /* нямнбмни ярей
+        MOVE MBXXSS0A.STACK-NUMBER(#NS) TO #STEK-V  /* бяонлнц. ярей
+        REPEAT
+           /* вхрюел нямнбмни ярей
+           ADD 1 TO MBXXDO0L.STACK-POS-I
+           MOVE MBXXDO0L.STACK-POS-I TO MBXXDO0L.STACK-TMP-B
+           IF MBOTXX0A.STACK-LEN < MBXXDO0L.STACK-TMP-B /*  MBXXDO0L.OS-NPP = H'00000000'
+              ESCAPE BOTTOM
+           END-IF
+
+           CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC(1) MBXXDO0L.STACK-READ
+                       #STEK
+           /* времхе бяонлнцюрекэмнцн ярейю
+           #J := MBOTXX0A.OT-NUMBER-ELEMENT
+           MOVE MBXXDO0L.ANALITIK(#J) TO &6&.STACK-POS
+           CALL 'RWSX' &6&.STACK-POS &6&.STACK-REC-A(1)
+                       &6&.STACK-READ #STEK-V
+           /*
+              MOVE &6&.&7& TO MBXXDO0L.STACK-TMP-B
+              CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC(1) MBXXDO0L.STACK-WRITE
+                          #OUT-STEK
+        END-REPEAT
+        /*
+
+        CALL 'PRSX' H'00000001' H'00000001' #OUT-STEK
+
+        FOR #I = 1 TO MBXXZP0A.C-STEK
+           IF MBOTXX0A.STACK-OUT = MBXXZP0A.STACK-NUMBER(#I)
+              MOVE #OUT-STEK  TO MBXXZP0A.STACK-NUMBER(#I)
+              ESCAPE BOTTOM
+           END-IF
+        END-FOR
+        /* сдюкъел хяундмши ярей
+        CALL 'FRSX' MBOTXX0A.STACK-OUT
+        /* гюонлхмюел нрянпрхпнбюммши ярей
+        MOVE #OUT-STEK TO MBOTXX0A.STACK-OUT
+        RESET MBXXDO0L.STACK-POS-I
+        PERFORM READ-STEK
+  END-SUBROUTINE
+
+

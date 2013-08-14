@@ -1,0 +1,43 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCONVERT
+**C               *:UID TIT_HOME
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 19990120
+**C               *:Time 0328330
+**C               *<Natural Source Header
+**DS          0000      1LCONVERT
+**C           0000*************** INPUT ******************************
+**DK          0000A  70 2CMD
+**C           0000*************** ERROR ****************************
+**DK          0000L     2ERROR                           /* ÔËÀÃ ÎØÈÁÊÈ
+**DK          0000I   4 2ERROR_CODE                      /* ÊÎÄ ÎØÈÁÊÈ
+**C           0000*************** OUTPUT ****************************
+**C           0000*---------------------- VARIABLE -------------------------------------
+**DK          0000I   1 2VARCOUNT                        /* ÊÎËÈ×ÅÑÒÂÎ ÏÅÐÅÌÅÍÍÛÕ
+**DS I1       0000      2VARIABLE                        (1:20)
+**DK          0000A  10 3VARNAME                         /* ÈÌß ÏÅÐÅÌÅÍÍÎÉ
+**DK          0000P15.6 3VARDATA                         /* ÇÍÀ×ÅÍÈÅ
+**C           0000*---------------------- FUNCTION -------------------------------------
+**DK          0000I   1 2FUNCOUNT                        /* ÊÎËÈ×ÅÑÒÂÎ ÔÓÍÊÖÈÉ
+**DS I1       0000      2FUNCTION                        (1:5)
+**DK          0000A  10 3FUNNAME                         /* ÑÏÈÑÎÊ ÔÓÍÊÖÈÉ
+**C           0000*--------------
+**DK          0000I   1 3FUNPARCOUNT                     /* ÊÎËÈ×ÅÑÒÂÎ ÏÀÐÀÌÅÒÐÎÂ ÔÓÍÊÖ
+**DS I2       0000      3FUNPARAMETER                    (1:4)
+**DK          0000I   1 4FUNPVARCOUNT                    /* ÊÎË-ÂÎ ÏÅÐ-ÍÛÕ Â ÏÀÐÀÌÅÒÐÅ
+**DK I4       0000I   1 4FUNPVAR                         (1:20)
+**DS I4       0000      4FUNTURN                         (1:40) /* SYSTEM, NOT CHANGE
+**DK          0000I   1 5FUNVARTYPE                      /* SYSTEM, NOT CHANGE
+**DK          0000I   1 5FUNVARPOINT                     /* SYSTEM, NOT CHANGE
+**DK          0000P15.6 5FUNVARDATA                      /* SYSTEM, NOT CHANGE
+**DK          0000P15.6 4FUNPARRES                       /* ÇÍÀ×ÅÍÈÅ ÏÀÐÀÌÅÒÐÀ
+**C           0000*--------------
+**DK          0000P15.6 3FUNRES                          /* ÇÍÀ×ÅÍÈÅ ÔÓÍÊÖÈÈ
+**C           0000*--------------
+**DK          0000P15.6 2RESULT                          /* ÇÍÀ×ÅÍÈÅ ÂÛÐÀÆÅÍÈß
+**C           0000*************** INTERNAL **************************
+**DS I1       0000      2COM_TURN                        (1:50) /* SYSTEM, NOT CHANGE
+**DK          0000I   1 3TYPE                            /* SYSTEM, NOT CHANGE
+**DK          0000I   1 3POINT                           /* SYSTEM, NOT CHANGE
+**DK          0000P15.6 3DATA                            /* SYSTEM, NOT CHANGE

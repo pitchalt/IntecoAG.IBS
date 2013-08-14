@@ -1,0 +1,19 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPXXSP4C
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20080407
+* :Time 1139330
+* <Natural Source Header /*<<RO>
+/* 1 - XPDGSH1L.DG-CONTRAGENT
+/* 2 - XPDGSH1L.DG-CONTRAGENT-A
+  WHEN *CURS-FIELD = POS(&1&)
+     OG-IDENT-G := 1000
+     COD-VO := &1&
+     CALLNAT 'SELVON' OG-IDENT-G COD-VO NM-VO
+     &1& := COD-VO
+     &2& := NM-VO
+
+
+

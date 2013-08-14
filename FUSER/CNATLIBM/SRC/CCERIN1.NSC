@@ -1,0 +1,15 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCERIN1
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20001104
+* :Time 1155330
+* <Natural Source Header /*<<RO>
+ESCAPE ROUTINE
+ON ERROR
+ BACKOUT TRANSACTION
+ NAME_OF_MODULE := *PROGRAM;
+ CALLNAT 'SBMSGGER' NAME_OF_MODULE ;
+ STOP
+END-ERROR

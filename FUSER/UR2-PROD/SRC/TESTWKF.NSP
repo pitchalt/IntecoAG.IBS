@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TESTWKF
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20061113
+* :Time 1758000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+LOCAL
+1 #QWE (A10)
+END-DEFINE
+WRITE WORK FILE 1 #QWE
+END

@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XXERUS1C
+* :UID KALIGULA
+* :Mode S
+* :CP
+* :Date 20040315
+* :Time 1834000
+* <Natural Source Header /*<<RO>
+/*
+ XXERX00A.ERROR-MODULE := *PROGRAM;
+ XXERX00A.RETURN-CODE := &1&
+ ESCAPE ROUTINE
+/*

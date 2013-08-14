@@ -1,0 +1,25 @@
+DB: 000 FILE: 084  - AU-FINVLOG                       DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID MSA
+*      :CP
+*
+*
+*      :Date 20080406
+*      :Time 1604330
+*      <Natural Source Header
+  1 GA FV-CODE                           N  5.0  N D
+  1 GB FV-NAME                           A  100  N
+  1 CM FV-AKCII                          A    1  N
+P 1 DE FV-CEN-BUMAGI-GM                    0
+  2 DF FV-GM-SUMMA                       P 13.2  N
+  2 DG FV-GM-DATA                        D    6  N
+P 1 CY FV-CEN-BUMAGI-DO                    0
+  2 CZ FV-DO-SUMMA                       P 13.2  N
+  2 DA FV-DO-DATA                        D    6  N
+  1 GC FV-DOLI                           P  3.2  N
+  1 GD FV-PROCENT                        P  3.2  N
+  1 GE FV-DEPOZIT-VKLAD                  L    1  N
+******DDM OUTPUT TERMINATED******

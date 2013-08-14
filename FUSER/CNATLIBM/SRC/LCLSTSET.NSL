@@ -1,0 +1,24 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLSTSET
+**C               *:UID IBS_8
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000609
+**C               *:Time 1521330
+**C               *<Natural Source Header
+**DFC  S      0002A   5C1NAME_TABLE_STSETUPV
+**HS0001
+**I                      SETUP
+**DFC  S      0002I   4C1MAGIC_NUMBER_STSETUPV
+**HS0001
+**I                      -962
+**DV          0000     V1STSETUPV                        IBS-SYS-FILE
+**DD          0000N 5.0 2OG-ID
+**DD          0000A   5 2ST-F
+**DD          0000N 6.0 2CT-F
+**DD          0000A  80 2NM-OG
+**DR          0000     R2NM-OG                           /* BEGIN REDEFINE: NM-OG
+**DFR         0000A   1 3POINT
+**DFR         0000A   1 3NULL
+**DFR         0000A   1 3FILL
+**DFR         0000N   2 3MAXLEV

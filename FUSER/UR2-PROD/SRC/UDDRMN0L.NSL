@@ -1,0 +1,70 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDDRMN0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100405
+**C               *:Time 1036000
+**C               *<Natural Source Header
+**DV          0000     V1UR-DOC-DATA-VIEW                UR-DOC-DATA
+**DD          0000P 7.0 2OD-ID
+**DD          0000P15.0 2DR-ID
+**DD          0000P 7.0 2DR-TYPE-ID
+**DD          0000P 1.0 2DR-LEVEL
+**DD          0000P15.0 2DR-UP-ID
+**DD          0000P 7.0 2DR-SORT
+**DD I1 C     0000P15.0M2DR-UP-LEVEL-IDS                 (1:5)
+**DD          0000P 7.0 2DR-COL-RECORD
+**DD          0000P 7.0 2DR-COL-SORT
+**DD          0000A   1 2DR-TX-STATUS
+**DD          0000P15.0 2DR-TX-CREATE-ID
+**DD          0000P15.0 2DR-TX-CURRENT-ID
+**DD I1 C     0000P15.0M2DR-ASUM-DOC                     (1:20)
+**DD    *     0000     C2DR-AP-G
+**DD I1 C     0000     P2DR-AP-G                         (1:30)
+**DD          0000L     3DR-AP-IS-INDEX
+**DD          0000P 7.0 3DR-AP-TYPE-ID
+**DD          0000P 7.0 3DR-AP-ATTR-ID
+**DD          0000P 1.0 3DR-AP-VALUE-E
+**DD          0000P15.0 3DR-AP-VALUE
+**DD    *     0000     C2DR-AS-G
+**DD I1 C     0000     P2DR-AS-G                         (1:10)
+**DD          0000L     3DR-AS-IS-INDEX
+**DD          0000P 7.0 3DR-AS-TYPE-ID
+**DD          0000P 7.0 3DR-AS-ATTR-ID
+**DD          0000A  50 3DR-AS-VALUE
+**C           0000*Супердескрипторы
+**DF          0000A  13 1DR-ID-START
+**DR          0000     R1DR-ID-START                     /* BEGIN REDEFINE: DR-ID-START
+**DFR         0000P  15 2DR-ID
+**DFR         0000P   7 2DR-TYPE-ID
+**DFR         0000A   1 2DR-TX-STATUS
+**DF          0000A  13 1DR-ID-STOP
+**DR          0000     R1DR-ID-STOP                      /* BEGIN REDEFINE: DR-ID-STOP
+**DFR         0000P  15 2DR-ID
+**DFR         0000P   7 2DR-TYPE-ID
+**DFR         0000A   1 2DR-TX-STATUS
+**DF          0000B  16 1DR-CONT-SUPER
+**DR          0000     R1DR-CONT-SUPER                   /* BEGIN REDEFINE: DR-CONT-SUPE
+**DFR         0000P  15 2DR-UP-ID
+**DFR         0000P   7 2DR-TYPE-ID
+**DFR         0000P   7 2DR-SORT
+**DF          0000B  16 1DR-CONT-STOP
+**DR          0000     R1DR-CONT-STOP                    /* BEGIN REDEFINE: DR-CONT-STOP
+**DFR         0000P  15 2DR-UP-ID
+**DFR         0000P   7 2DR-TYPE-ID
+**DFR         0000P   7 2DR-SORT
+**DS I1       0000      1DR-AP-SUPER-G                   (1:30)
+**DK          0000B  17 2DR-AP-SUPER
+**DR          0000     R2DR-AP-SUPER                     /* BEGIN REDEFINE: DR-AP-SUPER
+**DFR         0000P   7 3DR-TYPE-ID
+**DFR         0000L     3DR-AP-IS-INDEX
+**DFR         0000P   7 3DR-AP-ATTR-ID
+**DFR         0000P  15 3DR-AP-VALUE
+**DS I1       0000      1DR-AS-SUPER-G                   (1:10)
+**DK          0000A  34 2DR-AS-SUPER
+**DR          0000     R2DR-AS-SUPER                     /* BEGIN REDEFINE: DR-AS-SUPER
+**DFR         0000P   7 3DR-TYPE-ID
+**DFR         0000L     3DR-AS-IS-INDEX
+**DFR         0000P   7 3DR-AS-ATTR-ID
+**DFR         0000A  25 3DR-AS-VALUE

@@ -1,0 +1,375 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName EDITZAK
+* :UID UOCNEW2
+* :Mode S
+* :CP
+* :Date 20010809
+* :Time 1913330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+PARAMETER USING PRMNAVI
+ PARAMETER
+ 1 ISNREC(P7)
+ LOCAL USING LCLMO
+ LOCAL USING LCLGR
+ LOCAL USING LCLZKL1
+ LOCAL  USING PRMHELP
+ LOCAL
+/*********************
+ 1 DATA(575)
+   2 MO_ID(P5)
+   2 GR_ID(P5)
+/*********************
+1 I(N5)
+1 K(N5)
+1 MX(N5)
+1 M(N5)
+1 G(N5)
+/*********************
+1 SCREEN(10)
+ 2 MO_ID(N5)
+ 2 REDEFINE MO_ID
+   3 MO_ID_A(A5)
+ 2 GR_ID(N5)
+ 2 REDEFINE GR_ID
+   3 GR_ID_A(A5)
+1 START_LINE(N5)
+/*********************
+1 WTITLE(A17)
+1 MESSAGEL(A77)
+1 POSIT(I4)
+1 RESULT(N1)
+1 TMPMO(N5)
+1 TMPGR(N5)
+*
+1 KEYB(A10)
+1 REDEFINE KEYB
+ 2 KEYOG(N5)
+ 2 KEYKD(N5)
+*
+1 KEYT(A12)
+1 REDEFINE KEYT
+ 2 KEYOG(N5)
+ 2 KEYAA(A2)
+ 2 KEYKD(N5)
+*
+1 HELP
+ 2 HSYSTEM(A9)
+ 2 NUMHELP(N9)
+1 CC_GM(N3)
+1 CC_GR(N3)
+1 CC_MO(N3)
+1 FLAG(N1)   /* MNN
+END-DEFINE
+DEFINE WINDOW WIND
+          SIZE 15*22
+          BASE 4/50
+          TITLE WTITLE
+          CONTROL SCREEN
+          FRAMED ON ;
+DEFINE WINDOW WIND1               /* MNN
+          SIZE 07*45              /* MNN
+          BASE 08/20              /* MNN
+          TITLE 'Çàïèñü â ôàéë'   /* MNN
+          FRAMED ON               /* MNN
+IF ISNREC NE 0 THEN
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+SET CONTROL 'N'
+INPUT NO ERASE (IP=OFF) 23/1
+ 8T '?          Bûx         Çaï         Hçä   Bïp   Ha÷   Koí'-
+    '            '
+(I);
+RESET DATA(*)
+ GET ZAKAZ ISNREC
+ COMPRESS 'Çàêàç :' ZK-F TO WTITLE
+ M := 0
+ G := 0
+ FOR I = 1 TO C*GM-F
+  MX := ZAKAZ.C*GR-F(I)
+  IF MX < ZAKAZ.C*MO-F(I) THEN MX := ZAKAZ.C*MO-F(I) END-IF
+  FOR K = 1 TO MX
+   IF K <= C*MO-F(I) THEN
+    ADD 1 TO M
+    DATA.MO_ID(M) := MO-F(I,K)
+                     END-IF
+   IF K <= C*GR-F(I) THEN
+    ADD 1 TO G
+    DATA.GR_ID(G) := GR-F(I,K)
+                     END-IF
+  END-FOR
+ END-FOR
+RESET MESSAGEL
+START_LINE := 1
+RESULT := 0
+REPEAT
+IF RESULT EQ 0 THEN
+RESET SCREEN(*)
+FOR I = 1 TO 10
+ K := START_LINE + I - 1
+ IF K <= 575 THEN
+  SCREEN.MO_ID(I) := DATA.MO_ID(K)
+  SCREEN.GR_ID(I) := DATA.GR_ID(K)
+             END-IF
+END-FOR
+               END-IF
+SET WINDOW 'WIND'
+SET KEY ALL
+IF FLAG = 1  SET CONTROL 'N' END-IF        /* MNN
+INPUT WITH TEXT MESSAGEL(CD=RE) MARK POSIT USING MAP 'EDITZAKM'
+IF FLAG = 1                                                  /* MNN
+  SET WINDOW 'WIND1'                                         /* MNN
+  REPEAT                                                     /* MNN
+    INPUT / 'ÏÎÄÒÂÅÐÄÈÒÅ ÇÀÏÈÑÜ ÏÎÂÒÎÐÍÛÌ ÍÀÆÀÒÈÅÌ ÏÔ5'      /* MNN
+          / '    ÏÔ3 - ÂÛÕÎÄ ÁÅÇ ÇÀÏÈÑÈ'                     /* MNN
+    IF *PF-KEY = 'PF3'                                       /* MNN
+      RESET FLAG SET CONTROL 'K0' ESCAPE BOTTOM              /* MNN
+    END-IF                                                   /* MNN
+    IF *PF-KEY = 'PF5' FLAG := 2  ESCAPE BOTTOM END-IF       /* MNN
+  END-REPEAT                                                 /* MNN
+END-IF                                                       /* MNN
+POSIT := *CURS-FIELD
+RESET MESSAGEL
+SET WINDOW OFF
+DECIDE ON FIRST VALUE *PF-KEY
+ VALUE 'PF1'
+  INCLUDE CCHELP '61'
+  ESCAPE TOP
+ VALUE 'ENTR'
+  PERFORM CHECK_SCREEN
+  IF RESULT NE 0 THEN ESCAPE TOP END-IF
+  PERFORM SCREEN2DATA
+ VALUE 'PF7'
+  PERFORM CHECK_SCREEN
+  IF RESULT NE 0 THEN ESCAPE TOP END-IF
+  PERFORM SCREEN2DATA
+  ADD -9 TO START_LINE
+  IF START_LINE < 1 THEN
+   START_LINE := 1  END-IF
+ VALUE 'PF8'
+  PERFORM CHECK_SCREEN
+  IF RESULT NE 0 THEN ESCAPE TOP END-IF
+  PERFORM SCREEN2DATA
+  ADD 9 TO START_LINE
+  FOR I = 575 TO 1 STEP -1
+   IF DATA.MO_ID(I) NE 0 OR DATA.GR_ID(I) NE 0 THEN
+    ESCAPE BOTTOM
+                                                END-IF
+  END-FOR
+  IF START_LINE >= I THEN
+    START_LINE := I - 8
+                    END-IF
+  IF START_LINE < 1 THEN
+   START_LINE := 1  END-IF
+ VALUE 'PF9'
+  PERFORM CHECK_SCREEN
+  IF RESULT NE 0 THEN ESCAPE TOP END-IF
+  PERFORM SCREEN2DATA
+  START_LINE := 1
+ VALUE 'PF10'
+  PERFORM CHECK_SCREEN
+  IF RESULT NE 0 THEN ESCAPE TOP END-IF
+  PERFORM SCREEN2DATA
+  FOR I = 575 TO 1 STEP -1
+   IF DATA.MO_ID(I) NE 0 OR DATA.GR_ID(I) NE 0 THEN
+    ESCAPE BOTTOM
+                                                END-IF
+  END-FOR
+  START_LINE := I - 5
+  IF START_LINE < 1 THEN
+   START_LINE := 1  END-IF
+ VALUE 'PF5'
+  PERFORM CHECK_SCREEN
+  IF FLAG = 0 FLAG := 1 END-IF                   /* MNN
+  IF RESULT = 1 RESET FLAG ESCAPE TOP END-IF     /* MNN
+  IF RESULT NE 0 AND FLAG = 1                    /* MNN
+    ESCAPE TOP                                   /* MNN
+  END-IF                                         /* MNN
+  RESET FLAG                                     /* MNN
+/*  IF RESULT NE 0 THEN ESCAPE TOP END-IF        /* MNN
+  PERFORM SCREEN2DATA
+L1. GET ZAKAZ ISNREC
+    ZAKAZ.GR-F(*,*) := 0
+    ZAKAZ.MO-F(*,*) := 0
+    M := 0
+    FOR I = 1 TO 3
+     FOR K = 1 TO 191
+      ADD 1 TO M
+      IF M <= 575 THEN
+       MO-F(I,K) := DATA.MO_ID(M)
+       GR-F(I,K) := DATA.GR_ID(M)
+                  END-IF
+     END-FOR
+    END-FOR
+    UPDATE(L1.)
+    END OF TRANSACTION
+    ISNREC  := 0
+    ESCAPE ROUTINE
+ VALUE 'PF3'
+  ESCAPE ROUTINE
+ NONE VALUE
+ PERFORM CHECK_SCREEN
+  IF RESULT NE 0 THEN ESCAPE TOP END-IF
+END-DECIDE
+END-REPEAT
+END-IF
+DEFINE SUBROUTINE CHECK_SCREEN
+ RESULT := 0
+IF START_LINE EQ 1 THEN
+ IF SCREEN.MO_ID(*) NE 0 AND SCREEN.GR_ID(*) NE 0 THEN
+           IGNORE ELSE
+  IF DATA.MO_ID(11:575) EQ 0 AND DATA.GR_ID(11:575) EQ 0 THEN
+     IGNORE
+*    RESULT := 1  POSIT := POS(SCREEN.MO_ID(1))
+*    MESSAGEL := 'HÓËEBOE OÏPEÄEËEHÈE ÇAKAÇA HEÄOÏÓCTÈMO.'
+    ESCAPE ROUTINE  END-IF  END-IF   END-IF
+FOR I = 1 TO 10
+ IF SCREEN.MO_ID(I) NE 0 THEN
+ EXAMINE SCREEN.MO_ID_A(*) SCREEN.MO_ID_A(I) GIVING NUMBER K
+ IF K > 1 THEN  RESULT := 2 POSIT := POS(SCREEN.MO_ID(I))        /* MNN
+  MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa M/O ía ýêpaíe.'
+  ESCAPE ROUTINE END-IF
+  DECIDE FOR FIRST CONDITION
+   WHEN START_LINE EQ 1
+   IF SCREEN.MO_ID(I) EQ DATA.MO_ID(11:575) THEN
+    RESULT := 2 POSIT := POS(SCREEN.MO_ID(I))                    /* MNN
+    MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa M/O â ìaccèâe äaííûx.'
+    ESCAPE ROUTINE                          END-IF
+   WHEN START_LINE > 565
+   IF SCREEN.MO_ID(I) EQ DATA.MO_ID(1:START_LINE) THEN
+    RESULT := 2 POSIT := POS(SCREEN.MO_ID(I))                    /* MNN
+    MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa M/O â ìaccèâe äaííûx.'
+    ESCAPE ROUTINE                          END-IF
+   WHEN NONE
+    K := START_LINE + 10
+    M := START_LINE - 1
+   IF SCREEN.MO_ID(I) EQ DATA.MO_ID(1:M) OR
+      SCREEN.MO_ID(I) EQ DATA.MO_ID(K:575) THEN
+    RESULT := 2 POSIT := POS(SCREEN.MO_ID(I))                    /* MNN
+    MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa M/O â ìaccèâe äaííûx.'
+    ESCAPE ROUTINE                          END-IF
+  END-DECIDE
+  KEYB.KEYOG := OG-IDENT-G
+  KEYB.KEYKD := SCREEN.MO_ID(I)
+  FIND VIEW_MO OG-MO = KEYB
+   IF NO RECORD FOUND
+    RESULT := 1 POSIT := POS(SCREEN.MO_ID(I))
+    MESSAGEL := 'Koä M/O íe çapeãècòpèpoâaí.'
+    ESCAPE ROUTINE
+   END-NOREC
+  END-FIND
+ END-IF
+ IF SCREEN.GR_ID(I) NE 0 THEN
+ EXAMINE SCREEN.GR_ID_A(*) SCREEN.GR_ID_A(I) GIVING NUMBER K
+ IF K > 1 THEN  RESULT := 2 POSIT := POS(SCREEN.GR_ID(I))        /* MNN
+  MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa ãpyïïû ía ýêpaíe.'
+  ESCAPE ROUTINE END-IF
+  DECIDE FOR FIRST CONDITION
+   WHEN START_LINE EQ 1
+   IF SCREEN.GR_ID(I) EQ DATA.GR_ID(11:575) THEN
+    RESULT := 2 POSIT := POS(SCREEN.GR_ID(I))                    /* MNN
+    MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa ãpyïïû â ìaccèâe äaííûx.'
+    ESCAPE ROUTINE                          END-IF
+   WHEN START_LINE > 565
+   IF SCREEN.GR_ID(I) EQ DATA.GR_ID(1:START_LINE) THEN
+    RESULT := 2 POSIT := POS(SCREEN.GR_ID(I))                    /* MNN
+    MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa ãpyïïû â ìaccèâe äaííûx.'
+    ESCAPE ROUTINE                          END-IF
+   WHEN NONE
+    K := START_LINE + 10
+    M := START_LINE - 1
+   IF SCREEN.GR_ID(I) EQ DATA.GR_ID(1:M) OR
+      SCREEN.GR_ID(I) EQ DATA.GR_ID(K:575) THEN
+    RESULT := 2 POSIT := POS(SCREEN.GR_ID(I))                    /* MNN
+    MESSAGEL := 'Äyáëèpoâaíèe èäeíòèôèêaòopa ãpyïïû â ìaccèâe äaííûx.'
+    ESCAPE ROUTINE                          END-IF
+  END-DECIDE
+KEYT.KEYOG := OG-IDENT-G
+KEYT.KEYAA := 'MA'
+KEYT.KEYKD := SCREEN.GR_ID(I)
+FIND VIEW_GR TP-Y = KEYT
+ IF NO RECORD FOUND
+    RESULT := 1 POSIT := POS(SCREEN.GR_ID(I))
+    MESSAGEL := 'Koä ãpyïïû íe çapeãècòpèpoâaí.'
+    ESCAPE ROUTINE
+ END-NOREC
+END-FIND
+ END-IF
+END-FOR
+/* ÏPOBEPKA B ÔAÉËE
+M := START_LINE - 1
+G := START_LINE + 10
+L2. FIND ZAKAZ MO-F NE 0 AND GR-F NE 0 AND ZK-F NE ' '
+*    AND OG-F EQ OG-IDENT-G
+     IF *ISN(L2.) NE ISNREC THEN
+     CC_GM := C*GM-F
+      FOR I = 1 TO 575
+       IF I <= M OR I >= G THEN
+        TMPMO := DATA.MO_ID(I) ELSE
+        MX := I - START_LINE + 1
+        TMPMO := SCREEN.MO_ID(MX) END-IF
+        IF TMPMO EQ 0 THEN ESCAPE BOTTOM END-IF
+*       IF TMPMO NE 0 THEN
+       FOR K = 1 TO 575
+        IF K <= M OR K >= G THEN
+          TMPGR := DATA.GR_ID(K) ELSE
+          MX := K - START_LINE + 1
+          TMPGR := SCREEN.GR_ID(MX) END-IF
+          IF TMPGR EQ 0 THEN ESCAPE BOTTOM END-IF
+*         IF TMPGR NE 0 THEN
+          CC_GR := C*GR-F(CC_GM)
+          CC_MO := C*MO-F(CC_GM)
+          IF CC_MO EQ 0 THEN CC_MO := 1 END-IF
+          IF CC_GR EQ 0 THEN CC_GR := 1 END-IF
+          IF CC_GM EQ 0 THEN CC_GM := 1 END-IF
+          IF TMPMO EQ MO-F(1:CC_GM,1:CC_MO) AND
+             TMPGR EQ GR-F(1:CC_GM,1:CC_GR) THEN
+            RESULT := 2 POSIT := POS(SCREEN.MO_ID(1))        /* MNN
+            COMPRESS 'Ïapaìeòpû : M/O - ' TMPMO ' è ãp. - ' TMPGR
+            ', oïpeäeëeíû â çaêaçe :' ZK-F(L2.) TO MESSAGEL
+            ESCAPE ROUTINE
+                                                                END-IF
+*         END-IF
+       END-FOR
+*                     END-IF
+      END-FOR
+     END-IF
+    END-FIND
+END-SUBROUTINE
+DEFINE SUBROUTINE SCREEN2DATA
+ FOR I = 1 TO 10
+  K := START_LINE + I - 1
+  IF K <= 575 THEN
+   DATA.MO_ID(K) := SCREEN.MO_ID(I)
+   DATA.GR_ID(K) := SCREEN.GR_ID(I)
+              END-IF
+ END-FOR
+  /* CÆATÜ DATA
+ FOR I = 1 TO 575
+  IF DATA.MO_ID(I) EQ 0 THEN
+   FOR K = I TO 575
+    IF DATA.MO_ID(K) NE 0 THEN
+     DATA.MO_ID(I) := DATA.MO_ID(K)
+     DATA.MO_ID(K) := 0
+     ADD 1 TO I
+                          END-IF
+   END-FOR
+   ESCAPE BOTTOM
+  END-IF
+ END-FOR
+ FOR I = 1 TO 575
+  IF DATA.GR_ID(I) EQ 0 THEN
+   FOR K = I TO 575
+    IF DATA.GR_ID(K) NE 0 THEN
+     DATA.GR_ID(I) := DATA.GR_ID(K)
+     DATA.GR_ID(K) := 0
+     ADD 1 TO I
+                          END-IF
+   END-FOR
+   ESCAPE BOTTOM
+  END-IF
+ END-FOR
+END-SUBROUTINE
+ON ERROR
+ INPUT (AD=OIL) CC_GM CC_MO CC_GR
+END-ERROR
+END

@@ -1,0 +1,295 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MXDRAT0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070719
+**C               *:Time 2259000
+**C               *<Natural Source Header
+**DS          0000      1MXDRAT0L
+**C           0000*Документ
+**DKC  S      0002P   7C2DC-NUMBER-ATTR-ID
+**HS0001
+**I                      10000
+**DKC  S      0002P   7C2DC-DATE-ATTR-ID
+**HS0001
+**I                      10001
+**DKC  S      0002P   7C2DC-DATE-OTR-ATTR-ID
+**HS0001
+**I                      10074
+**DKC  S      0002P   7C2DC-CONFIRMED
+**HS0001
+**I                      10101
+**DKC  S      0002P   7C2DC-PACKAGE-ATTR-ID
+**HS0001
+**I                      10121
+**C           0000*Смешанные документы
+**DKC  S      0002P   7C2DC-TT-NUMBER-ATTR-ID
+**HS0001
+**I                      10130
+**DKC  S      0002P   7C2DC-TT-DATE-ATTR-ID
+**HS0001
+**I                      10131
+**DKC  S      0002P   7C2DC-SF-NUMBER-ATTR-ID
+**HS0001
+**I                      10132
+**DKC  S      0002P   7C2DC-SF-DATE-ATTR-ID
+**HS0001
+**I                      10133
+**C           0000*Запись
+**DKC  S      0002P   7C2DR-DT-START-ATTR-ID
+**HS0001
+**I                      10075
+**DKC  S      0002P   7C2DR-DT-STOP-ATTR-ID
+**HS0001
+**I                      10076
+**DKC  S      0002P   7C2DR-COMMENT-ATTR-ID
+**HS0001
+**I                      10077
+**C           0000*Ссылки на документы
+**DKC  S      0002P   7C2DR-DOC-PO-ATTR-ID
+**HS0001
+**I                      10124
+**DKC  S      0002P   7C2DR-DOC-RL-ATTR-ID
+**HS0001
+**I                      11001
+**DKC  S      0002P   7C2DR-DOC-LK-ATTR-ID
+**HS0001
+**I                      10065
+**DKC  S      0002P   7C2DR-DOC-LK-IN-ATTR-ID
+**HS0001
+**I                      20065
+**DKC  S      0002P   7C2DR-DOC-LK-OUT-ATTR-ID
+**HS0001
+**I                      30065
+**DKC  S      0002P   7C2DR-DOC-LKR-ATTR-ID
+**HS0001
+**I                      10079
+**DKC  S      0002P   7C2DR-DOC-TT-ATTR-ID
+**HS0001
+**I                      10005
+**DKC  S      0002P   7C2DR-DOC-SF-ATTR-ID
+**HS0001
+**I                      10004
+**DKC  S      0002P   7C2DR-DOC-DV-ATTR-ID
+**HS0001
+**I                      10006
+**DKC  S      0002P   7C2DR-DOC-PP-ATTR-ID
+**HS0001
+**I                      10007
+**DKC  S      0002P   7C2DR-DOC-POM-ATTR-ID
+**HS0001
+**I                      10125
+**DKC  S      0002P   7C2DR-DOC-REAL-TT-ATTR-ID
+**HS0001
+**I                      10126
+**C           0000*Атрибуты
+**DKC  S      0002P   7C2DR-MO-ATTR-ID
+**HS0001
+**I                      10003
+**DKC  S      0002P   7C2DR-MO-IN-ATTR-ID
+**HS0001
+**I                      20003
+**DKC  S      0002P   7C2DR-MO-OUT-ATTR-ID
+**HS0001
+**I                      30003
+**DKC  S      0002P   7C2DR-MO-TRANSIT-ATTR-ID
+**HS0001
+**I                      10123
+**DKC  S      0002P   7C2DR-DP-ATTR-ID
+**HS0001
+**I                      10078
+**DKC  S      0002P   7C2DR-DP-IN-ATTR-ID
+**HS0001
+**I                      20078
+**DKC  S      0002P   7C2DR-DP-OUT-ATTR-ID
+**HS0001
+**I                      30078
+**DKC  S      0002P   7C2DR-VO-ATTR-ID
+**HS0001
+**I                      10002
+**DKC  S      0002P   7C2DR-VO-IN-ATTR-ID
+**HS0001
+**I                      20002
+**DKC  S      0002P   7C2DR-VO-OUT-ATTR-ID
+**HS0001
+**I                      30002
+**DKC  S      0002P   7C2DR-VO-MT-IN-ATTR-ID             /*Грузоотправитель
+**HS0001
+**I                      10127
+**DKC  S      0002P   7C2DR-VO-MT-OUT-ATTR-ID            /*Грузополучатель
+**HS0001
+**I                      10128
+**DKC  S      0002P   7C2DR-VO-PA-ATTR-ID                /*Плательщик
+**HS0001
+**I                      10129
+**DKC  S      0002P   7C2DR-BN-IN-ATTR-ID                /*Банк поставщика
+**HS0001
+**I                      10138
+**DKC  S      0002P   7C2DR-RS-IN-ATTR-ID                /*Расчетный счет поставщика
+**HS0001
+**I                      10139
+**DKC  S      0002P   7C2DR-BN-MT-OUT-ATTR-ID            /*Банк грузополучател
+**HS0001
+**I                      10140
+**DKC  S      0002P   7C2DR-RS-MT-OUT-ATTR-ID            /*Расчетный счет грузополучател
+**HS0001
+**I                      10141
+**DKC  S      0002P   7C2DR-BN-PA-ATTR-ID                /*Банк плательщика
+**HS0001
+**I                      10142
+**DKC  S      0002P   7C2DR-RS-PA-ATTR-ID                /*Расчетный счет плательщика
+**HS0001
+**I                      10143
+**DKC  S      0002P   7C2DR-ZK-ATTR-ID
+**HS0001
+**I                      10066
+**DKC  S      0002P   7C2DR-ZK-IN-ATTR-ID
+**HS0001
+**I                      20066
+**DKC  S      0002P   7C2DR-ZK-OUT-ATTR-ID
+**HS0001
+**I                      30066
+**DKC  S      0002P   7C2DR-MZ-ATTR-ID
+**HS0001
+**I                      10080
+**DKC  S      0002P   7C2DR-MT-ATTR-ID
+**HS0001
+**I                      10050
+**DKC  S      0002P   7C2DR-MT-BASE-ATTR-ID
+**HS0001
+**I                      10122
+**DKC  S      0002P   7C2DR-MT-IN-ATTR-ID
+**HS0001
+**I                      20050
+**DKC  S      0002P   7C2DR-MT-OUT-ATTR-ID
+**HS0001
+**I                      30050
+**DKC  S      0002P   7C2DR-DT-ATTR-ID
+**HS0001
+**I                      10069
+**DKC  S      0002P   7C2DR-DT-IN-ATTR-ID
+**HS0001
+**I                      20069
+**DKC  S      0002P   7C2DR-DT-OUT-ATTR-ID
+**HS0001
+**I                      30069
+**DKC  S      0002P   7C2DR-GM-ATTR-ID
+**HS0001
+**I                      10061
+**DKC  S      0002P   7C2DR-GM-IN-ATTR-ID
+**HS0001
+**I                      20061
+**DKC  S      0002P   7C2DR-GM-OUT-ATTR-ID
+**HS0001
+**I                      30061
+**DKC  S      0002P   7C2DR-PR-ATTR-ID
+**HS0001
+**I                      10060
+**DKC  S      0002P   7C2DR-PR-IN-ATTR-ID
+**HS0001
+**I                      20060
+**DKC  S      0002P   7C2DR-PR-OUT-ATTR-ID
+**HS0001
+**I                      30060
+**DKC  S      0002P   7C2DR-IX-ATTR-ID
+**HS0001
+**I                      10120
+**C           0000*Количества
+**DKC  S      0002P   7C2DR-PRIH-COL-ATTR-ID
+**HS0001
+**I                      10056
+**DKC  S      0002P   7C2DR-PRIH-EI-ATTR-ID
+**HS0001
+**I                      10058
+**DKC  S      0002P   7C2DR-BASE-COL-ATTR-ID
+**HS0001
+**I                      10062
+**DKC  S      0002P   7C2DR-BASE-EI-ATTR-ID
+**HS0001
+**I                      10063
+**DKC  S      0002P   7C2DR-PLAN-COL-ATTR-ID
+**HS0001
+**I                      10067
+**DKC  S      0002P   7C2DR-PLAN-EI-ATTR-ID
+**HS0001
+**I                      10068
+**DKC  S      0002P   7C2DR-NORM-COL-ATTR-ID
+**HS0001
+**I                      10081
+**DKC  S      0002P   7C2DR-NORM-EI-ATTR-ID
+**HS0001
+**I                      10082
+**DKC  S      0002P   7C2DR-PLACE-COL-ATTR-ID
+**HS0001
+**I                      10134
+**DKC  S      0002P   7C2DR-PLACE-EI-ATTR-ID
+**HS0001
+**I                      10135
+**DKC  S      0002P   7C2DR-MASS-COL-ATTR-ID
+**HS0001
+**I                      10136
+**DKC  S      0002P   7C2DR-MASS-EI-ATTR-ID
+**HS0001
+**I                      10137
+**C           0000*Суммы
+**DKC  S      0002P   7C2DR-NDS-STAVKA-ATTR-ID
+**HS0001
+**I                      10057
+**DKC  S      0002P   7C2DR-NDS-ATTR-ID
+**HS0001
+**I                      10053
+**DKC  S      0002P   7C2DR-NDS-SUMMA-ATTR-ID
+**HS0001
+**I                      10054
+**DKC  S      0002P   7C2DR-CENA-ATTR-ID
+**HS0001
+**I                      10051
+**DKC  S      0002P   7C2DR-CENA-SUMMA-ATTR-ID
+**HS0001
+**I                      10052
+**DKC  S      0002P   7C2DR-BALC-SUMMA-ATTR-ID
+**HS0001
+**I                      10085
+**DKC  S      0002P   7C2DR-ALL-SUMMA-ATTR-ID
+**HS0001
+**I                      10055
+**C           0000*Бухгалтерские счета
+**DKC  S      0002P   7C2DR-BS-ATTR-ID
+**HS0001
+**I                      10009
+**DKC  S      0002P   7C2DR-BS-IN-ATTR-ID
+**HS0001
+**I                      20009
+**DKC  S      0002P   7C2DR-BS-OUT-ATTR-ID
+**HS0001
+**I                      30009
+**DKC  S      0002P   7C2DR-NDS-BS-ATTR-ID
+**HS0001
+**I                      40009
+**C           0000*Подтверждение
+**DKC  S      0002P   7C2DR-CONFIRMED
+**HS0001
+**I                      10021
+**DKC  S      0002P   7C2DR-CONF-COL-ATTR-ID
+**HS0001
+**I                      40056
+**DKC  S      0002P   7C2DR-CONF-CENA-SUMMA-ATTR-ID
+**HS0001
+**I                      40052
+**DKC  S      0002P   7C2DR-CONF-NDS-SUMMA-ATTR-ID
+**HS0001
+**I                      40054
+**DKC  S      0002P   7C2DR-CONF-ALL-SUMMA-ATTR-ID
+**HS0001
+**I                      40055
+**C           0000*Специально дл  ЛЗК
+**DKC  S      0002P   7C2DR-LK-UZEL-ATTR-ID
+**HS0001
+**I                      10083
+**DKC  S      0002P   7C2DR-LK-PRIZNAK-ATTR-ID
+**HS0001
+**I                      10084
+**DKC  S      0002P   7C2DR-RL-DATE-ATTR-ID
+**HS0001
+**I                      10092

@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UXMRXX0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060525
+**C               *:Time 1818000
+**C               *<Natural Source Header
+**DFC  S      0002P   7C1MR-DD-TYPE-ID
+**HS0001
+**I                      100
+**DFC  S      0002P   7C1MR-IT-TYPE-ID
+**HS0001
+**I                      101
+**DFC  S      0002P   7C1MR-OD-TYPE-ID
+**HS0001
+**I                      102

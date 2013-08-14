@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBSOBS1C
+* :UID Админист
+* :Mode S
+* :CP
+* :Date 20000102
+* :Time 0000000
+* <Natural Source Header /*<<RO>
+     MOVE CXBSS0DL.BS-CODE TO XPOTBS1L.BS-CODE(#I)
+     MOVE CXBSS0DL.BS-NAME TO XPOTBS1L.BS-NAME(#I)
+     MOVE CXBSS0DL.BS-ID TO XPOTBS1L.BS-ID(#I)
+     RESET XPOTBS1L.OT-CMD-C(#I)
+

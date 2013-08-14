@@ -1,0 +1,122 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPZKM2
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20000705
+* :Time 1124330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #FIELD-01(*) #FIELD-01C(*) #FIELD-02(*) #FIELD-02C(*) FUN-NM-G
+*     REG-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 #FIELD-01 (A009/00001:00015)
+1 #FIELD-01C (C/00001:00015)
+1 #FIELD-02 (N05.0/00001:00015)
+1 #FIELD-02C (C/00001:00015)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 020T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+/
+ 032T '«‡Í‡Á'
+ 045T '—˜ÂÚ'
+/
+ 009T '----------------------------------------------------------'-
+      '-----'
+/
+ 032T #FIELD-01 (001)  (AD=YLMT'_' CV=#FIELD-01C(001) ) /*.99U009 A009 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 045T #FIELD-02 (001)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(001) )
+   /**A1000150000100001000010000100001100015001001000001000HV
+/
+ 032T #FIELD-01 (002)  (AD=YLMT'_' CV=#FIELD-01C(002) ) /*.99U009 A009 .
+ 045T #FIELD-02 (002)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(002) )
+/
+ 032T #FIELD-01 (003)  (AD=YLMT'_' CV=#FIELD-01C(003) ) /*.99U009 A009 .
+ 045T #FIELD-02 (003)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(003) )
+/
+ 032T #FIELD-01 (004)  (AD=YLMT'_' CV=#FIELD-01C(004) ) /*.99U009 A009 .
+ 045T #FIELD-02 (004)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(004) )
+/
+ 032T #FIELD-01 (005)  (AD=YLMT'_' CV=#FIELD-01C(005) ) /*.99U009 A009 .
+ 045T #FIELD-02 (005)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(005) )
+/
+ 032T #FIELD-01 (006)  (AD=YLMT'_' CV=#FIELD-01C(006) ) /*.99U009 A009 .
+ 045T #FIELD-02 (006)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(006) )
+/
+ 032T #FIELD-01 (007)  (AD=YLMT'_' CV=#FIELD-01C(007) ) /*.99U009 A009 .
+ 045T #FIELD-02 (007)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(007) )
+/
+ 032T #FIELD-01 (008)  (AD=YLMT'_' CV=#FIELD-01C(008) ) /*.99U009 A009 .
+ 045T #FIELD-02 (008)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(008) )
+/
+ 032T #FIELD-01 (009)  (AD=YLMT'_' CV=#FIELD-01C(009) ) /*.99U009 A009 .
+ 045T #FIELD-02 (009)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(009) )
+/
+ 032T #FIELD-01 (010)  (AD=YLMT'_' CV=#FIELD-01C(010) ) /*.99U009 A009 .
+ 045T #FIELD-02 (010)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(010) )
+/
+ 032T #FIELD-01 (011)  (AD=YLMT'_' CV=#FIELD-01C(011) ) /*.99U009 A009 .
+ 045T #FIELD-02 (011)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(011) )
+/
+ 032T #FIELD-01 (012)  (AD=YLMT'_' CV=#FIELD-01C(012) ) /*.99U009 A009 .
+ 045T #FIELD-02 (012)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(012) )
+/
+ 032T #FIELD-01 (013)  (AD=YLMT'_' CV=#FIELD-01C(013) ) /*.99U009 A009 .
+ 045T #FIELD-02 (013)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(013) )
+/
+ 032T #FIELD-01 (014)  (AD=YLMT'_' CV=#FIELD-01C(014) ) /*.99U009 A009 .
+ 045T #FIELD-02 (014)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(014) )
+/
+ 032T #FIELD-01 (015)  (AD=YLMT'_' CV=#FIELD-01C(015) ) /*.99U009 A009 .
+ 045T #FIELD-02 (015)  (AD=YLMFHT'_' /*.99U005 N05.0.
+      CV=#FIELD-02C(015) )
+/
+ 001T '-¬¬Œƒ---œ‘1---œ‘2---œ‘3---œ‘4---œ‘5---œ‘6---œ‘7---œ‘8---œ‘'-
+      '9---œ‘10--œ‘11--œ‘12-'
+/
+ 010T '?'(I)
+ 021T '¬˚ı'(I)
+ 027T ' ÓÔ'(I)
+ 033T '«‡Ô'(I)
+ 045T 'ÕÁ‰'(I)
+ 051T '¬Ô'(I)
+ 057T 'Õ‡˜'(I)
+ 063T ' ÓÌ'(I)
+ 075T '—ÓÚ'(I)
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

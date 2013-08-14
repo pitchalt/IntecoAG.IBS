@@ -1,0 +1,16 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName RUN_CL
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20090702
+* :Time 1513330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL
+  1 #OG(N5) INIT < 1000 >
+  1 #NP(N5) INIT < 37 >
+  1 #US(A8) INIT < 'MSA' >
+END-DEFINE
+CALLNAT 'CNTUS' #OG #NP #US
+END

@@ -1,0 +1,51 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NMFZAK
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20091117
+* :Time 1053330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     NMF(*)
+DEFINE DATA PARAMETER
+1 NMF (A040/00001:00003)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 002T NMF (001)  (AD=DLOFHT CD=BL ) /*.01U040 A040 .
+   /**A1000030000100001000010000100001100003001001000001000HV
+/
+ 002T NMF (002)  (AD=DLOFHT CD=BL ) /*.01U040 A040 .
+/
+ 002T NMF (003)  (AD=DLOFHT CD=BL ) /*.01U040 A040 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

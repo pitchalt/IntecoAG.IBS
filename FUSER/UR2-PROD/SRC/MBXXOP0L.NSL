@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBXXOP0L
+**C               *:UID OLEG
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061011
+**C               *:Time 2344000
+**C               *<Natural Source Header
+**DS          0000      1MBXXOP0L-CONST
+**C           0000*Переменна  op-Array-elem должна быть согласована с размером массива
+**C           0000* OP-ARRAY в области параметров MBXXop0A
+**DKC  S      0002I   4C2OP-ARRAY-ELEM                   /*кол-во элем-в описани  в маc
+**HS0001
+**I                      30

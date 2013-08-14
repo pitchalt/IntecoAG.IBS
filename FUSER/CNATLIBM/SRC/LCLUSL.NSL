@@ -1,0 +1,18 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLUSL
+**C               *:UID IBS_8
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000705
+**C               *:Time 1418330
+**C               *<Natural Source Header
+**DV          0000     V1IBS-NAU-FILE                    IBS-SYS-FILE
+**DD          0000N 5.0 2OG-ID
+**DD          0000A  80 2NM-PL
+**DD          0000A   8 2US-ID
+**DD    *     0000     C2UG-ID
+**DD I1 C     0000N 5.0M2UG-ID                           (1:191)
+**DD    *     0000     C2UB-ID
+**DD I1 C     0000N 5.0M2UB-ID                           (1:191)
+**DD          0000A   2 2KK-F
+**DD I1 C     0000A 170M2NB-F                            (2)

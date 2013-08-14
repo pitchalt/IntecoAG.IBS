@@ -1,0 +1,42 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLNAOL
+**C               *:UID IBS_8
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000711
+**C               *:Time 1517330
+**C               *<Natural Source Header
+**DFC  S      0002N   3C1MAX_BNK
+**HS0001
+**I                      15
+**DFC  S      0002N   3C1MAX_RS
+**HS0001
+**I                      15
+**DV          0000     V1IBS-NAOR-FILE                   IBS-SYS-FILE
+**DD          0000N 5.0 2OG-ID
+**DD          0000A  80 2NM-OG                           /* ÍÀÇÂÀÍÈÅ
+**DD          0000A  80 2AD-OG                           /* ÀÄÐÅÑ
+**DD    *     0000     C2PR-ID                           /* Ñ×ÅÒ×ÈÊ Ê-ÂÀ ÁÀÍÊÎÂ
+**DD I1 *     0000     C2RS-OG                           (1:15) /* Ñ×ÅÒ×ÈÊ Ê-ÂÀ Ð/Ñ×ÅÒÎÂ
+**DD I1 *     0000     C2RS-VA                           (1:15)
+**DD I1 C     0000     P2PR-ID                           (1:MAX_BNK)
+**DD          0000N 8.0 3BN-OG
+**DD I2 C     0000A  20M3RS-OG                           (1:MAX_RS)
+**DD I2 C     0000A   3M3RS-VA                           (1:MAX_RS)
+**DD          0000N 5.0 2KD-ID
+**DD          0000A  15 2NN-ID
+**DD          0000A 250 2NA-F
+**DR          0000     R2NA-F                            /* BEGIN REDEFINE: NA-F
+**DFR         0000A  60 3NA-F-NAM                        /* ÀËÜÒ.  ÈÌß
+**DFR         0000A  60 3NA-F-ADR                        /* ÀËÜÒ. ÀÄÐÅÑ
+**DFR         0000A  30 3NA-F-TEL                        /* ÒÅËÅÊÑ
+**DFR         0000A  30 3NA-F-DEP                        /* ÄÅÏÀÐÒÀÌÅÍÒ
+**DD I1 C     0000A  40M2VO-DI                           (1:5) /*      ÊÐÀÒÊÎÅ ÈÌß
+**C           0000*                                                                ÃÎÐÎÄ
+**C           0000*                                                              ÒÅËÅÔÎÍ
+**C           0000*                                                    ÊÎÄ ÎÒÐÀÑËÈ ÎÊÎÍÕ
+**C           0000*                                                 ÊÎÄ ÎÐÃÀÍÈÇÀÖÈÈ ÎÊÏÎ
+**DD          0000D     2UP-DT
+**DD          0000A   8 2UP-PG
+**DD          0000A   8 2UP-ID
+**DD          0000A   8 2UP-US

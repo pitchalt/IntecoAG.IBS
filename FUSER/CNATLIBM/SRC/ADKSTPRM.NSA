@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName ADKSTPRM
+**C               *:UID IEN
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20101115
+**C               *:Time 0918040
+**C               *<Natural Source Header
+**DS                    1ADKSTPRM
+**DF              N 5.0 2OG-ID
+**DF              A  80 2NM-OG
+**DF              A   5 2ST-F
+**DF              N 6.0 2CT-F
+**DF              P11.0 2INT-NUM-ST

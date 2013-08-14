@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XXCTXX0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20080312
+**C               *:Time 1655330
+**C               *<Natural Source Header
+**DS          0         1XXCTXX0A
+**DK          0   P  15 2TX-ID
+**DK          0   L     2TX-NOT-MANAGED
+**DK          0   P  15 2OD-ID
+**DK          0   L     2OD-IS-NOT-USED
+**DK          0   L     2IS-DR-DEBUG
+**DK          0   L     2IS-OP-DEBUG
+**DK          0   L     2IS-OP-CALC-DEBUG
+**DK          0   A   8 2DEFAULT-PRINTER
+**DS          0         2CT-USER
+**DK          0   A   8 3US-LOGIN
+**DK          0   P  15 3US-MO-ID
+**DK          0   P  15 3US-VO-ID
+**DS          0         2CT-CALC
+**DK          0   P  15 3OG-ID
+**DK          0   P  15 3VO-OG-ID
+**DK          0   P  15 3MO-OG-ID
+**DK          0   P  15 3MT-OG-ID
+**DK          0   P  15 3GM-OG-ID
+**DK          0   P   7 3OP-ID                           /*id описани

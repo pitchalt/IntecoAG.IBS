@@ -1,0 +1,109 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPZK1M1
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20000705
+* :Time 1125330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #FIELD-01(*) #FIELD-02(*) #ZK FUN-NM-G REG-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 #FIELD-01 (N05.0/00001:00015)
+1 #FIELD-02 (A050/00001:00015)
+1 #ZK (A009)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT' ' ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT' ' DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT' ' ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT' ' ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT' ' DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT' ' ) /*.01S008 A008 .
+/
+ 020T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+ 003T 'Заказ'(I)
+ 009T #ZK  (AD=ILOFHT'_' ) /*.01U009 A009 .
+/
+ 003T 'Подразделение'
+ 023T 'Наименование'
+/
+ 001T '----------------------------------------------------------'-
+      '---------------------'
+/
+ 007T #FIELD-01 (001)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+   /**A1000150000100001000010000100001010001015001000001000HV
+ 023T #FIELD-02 (001)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+   /**A1000150000100001000010000100001010001015001000001000HV
+/
+ 007T #FIELD-01 (002)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (002)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (003)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (003)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (004)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (004)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (005)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (005)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (006)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (006)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (007)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (007)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (008)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (008)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (009)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (009)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (010)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (010)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (011)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (011)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (012)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (012)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (013)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (013)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (014)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (014)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 007T #FIELD-01 (015)  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+ 023T #FIELD-02 (015)  (AD=DLOFHT'_' ) /*.01U050 A050 .
+/
+ 001T '-ВВОД---ПФ1---ПФ2---ПФ3---ПФ4---ПФ5---ПФ6---ПФ7---ПФ8---ПФ'-
+      '9---ПФ10--ПФ11--ПФ12-'
+/
+ 010T '?'(I)
+ 015T 'Пдр'(I)
+ 021T 'Вых'(I)
+ 027T 'Коп'(I)
+ 033T 'Зап'(I)
+ 045T 'Нзд'(I)
+ 051T 'Впр'(I)
+ 057T 'Нач'(I)
+ 063T 'Кон'(I)
+ 075T 'Сорт'(I)
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

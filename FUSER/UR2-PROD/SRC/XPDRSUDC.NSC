@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPDRSUDC
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060602
+* :Time 1553000
+* <Natural Source Header /*<<RO>
+/* пюяоюйнбюрэ дюрс хг гюохях днйслемрю
+  RESET &2&
+  MOVE &1& TO SX-DATE-NUMBER
+  MOVE EDITED SX-DATE-VALUE TO &3& (EM=YYYYMMDD)
+  MOVE EDITED &3& (EM=YYYYMMDD) TO &2&
+

@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPXXZP0C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060611
+* :Time 2248000
+* <Natural Source Header /*<<RO>
+EXAMINE &1& '.' GIVING POSITION #ZAP
+ADD 1 TO #ZAP
+EXAMINE SUBSTRING(&1&,#ZAP,8) FOR '0' DELETE
+MOVE RIGHT &1& TO &1&
+

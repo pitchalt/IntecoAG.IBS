@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPDMSH0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060508
+**C               *:Time 2326000
+**C               *<Natural Source Header
+**DS          0000      1XPDMSH0A
+**DK          0000A  10 2SH-COMMAND
+**DK          0000A  40 2DM-SEARCH
+**DS          0000      2DM-RESULT
+**DK          0000P  15 3DM-ID
+**DK          0000N   5 3DM-CODE
+**DK          0000A  44 3DM-NAME
+**DK          0000P  15 3DM-EI-ID
+**DK          0000A   5 3DM-EI-SHORT-NAME

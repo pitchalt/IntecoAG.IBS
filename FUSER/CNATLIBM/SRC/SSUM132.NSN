@@ -1,0 +1,24 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SSUM132
+* :UID NIMI
+* :Mode S
+* :CP
+* :Date 20030927
+* :Time 1608330
+* <Natural Source Header /*<<RO>
+************************************************************************
+DEFINE DATA
+  PARAMETER
+    01 #NUM             (N13.2)         /* IN DATA
+    01 #TXT             (A170)         /* OUT DATA
+  LOCAL
+    01 #IN-OUT-MODE     (A001)         /* OUT MODE: "L" - LOWER CASE
+*                                                   "U" - UPPER CASE
+    01 #IN-OUT-LINE     (A250)         /* IN/OUT DATA
+    01 #RETURN          (I002)         /* RETURN CODE
+END-DEFINE
+ASSIGN #IN-OUT-MODE = 'U'
+MOVE EDITED #NUM (EM=9999999999999.99) TO #IN-OUT-LINE
+CALLNAT 'SSUM250' #IN-OUT-MODE #IN-OUT-LINE #RETURN
+MOVE #IN-OUT-LINE TO #TXT
+END

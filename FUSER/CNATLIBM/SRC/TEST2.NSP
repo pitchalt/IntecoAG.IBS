@@ -1,0 +1,96 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName #TEST2
+* :UID TIT_HOME
+* :Mode S
+* :CP
+* :Date 19990120
+* :Time 0341330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+ LOCAL USING LCONVERT /* ИНТЕРФЕЙС
+ LOCAL USING RESERROR /* ОПИСАНИЕ КОДОВ ОШИБКИ ВЫЗОВА
+ LOCAL USING #LSTAT /* СПИСОК ДОПУСТИМЫХ СТАТЕЙ
+ LOCAL USING #PTEST2
+ LOCAL
+1 INP_STR(A70)
+1 I(I4)
+END-DEFINE
+ RESET #PTEST2;
+ /* ИНИЦИАЛИЗИРОВАТЬ ТЕСТОВЫЕ СТЕКИ
+ #PTEST2.COMMAND := 'INIT'
+ PERFORM #SVODTST #PTEST2 ;
+ /*********************************
+ REPEAT
+  SET KEY PF3
+  INPUT (AD=MDT'_') 'Введите строку :' /  '>'INP_STR //
+                    'F3 - Quit'
+  IF *PF-KEY EQ 'PF3'
+   #PTEST2.COMMAND := 'CLOSE'
+   PERFORM #SVODTST #PTEST2 ;
+   STOP
+  END-IF
+  RESET LCONVERT;
+  LCONVERT.CMD := INP_STR
+  CALLNAT 'CHECKCMD' LCONVERT
+  IF LCONVERT.ERROR THEN
+    PERFORM GET_LAST_ERROR
+    ESCAPE TOP;
+   ELSE
+   /* ПРОВЕРКА КОРРЕКТНОСТИ СТРОКИ
+   FOR I = 1 TO LCONVERT.VARCOUNT
+    IF LCONVERT.VARNAME(I) EQ STATNAME(*) THEN IGNORE
+     ELSE
+      REINPUT FULL WITH TEXT
+      'В строке присутствует не описанна  стать .'(CD=RE) ALARM
+    END-IF
+   END-FOR
+   IF LCONVERT.FUNCOUNT NE 0 THEN
+    REINPUT FULL WITH TEXT
+     'В этом режиме отсутствуют определени  функций.'(CD=RE) ALARM
+   END-IF
+  END-IF
+  /* ИНИЦИАЛИЗАЦИЯ ПЕРЕМЕННЫХ ******
+  #PTEST2.N_VAR := LCONVERT.VARCOUNT ;
+  FOR I = 1 TO LCONVERT.VARCOUNT
+   #PTEST2.NAMEVAR(I) := LCONVERT.VARNAME(I)
+  END-FOR
+  /* СВЕДЕНИЕ СТЕКА
+  #PTEST2.COMMAND := 'GET'
+  PERFORM #SVODTST #PTEST2 ;
+  WRITE 'String :' LCONVERT.CMD ;
+  WRITE 'Параметры :'
+   FOR I = 1 TO LCONVERT.VARCOUNT
+    WRITE LCONVERT.VARNAME(I) 12T ' - ' #PTEST2.DATAVAR(I)
+    LCONVERT.VARDATA(I) := #PTEST2.DATAVAR(I)
+   END-FOR
+  /* ОКОНЧАТЕЛЬНОЕ ВЫЧИСЛЕНИЕ СТРОКИ
+  I := 0
+  CALLNAT 'CALCULAT' LCONVERT I
+  IF LCONVERT.ERROR THEN
+    PERFORM GET_LAST_ERROR
+   ELSE
+    WRITE 'Конечный результат :' LCONVERT.RESULT
+  END-IF
+  /*********************************
+ END-REPEAT
+/********************************************************************
+/********************************************************************
+/********************************************************************
+/********************************************************************
+DEFINE SUBROUTINE GET_LAST_ERROR
+   IF LCONVERT.ERROR_CODE EQ 1 THRU NRESERROR THEN
+     IF LCONVERT.ERROR_CODE EQ 1 OR EQ 22 THEN
+       INPUT (AD=OIL) 'Ошибка с кодом :' LCONVERT.ERROR_CODE /
+                      '         Текст :' RESERROR(ERROR_CODE) /
+                      '     *ERROR-TA -' *ERROR-TA /
+                      '   *ERROR-LINE -' *ERROR-LINE /
+                      '     *ERROR-NR -' *ERROR-NR
+      ELSE
+       INPUT (AD=OIL) 'Ошибка с кодом :' LCONVERT.ERROR_CODE /
+             'Текст :' RESERROR(ERROR_CODE)
+     END-IF
+    ELSE
+     INPUT (AD=OIL) 'Ошибка с кодом :' LCONVERT.ERROR_CODE
+   END-IF
+END-SUBROUTINE
+END

@@ -1,0 +1,17 @@
+/*C                                *>Natural Source Header 000000                                     DA:00.00ED:00.00PF:WNV:06030700
+/*C                                *:NatName ASRZIL
+/*C                                *:UID MSA
+/*C                                *:Mode S
+/*C                                *:CP
+/*C                                *:Date 20110408
+/*C                                *:Time 1258390
+/*C                                *<Natural Source Header
+/*DV                               V 1ASRZ-LS-FILE                    ASRZ-LS-FILE                    DA:00.00ED:00.00PF:WNV:06030700
+/*DD                    A        20  2FA-F
+/*DD                    N       5.0  2PO-F
+/*DD                    A        10  2IM-F
+/*DRR                              R 2IM-F                            /* BEGIN REDEFINE: IM-F
+/*DFR                   A         1  3#IM
+/*DD                    A        15  2OT-F
+/*DRR                              R 2OT-F                            /* BEGIN REDEFINE: OT-F
+/*DFR                   A         1  3#OT

@@ -1,0 +1,15 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MMSASH0A
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060911
+**C               *:Time 1024000
+**C               *<Natural Source Header
+**DS          0000      1MMSASH0A
+**DK          0000A  10 2SA-COMMAND
+**DK          0000A  10 2BO-COMMAND-PROCESS
+**DK          0000P   7 2CL-ID
+**DK          0000P   7 2SA-DT-ATTR-ID
+**DK I1       0000P  15 2IT-ID                           (1:10)
+**DK          0000P   7 2OP-ID                           /*id описани

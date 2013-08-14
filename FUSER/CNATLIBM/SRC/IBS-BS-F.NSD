@@ -1,0 +1,56 @@
+DB: 000 FILE: 060  - IBS-BS-FILE                      DEFAULT SEQUENCE:
+TYPE: ADABAS
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID UPA
+*      :CP
+*
+*
+*      :Date 20101020
+*      :Time 1705070
+*      <Natural Source Header
+  1 FS FL-ST                             A    1
+  1 NF NAME-FULL                         A  250  N
+  1 SL SL-ID                             N  2.0  N
+  1 US SL-UR                             A    6  N
+  1 DZ FL-DZ                             A    1  N
+  1 OG OG-ID                             N  5.0  N D
+  1 SS SS-ID                             N  5.0  N
+  1 BS BS-ID                             N  3.0  N
+  1 NM NM-BS                             A   80  N
+  1 PG PG-ID                             A    8  N
+  1 RZ RZ-ID                             N  2.0  N
+  1 FA FL-AN                             A    3  N
+  1 AP AP-ID                             A    3  N
+  1 FZ FL-ZK                             A    1  N
+  1 FK FL-KL                             A    1  N
+  1 FB FL-BL                             A    1
+  1 FI FL-DI                             A    1
+  1 VA VA-ID                             A    3  N
+  1 FG FL-DG                             A    1  N
+  1 FP FL-PO                             A    1
+  1 S5 SS15                              A   15  N
+M 1 N1 USER-CLOSE                        A    8  N
+  1 N2 DT-CLOSE                          N  6.0  N
+  1 CS CS-NN                             N  4.0  N
+P 1 I1 GS-F
+  2 I2 BL-F                              A    1  N
+  2 I3 ST-F                              A    5  N
+M 2 I4 NS-F                              B    4  N
+  1 OB OG-BS                             B    8    S
+*      -------- SOURCE FIELD(S) -------
+*      OG-ID(1-5)
+*      BS-ID(1-3)
+  1 S6 OG-SS15                           A   20  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-1(1-5)
+*      S5-1(1-15)
+  1 OS OG-SS                             B   10    S
+*      -------- SOURCE FIELD(S) -------
+*      OG-ID(1-5)
+*      SS-ID(1-5)
+  1 SC CS-ST                             N  2.0  N
+  1 GM GM-F                              N  5.0  N
+******DDM OUTPUT TERMINATED******

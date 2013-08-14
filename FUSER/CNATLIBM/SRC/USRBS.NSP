@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName USRBS
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20050225
+* :Time 1303330
+* <Natural Source Header /*<<RO>
+#OG(N5) := 1000  #USR(A8) := 'UFRO'
+CALLNAT 'SUSRBS' #OG #USR
+.

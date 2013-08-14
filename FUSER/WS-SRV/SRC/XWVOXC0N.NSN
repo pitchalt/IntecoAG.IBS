@@ -1,0 +1,19 @@
+/***********************************************************************
+/*
+/* SYSTEM: WS-SRV
+/* PROGRAM: XWVOXC0N
+/*
+/* DEVELOPER:  UPA
+/* MAKE DATA:
+/*
+/* NAME:  VO CATALOG LIST XML INTERFACE
+/*
+/* CHANGES:
+/*
+/*
+/*
+/*
+/***********************************************************************
+INCLUDE WWXRPC0C "XWVOXC0S" "XWVOXCIA" "XWVOXCIC" "XWVOXCOA"  "XWVOXCOC"
+/*
+END

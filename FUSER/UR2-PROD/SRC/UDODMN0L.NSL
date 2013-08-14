@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDODMN0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061121
+**C               *:Time 1203000
+**C               *<Natural Source Header
+**DV          0000     V1UR-OPER-META-VIEW               UR-OPER-META
+**DD          0000P 7.0 2OD-RECORD-TYPE
+**DD          0000A  10 2OD-CODE
+**DD          0000A  70 2OD-NAME
+**DD          0000P 7.0 2OD-ID
+**DD I1 C     0000P 7.0M2OD-IT-ID                        (1:10)

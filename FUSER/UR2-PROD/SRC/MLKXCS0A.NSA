@@ -1,0 +1,24 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MLKXCS0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070821
+**C               *:Time 2306000
+**C               *<Natural Source Header
+**DS          0000      1MLKXCS0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000A  10 2LK-NUMBER
+**DK          0000D     2LK-DT-START
+**DK          0000D     2LK-DT-STOP
+**DK          0000D     2LK-DT-WORK
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2ZK-ID
+**DK          0000P  15 2DP-ID
+**DK          0000P  15 2MO-ID
+**DK          0000A   2 2STATUS
+**DS          0000      2STACK
+**DK          0000B   4 3STACK-NUMBER
+**DK          0000I   4 3STACK-COUNT
+**DK          0000I   4 3STACK-LEN
+**DK          0000I   4 3STACK-ID

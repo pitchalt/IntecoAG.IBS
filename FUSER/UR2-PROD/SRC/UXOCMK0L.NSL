@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UXOCMK0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060518
+**C               *:Time 1912000
+**C               *<Natural Source Header
+**DS          0000      1UXOPMK0L
+**DK          0000P   2 2CUR-RULE-NUM
+**DK          0000A   3 2CUR-OC-CODE
+**DK          0000A   2 2CUR-RES-TYPE
+**DK          0000P   7 2CUR-RES-ATTR
+**DK          0000A   2 2CUR-ARG-TYPE
+**DK          0000P   7 2CUR-ARG-ATTR
+**DK          0000P  15 2CUR-ARG-CONST
+**DK          0000P   1 2CUR-ARG-CONST-E

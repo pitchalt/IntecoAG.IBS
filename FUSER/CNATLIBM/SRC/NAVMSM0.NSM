@@ -1,0 +1,66 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVMSM0
+* :UID NIMI
+* :Mode S
+* :CP
+* :Date 20031123
+* :Time 1148330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 4.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     FUN-NM-G IUSER REG-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 FUN-NM-G (A060)
+1 IUSER (A008)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+/
+/
+/
+/
+ 020T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+ 016T '--------------------------------------------------'
+/
+/
+/
+/
+ 016T 'œÓÎ¸ÁÓ‚‡ÚÂÎ¸ .........................'
+ 056T IUSER  (AD=ILMFHT'_' ) /*.99U008 A008 .
+/
+/
+/
+/
+/
+/
+ 016T '--------------------------------------------------'
+/
+ 022T '«a‰aÈÚe ÁÌa˜eÌËe Ë ÌaÊÏËÚe'
+ 049T 'BBOƒ(ENTER)'(I)
+/
+/
+/
+ 001T '--œ‘1---œ‘2---œ‘3---œ‘4---œ‘5---œ‘6---œ‘7---œ‘8---œ‘9---œ‘'-
+      '10--œ‘11--œ‘12-'
+/
+ 004T '?'(BLI)
+ 015T 'B˚x'(REI)
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

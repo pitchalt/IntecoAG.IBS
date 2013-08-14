@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TT1
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20050219
+* :Time 1906330
+* <Natural Source Header /*<<RO>
+#OG(N5) = 1000  USG(A8) = 'XX'
+FETCH RETURN 'SZAKILW' #OG USG
+END

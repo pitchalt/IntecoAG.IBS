@@ -1,0 +1,122 @@
+* ----------------------------------------------------------------------
+* Generated from NATURAL XML TOOLKIT
+*
+*         'XWVOXMOC'
+*
+* DESCRIPTION
+*               XML Parser implementation
+*
+* Parameter Definition
+*
+* &1& 'XML_PARSER_XPATH'              /* XPATH to repesent element...
+* &2& 'XML_PARSER_XPATH_TYPE'         /* Type of the XPATH:
+*                                        ? Processing instruction
+*                                        D DOCTYPE
+*                                        ! Comment
+*                                        C CDATA section
+*                                        T Starting Tag
+*                                        @ Attribute
+*                                        / Close Tag
+*                                        $ Parsed Data
+* &3& 'XML_PARSER_CONTENT'            /* Content of founld element
+* &4& 'XML_PARSER_CONTENT_IS_EMPTY'   /* Is TRUE if Content is empty
+* &5& '#CX'                           /* Counter variable 1st dimension
+* &6& '#CY'                           /* Counter variable 2nd dimension
+* &7& '#CZ'                           /* Counter variable 3rd dimension
+* &8& '#XML_PARSER_NAME'              /* Name of the parsed entity
+* &9& '#XML_PREV_PARSE-TYPE'          /* Previous type of the XPATH
+* ----------------------------------------------------------------------
+* DTD WS-SRV XWVOXMIA
+ DECIDE ON FIRST &1&
+VALUE 'XWVOXMIA//'
+IGNORE
+VALUE 'XWVOXMIA'
+ RESET XWVOXMIA
+VALUE 'XWVOXMIA/CMD//'
+IGNORE
+VALUE 'XWVOXMIA/CMD'
+ IGNORE
+VALUE 'XWVOXMIA/CMD/$'
+XWVOXMIA.CMD := &3&
+VALUE 'XWVOXMIA/OG-CODE//'
+IGNORE
+VALUE 'XWVOXMIA/OG-CODE'
+ IGNORE
+VALUE 'XWVOXMIA/OG-CODE/$'
+IF &3& IS (N5) THEN
+XWVOXMIA.OG-CODE := VAL(&3&)
+END-IF
+VALUE 'XWVOXMIA/VO-TYPE//'
+IGNORE
+VALUE 'XWVOXMIA/VO-TYPE'
+ IGNORE
+VALUE 'XWVOXMIA/VO-TYPE/$'
+XWVOXMIA.VO-TYPE := &3&
+VALUE 'XWVOXMIA/VO-CODE//'
+IGNORE
+VALUE 'XWVOXMIA/VO-CODE'
+ IGNORE
+VALUE 'XWVOXMIA/VO-CODE/$'
+IF &3& IS (N5) THEN
+XWVOXMIA.VO-CODE := VAL(&3&)
+END-IF
+VALUE 'XWVOXMIA/VO-COUNTRY-CODE//'
+IGNORE
+VALUE 'XWVOXMIA/VO-COUNTRY-CODE'
+ IGNORE
+VALUE 'XWVOXMIA/VO-COUNTRY-CODE/$'
+XWVOXMIA.VO-COUNTRY-CODE := &3&
+VALUE 'XWVOXMIA/VO-INN//'
+IGNORE
+VALUE 'XWVOXMIA/VO-INN'
+ IGNORE
+VALUE 'XWVOXMIA/VO-INN/$'
+XWVOXMIA.VO-INN := &3&
+VALUE 'XWVOXMIA/VO-KPP//'
+IGNORE
+VALUE 'XWVOXMIA/VO-KPP'
+ IGNORE
+VALUE 'XWVOXMIA/VO-KPP/$'
+XWVOXMIA.VO-KPP := &3&
+VALUE 'XWVOXMIA/VO-NAME//'
+IGNORE
+VALUE 'XWVOXMIA/VO-NAME'
+ IGNORE
+VALUE 'XWVOXMIA/VO-NAME/$'
+XWVOXMIA.VO-NAME := &3&
+VALUE 'XWVOXMIA/VO-ADDR//'
+IGNORE
+VALUE 'XWVOXMIA/VO-ADDR'
+ IGNORE
+VALUE 'XWVOXMIA/VO-ADDR/$'
+XWVOXMIA.VO-ADDR := &3&
+VALUE 'XWVOXMIA/VO-NAME-FULL//'
+IGNORE
+VALUE 'XWVOXMIA/VO-NAME-FULL'
+ IGNORE
+VALUE 'XWVOXMIA/VO-NAME-FULL/$'
+XWVOXMIA.VO-NAME-FULL := &3&
+VALUE 'XWVOXMIA/VO-UP-USER//'
+IGNORE
+VALUE 'XWVOXMIA/VO-UP-USER'
+ IGNORE
+VALUE 'XWVOXMIA/VO-UP-USER/$'
+XWVOXMIA.VO-UP-USER := &3&
+VALUE 'XWVOXMIA/VO-UP-PGM//'
+IGNORE
+VALUE 'XWVOXMIA/VO-UP-PGM'
+ IGNORE
+VALUE 'XWVOXMIA/VO-UP-PGM/$'
+XWVOXMIA.VO-UP-PGM := &3&
+VALUE 'XWVOXMIA/VO-UP-TIME//'
+IGNORE
+VALUE 'XWVOXMIA/VO-UP-TIME'
+ IGNORE
+VALUE 'XWVOXMIA/VO-UP-TIME/$'
+IF &3& IS (T) THEN
+MOVE EDITED &3& TO
+XWVOXMIA.VO-UP-TIME (EM=HH:II:SS.T)
+END-IF
+NONE
+IGNORE
+END-DECIDE

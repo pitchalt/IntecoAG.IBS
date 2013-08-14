@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName INPPC
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20071230
+* :Time 2319330
+* <Natural Source Header /*<<RO>
+IF #OPSYS = 'W'  INPUT USING MAP &1&
+  ELSE  INPUT USING MAP &2&
+END-IF

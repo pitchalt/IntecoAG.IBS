@@ -1,0 +1,38 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBOPMN0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060829
+**C               *:Time 1212000
+**C               *<Natural Source Header
+**DS          0000      1MBOPMN0L
+**DK          0000P  15 2OP-ID
+**DK          0000P  15 2DC-ID
+**DK          0000P   7 2DD-ID
+**DK          0000P   7 2OD-ID
+**DK          0000D     2DT-PROV
+**DK          0000D     2DT-MAKE
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000P 8.7 2PRIH-COL
+**DK          0000P  15 2PRIH-EI-ID
+**DK          0000P 8.7 2PLAN-COL
+**DK          0000P  15 2PLAN-EI-ID
+**DK          0000P13.2 2BALC-SUMM
+**DS          0000      2OP-DEBET
+**DK          0000P   7 3DB-IT-ID
+**DK          0000P  15 3DB-MO-ID
+**DK          0000P  15 3DB-ZK-ID
+**DK          0000P  15 3DB-LK-ID
+**DK          0000P  15 3DB-MT-ID
+**DK          0000P  15 3DB-PR-ID
+**DK          0000P  15 3DB-VO-ID
+**DS          0000      2OP-CREDIT
+**DK          0000P   7 3CR-IT-ID
+**DK          0000P  15 3CR-MO-ID
+**DK          0000P  15 3CR-ZK-ID
+**DK          0000P  15 3CR-LK-ID
+**DK          0000P  15 3CR-MT-ID
+**DK          0000P  15 3CR-PR-ID
+**DK          0000P  15 3CR-VO-ID

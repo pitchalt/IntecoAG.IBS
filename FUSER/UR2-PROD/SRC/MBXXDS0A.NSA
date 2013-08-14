@@ -1,0 +1,13 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBXXDS0A
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060911
+**C               *:Time 1024000
+**C               *<Natural Source Header
+**DS          0000      1MBXXDS0A
+**DK          0000A  10 2DS-COMMAND
+**DK          0000P  15 2SEARCH-ID
+**DK          0000A   8 2OP-TYPE-STEK                    /*тип стека
+**DK          0000B   4 2DS-ELEM-STEK                    /*ЭЛЕМЕНТ СТЕКА

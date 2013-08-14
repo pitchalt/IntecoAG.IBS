@@ -1,0 +1,24 @@
+DB: 000 FILE: 045  - UZP-SYS-FILE                     DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID INTECO
+*      :CP
+*
+*
+*      :Date 20090506
+*      :Time 0913330
+*      <Natural Source Header
+  1 OG OG-F                              N  5.0  N D
+  1 KK KK-F                              A    3    D
+  1 KD KD-F                              N  5.0    D
+  1 GR GR-F                              N  5.0  N D
+  1 NA NA-F                              A   60  N
+M 1 NB NB-F                              A  101  N
+  1 GB GB-F                              N  6.0  N D
+  1 RS RS-F                              N  1.0  N D
+  1 MF MF-F                              A    9  N D
+  1 NN NN-F                              A    9  N D
+  1 A0 PP-PERIOD                         N  6.0  N D
+******DDM OUTPUT TERMINATED******

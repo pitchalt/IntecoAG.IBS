@@ -1,0 +1,23 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLPEREM
+**C               *:UID NIMI
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20001209
+**C               *:Time 0924330
+**C               *<Natural Source Header
+**DF   F      0002B   4 1RD-REC
+**HF0001
+**I                      INIT <H'00000000'>
+**DF   F      0002B   4 1WR-REC
+**HF0001
+**I                      INIT <H'00000001'>
+**DF          0000N   7 1C-DATA1
+**DF          0000N   7 1C-DATA2
+**DF          0000N   7 1C-DATA
+**DF          0000B   4 1C-DATA1-B
+**DF          0000B   4 1N-DATA-B
+**DF          0000P   2 1N-DATA
+**DF          0000P   7 1Q-DATA
+**DF          0000B   4 1Q-DATA-B
+**DF          0000B   4 1L-DATA-B

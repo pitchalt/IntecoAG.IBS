@@ -1,0 +1,67 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPPBXX0M
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20081022
+* :Time 1420330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     XPPBXX0L.PB-CURRENT-PROCESS XPPBXX0L.PB-PROCESS-CURRENT
+*     XPPBXX0L.PB-PROCESS-MAX XPPBXX0L.PB-TIME-PROCESS
+*     XPPBXX0L.PB-TIME-START XPPBXX0L.PB-TIME-STOP
+*     XPPBXX0L.PB-TOP-PROCESS
+DEFINE DATA PARAMETER
+1 XPPBXX0L.PB-CURRENT-PROCESS (A050)
+1 XPPBXX0L.PB-PROCESS-CURRENT (P15.0)
+1 XPPBXX0L.PB-PROCESS-MAX (P15.0)
+1 XPPBXX0L.PB-TIME-PROCESS (T)
+1 XPPBXX0L.PB-TIME-START (T)
+1 XPPBXX0L.PB-TIME-STOP (T)
+1 XPPBXX0L.PB-TOP-PROCESS (A050)
+END-DEFINE
+FORMAT PS=010 LS=061 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 010060        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T *DATX  (AD=DLOFHT' ' EM=DD.MM.YY ) /*.01S008 D    .
+ 053T *TIMX  (AD=DLOFHT' ' ) /*.01S008 T    .
+/
+/
+/
+ 005T XPPBXX0L.PB-TOP-PROCESS  (AD=DLOFHT ) /*.01U050 A050 .
+/
+/
+ 005T '0%'
+ 008T '--------'
+ 017T '25%'
+ 021T '-------'
+ 029T '50%'
+ 033T '--------'
+ 042T '75%'
+ 046T '-------'
+ 054T '100%'
+/
+ 003T '>'
+ 005T XPPBXX0L.PB-CURRENT-PROCESS  (AD=DLOFHT ) /*.01U050 A050 .
+ 056T '<'
+/
+ 004T 'Начато'
+ 011T XPPBXX0L.PB-TIME-START  (AD=DLOFHT ) /*.01U008 T    .
+ 020T 'прошло'
+ 027T XPPBXX0L.PB-TIME-PROCESS  (AD=DLOFHT ) /*.01U008 T    .
+ 037T 'завершение'
+ 048T XPPBXX0L.PB-TIME-STOP  (AD=DLOFHT ) /*.01U008 T    .
+/
+ 004T 'Обработано:'
+ 016T XPPBXX0L.PB-PROCESS-CURRENT  (AD=DLOFHT ) /*.01D015 P15.0.
+ 032T 'из'
+ 035T XPPBXX0L.PB-PROCESS-MAX  (AD=DLOFHT ) /*.01D015 P15.0.
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

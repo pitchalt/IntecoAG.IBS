@@ -1,0 +1,60 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPVOM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080210
+* :Time 1227330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #ADRES #INN #KD #NAME
+DEFINE DATA PARAMETER
+1 #ADRES (A045)
+1 #INN (A015)
+1 #KD (N05.0)
+1 #NAME (A045)
+END-DEFINE
+SET KEY PF3 (PB=007/021/002/016) NAMED 'Âûõîä(F3)'
+/* 000 000 000 000
+FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T 'Koä opãaíèçaöèè (0-âce)................'
+ 042T #KD  (AD=ILMFHT'_' ) /*.99U005 N05.0.
+/
+ 002T 'Haèìeíoâaíèe'
+/
+ 002T #NAME  (AD=IMT'_' ) /*.99U045 A045 .
+/
+ 002T 'Aäpec'
+/
+ 002T #ADRES  (AD=IMT'_' ) /*.99U045 A045 .
+/
+ 002T 'ÈÍÍ'
+/
+ 002T #INN  (AD=IMT'_' ) /*.99U015 A015 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,54 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName KONTRMV
+* :UID NIMI
+* :Mode S
+* :CP
+* :Date 20010113
+* :Time 1540330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     OBJ TXTSCR
+DEFINE DATA PARAMETER
+1 OBJ (N05.0)
+1 TXTSCR (A025)
+END-DEFINE
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 003T TXTSCR  (AD=DLOFHT ) /*.01U025 A025 .
+ 031T OBJ  (AD=DLMFHT'_' ) /*.99U005 N05.0.
+/
+/
+ 001T '-ÂÂÎÄ---ÏÔ1---ÏÔ3---ÏÔ4---ÏÔ5---ÏÔ6---ÏÔ11---'
+/
+ 002T 'Ïðîä.'
+ 015T 'Âûõ'
+ 038T 'Âûáîð'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

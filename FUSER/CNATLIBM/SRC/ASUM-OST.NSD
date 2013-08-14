@@ -1,0 +1,48 @@
+DB: 011 FILE: 143  - ASUM-OST-11                      DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID SAG
+*      :CP
+*
+*
+*      :Date 20081208
+*      :Time 1516330
+*      <Natural Source Header
+  1 T0 OG-F                              N  5.0  N D
+  1 T1 MAT-OT                            N  5.0  N D
+  1 Y7 MAT-OT-T                          A    1  N D
+  1 T2 COD-MAT                           A   22  N D
+  1 T5 ED-IZ                             N  5.0  N
+  1 T6 CENA                              P 13.6  N
+  1 T8 SCH-MAT                           N  5.0  N D
+  1 T9 GROUP-M                           N  5.0  N D
+  1 Y0 TYPE-M                            N  5.0  N D
+  1 Z6 ZAV-NOM                           A   15    D
+  1 Y5 SRED-COL                          P  9.6  N
+  1 SU SUMMA                             P 15.2  N
+  1 Z8 DT-EKSP                           N  8.0    D
+  1 KP KP-F                              A    8  N D
+  1 N3 ZK-F                              A    9  N
+  1 N4 SROK-OB-HRAN                      N  5.0  N
+  1 N2 OB-HRAN                           N  5.0  N
+  1 N1 BS19                              N  5.0  N
+  1 C1 NDS-CD                            N  5.0  N
+P 1 SD SD-F                                0
+  2 KD KD-F                              N  5.0  N D
+  2 NS NS-F                              N  6.6  N
+  1 CC UN_SRED                           A   55  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-F(1-5)
+*      MAT-OT(1-5)
+*      COD-MAT(1-22)
+*      DT-EKSP(1-8)
+*      ZAV-NOM(1-15)
+  1 BB OST-MO                            A   33  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-F(1-5)
+*      MAT-OT(1-5)
+*      MAT-OT-T(1-1)
+*      COD-MAT(1-22)
+******DDM OUTPUT TERMINATED******

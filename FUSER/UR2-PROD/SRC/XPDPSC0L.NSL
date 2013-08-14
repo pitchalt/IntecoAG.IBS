@@ -1,0 +1,11 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPDPSC0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070624
+**C               *:Time 1443000
+**C               *<Natural Source Header
+**DS          0000      1XPDPSC0L
+**DK          0000N   5 2DP-CODE
+**DK          0000A  50 2DP-NAME

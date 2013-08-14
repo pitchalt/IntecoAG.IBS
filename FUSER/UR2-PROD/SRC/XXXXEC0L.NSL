@@ -1,0 +1,76 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XXXXEC0L
+**C               *:UID UPA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070912
+**C               *:Time 1415000
+**C               *<Natural Source Header
+**DS          0000      1XXXXEC0L
+**C           0000*Используетс  если вызываемый модуль возратил ошибку
+**DKC  S      0002I   2C2EC-QUIT-STACK-TRACE             /*Быстрый выход из модул
+**HS0001
+**I                      8000
+**DKC  S      0002I   2C2EC-UNKNOW-COMMAND               /*Неизвестна  команда
+**HS0001
+**I                      8001
+**DKC  S      0002I   2C2EC-OBJECT-NOT-FOUND             /*Объект не найден
+**HS0001
+**I                      8002
+**DKC  S      0002I   2C2EC-OBJECT-ID-REQUIRED           /*Требуетс  идентификатор объек
+**HS0001
+**I                      8003
+**DKC  S      0002I   2C2EC-OBJECT-TYPE-REQUIRED         /*Требуетс  тип объекта-записи
+**HS0001
+**I                      8007
+**DKC  S      0002I   2C2EC-RECORD-TYPE-REQUIRED
+**HS0001
+**I                      8004
+**DKC  S      0002I   2C2EC-RECORD-TYPE-MISMATCH         /*Тип записи не соответствует
+**HS0001
+**I                      8005
+**DKC  S      0002I   2C2EC-RECORD-COUNT-MISMATCH        /*Количество записей не соответ
+**HS0001
+**I                      8006
+**DKC  S      0002I   2C2EC-OBJECT-ATTRIBUTE-REQUIRED    /*Об зательный атрибут не запол
+**HS0001
+**I                      8008
+**DKC  S      0002I   2C2EC-RECORD-MISMATCH              /*Запись не соответ запрошенной
+**HS0001
+**I                      8009
+**DKC  S      0002I   2C2EC-TRANSACTION-REQUIRED         /*Требуетс  транзакци
+**HS0001
+**I                      8010
+**DKC  S      0002I   2C2EC-TRANSACTION-CONFLICT         /*Конфликт транзакций
+**HS0001
+**I                      8011
+**DKC  S      0002I   2C2EC-TRANSACTION-ALREADY-OPEN     /*Транзакци  уже открыта
+**HS0001
+**I                      8012
+**DKC  S      0002I   2C2EC-TRANSACTION-LOG-FULL         /*Переполнен журнал транзакций
+**HS0001
+**I                      8013
+**DKC  S      0002I   2C2EC-NUMERIC-OVERFLOW             /*Переполнение числа
+**HS0001
+**I                      8021
+**DKC  S      0002I   2C2EC-OBJECT-ALREADY-LOCKED        /*Объект уже блокирован
+**HS0001
+**I                      8015
+**DKC  S      0002I   2C2EC-QUIT-TEST-FAIL               /*Тест не пройден
+**HS0001
+**I                      8030
+**DKC  S      0002I   2C2EC-STACK-POS-NOT-CORRECT        /*Позици  в стеке некорректна
+**HS0001
+**I                      8031
+**DKC  S      0002I   2C2EC-CODE-NOT-FOUND-IN-DESCRIPTION/*Код не найден в описании
+**HS0001
+**I                      8032
+**DKC  S      0002I   2C2EC-QUIT-TEST-COMPARE-FAIL       /*Тест на сравнение не пройден
+**HS0001
+**I                      8033
+**DKC  S      0002I   2C2EC-FSM-IS-LOOPED                /*Конечный автомат зациклен
+**HS0001
+**I                      8041
+**DKC  S      0002I   2C2EC-FSM-UNKNOW-NEXT-STATE        /*Конечный автомат зациклен
+**HS0001
+**I                      8042

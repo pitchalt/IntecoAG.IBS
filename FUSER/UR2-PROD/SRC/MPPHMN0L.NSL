@@ -1,0 +1,130 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPPHMN0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100321
+**C               *:Time 1608000
+**C               *<Natural Source Header
+**DS          0000      1MPPHMN0L
+**DK          0000C     2PH-C
+**DK          0000P15.0 2PO-ID
+**DK          0000A   6 2PO-NUMBER
+**DK          0000N 8.0 2PO-DATE-N
+**DR          0000     R2PO-DATE-N                       /* BEGIN REDEFINE: PO-DATE-N
+**DFR         0000A   8 3PO-DATE-A
+**DK          0000C     2PO-OBJECT-C
+**DK          0000A   1 2PO-VIEW
+**DK          0000C     2PO-VIEW-C
+**DK          0000P15.0 2VO-ID
+**DK          0000A  30 2VO-SEARCH
+**DK          0000N 5.0 2VO-CODE
+**DK          0000N 5.0 2VO-RE-CODE
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP
+**DK          0000A  60 2VO-NAME
+**DK          0000A  60 2VO-ADDR
+**DK          0000C     2VO-OBJECT-C
+**DK          0000P15.0 2REAL-VO-ID
+**DK          0000C     2REAL-VO-C
+**DK          0000A  10 2REAL-VO-SEARCH
+**DK          0000N 5.0 2REAL-VO-CODE
+**DK          0000A  60 2REAL-VO-NAME
+**DK          0000A  60 2REAL-VO-ADDR
+**DK          0000A  75 2REAL-VO-DESC
+**DK          0000N13.2 2REAL-VO-SUMMA
+**DK          0000P15.0 2REAL-TT-ID
+**DK          0000A  30 2REAL-TT-NUMBER
+**DK          0000N 8.0 2REAL-TT-DATE-N
+**DR          0000     R2REAL-TT-DATE-N                  /* BEGIN REDEFINE: REAL-TT-DATE
+**DFR         0000A   8 3REAL-TT-DATE-A
+**DK          0000C     2REAL-TT-C
+**DK          0000P15.0 2MO-ID
+**DK          0000A   5 2MO-SEARCH
+**DK          0000N 5.0 2MO-CODE
+**DK          0000A  60 2MO-NAME
+**DK          0000C     2MO-OBJECT-C
+**DK          0000A  60 2MO-NAME-FULL
+**DK          0000P15.0 2DP-ID
+**DK          0000N 5.0 2DP-CODE
+**DK          0000A  60 2DP-NAME
+**DK          0000C     2IN-MO-C
+**DK          0000A   5 2IN-MO-SEARCH
+**DK          0000P15.0 2IN-MO-ID
+**DK          0000N 5.0 2IN-MO-CODE
+**DK          0000A  60 2IN-MO-NAME
+**DK          0000A  60 2IN-MO-NAME-FULL
+**DK          0000P15.0 2IN-DP-ID
+**DK          0000N 5.0 2IN-DP-CODE
+**DK          0000A  60 2IN-DP-NAME
+**DK          0000P15.0 2SF-ID
+**DK          0000A  30 2SF-NUMBER
+**DK          0000N 8.0 2SF-DATE-N
+**DR          0000     R2SF-DATE-N                       /* BEGIN REDEFINE: SF-DATE-N
+**DFR         0000A   8 3SF-DATE-A
+**DK          0000C     2SF-OBJECT-C
+**DK          0000P  15 2TD-ID
+**DK          0000A  30 2TD-NUMBER
+**DK          0000N   8 2TD-DATE-N
+**DR          0000     R2TD-DATE-N                       /* BEGIN REDEFINE: TD-DATE-N
+**DFR         0000A   8 3TD-DATE-A
+**DK          0000A  20 2TD-COUNTRY
+**DK          0000C     2TD-OBJECT-C
+**DK          0000P15.0 2TT-ID
+**DK          0000A  30 2TT-NUMBER
+**DK          0000N 8.0 2TT-DATE-N
+**DR          0000     R2TT-DATE-N                       /* BEGIN REDEFINE: TT-DATE-N
+**DFR         0000A   8 3TT-DATE-A
+**DK          0000C     2TT-OBJECT-C
+**DK          0000P15.0 2DV-ID
+**DK          0000A  30 2DV-NUMBER
+**DK          0000N 8.0 2DV-DATE-N
+**DR          0000     R2DV-DATE-N                       /* BEGIN REDEFINE: DV-DATE-N
+**DFR         0000A   8 3DV-DATE-A
+**DK          0000C     2DV-OBJECT-C
+**DK          0000P15.0 2TB-ID
+**DK          0000C     2TB-C
+**DK          0000A  10 2TB-SEARCH
+**DK          0000N 5.0 2TB-CODE
+**DK          0000A  50 2TB-FIO
+**DK          0000P15.0 2OTV-TB-ID
+**DK          0000C     2OTV-TB-C
+**DK          0000A  10 2OTV-TB-SEARCH
+**DK          0000N 5.0 2OTV-TB-CODE
+**DK          0000A  50 2OTV-TB-FIO
+**DK          0000P15.0 2PP-ID
+**DK          0000N 6.0 2PP-NUMBER
+**DK          0000N 8.0 2PP-DATE-N
+**DR          0000     R2PP-DATE-N                       /* BEGIN REDEFINE: PP-DATE-N
+**DFR         0000A   8 3PP-DATE-A
+**DK          0000N13.2 2PP-SUMM
+**DK          0000C     2PP-OBJECT-C
+**DK          0000P15.0 2TP-ID
+**DK          0000C     2TP-C
+**DK          0000A   3 2TP-SEARCH
+**DK          0000N 5.0 2TP-CODE
+**DK          0000A  40 2TP-NAME
+**DK          0000C     2OUT-BS-C
+**DK          0000P15.0 2OUT-BS-ID
+**DK          0000N 5.0 2OUT-BS-SEARCH
+**DK          0000N 5.0 2OUT-BS-CODE
+**DK          0000A  60 2OUT-BS-NAME
+**DK          0000C     2NDS-BS-C
+**DK          0000P15.0 2NDS-BS-ID
+**DK          0000N 5.0 2NDS-BS-SEARCH
+**DK          0000N 5.0 2NDS-BS-CODE
+**DK          0000A  60 2NDS-BS-NAME
+**DK          0000P15.0 2ZK-ID
+**DK          0000C     2ZK-C
+**DK          0000A  10 2ZK-SEARCH
+**DK          0000A   9 2ZK-CODE
+**DK          0000A  80 2ZK-NAME
+**DK          0000P15.0 2ORDER-DP-ID
+**DK          0000C     2ORDER-DP-C
+**DK          0000A  10 2ORDER-DP-SEARCH
+**DK          0000N 5.0 2ORDER-DP-CODE
+**DK          0000A  60 2ORDER-DP-NAME
+**DK          0000C     2CONF-C
+**DK          0000P13.2 2CONF-CENA-SUMMA
+**DK          0000P13.2 2CONF-NDS-SUMMA
+**DK          0000P 5.0 2DC-PACKAGE

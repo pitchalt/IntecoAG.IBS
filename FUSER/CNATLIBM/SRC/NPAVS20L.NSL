@@ -1,0 +1,47 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName NPAVS20L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090323
+**C               *:Time 0839330
+**C               *<Natural Source Header
+**DS          0         1NPAVS20L-CONST
+**DKC  S      2   I   4C2NPAVS2SL-REC-LEN
+**HS1
+**I                      124
+**DR          0        R2NPAVS2SL-REC-LEN                /* BEGIN REDEFINE: NPAVS2SL-RE
+**DFR         0   I   4 3STACK-REC-LEN
+**DKC  S      2   I   4C2STACK-ALLOC-COUNT
+**HS1
+**I                      10000
+**DKC  S      2   I   4C2STACK-KEY-START
+**HS1
+**I                      1
+**DKC  S      2   I   4C2NPAVS2SL-KEY-LEN
+**HS1
+**I                      4
+**DR          0        R2NPAVS2SL-KEY-LEN                /* BEGIN REDEFINE: NPAVS2SL-KE
+**DFR         0   I   4 3STACK-KEY-LEN
+**DS          0         1NPAVS20L
+**DK          0   B   4 2STACK-POS
+**DK          0   I   4 2STACK-POS-I
+**DK          0   B   4 2STACK-TMP-B1
+**DK          0   B   4 2STACK-TMP-B2
+**DK          0   B   4 2STACK-FIELD-POS
+**DK          0   B   4 2STACK-FIELD-LEN
+**DK I1       0   B   1 2STACK-REC-B                     (1:NPAVS2SL-REC-LEN)
+**DR          0        R2STACK-REC-B                     /* BEGIN REDEFINE: STACK-REC-B
+**DSR         0         3STACK-REC-G
+**DFRI1       0   B   1 4STACK-KEY-B                     (1:NPAVS2SL-KEY-LEN)
+**DR          0        R4STACK-KEY-B                     /* BEGIN REDEFINE: STACK-KEY-B
+**DSR         0         5STACK-KEY-G
+**DFR         0   I   4 6SFA-ID
+**DFR         0   N13.2 4OB-DEBET-SUMM
+**DFR         0   N13.2 4OB-DEBET-NDS
+**DFR         0   N13.2 4OB-CREDIT-SUMM
+**DFR         0   N13.2 4OB-CREDIT-NDS
+**DFR         0   N13.2 4ADD-DEBET-NDS
+**DFR         0   N13.2 4ADD-CREDIT-NDS
+**DFR         0   N13.2 4CUR-DEBET-NDS
+**DFR         0   N13.2 4CUR-CREDIT-NDS

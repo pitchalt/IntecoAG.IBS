@@ -1,0 +1,25 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPXXSP2C
+* :UID KOVALCHU
+* :Mode S
+* :CP
+* :Date 20080319
+* :Time 1329330
+* <Natural Source Header /*<<RO>
+/* 1 - XPDGSH1L.DG-CONTRAGENT
+/* 2 - XPDGSH1L.DG-CONTRAGENT-A
+
+ IF &1& NE 0   /*  ŒÕ“–¿√≈Õ“
+     OG-IDENT-G := 1000 COD-ST := &1&
+     CALLNAT 'GETNMVO'OG-IDENT-G COD-ST NM-VO1
+     IF NM-VO1 = ' '
+        CP-CURS-FIELD := POS(&1&)
+        MOVE 2011 TO #RETURN-CODE
+        ESCAPE ROUTINE
+     ELSE
+        MOVE NM-VO1 TO &2&
+     END-IF
+  ELSE
+     RESET &1& &2&
+  END-IF
+

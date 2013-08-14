@@ -1,0 +1,20 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVZKNR
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050623
+* :Time 1650330
+* <Natural Source Header /*<<RO>
+*********************************************************************
+*                                                                   *
+* ¬≈ƒ≈Õ»≈  Œƒ»‘» ¿“Œ–¿ «¿ ¿«Œ¬                                      *
+*                                                                   *
+*********************************************************************
+DEFINE DATA
+LOCAL
+1 OG-IDENT-G(N5) INIT < 1000 >
+1 USR-G(A8)
+END-DEFINE
+FETCH RETURN 'SZAKILW' OG-IDENT-G USR-G 'R'
+END

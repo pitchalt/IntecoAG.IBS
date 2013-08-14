@@ -1,0 +1,11 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UBDCTX0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060507
+**C               *:Time 1343000
+**C               *<Natural Source Header
+**DS          0000      1UBDCTX0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P15.0 2TX-ID

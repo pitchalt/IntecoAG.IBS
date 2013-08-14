@@ -1,0 +1,51 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UNLEXPM1
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20110914
+* :Time 1445000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     #DT(*)
+DEFINE DATA PARAMETER
+1 #DT (N08.0/00001:00002)
+END-DEFINE
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023079        N0NNUCN             X        01 SYSPROF NL             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+/
+/
+/
+/
+/
+/
+/
+ 024T 'Îעקוע ןמ טלןמנעםûל לאעונטאכאל'
+/
+/
+ 024T 'Ïונטמה מע (דדדדללהה)'
+ 046T #DT (001)  (AD=MILT'_' ) /*.99U008 N08.0.
+   /**A1000020000100001000010000100001100002001001000001000HV
+/
+ 046T #DT (002)  (AD=MILT'_' ) /*.99U008 N08.0.
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

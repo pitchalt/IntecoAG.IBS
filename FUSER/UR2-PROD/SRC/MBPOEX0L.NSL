@@ -1,0 +1,39 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBPOEX0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20091223
+**C               *:Time 1941000
+**C               *<Natural Source Header
+**DS          0000      1MBPOEX0L
+**DK          0000A   6 2PO-NUMBER
+**DK          0000A   8 2PO-DATE-A
+**DK          0000N 5.0 2VO-CODE
+**DK          0000A  14 2VO-INN
+**DK          0000A  14 2VO-KPP
+**DK          0000A 120 2VO-NAME
+**DK          0000A 120 2VO-ADDR
+**DK          0000N 5.0 2REAL-VO-CODE
+**DK          0000N13.2 2REAL-VO-SUMMA
+**DK          0000N 5.0 2MO-CODE
+**DK          0000A  30 2SF-NUMBER
+**DK          0000A   8 2SF-DATE-A
+**DK          0000A  30 2TT-NUMBER
+**DK          0000A   8 2TT-DATE-A
+**DK          0000A  30 2DV-NUMBER
+**DK          0000A   8 2DV-DATE-A
+**DK          0000N 5.0 2DV-TB-CODE
+**DK          0000N 5.0 2OTV-TB-CODE
+**DK          0000N 6.0 2PP-NUMBER
+**DK          0000A   8 2PP-DATE-A
+**DK          0000N13.2 2PP-SUMM
+**DK          0000N 1.0 2IS-CONFIRM-REQUIRED
+**DK          0000N 5.0 2TP-CODE
+**DK          0000P15.0 2PO-ID
+**DK          0000P15.0 2STORNO-PO-ID
+**DK          0000P13.2 2PM-SUMMA
+**DK          0000P13.2 2PM-NDS
+**DK          0000P13.2 2PZ-SUMMA
+**DK          0000P13.2 2PZ-NDS
+**DK          0000N 5.0 2ORDER-DP

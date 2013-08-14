@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPNDSH0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060328
+**C               *:Time 1216000
+**C               *<Natural Source Header
+**DS          0000      1XPNDSH0A
+**DK          0000A  10 2SH-COMMAND
+**DK          0000A   5 2ND-SEARCH
+**DS          0000      2ND-RESULT
+**DK          0000P  13 3ND-ID
+**DK          0000N   5 3ND-CODE
+**DK          0000P 2.1 3ND-VALUE
+**DK          0000A   5 3ND-STAVKA

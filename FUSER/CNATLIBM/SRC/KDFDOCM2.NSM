@@ -1,0 +1,106 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName KDFDOCM2
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080101
+* :Time 1702330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #KD(*) #NM(*)
+DEFINE DATA PARAMETER
+1 #KD (A003/00001:00020)
+1 #NM (A050/00001:00020)
+END-DEFINE
+SET KEY PF8 (PB=022/035/002/007) NAMED 'Вперед'
+/* 000 000 000 000
+SET KEY PF7 (PB=022/027/002/007) NAMED 'Назад'
+/* 000 000 000 000
+SET KEY PF9 (PB=022/043/002/007) NAMED 'Начало'
+/* 000 000 000 000
+SET KEY PF10 (PB=022/051/002/006) NAMED 'Конец'
+/* 000 000 000 000
+SET KEY TREQ (PB=022/005/002/006) NAMED 'Далее'
+/* 000 000 000 000
+SET KEY PF5 (PB=022/019/002/007) NAMED 'Запись'
+/* 000 000 000 000
+SET KEY PF3 (PB=022/012/002/006) NAMED 'Выход'
+/* 000 000 000 000
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 003T 'Код'
+ 010T 'Наименование товаров, услуг, работ'
+/
+ 003T #KD (001)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+   /**A1000200000100001000010000100001100020001001000001000HV
+ 010T #NM (001)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+   /**A1000200000100001000010000100001100020001001000001000HV
+/
+ 003T #KD (002)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (002)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (003)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (003)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (004)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (004)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (005)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (005)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (006)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (006)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (007)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (007)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (008)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (008)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (009)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (009)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (010)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (010)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (011)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (011)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (012)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (012)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (013)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (013)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (014)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (014)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (015)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (015)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (016)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (016)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (017)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (017)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (018)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (018)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (019)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (019)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+ 003T #KD (020)  (AD=DLMFHT'_' ) /*.99U003 A003 .
+ 010T #NM (020)  (AD=DLMFHT'_' ) /*.99U050 A050 .
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

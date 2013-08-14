@@ -1,0 +1,20 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName READ-SAL
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20061011
+* :Time 2344000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL USING UDSASH0L
+END-DEFINE
+  READ UR-ACC-SALDO-VIEW
+     WRITE '=' UR-ACC-SALDO-VIEW.OP-CL-ID
+     IF UR-ACC-SALDO-VIEW.OP-CL-ID = 20004
+       IGNORE
+     END-IF
+
+  END-READ
+END
+

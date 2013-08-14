@@ -1,0 +1,121 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MENU_012
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20110224
+* :Time 1602000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+PARAMETER USING XXERX00A
+PARAMETER USING XXCTXX0A
+PARAMETER USING XABOXX0A
+LOCAL USING XPMXSM0L
+LOCAL USING MENUXXXL
+LOCAL
+1 #ITEM (I4)
+END-DEFINE
+/*
+MOVE 'АОЗТ ИНТЕКО АГ СИСТЕМА МТС ПОДСИСТЕМА СКЛАД'
+     TO MX-FUNCTION-NAME
+MOVE 'Ведение требований накладных' TO MX-EDITOR-NAME
+/*
+RESET #ITEM
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Новый расход на заказ'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 302
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bозврат с заказа'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 307
+/*
+/*ADD 1 TO #ITEM
+/*NAME(#ITEM) := 'Новое внутреннее перемещение'
+/*PRG(#ITEM)  := "MAROXX0N"
+/*CMD(#ITEM)  := "NEW"
+/*ODID(#ITEM) := 304
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Выделение брака'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 305
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Расход брака на заказ'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 306
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bозврат брака с заказа'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 308
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Давальческий расход на заказ'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 354
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Давальческое выделение брака'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 355
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Давальческое возврат с заказа'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 362
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Давальческое возврат брака с заказа'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 358
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bосстановление брака на складе'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 313
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bосстановление давальческого брака на складе'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 363
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bыделение брака на обмен'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 324
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Bосстановление после обмена'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 325
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Исправить требование'
+PRG(#ITEM)  := "MAROXX0N"
+CMD(#ITEM)  := "EDIT"
+ODID(#ITEM) := 0
+/*
+/*ADD 1 TO #ITEM
+/*NAME(#ITEM) := 'Подтвердить требование'
+/*PRG(#ITEM)  := "MAROXX0N"
+/*CMD(#ITEM)  := "CONFIRM"
+/*ODID(#ITEM) := 0
+INCLUDE MENU000C
+END

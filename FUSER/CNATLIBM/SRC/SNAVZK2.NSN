@@ -1,0 +1,209 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVZK2
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20001019
+* :Time 1724330
+* <Natural Source Header /*<<RO>
+*********************************
+* Õ¿—“–Œ… ¿ «¿ ¿«-œŒƒ–¿«ƒ≈À≈Õ»≈ *
+*********************************
+DEFINE DATA
+*  GLOBAL USING UFROG       /* √ÀŒ¡¿À‹Õ€≈ œ≈–≈Ã≈ÕÕ€≈ ƒÀﬂ ¬—≈… —»—“≈Ã€
+PARAMETER USING PRMNAVI
+*
+  LOCAL  USING LCLZKL     /* VIEW Õ¿ ‘¿…À ZAKAZ
+  LOCAL  USING LCLFROL1      /* Œ¡Ÿ»≈ œ≈–≈Ã≈ÕÕ€≈
+  LOCAL  USING PRMHELP
+  LOCAL
+    1 SELFUN(A60) INIT<'«‡Í‡Á˚ - ÔÓ‰‡Á‰ÂÎÂÌË '>
+    1 SELREG(A40)
+    1 INPUT-REC(A15/1:15)
+    1 REDEFINE INPUT-REC
+      2 #INPUT-REC(15)
+* œŒÀﬂ Õ≈¬€¬Œƒ»Ã€≈ Õ¿ › –¿Õ
+        3 FIELD-FF  (B001) /* ‘À¿√ »«Ã≈Õ≈Õ»ﬂ/”ƒ¿À≈Õ»ﬂ «¿œ»—»
+        3 FIELD-ISN (P007) /* ISN «¿œ»—»
+        3 FIELD-UP  (A001) /* ‘À¿√ «¿Ÿ»“€ «¿œ»—»
+* œŒÀﬂ ¬€¬Œƒ»Ã€≈ Õ¿ › –¿Õ
+        3 #FIELD-01 (A009)
+        3 REDEFINE #FIELD-01
+          4 #FIELD-01-A(A009)
+*
+* —“–” “”–¿ ›À≈Ã≈Õ“¿ —“≈ ¿ — ƒ¿ÕÕ€Ã»
+*
+    1 STEK-REC(A15)
+    1 REDEFINE STEK-REC
+      2 STEK-FF(B01)
+      2 STEK-ISN(P07)
+      2 STEK-UP(A01)
+*
+      2 STEK-01(A09)
+    1 KEY1(A10)
+    1 REDEFINE KEY1
+      2 KEYOG1(N5)
+      2 KEYKD1(N5)
+    1 #I(N3)
+    1 #J(N3)
+    1 ROG(A9)
+    1 #PO(N5)
+*
+END-DEFINE
+*
+SET KEY PF1 PF2 PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+INCLUDE CCASKOG
+*
+MOVE 4   TO N-DATA N-DATA-B     /* ÕŒÃ≈– —“≈ ¿ — ƒ¿ÕÕ€Ã»
+MOVE 15  TO L-DATA L-DATA-B     /* ƒÀ»Õ¿ ›À≈Ã≈Õ“¿ ¬ —“≈ ≈ — ƒ¿ÕÕ€Ã»
+MOVE 1000 TO Q-DATA Q-DATA-B    /*  ŒÀ»◊≈—“¬Œ ›À≈Ã≈Õ“Œ¬ ¬ —“≈ ≈ — ƒ¿ÕÕ€Ã»
+*
+MOVE 5   TO N-DEL  N-DEL-B      /* ÕŒÃ≈– —“≈ ¿ — ISN ”ƒ¿À≈ÕÕ€’ «¿œ»—≈…
+MOVE 4   TO L-DEL  L-DEL-B      /* ƒÀ»Õ¿ ›À≈Ã≈Õ“¿ ¬ —“≈ ≈ — ISN
+MOVE 1000 TO Q-DEL  Q-DEL-B      /*  ŒÀ»◊≈—“¬Œ ›À≈Ã≈Õ“Œ¬ ¬ —“≈ ≈ — ISN
+*
+ASSIGN Q-FIELD = 1          /* œŒÀ≈… ¬ —“–Œ ≈
+ASSIGN Q-LINE = 15          /* —“–Œ  Õ¿ › –¿Õ≈
+ASSIGN F-LINE = 6           /* —Ã≈Ÿ≈Õ»≈ œ≈–¬Œ… —“–Œ »
+ASSIGN T-KEY = 7            /* Õ¿◊¿À‹Õ¿ﬂ œŒ«»÷»ﬂ  Àﬁ◊≈¬Œ√Œ ¿“–»¡”“¿
+ASSIGN L-KEY = 9            /* ƒÀ»Õ¿  Àﬁ◊≈¬Œ√Œ ¿“–»¡”“¿
+ASSIGN P-INPUT(1,1) = 36
+ASSIGN P-INPUT(1,2) = 9
+*
+ASSIGN P-STEK(1,1) = 7
+ASSIGN P-STEK(1,2) = 9
+ASSIGN KEYOG1 = OG-IDENT-G
+INPUT #PO
+INCLUDE CCUFRO1
+*
+* Œ—ÕŒ¬ÕŒ… ÷» À
+*
+ASSIGN C-CURS = 1           /* —“–Œ ¿ —  ”–—Œ–ŒÃ
+*
+REPEAT
+*
+  RESET #FIELD-01(*)
+*
+  PERFORM ARRY-PROC
+*
+  INPUT MARK *#FIELD-01(C-CURS) USING MAP 'MAPZK2M1'
+*   COMPUTE C-CURS = *CURS-LINE - F-LINE
+   IF *PF-KEY = 'PF1'
+      INCLUDE CCHELP '44'
+      ESCAPE TOP
+   END-IF
+*
+  INCLUDE CCUFRO2                        /* Œ¡–¿¡Œ“ ¿ œ‘
+*
+END-REPEAT
+*
+  INCLUDE CCUFRO53
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* ◊“≈Õ»≈ ƒ¿ÕÕ€’ »« ZAKAZ ¬ —“≈  — ƒ¿ÕÕ€Ã»
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE LOAD-PROC
+*
+  RESET C-DATA C-DATA-B
+* FIND ZAKAZ OG-F = OG-IDENT-G  /* AND PO-F = #PO
+  READ ZAKAZ
+    IF C-DATA > Q-DATA THEN ESCAPE BOTTOM END-IF
+     FOR #I  1 C*PZ-F
+      FOR #J  1 C*PO-F(#I)
+       IF PO-F(#I,#J) = #PO
+*
+         ASSIGN STEK-FF  = H'00'
+         ASSIGN STEK-ISN = *ISN
+*
+         ASSIGN STEK-01 = ZK-F
+         ADD 1 TO C-DATA
+         ASSIGN C-DATA-B = C-DATA
+         CALL 'RWSX' C-DATA-B STEK-REC WR-REC N-DATA-B
+       END-IF
+      END-FOR
+     END-FOR
+*
+* END-FIND
+  END-READ
+*
+  ASSIGN C-DATA = C-DATA-B
+  ASSIGN MAX-EL(N-DATA)   = C-DATA
+  ASSIGN FIRST-EL(N-DATA) = 1
+  ASSIGN MAX-EL(N-DEL)    = 0
+*
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* œ–Œ÷≈ƒ”–¿ œ–Œ¬≈– » ƒ¿ÕÕ€’ › –¿Õ¿
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE CHECK-PROC
+*
+FOR C-LINE = 1 TO Q-LINE /* œ–Œ—Ã¿“–»¬¿≈Ã —“–Œ » › –¿Õ¿
+*
+  IF #FIELD-01(C-LINE) NE ' '   /* —“–Œ ¿ Õ≈ ”ƒ¿À≈Õ¿
+    ASSIGN C-DUBL = 0
+    ASSIGN ROG = #FIELD-01(C-LINE)
+    FOR #I 1 Q-LINE
+      IF #FIELD-01(#I) NE ' '
+        IF ROG = #FIELD-01(#I)  COMPUTE C-DUBL = C-DUBL + 1
+        END-IF
+      END-IF
+    END-FOR
+    IF C-DUBL > 1 THEN
+      REINPUT'ƒ”¡À»–Œ¬¿Õ»≈ »ƒ≈Õ“»‘» ¿“Œ–¿ Õ¿ › –¿Õ≈'
+      MARK *#FIELD-01(C-LINE) ALARM
+    END-IF
+*
+    RESET C-DATA-B
+    COMPUTE C-DATA2 = FIRST-EL(N-DATA) + Q-LINE - 1
+    REPEAT
+      ASSIGN C-DATA1-B = T-KEY
+      ASSIGN C-DATA2-B = L-KEY
+      CALL 'CMPX' #FIELD-01(C-LINE)
+      C-DATA1-B C-DATA2-B N-DATA-B C-DATA-B
+      IF C-DATA1-B = H'00000000' THEN ESCAPE BOTTOM END-IF
+      ASSIGN C-DATA1 = C-DATA1-B
+      IF NOT(C-DATA1 = FIRST-EL(N-DATA) THRU C-DATA2) THEN
+        REINPUT'ƒ”¡À»–Œ¬¿Õ»≈ »ƒ≈Õ“»‘» ¿“Œ–¿ ¬ M¿——»¬≈'
+        MARK *#FIELD-01(C-LINE) ALARM
+      END-IF
+      ASSIGN C-DATA-B = C-DATA1-B
+    END-REPEAT
+*   FIND NUMBER ZAKAZ OG-F = OG-IDENT-G AND ZK-F = #FIELD-01(C-LINE)
+    FIND NUMBER ZAKAZ  ZK-F = #FIELD-01(C-LINE)
+    IF *NUMBER = 0  REINPUT 'Õ≈¬≈–Õ€… «¿ ¿«'
+      MARK *#FIELD-01(C-LINE) ALARM
+    END-IF
+    ELSE                                          /* —“–Œ ¿ ”ƒ¿À≈Õ¿
+    IF C-DATA > MAX-EL(N-DATA) THEN ESCAPE BOTTOM END-IF
+  END-IF
+*
+END-FOR
+*
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* œ–Œ÷≈ƒ”–¿ »«Ã≈Õ≈Õ»ﬂ ƒ¿ÕÕ€’
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE UPD-PROC
+*
+FOR C-DATA 1 MAX-EL(N-DATA)
+  ASSIGN C-DATA-B = C-DATA
+  CALL 'RWSX' C-DATA-B STEK-REC RD-REC N-DATA-B
+* FIND ZAKAZ OG-F = OG-IDENT-G AND ZK-F = STEK-01
+  FIND ZAKAZ  ZK-F = STEK-01
+    FOR #I 1 3
+      FOR #J 1 100
+        IF PO-F(#I,#J) = #PO OR PO-F(#I,#J) = 0
+          ESCAPE BOTTOM
+        END-IF
+      END-FOR
+      IF PO-F(#I,#J) = #PO OR PO-F(#I,#J) = 0
+        IF PO-F(#I,#J) = 0  ASSIGN PO-F(#I,#J) = #PO  END-IF
+        ESCAPE BOTTOM
+      END-IF
+    END-FOR
+    UPDATE
+    END OF TRANSACTION
+  END-FIND
+END-FOR
+*
+END-SUBROUTINE
+END

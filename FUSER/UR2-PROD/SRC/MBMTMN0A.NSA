@@ -1,0 +1,32 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBMTMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20071030
+**C               *:Time 1042000
+**C               *<Natural Source Header
+**DS          0000      1MBMTMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P  15 2MT-OG-ID
+**DK          0000P  15 2MT-ID
+**DK          0000A  22 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000A  50 2MT-SHORT-NAME
+**DK          0000A  50 2MT-PROF
+**DK          0000A  50 2MT-SORT
+**DK          0000A  10 2MT-VPR
+**DK          0000A  50 2MT-GOST
+**DK          0000A  50 2MT-OBOZ
+**DK          0000P  15 2GM-ID
+**DK          0000P  15 2BS-ID
+**DK          0000P  15 2MO-ID
+**DK          0000P  15 2EI-ID
+**DK          0000A  10 2PLACE
+**DS I1       0000      2DM-G                            (1:5)
+**DK          0000P  15 3DM-ID
+**DK          0000P  15 3DM-EI-ID
+**DK          0000P 8.7 3DM-COL
+**DS I1       0000      2CVT-G                           (1:10)
+**DK          0000P  15 3CVT-EI-ID
+**DK          0000P 8.7 3CVT-COL

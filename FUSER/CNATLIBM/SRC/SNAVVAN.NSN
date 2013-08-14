@@ -1,0 +1,264 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVVAN
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20101115
+* :Time 0918540
+* <Natural Source Header /*<<RO>
+******************************
+* бедемхе йндхтхйюрнпю бюкчр *
+******************************
+DEFINE DATA
+*  GLOBAL USING UFROG       /* цкнаюкэмше оепелеммше дкъ бяеи яхярелш
+PARAMETER USING PRMNAVI
+*
+  LOCAL  USING LCLVAL     /* VIEW мю тюик IBS-SYS-FILE
+  LOCAL  USING LCLFROL1   /* наыхе оепелеммше
+  LOCAL  USING LCLFROL4   /* наыхе оепелеммше
+  LOCAL  USING PRMHELP
+  LOCAL  USING ADKVAPRM   /* PDA НПЦ.-ХИ-ОНКЭГНБЮРЕКЕИ Я ЙНДНЛ > 1000
+
+  LOCAL
+    1 SELFUN(A60) INIT<'йНДХТХЙЮРНП БЮКЧР'>
+    1 SELREG(A40)
+    1 INPUT-REC(A062/1:15)
+    1 REDEFINE INPUT-REC
+      2 #INPUT-REC(15)
+* онкъ мебшбндхлше мю щйпюм
+        3 FIELD-FF  (B001) /* ткюц хглемемхъ/сдюкемхъ гюохях
+        3 FIELD-ISN (I4) /* ISN гюохях
+        3 FIELD-UP  (A001) /* ткюц гюыхрш гюохях
+* онкъ бшбндхлше мющйпюм
+        3 #FIELD-01 (A003)
+        3 REDEFINE #FIELD-01
+          4 #FIELD-01-A(A003)
+        3 #FIELD-02 (A050)
+        3 #FIELD-03 (N3)
+* дхмюлхвеяйхе юрпхасрш дкъ бшбндхлшу онкеи
+    1 #FIELD-01C (C/1:15)
+    1 #FIELD-02C (C/1:15)
+*
+* ярпсйрспю щкелемрю ярейю я дюммшлх
+*
+    1 STEK-REC(A62)
+    1 REDEFINE STEK-REC
+      2 STEK-FF(B01)
+      2 STEK-ISN(I4)
+      2 STEK-UP(A01)
+*
+      2 STEK-01(A03)
+      2 STEK-02(A50)
+      2 STEK-03(N3)
+    1 KEY1(A8)
+    1 REDEFINE KEY1
+      2 KEYOG1(N5)
+      2 KEYVA1(A3)
+      2 REDEFINE KEYVA1
+        3 HEX1(B3)
+    1 KEY2(A8)
+    1 REDEFINE KEY2
+      2 KEYOG2(N5)
+      2 KEYVA2(A3)
+      2 REDEFINE KEYVA2
+        3 HEX2(B3)
+    1 DUBL(N3)
+*
+END-DEFINE
+*
+SET KEY PF1 PF2 PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+#OPSYS := *OPSYS
+IF #RW = 'R'  SET KEY PF5=OFF
+   #FIELD-01C(*) :=  #FIELD-02C(*) := (AD=PD)
+END-IF
+INCLUDE CCASKOG
+*
+MOVE 1   TO N-DATA N-DATA-B     /* мнлеп ярейю я дюммшлх
+MOVE 62  TO L-DATA L-DATA-B     /* дкхмю щкелемрю б ярейе я дюммшлх
+MOVE 1200 TO Q-DATA Q-DATA-B     /* йнкхвеярбн щкелемрнб б ярейе я дюммшлх
+*
+MOVE 2   TO N-DEL  N-DEL-B      /* мнлеп ярейю я ISN сдюкеммшу гюохяеи
+MOVE 4   TO L-DEL  L-DEL-B      /* дкхмю щкелемрю б ярейе я ISN
+MOVE 1200 TO Q-DEL  Q-DEL-B      /* йнкхвеярбн щкелемрнб б ярейе я ISN
+*
+ASSIGN Q-FIELD = 2          /* онкеи б ярпнйе
+ASSIGN Q-LINE = 15          /* ярпнй мю щйпюме
+ASSIGN F-LINE = 6           /* ялеыемхе оепбни ярпнйх
+ASSIGN C-CURS = 1           /* ярпнйю я йспянпнл
+ASSIGN T-KEY = 7            /* мювюкэмюъ онгхжхъ йкчвебнцн юрпхасрю
+ASSIGN L-KEY = 3            /* дкхмю йкчвебнцн юрпхасрю
+ASSIGN P-INPUT(1,1) = 9     /* 5
+ASSIGN P-INPUT(2,1) = 22    /* 18
+ASSIGN P-INPUT(1,2) = 3
+ASSIGN P-INPUT(2,2) = 50
+*
+ASSIGN P-STEK(1,1) = 7
+ASSIGN P-STEK(2,1) = 10
+ASSIGN P-STEK(1,2) = 3
+ASSIGN P-STEK(2,2) = 50
+ASSIGN KEYOG1 = OG-IDENT-G
+ASSIGN KEYOG2 = OG-IDENT-G
+ASSIGN HEX1 = H'000000'
+ASSIGN HEX2 = H'FFFFFF'
+*
+ INCLUDE CCUFRO1
+*
+* нямнбмни жхйк
+*
+REPEAT
+*
+  RESET #FIELD-01(*) #FIELD-02(*)
+*
+  PERFORM ARRY-PROC
+*
+  INCLUDE INPPC '"NAVVAM1"' '"MAPVAM1"'
+    FOR C-CURS 1 Q-LINE
+     IF *CURS-FIELD = POS(#FIELD-01(C-CURS)) OR
+                    = POS(#FIELD-02(C-CURS))
+            ESCAPE BOTTOM  END-IF
+   END-FOR
+  IF *PF-KEY = 'PF1'
+     INCLUDE CCHELP '37'
+     ESCAPE TOP
+  END-IF
+*
+  FOR C-CURS 1 Q-LINE
+    IF *CURS-FIELD = POS(#FIELD-01(C-CURS))  OR_VAL := #FIELD-01(C-CURS)
+      SET CONTROL 'K03'
+      ESCAPE BOTTOM
+    END-IF
+  END-FOR
+  INCLUDE CCUFRO2                        /* напюанрйю от
+*
+*
+END-REPEAT
+  SET CONTROL 'K0'
+*
+ INCLUDE CCUFRO53
+*
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* времхе дюммшу хг IBS-BS-FILE б ярей я дюммшлх
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE LOAD-PROC
+*
+  ASSIGN C-DATA = 0
+  FIND IBS-KVA-FILE OG-VV = KEY1 THRU KEY2
+    ASSIGN C-DATA = *COUNTER
+    IF C-DATA > Q-DATA THEN ESCAPE BOTTOM END-IF
+*
+    ASSIGN STEK-FF  = H'00'
+    ASSIGN STEK-ISN = *ISN
+*
+    ASSIGN STEK-01 = IBS-KVA-FILE.VV-ID
+    ASSIGN STEK-02 = IBS-KVA-FILE.NM-VV
+    ASSIGN STEK-03 = IBS-KVA-FILE.KB-ID
+*
+    ASSIGN C-DATA-B = C-DATA
+    CALL 'RWSX' C-DATA-B STEK-REC WR-REC N-DATA-B
+*
+  END-FIND
+*
+  ASSIGN MAX-EL(N-DATA)   = C-DATA
+  ASSIGN FIRST-EL(N-DATA) = 1
+  ASSIGN MAX-EL(N-DEL)    = 0
+*
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю опнбепйх дюммшу щйпюмю
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE CHECK-PROC
+*
+IF #RW NE 'R'
+FOR C-LINE = 1 TO Q-LINE /* опнялюрпхбюел ярпнйх щйпюмю
+*
+  IF #FIELD-01(C-LINE) NE ' '                   /* ярпнйю ме сдюкемю
+*   EXAMINE #FIELD-01-A(*) #FIELD-01-A(C-LINE) GIVING NUMBER C-DUBL
+*   IF C-DUBL > 1 THEN
+*     REINPUT'дсакхпнбюмхе хдемрхтхйюрнпю'
+*     MARK *#FIELD-01(C-LINE) ALARM
+*   END-IF
+     RESET DUBL
+     FOR C-DUBL 1 Q-LINE
+       IF #FIELD-01-A(C-LINE) = #FIELD-01-A(C-DUBL)
+          ADD 1 TO DUBL
+          IF DUBL > 1
+             REINPUT'дсакхпнбюмхе хдемрхтхйюрнпю мю щйпюме'
+             MARK *#FIELD-01(C-LINE) ALARM
+          END-IF
+       END-IF
+     END-FOR
+*
+    RESET C-DATA-B
+    COMPUTE C-DATA2 = FIRST-EL(N-DATA) + Q-LINE - 1
+    REPEAT
+      ASSIGN C-DATA1-B = T-KEY
+      ASSIGN C-DATA2-B = L-KEY
+      CALL 'CMPX' #FIELD-01(C-LINE) C-DATA1-B C-DATA2-B N-DATA-B C-DATA-B
+      IF C-DATA1-B = H'00000000' THEN ESCAPE BOTTOM END-IF
+      ASSIGN C-DATA1 = C-DATA1-B
+      IF NOT(C-DATA1 = FIRST-EL(N-DATA) THRU C-DATA2) THEN
+        REINPUT'дсакхпнбюмхе хдемрхтхйюрнпю б люяяхбе'
+        MARK *#FIELD-01(C-LINE) ALARM
+      END-IF
+      ASSIGN C-DATA-B = C-DATA1-B
+    END-REPEAT
+    IF #FIELD-02(C-LINE) = ' '
+      REINPUT 'мюхлемнбюмхе' MARK *#FIELD-02(C-LINE) ALARM
+    END-IF
+    IF #FIELD-03(C-LINE) = 0
+      REINPUT 'йнд' MARK *#FIELD-03(C-LINE) ALARM
+    END-IF
+  ELSE                                              /* ярпнйю сдюкемю
+    IF C-DATA > MAX-EL(N-DATA) THEN ESCAPE BOTTOM END-IF
+  END-IF
+*
+END-FOR
+END-IF
+*
+END-SUBROUTINE
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+* опнжедспю хглемемхъ дюммшу
+* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
+DEFINE SUBROUTINE UPD-PROC
+*
+FOR C-DEL 1 TO MAX-EL(N-DEL)
+  ASSIGN C-DEL-B = C-DEL
+  CALL 'RWSX' C-DEL-B STEK-ISN RD-REC N-DEL-B
+  GET IBS-KVA-FILE STEK-ISN
+  DELETE                      /* СДЮКХРЭ ДЮММШЕ бЮКЧРШ ДК  НПЦ.-ЖХХ 1000
+  MOVE BY NAME IBS-KVA-FILE TO ADKVAPRM
+  PERFORM ADDKVA '3' ADKVAPRM /* СДЮКХРЭ ДЮММШЕ бЮКЧРШ ДК  НЯРЮКЭМШУ НПЦ.-ЖХИ ОНКЭГНБЮРЕКЕИ
+END-FOR
+*
+FOR C-DATA 1 TO MAX-EL(N-DATA)
+*
+  ASSIGN C-DATA-B = C-DATA
+  CALL 'RWSX' C-DATA-B STEK-REC RD-REC N-DATA-B
+*
+  IF STEK-FF = H'01' THEN
+*
+    IF STEK-ISN NE 0 THEN GET IBS-KVA-FILE STEK-ISN END-IF
+*
+    ASSIGN IBS-KVA-FILE.OG-ID = OG-IDENT-G
+    ASSIGN IBS-KVA-FILE.VV-ID = STEK-01
+    ASSIGN IBS-KVA-FILE.NM-VV = STEK-02
+    ASSIGN IBS-KVA-FILE.KB-ID = STEK-03
+*
+    MOVE BY NAME IBS-KVA-FILE TO ADKVAPRM
+    IF STEK-ISN NE 0
+     UPDATE                      /* ОЕПЕГЮОХЯЮРЭ ДЮММШЕ БЮКЧРШ ДК  НПЦ.-ХХ ОНКЭГНБЮРЕК  1000
+     PERFORM ADDKVA '5' ADKVAPRM /* ДК  НЯРЮКЭМШУ НПЦ.-ХИ ОНКЭГНБЮРЕКЕИ
+      ELSE
+     STORE IBS-KVA-FILE          /* ГЮОХЯЮРЭ ДЮММШЕ БЮКЧРШ ДК  НПЦ.-ХХ ОНКЭГНБЮРЕК  1000
+     PERFORM ADDKVA '4' ADKVAPRM /* ДК  НЯРЮКЭМШУ НПЦ.-ХИ ОНКЭГНБЮРЕКЕИ
+    END-IF
+*
+  END-IF
+*
+  END OF TRANSACTION
+*
+END-FOR
+*
+END-SUBROUTINE
+END
+

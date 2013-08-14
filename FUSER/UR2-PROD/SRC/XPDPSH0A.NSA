@@ -1,0 +1,15 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPDPSH0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070624
+**C               *:Time 1438000
+**C               *<Natural Source Header
+**DS          0000      1XPDPSH0A
+**DK          0000A  10 2SH-COMMAND
+**DK          0000A  40 2DP-SEARCH
+**DS          0000      2DP-RESULT
+**DK          0000P  13 3DP-ID
+**DK          0000N   5 3DP-CODE
+**DK          0000A  80 3DP-NAME

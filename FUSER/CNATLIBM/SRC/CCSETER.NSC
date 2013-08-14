@@ -1,0 +1,10 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCSETER
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20000609
+* :Time 1442330
+* <Natural Source Header /*<<RO>
+&1&.RESULT    := &2& ;
+&1&.RESULT_ID := &3& ;

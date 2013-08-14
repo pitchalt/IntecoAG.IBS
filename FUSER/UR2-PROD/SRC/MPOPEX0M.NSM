@@ -1,0 +1,55 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPOPEX0M
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20061004
+* :Time 1150000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     MPOPEXOL.DATA-START-N MPOPEXOL.DATA-STOP-N XPMXSM0L.MX-EDITOR-NAME
+*     XPMXSM0L.MX-EDITOR-PROGRAM XPMXSM0L.MX-FUNCTION-NAME
+DEFINE DATA PARAMETER
+1 MPOPEXOL.DATA-START-N (N08.0)
+1 MPOPEXOL.DATA-STOP-N (N08.0)
+1  XPMXSM0L.MX-EDITOR-NAME (A061)
+1  XPMXSM0L.MX-EDITOR-PROGRAM (A008)
+1  XPMXSM0L.MX-FUNCTION-NAME (A061)
+END-DEFINE
+FORMAT PS=021 LS=080 ZP=OFF SG=OFF KD=ON  IP=OFF
+SET CONTROL 'Q' ' ' INPUT USING MAP 'XPFNSM0M'
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023079XPFNSM0MN0YNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT NO ERASE (     IP=OFF                                           /*
+                                                                       )
+/
+/
+/
+/
+ 010T 'Укажите период за который будут выгружены записи'(I)
+/
+/
+ 010T 'С:'(I)
+ 013T MPOPEXOL.DATA-START-N  (AD=DLMFHT'_' ) /*.99U008 N08.0.
+ 022T 'По:'(I)
+ 026T MPOPEXOL.DATA-STOP-N  (AD=DLMFHT'_' ) /*.99U008 N08.0.
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

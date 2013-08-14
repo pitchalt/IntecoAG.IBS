@@ -1,0 +1,96 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MPPHPR0M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20060703
+* :Time 1420000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* WRITE USING MAP 'XXXXXXXX'
+*     MEPHMN0A.MO-CODE MEPHMN0A.MO-NAME MEPHMN0A.PO-DATE
+*     MEPHMN0A.PO-NUMBER MEPHMN0A.PP-DATE MEPHMN0A.PP-NUMBER
+*     MEPHMN0A.PP-SUMM MEPHMN0A.TT-DATE MEPHMN0A.TT-NUMBER
+*     MEPHMN0A.VO-ADDRESS MEPHMN0A.VO-CODE MEPHMN0A.VO-NAME
+DEFINE DATA PARAMETER
+1 MEPHMN0A.MO-CODE (N05.0)
+1 MEPHMN0A.MO-NAME (A060)
+1 MEPHMN0A.PO-DATE (D)
+1 MEPHMN0A.PO-NUMBER (A006)
+1 MEPHMN0A.PP-DATE (D)
+1 MEPHMN0A.PP-NUMBER (N06.0)
+1 MEPHMN0A.PP-SUMM (N13.2)
+1 MEPHMN0A.TT-DATE (D)
+1 MEPHMN0A.TT-NUMBER (A030)
+1 MEPHMN0A.VO-ADDRESS (A060)
+1 MEPHMN0A.VO-CODE (N05.0)
+1 MEPHMN0A.VO-NAME (A060)
+END-DEFINE
+FORMAT PS=018 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 018079        N0NNUCN            X         01 SYSDBA  NR             *
+************************************************************************
+WRITE ( AD=D                                                          /*
+                                                                       )
+ 050T 'Типова  межотраслева  форма M4'
+/
+ 004T 'ПРИХОДНЫЙ ОРДЕР N'
+ 022T MEPHMN0A.PO-NUMBER  (AD=DLOFHT ) /*.01D006 A006 .
+ 040T '----------'
+ 055T 'Утверждена постановлением'
+/
+ 015T 'ДАТА'
+ 020T MEPHMN0A.PO-DATE  (AD=DLOFHT EM=DD.MM.YY ) /*.01D008 D    .
+ 043T 'Коды'
+ 062T 'госкомстата России'
+/
+ 040T '----------'
+ 064T 'от 30.10.97 N71A'
+/
+ 004T 'Организаци '
+ 016T 'ФГУП "КЗТА"'
+ 034T 'ОКУД'
+ 042T '0315003'
+/
+ 040T '----------'
+/
+ 034T 'ОКПО'
+/
+ 040T '----------'
+/
+ 003T 'Структурное подразделение'
+/
+/
+ 003T 'Поставщик'
+ 013T MEPHMN0A.VO-CODE  (AD=DLOFHT ) /*.01D005 N05.0.
+ 019T MEPHMN0A.VO-NAME  (AD=DLOFHT ) /*.01D060 A060 .
+/
+ 019T MEPHMN0A.VO-ADDRESS  (AD=DLOFHT ) /*.01D060 A060 .
+/
+ 003T 'Склад'
+ 013T MEPHMN0A.MO-CODE  (AD=DLOFHT ) /*.01D005 N05.0.
+ 019T MEPHMN0A.MO-NAME  (AD=DLOFHT ) /*.01D060 A060 .
+/
+ 003T 'Товарно-транспортна '
+ 044T 'Платежка'
+/
+ 003T MEPHMN0A.TT-NUMBER  (AD=DLOFHT ) /*.01D030 A030 .
+ 034T MEPHMN0A.TT-DATE  (AD=DLOFHT EM=DD.MM.YY ) /*.01D008 D    .
+ 044T MEPHMN0A.PP-NUMBER  (AD=DLOFHT ) /*.01D006 N06.0.
+ 051T MEPHMN0A.PP-DATE  (AD=DLOFHT EM=DD.MM.YY ) /*.01D008 D    .
+ 060T MEPHMN0A.PP-SUMM  (AD=DLOFHT ) /*.01D016 N13.2.
+/
+ 001T '__________________________________________________________'-
+      '_____________________'
+/
+ 003T 'Материал'
+ 028T 'Кол-во'
+ 043T 'Цена/НДС'
+ 060T 'Сумма'
+/
+ 001T '----------------------------------------------------------'-
+      '---------------------'
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UOCAMORT
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070706
+**C               *:Time 1009330
+**C               *<Natural Source Header
+**DV          0        V1UOC-AMORT-FILE                  UOC-AMORT-FILE
+**DD          0   N 5.0 2OG-F
+**DD          0   A  15 2IN-F
+**DD          0   N 4.0 2GD-F
+**DD I1 C     0   A  18M2IZ-F                            (1:13)
+**DD I1 C     0   A  10M2NA-F                            (1:13)
+**DD    *     0        C2NA-F
+**DD    *     0        C2IZ-F

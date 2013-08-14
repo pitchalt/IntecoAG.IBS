@@ -1,0 +1,11 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName Z-IL
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20050610
+* :Time 1415330
+* <Natural Source Header /*<<RO>
+READ ZAK-IL
+  IF ZZ NE ' ' AND DT-ZA = 0  UPDATE DT-ZA = 19900101
+  END OF TRANSACTION .

@@ -1,0 +1,17 @@
+/*DS                                 1XWVOXLOA                                                        DA:00.00ED:00.00PF:WNV:06030900
+/*DF                    I         4  2RETURN-CODE
+/*DF                    I         4  2C@VO-LIST
+/*DS I             S0001             2VO-LIST
+/*DF                    A         2  3VO-TYPE
+/*DF                    N         5  3VO-CODE
+/*DF                    A         3  3VO-COUNTRY-CODE
+/*DF                    A        15  3VO-INN
+/*DF                    A        15  3VO-KPP
+/*DF                    A        80  3VO-NAME
+/*DF                    A        80  3VO-ADDR
+/*DF                    A       250  3VO-NAME-FULL
+/*DF                    A         8  3VO-UP-USER
+/*DF                    A         8  3VO-UP-PGM
+/*DF                    T            3VO-UP-TIME
+/*HA0001
+/*A1:*

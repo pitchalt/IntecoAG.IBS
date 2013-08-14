@@ -1,0 +1,28 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName GETNMVA
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20051202
+* :Time 1309330
+* <Natural Source Header /*<<RO>
+* мюхлемнбюмхе ондпюгдекемхъ
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)
+  1 #VA(A3)
+  1 #NM(A50)
+  LOCAL USING LCLVAL
+  LOCAL
+  1 KEYVA(A8)
+  1 REDEFINE KEYVA
+    2 KEYVAOG(N5)
+    2 KEYVAVA(A3)
+END-DEFINE
+*
+RESET #NM
+KEYVAOG := #OG  KEYVAVA := #VA
+FIND IBS-KVA-FILE OG-VV = KEYVA
+  #NM := NM-VV
+END-FIND
+END

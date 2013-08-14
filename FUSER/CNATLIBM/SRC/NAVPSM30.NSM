@@ -1,0 +1,54 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVPSM30
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20080102
+* :Time 1439330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #POVT #PSW
+DEFINE DATA PARAMETER
+1 #POVT (A030)
+1 #PSW (A008)
+END-DEFINE
+SET KEY PF3 (PB=002/022/002/010) NAMED 'Выход'
+/* 000 000 000 000
+SET KEY TREQ (PB=002/011/002/010) NAMED 'Продолж.'
+/* 000 000 000 000
+FORMAT PS=024 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024079        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T #POVT  (AD=IO ) /*.01U030 A030 .
+/
+ 002T #PSW  (AD=NLAFHW'_' ) /*.99U008 A008 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

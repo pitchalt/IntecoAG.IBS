@@ -1,0 +1,45 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVPRTR
+* :UID IBS_10
+* :Mode S
+* :CP
+* :Date 20020517
+* :Time 1205330
+* <Natural Source Header /*<<RO>
+***************************************************************
+* œ–Œ÷≈ƒ”–¿ «¿√–¿« » œ¿–¿Ã≈“–»◊≈— Œ… Œ¡À¿—“» PRMNAV LIB:CNATLBM
+* »« —“≈ ¿ œ≈–≈Õ¿«Õ¿◊≈Õ»ﬂ √ÀŒ¡¿À‹ÕŒ… Œ¡À¿—“» LIBRARY-ID
+***************************************************************
+DEFINE SUBROUTINE INPUT-STACK
+FORMAT LS=250
+INPUT NAV_OG-IDENT-G
+INPUT NAV_FUN-NM-G
+INPUT NAV_REG-NM-G
+INPUT NAV_SYS-NM-G
+INPUT NAV_MAX-EL(*)
+INPUT NAV_MAX-NS
+INPUT NAV_CODE_OF_SYSTEM
+INPUT NAV_FIRST-EL(*)
+INPUT NAV_COU-EL(*)
+INPUT NAV_OS-FK-G
+INPUT NAV_OP-IDENT-G
+INPUT NAV_OG-NM-G
+INPUT NAV_GP-IDENT-G
+INPUT NAV_OS-FP-G
+INPUT NAV_KD-DST
+INPUT NAV_KKF-G
+INPUT NAV_BN-IDENT-G
+INPUT NAV_PSW-MENU(*)
+INPUT NAV_SY-IDENT-G(*)
+INPUT NAV_TXT-NM-DOK
+INPUT NAV_MAX-KD-VO
+INPUT NAV_MAX-CO-VO
+INPUT NAV_MAX-CO-BN
+INPUT NAV_MAX-CO-BS
+INPUT NAV_MAX-CO-SS
+INPUT SSA(1)
+INPUT SSA(2)
+INPUT SSA(3)
+INPUT SSA(4)
+KODIF_OR(*) := SSS(*)
+END-SUBROUTINE

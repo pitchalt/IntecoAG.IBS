@@ -1,0 +1,57 @@
+DB: 000 FILE: 090  - ADS-DOGOVOR                      DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID INTECO
+*      :CP
+*
+*
+*      :Date 20090818
+*      :Time 1244330
+*      <Natural Source Header
+*      GENERATED FROM ADABAS FNR 91
+*      ADABAS DBID 7
+  1 OG OG-ID                             N  5.0  N D ÎÐÃ-ÖÈß ÏÎËÜÇÎÂÀÒÅË
+P 1 GI GP-IN
+  2 NI IN-F                              I    4  N
+  1 ID IND-D                             I    4  N
+  1 N1 NN-ID                             I    4  N D
+  1 N2 NN-DP                             I    4    D
+  1 N3 ND-E                              I    4  N D
+  1 UR UR-ID                             N  1.0    D N ÓÐÎÂÍß ÝÒÀÏÀ
+  1 ND ND-F                              A   40  N D ÍÀÈÌÅÍÎÂÀÍÈÅ
+  1 GM GM-F                              D    6  N D ÄÀÒÀ ÇÀÊËÞ×ÅÍÈß
+  1 VZ VO-Z                              N  5.0  N D
+  1 VO VO-I                              N  5.0  N D ÂÍÅØ.ÎÐÃ-ÖÈß
+  1 SU SU-F                              P 13.2  N   ÖÅÍÀ
+  1 DN GM-N                              D    6    D ÄÀÒÀ ÍÀ×ÀËÀ
+  1 DK GM-K                              D    6    D ÄÀÒÀ ÎÊÎÍ×ÀÍÈß
+  1 TD TD-F                              N  2.0  N D ÊÎÄ ÂÈÄÀ ÐÀÁÎÒ
+  1 SD SD-F                              A    1  N D ÑÎÑÒÎßÍÈÅ ÐÀÁÎÒ
+  1 PO PO-F                              N  5.0  N D ÎÒÂ.ÏÎÄÐ.-ÈÑÏÎËÍÈÒ.
+  1 PI PI-F                              N  5.0  N D ÎÒÂ.ÈÑÏÎËÍÈÒÅËÜ
+  1 TE TEMA                              N  5.0  N D ÒÅÌÀ
+M 1 ZK ZK-F                              A   10  N D ÇÀÊÀÇ
+M 1 TX TX-F                              A   50  N   ÑÎÄÅÐÆÀÍÈÅ ÐÀÁÎÒ
+  1 VV VV-ID                             A    3  N D ÂÈÄ ÂÀËÞÒÛ
+  1 DA DA-F                              D    6    D ÄÀÒÀ ÂÛÏÎËÍÅÍ.ÐÀÁÎÒ
+  1 WD WD-F                              A    1  N D ÒÈÏ ÄÎÃÎÂÎÐÀ
+  1 O1 NN-OD                             I    4  N D
+  1 O2 NN-DO                             I    4    D
+  1 O3 ET-OD                             I    4  N D
+  1 OU UR-OD                             N  1.0    D N ÓÐÎÂÍß ÝÒÀÏÀ ÎÑ.Ä
+  1 BS FL-BS                             A    1    D ÔËÀÃ ÍÀÊËÀÄ.Ñ×ÅÒÀ
+  1 TY TY-ID                             A    3  N
+  1 NS NS-F                              N  5.0  N D ÈÄÅÍÒÈÔ.ÏÎËÜÇÎÂÀÒÅË
+P 1 PL PL-G
+  2 PZ PZ-F                              A   10  N D ÏËÀÒÅÆ ÏÎ ÇÀÊÀÇÓ
+  2 PD PD-F                              N  8.0  N D ÄÀÒÀ ÏËÀÒÅÆÀ
+  2 PV PV-F                              A    1  N D ÂÈÄ ÏËÀÍ.ÏËÀÒÅÆÀ
+  2 PS PS-F                              P 13.2  N   ÑÓÌÌÀ ÏËÀÍ.ÏËÀÒÅÆÀ
+  1 OI OG-IND                            B    9  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-1(1-5)
+*      ID-1(1-4)
+  1 PT PT-F                              N  5.0  N D ÏÎÄÒÅÌÀ
+******DDM OUTPUT TERMINATED******

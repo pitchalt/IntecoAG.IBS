@@ -1,0 +1,22 @@
+DB: 000 FILE: 113  - UOC-AMORT-FILE                   DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID KBU
+*      :CP
+*
+*
+*      :Date 20080929
+*      :Time 1644330
+*      <Natural Source Header
+  1 OG OG-F                              N  5.0  N D
+  1 IN IN-F                              A   15  N
+  1 GD GD-F                              N  4.0  N D
+M 1 IZ IZ-F                              A   18  N
+M 1 NA NA-F                              A   10  N
+  1 OI OI-F                              A   20  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-F(1-5)
+*      IN-F(1-15)
+******DDM OUTPUT TERMINATED******

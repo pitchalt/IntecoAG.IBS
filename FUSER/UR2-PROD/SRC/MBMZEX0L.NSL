@@ -1,0 +1,22 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBMZEX0L
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061102
+**C               *:Time 1457000
+**C               *<Natural Source Header
+**DS          0000      1MBMZEX0L
+**DK          0000A  10 2NOMSYS
+**DK          0000A  10 2NOMZAM
+**DK          0000N 3.2 2KOL
+**DK          0000A   9 2SHIFRZAK
+**DK          0000A   8 2NA4DATE
+**DRR         0000     R2NA4DATE                         /* REDEF. BEGIN : NA4DATE
+**DFR         0000N   8 3NA4DATE-N
+**DK          0000A   8 2ENDDATE
+**DRR         0000     R2ENDDATE                         /* REDEF. BEGIN : ENDDATE
+**DFR         0000N   8 3ENDDATE-N
+**DK          0000N   7 2NOM-CHANGE
+**DK          0000A  10 2KART
+**DK          0000A  50 2PRIM

@@ -1,0 +1,30 @@
+DB: 000 FILE: 008  - SU-REC-FILE                      DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID TIROD
+*      :CP
+*
+*
+*      :Date 20090528
+*      :Time 0939330
+*      <Natural Source Header
+  1 KD KD-F                              N  5.0  N D
+  1 GM GM-F                              N  6.0  N D
+  1 BO BO-F                              A    1  F D
+  1 OS OS-F                              N  5.0  N D
+  1 KS KS-F                              N  5.0  N D
+  1 SU SU-F                              N 13.2  N
+  1 NM NM-F                              A   40  N
+  1 DV DV-F                              N  8.0  N
+  1 SY SY-F                              A   10  N D
+  1 PR PR-ID                             A    5    D
+  1 NN NN-ID                             N  5.0  N D
+*      X1-F
+*      X2-F
+  1 SO SO-F                              B   10  N S
+*      -------- SOURCE FIELD(S) -------
+*      KD-F(1-5)
+*      OS-F(1-5)
+******DDM OUTPUT TERMINATED******

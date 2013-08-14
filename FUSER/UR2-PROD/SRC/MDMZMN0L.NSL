@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MDMZMN0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070109
+**C               *:Time 1340000
+**C               *<Natural Source Header
+**DV          0000     V1MA-MATERIAL-CHANGE-VIEW         MA-MATERIAL-CHANGE
+**DD          0000P15.0 2MZ-ID
+**DD          0000P 7.0 2MZ-TYPE-ID
+**DD          0000P15.0 2FROM-MT-ID
+**DD          0000P15.0 2TO-MT-ID
+**DD          0000P15.0 2ZK-ID
+**DD          0000P 8.7 2COL
+**DD          0000D     2DT-START
+**DD          0000D     2DT-STOP
+**DD          0000A  60 2COMMENT
+**DD          0000A  25 2KART-NUMBER
+**DD          0000P15.0 2KZ-ID
+**DD          0000P15.0 2MZ-CHANGE-ID
+**DD          0000D     2MZ-DATE-CREATED
+**DS I1       0000      1MZ-FROM-MT-SUPER-G              (1:2)
+**DK          0000B  22 2MZ-FROM-MT-SUPER
+**DR          0000     R2MZ-FROM-MT-SUPER                /* BEGIN REDEFINE: MZ-FROM-MT-
+**DFR         0000P  15 3FROM-MT-ID
+**DFR         0000P  15 3ZK-ID
+**DFR         0000D     3DT-START

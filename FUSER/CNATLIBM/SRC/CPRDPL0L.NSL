@@ -1,0 +1,37 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CPRDPL0L
+**C               *:UID T_UPA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100329
+**C               *:Time 1048330
+**C               *<Natural Source Header
+**DS          0         1CPRDPL0L
+**DK          0   A  10 2CODE
+**DK          0   A  70 2NAME
+**DK          0   N   6 2DT-FROM
+**DK          0   N   6 2DT-TO
+**DK          0   I   4 2AC-OID
+**DK          0   N   5 2AC-CODE
+**DK          0   I   4 2ZK-OID
+**DK          0   A   9 2ZK-CODE
+**DK          0   I   4 2PO-OID
+**DK          0   N   5 2PO-CODE
+**DK          0   I   4 2SZ-OID
+**DK          0   N   5 2SZ-CODE
+**DK          0   I   4 2ET-OID
+**DK          0   N   5 2ET-CODE
+**DK          0   N  15 2DOCS
+**DR          0        R2DOCS                            /* BEGIN REDEFINE: DOCS
+**DFR         0   N   5 3DOC-PR
+**DFR         0   N   5 3DOC-PCK
+**DFR         0   N   5 3DOC-ND
+**DK          0   I   4 2RP-C
+**DR          0        R2RP-C                            /* BEGIN REDEFINE: RP-C
+**DFR         0   I   4 3CPRDPL0L-RP-C
+**DS I1       0         2RP-LIST                         (1:105)
+**DK          0   A   2 3RP-CMD
+**DK          0   I   4 3RP-RID
+**DK          0   A  10 3RP-CODE
+**DK          0   N   6 3RP-DT-FROM
+**DK          0   N   6 3RP-DT-TO

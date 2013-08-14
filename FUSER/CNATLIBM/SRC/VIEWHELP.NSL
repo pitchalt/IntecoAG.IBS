@@ -1,0 +1,21 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName VIEWHELP
+**C               *:UID UOCNEW
+**C               *:Mode R
+**C               *:CP
+**C               *:Date 20020104
+**C               *:Time 1902330
+**C               *<Natural Source Header
+**DFC  S      0002N   3C1MAXNSTRHELP
+**HS0001
+**I                      50
+**DV          0000     V1VIEWHELP                        ASUM-HELP
+**DD          0000A   9 2SYSTEM
+**DD          0000N 9.0 2NUM-HELP
+**DD          0000N 9.0 2SUB-NUM-HELP
+**DD          0000N 9.0 2MAX-SUB-NUM                     /* íe ècïoëüçyeòc
+**DD          0000A  70 2MAIN-HEADER
+**DD          0000A  70 2HEADER
+**DD    *     0000     C2LIST-HELP
+**DD    C     0000     P2LIST-HELP
+**DD I1       0000A  70 3STRING-HELP                     (1:MAXNSTRHELP)

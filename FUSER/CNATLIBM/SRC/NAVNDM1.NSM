@@ -1,0 +1,125 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVNDM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050219
+* :Time 1529330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #DL(*) #KD(*) C-SLC(*) C-TSK(*) C-VIB C-ZAP FUN-NM-G REG-NM-G
+*     SLC(*) SYS-NM-G VIB ZAP
+DEFINE DATA PARAMETER
+1 #DL (A050/00001:00015)
+1 #KD (N05.0/00001:00015)
+1  C-SLC (C/00001:00015)
+1  C-TSK (C/00001:00015)
+1  C-VIB (C)
+1  C-ZAP (C)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SLC (A001/00001:00015)
+1 SYS-NM-G (A060)
+1 VIB (A003)
+1 ZAP (A003)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 019T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+/
+/
+ 002T '----------------------------------------------------------'-
+      '-------------------'
+/
+ 002T SLC (001)  (AD=YLMFHT'_' CV=C-SLC(001) ) /*.99U001 A001 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 008T #KD (001)  (AD=YLMFHT'_' CV=C-TSK(001) ) /*.99U005 N05.0.
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 026T #DL (001)  (AD=YLMFHT'_' CV=C-TSK(001) ) /*.99U050 A050 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+/
+ 002T SLC (002)  (AD=YLMFHT'_' CV=C-SLC(002) ) /*.99U001 A001 .
+ 008T #KD (002)  (AD=YLMFHT'_' CV=C-TSK(002) ) /*.99U005 N05.0.
+ 026T #DL (002)  (AD=YLMFHT'_' CV=C-TSK(002) ) /*.99U050 A050 .
+/
+ 002T SLC (003)  (AD=YLMFHT'_' CV=C-SLC(003) ) /*.99U001 A001 .
+ 008T #KD (003)  (AD=YLMFHT'_' CV=C-TSK(003) ) /*.99U005 N05.0.
+ 026T #DL (003)  (AD=YLMFHT'_' CV=C-TSK(003) ) /*.99U050 A050 .
+/
+ 002T SLC (004)  (AD=YLMFHT'_' CV=C-SLC(004) ) /*.99U001 A001 .
+ 008T #KD (004)  (AD=YLMFHT'_' CV=C-TSK(004) ) /*.99U005 N05.0.
+ 026T #DL (004)  (AD=YLMFHT'_' CV=C-TSK(004) ) /*.99U050 A050 .
+/
+ 002T SLC (005)  (AD=YLMFHT'_' CV=C-SLC(005) ) /*.99U001 A001 .
+ 008T #KD (005)  (AD=YLMFHT'_' CV=C-TSK(005) ) /*.99U005 N05.0.
+ 026T #DL (005)  (AD=YLMFHT'_' CV=C-TSK(005) ) /*.99U050 A050 .
+/
+ 002T SLC (006)  (AD=YLMFHT'_' CV=C-SLC(006) ) /*.99U001 A001 .
+ 008T #KD (006)  (AD=YLMFHT'_' CV=C-TSK(006) ) /*.99U005 N05.0.
+ 026T #DL (006)  (AD=YLMFHT'_' CV=C-TSK(006) ) /*.99U050 A050 .
+/
+ 002T SLC (007)  (AD=YLMFHT'_' CV=C-SLC(007) ) /*.99U001 A001 .
+ 008T #KD (007)  (AD=YLMFHT'_' CV=C-TSK(007) ) /*.99U005 N05.0.
+ 026T #DL (007)  (AD=YLMFHT'_' CV=C-TSK(007) ) /*.99U050 A050 .
+/
+ 002T SLC (008)  (AD=YLMFHT'_' CV=C-SLC(008) ) /*.99U001 A001 .
+ 008T #KD (008)  (AD=YLMFHT'_' CV=C-TSK(008) ) /*.99U005 N05.0.
+ 026T #DL (008)  (AD=YLMFHT'_' CV=C-TSK(008) ) /*.99U050 A050 .
+/
+ 002T SLC (009)  (AD=YLMFHT'_' CV=C-SLC(009) ) /*.99U001 A001 .
+ 008T #KD (009)  (AD=YLMFHT'_' CV=C-TSK(009) ) /*.99U005 N05.0.
+ 026T #DL (009)  (AD=YLMFHT'_' CV=C-TSK(009) ) /*.99U050 A050 .
+/
+ 002T SLC (010)  (AD=YLMFHT'_' CV=C-SLC(010) ) /*.99U001 A001 .
+ 008T #KD (010)  (AD=YLMFHT'_' CV=C-TSK(010) ) /*.99U005 N05.0.
+ 026T #DL (010)  (AD=YLMFHT'_' CV=C-TSK(010) ) /*.99U050 A050 .
+/
+ 002T SLC (011)  (AD=YLMFHT'_' CV=C-SLC(011) ) /*.99U001 A001 .
+ 008T #KD (011)  (AD=YLMFHT'_' CV=C-TSK(011) ) /*.99U005 N05.0.
+ 026T #DL (011)  (AD=YLMFHT'_' CV=C-TSK(011) ) /*.99U050 A050 .
+/
+ 002T SLC (012)  (AD=YLMFHT'_' CV=C-SLC(012) ) /*.99U001 A001 .
+ 008T #KD (012)  (AD=YLMFHT'_' CV=C-TSK(012) ) /*.99U005 N05.0.
+ 026T #DL (012)  (AD=YLMFHT'_' CV=C-TSK(012) ) /*.99U050 A050 .
+/
+ 002T SLC (013)  (AD=YLMFHT'_' CV=C-SLC(013) ) /*.99U001 A001 .
+ 008T #KD (013)  (AD=YLMFHT'_' CV=C-TSK(013) ) /*.99U005 N05.0.
+ 026T #DL (013)  (AD=YLMFHT'_' CV=C-TSK(013) ) /*.99U050 A050 .
+/
+ 002T SLC (014)  (AD=YLMFHT'_' CV=C-SLC(014) ) /*.99U001 A001 .
+ 008T #KD (014)  (AD=YLMFHT'_' CV=C-TSK(014) ) /*.99U005 N05.0.
+ 026T #DL (014)  (AD=YLMFHT'_' CV=C-TSK(014) ) /*.99U050 A050 .
+/
+ 002T SLC (015)  (AD=YLMFHT'_' CV=C-SLC(015) ) /*.99U001 A001 .
+ 008T #KD (015)  (AD=YLMFHT'_' CV=C-TSK(015) ) /*.99U005 N05.0.
+ 026T #DL (015)  (AD=YLMFHT'_' CV=C-TSK(015) ) /*.99U050 A050 .
+/
+ 001T '-¬¬Œƒ---œ‘1---œ‘2---œ‘3---œ‘4---œ‘5---œ‘6---œ‘7---œ‘8---œ‘'-
+      '9---œ‘10--œ‘11--œ‘12-'
+/
+ 021T '¬˚ı'(REI)
+ 033T ZAP  (AD=YLOFHT CV=C-ZAP ) /*.01U003 A003 .
+ 039T 'œ˜Ú'(I)
+ 045T 'ÕÁ‰'(I)
+ 051T '¬Ô'(I)
+ 057T 'Õ‡˜'(I)
+ 064T ' ÓÌ'(I)
+ 069T VIB  (AD=YLOFHT CV=C-VIB ) /*.01U003 A003 .
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

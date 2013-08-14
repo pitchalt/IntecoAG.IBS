@@ -1,0 +1,186 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SLD70AOL
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20101019
+* :Time 0928570
+* <Natural Source Header /*<<RO>
+*
+* SERVER
+* Определение исход щего сальдо
+* по счету расчетов с раб и служ
+* на период #GM
+* В случае ошибок список таб-н с ошибками можно проконтролировать
+* в режиме
+* "Администрирование системы. Тестирование отчетности"
+*
+DEFINE DATA PARAMETER
+01 #ORG(N4)
+01 #70(A11)
+01 #GM(N6)
+01 #FL-SK70(A1) /* '1' в Кр сальдо только долг за предпри тием
+                /* '2' в Кр сальдо сумма к выдаче + долг за предпри тием
+** Исход щее сальдо
+01 #SD70(P12.2)
+01 #SK70(P12.2)
+** Сообщение. Заполнено в случае проблем при работе программы.
+01 #SLD70-TXT(A60)
+** Признак, что были ошибки
+01 #ERR(A1)
+END-DEFINE
+*
+RESET
+#SD70 #SK70 #SLD70-TXT #ERR
+#SC70-TN(A11) /** Счет 70 дл  сотрудника в период
+#AN(A60) #AU(A65) #KSC(N1) #TN(N5) #TNKOP(P9.2)
+REDEFINE
+#AN(NPE(P6)NKD(A3)NSU(P9.2))
+#AU(UPE(P6)UKD(A3)USU(P9.2))
+*
+#SLD70-TXT = 'Счет не указан'
+IF #70 = ' ' ESCAPE ROUTINE
+** Определение счетов расчетов с раб и сл дл  организации
+#SLD70-TXT = 'Не верно указан счет'
+CALLNAT 'BS_701' #ORG
+        #BS701(A11) #BS701N(A11) #BS701D(A11) #BS701DZP(A11) #BS75AK(A11)
+IF NOT
+( #70 = #BS701 OR = #BS701N OR = #BS701D OR = #BS701DZP OR = #BS75AK )
+ESCAPE ROUTINE
+** Используемы субсчета 70
+#KSC = 1
+IF #BS701N NE ' '   ADD 1 TO #KSC
+IF #BS701D NE ' '   ADD 1 TO #KSC
+IF #BS701DZP NE ' ' ADD 1 TO #KSC
+IF #BS75AK NE ' '   ADD 1 TO #KSC
+**
+RESET #SLD70-TXT
+** Код В/о долга за сотрудником Дебет счета
+CALLNAT 'DEFK903' #K903(A3)
+** Код В/о долга за предпри тием Кредит счета
+CALLNAT 'DEFK801' #K801(A3)
+** Отчетный период
+CALLNAT 'PRC-BPE' #BPE(N6) #LPE(N6)
+** Состав организации
+CALLNAT 'ORG-POM' #ORG #POORG(P5/1:2000) #KPO(N4)
+*
+IF #GM <= #LPE DO
+              #INTGM_1(N2) = 1
+              CALLNAT 'GM_1' #GM #GMR(N6) #INTGM_1
+              IF #GMR < #BPE PERFORM SALDO-ARX
+              IF #GMR = #BPE PERFORM SALDO-LPE
+              DOEND
+ELSE          PERFORM SALDO-LS
+**
+** Расчет дл  текущего периода
+DEFINE SUBROUTINE SALDO-LS
+CALLNAT 'NB801' #NB801(N9)
+RESET #SN(P9.2) #SU(P9.2)
+READ ASRZ-LS-FILE
+WHERE ( C*AN-F > 0 OR C*AU-F > 0 ) AND PO-F = #POORG(*) AND TN-F > 0
+** Определение счета дл  таб-н
+IF #KSC > 1 DO
+CALLNAT 'TN-BS70' #ORG #BPE TN-F #SC70-TN
+IF #70 NE #SC70-TN ESCAPE TOP
+DOEND
+*
+OBTAIN AN-F(1:45) AU-F(1:30)
+REDEFINE AO-F(AOPR(A1))
+FOR I 1 C*AN-F #AN = AN-F(1.I) ADD NSU TO #SN LOOP
+FOR I 1 C*AU-F #AU = AU-F(1.I) ADD USU TO #SU LOOP
+#RAZN(P9.2) = #SN - #SU
+** Если нет сальдо или кредитовое сальдо полностью к выдаче
+IF #RAZN = 0 OR
+ ( #RAZN > 0 AND ( AOPR = 'P' OR #NB801 = 0 ) ) ESCAPE TOP
+** Если долг за сотрудником
+IF #RAZN < 0 DO ADD #RAZN TO #SD70 ESCAPE TOP DOEND
+** В кредит Сумму к выдаче + долг за предпри тием
+IF #FL-SK70 = '2' DO ADD #RAZN TO #SK70 ESCAPE TOP DOEND
+** В кредит только долг за предпри тием
+#K-VID(P9) = #RAZN / #NB801
+#SK70 = #SK70 + ( #RAZN - #K-VID )
+LOOP
+RETURN
+**
+** Расчет дл  предыдущего периода
+DEFINE SUBROUTINE SALDO-LPE
+READ ASRZ-LS-FILE
+WHERE OP-F = #POORG(*) AND TN-F > 0
+** Определение счета дл  таб-н
+IF #KSC > 1 DO
+CALLNAT 'TN-BS70' #ORG #GM TN-F #SC70-TN
+IF #70 NE #SC70-TN ESCAPE TOP
+DOEND
+*
+RESET #TNKOP
+OBTAIN AN-F(1:45) AU-F(1:30)
+FOR I 1 C*AN-F #AN = AN-F(1.I)
+IF NKD = #K801 DO
+* T1. FIND ASRZ-LS-FILE TN-F = TN-F
+* ADD NSU TO TEST1(1)
+* UPDATE (T1.) SAME
+* END OF TRANSACTION
+* LOOP
+ADD NSU TO #TNKOP
+ADD NSU TO #SK70
+DOEND
+LOOP
+FOR I 1 C*AU-F #AU = AU-F(1.I) IF UKD = #K903 ADD USU TO #SD70 LOOP
+IF #FL-SK70 NE '2' ESCAPE TOP
+#TN = TN-F PERFORM SU-VIDANO
+LOOP
+RETURN
+**
+** Расчет прошедших периодов
+DEFINE SUBROUTINE SALDO-ARX
+FIND ASRZ-ARX-FILE GM-F = #GMR
+WHERE PO-F = #POORG(*) AND TN-F > 0
+** Определение счета дл  таб-н
+IF #KSC > 1 DO
+CALLNAT 'TN-BS70' #ORG #GM TN-F #SC70-TN
+IF #70 NE #SC70-TN ESCAPE TOP
+DOEND
+*
+OBTAIN AN-F(1:45) AU-F(1:30)
+RESET #TNKOP
+FOR I 1 C*AN-F
+#AN = AN-F(1.I)
+IF NKD = #K801 ADD NSU TO #SK70
+IF NKD = #K801 ADD NSU TO #TNKOP
+LOOP
+FOR I 1 C*AU-F #AU = AU-F(1.I) IF UKD = #K903 ADD USU TO #SD70 LOOP
+IF #FL-SK70 NE '2' ESCAPE TOP
+#TN = TN-F PERFORM SU-VIDANO
+LOOP
+RETURN
+*
+DEFINE SUBROUTINE SU-VIDANO
+RESET #MNA(P9.2) #MUD(P9.2)
+CALLNAT 'ARX-ANAU' #TN #GM
+                   #ANM(A60/1:45) #CAN(N2)
+                   #AUM(A69/1:30) #CAU(N2)
+                   #AO(A7)
+                   #USER-AN(A8) #USER-AU(A8)
+FOR I 1 #CAN #AN = #ANM(I) ADD NSU TO #MNA LOOP
+FOR I 1 #CAU #AU = #AUM(I) ADD USU TO #MUD LOOP
+IF #MNA <= #MUD ESCAPE ROUTINE
+#K-VIDACHE(P9.2) = #MNA - #MUD - #TNKOP
+** На случай тестировани  (исправлений в архивах и накопител х)
+PERFORM ZAP-TEST
+ADD #K-VIDACHE TO #SK70
+RETURN
+*
+DEFINE SUBROUTINE ZAP-TEST
+RESET #TEST(P10.2/1:10)
+FIND ASRZ-ARX-FILE TN-F = #TN AND GM-F = #GM
+IF #K-VIDACHE = K-VIDACHE ESCAPE ROUTINE
+#TEST(1) = #K-VIDACHE CALLNAT 'ZAP-TEST' #TN #TEST(*) '1'
+#TEST(1) =  K-VIDACHE CALLNAT 'ZAP-TEST' #TN #TEST(*) '2'
+#ERR = 'Y'
+#SLD70-TXT = 'Выполните тестирование отчетности в <А1>. Смотрите ошибки.'
+LOOP
+RETURN
+*
+INCLUDE C-ERRS
+*
+END

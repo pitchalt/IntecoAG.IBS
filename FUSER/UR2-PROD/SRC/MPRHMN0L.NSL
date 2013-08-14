@@ -1,0 +1,56 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPRHMN0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000102
+**C               *:Time 0000000
+**C               *<Natural Source Header
+**DS          0000      1MPRHMN0L
+**DK          0000C     2RO-C
+**DK          0000P  15 2RO-ID
+**DK          0000A   6 2RO-NUMBER
+**DK          0000N   8 2RO-DATE-N
+**DR          0000     R2RO-DATE-N                       /* BEGIN REDEFINE: RO-DATE-N
+**DFR         0000A   8 3RO-DATE-A
+**DK          0000C     2IN-MO-C
+**DK          0000P  15 2IN-MO-ID
+**DK          0000A  10 2IN-MO-SEARCH
+**DK          0000N   5 2IN-MO-CODE
+**DK          0000A  60 2IN-MO-NAME
+**DK          0000P  15 2IN-DP-ID
+**DK          0000N   5 2IN-DP-CODE
+**DK          0000A  60 2IN-DP-NAME
+**DK          0000C     2TRANSIT-MO-C
+**DK          0000P  15 2TRANSIT-MO-ID
+**DK          0000A  10 2TRANSIT-MO-SEARCH
+**DK          0000N   5 2TRANSIT-MO-CODE
+**DK          0000A  60 2TRANSIT-MO-NAME
+**DK          0000P  15 2TRANSIT-DP-ID
+**DK          0000N   5 2TRANSIT-DP-CODE
+**DK          0000A  60 2TRANSIT-DP-NAME
+**DK          0000C     2OUT-MO-C
+**DK          0000P  15 2OUT-MO-ID
+**DK          0000A  10 2OUT-MO-SEARCH
+**DK          0000N   5 2OUT-MO-CODE
+**DK          0000A  60 2OUT-MO-NAME
+**DK          0000P  15 2OUT-DP-ID
+**DK          0000N   5 2OUT-DP-CODE
+**DK          0000A  60 2OUT-DP-NAME
+**DK          0000P  15 2MT-ID
+**DK          0000C     2MT-C
+**DK          0000A  30 2MT-SEARCH
+**DK          0000A  22 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000C     2ZK-C
+**DK          0000P  15 2ZK-ID
+**DK          0000A  10 2ZK-SEARCH
+**DK          0000A   9 2ZK-CODE
+**DK          0000C     2BS-C
+**DK          0000P  15 2BS-ID
+**DK          0000A   5 2BS-SEARCH
+**DK          0000N   5 2BS-CODE
+**DK          0000A  60 2BS-NAME
+**DK          0000P   1 2IS-CONFIRM-REQUIRED
+**DK          0000P   5 2DC-PACKAGE
+**DK          0000C     2DC-PACKAGE-C

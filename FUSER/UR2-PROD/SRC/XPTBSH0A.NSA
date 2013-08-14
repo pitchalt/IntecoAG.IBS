@@ -1,0 +1,18 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPTBSH0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060718
+**C               *:Time 1045000
+**C               *<Natural Source Header
+**DS          0000      1XPTBSH0A
+**DK          0000A  10 2SH-COMMAND
+**DK          0000A  40 2TB-SEARCH
+**DS          0000      2TB-RESULT
+**DK          0000N   5 3TB-CODE
+**DK          0000N   5 3TB-POD
+**DK          0000N   5 3TB-ID
+**DK          0000A  28 3TB-FAM
+**DK          0000A  28 3TB-NAME
+**DK          0000A  28 3TB-OTCHES

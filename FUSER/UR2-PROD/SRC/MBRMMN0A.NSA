@@ -1,0 +1,21 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBRMMN0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070924
+**C               *:Time 1325000
+**C               *<Natural Source Header
+**DS          0000      1MBRMMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P   7 2DR-COL-RECORD
+**DK          0000P  15 2RM-ID
+**DK          0000P  15 2RO-ID
+**DK          0000P  15 2ZK-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2GM-ID
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000L     2IS-DR-CONFIRMED
+**DK          0000P 8.7 2CONF-COL
+**DK          0000P13.2 2CONF-SUMMA

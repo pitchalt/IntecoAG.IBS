@@ -1,0 +1,39 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName WAIT-N
+* :UID ASUM315
+* :Mode S
+* :CP
+* :Date 20070620
+* :Time 1134330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  PARAMETER USING WAITL
+  LOCAL
+    1 #ZAP(N2.3)
+    1 REDEFINE #ZAP
+      2 #CCC(N2)
+    1 #LINE(A31)
+    1 REDEFINE #LINE
+      2 #LINEA(A1/1:31)
+    1 #PRC(N3.2)
+    1 IW(N3)
+    1 IK(N3)
+ LOCAL 1 NAME_OF_MODULE(A8)
+END-DEFINE
+*
+DEFINE WINDOW WAIT SIZE 6 * 39 BASE 10/23 TITLE #W-TITL
+*
+COMPUTE ROUNDED #ZAP = ( #COUNTER / #NUMBER ) * 30
+COMPUTE ROUNDED #PRC = ( #COUNTER / #NUMBER ) * 100
+IF #CCC NE 0 AND #CCC NE #OLD  IK := #CCC + 1
+  IF IK = 1 THRU 31
+  #LINEA(IK) := '<'
+  SET CONTROL 'N'
+  INPUT WINDOW = 'WAIT' (IP=OFF SG=OFF) 1X
+   #LINE (AD=VM CD=BL DY=<D>)
+  / / 1X 'ÂÐÅÌß' #TIME (AD=O  CD=RE EM=99:99:99'.'9)
+                         10X         #PRC (AD=OR CD=RE NL=3) '%'
+  ASSIGN #OLD = #CCC
+  END-IF
+END-IF
+END

@@ -1,0 +1,103 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVVFM1
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050213
+* :Time 1632330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #DL(*) C-TSK(*) FUN-NM-G REG-NM-G SLC(*) SYS-NM-G
+DEFINE DATA PARAMETER
+1 #DL (A030/00001:00015)
+1  C-TSK (C/00001:00015)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SLC (A001/00001:00015)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 019T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+/
+/
+ 002T '----------------------------------------------------------'-
+      '-------------------'
+/
+ 002T SLC (001)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 005T #DL (001)  (AD=YLMFHT'_' CV=C-TSK(001) ) /*.99U030 A030 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+/
+ 002T SLC (002)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (002)  (AD=YLMFHT'_' CV=C-TSK(002) ) /*.99U030 A030 .
+/
+ 002T SLC (003)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (003)  (AD=YLMFHT'_' CV=C-TSK(003) ) /*.99U030 A030 .
+/
+ 002T SLC (004)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (004)  (AD=YLMFHT'_' CV=C-TSK(004) ) /*.99U030 A030 .
+/
+ 002T SLC (005)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (005)  (AD=YLMFHT'_' CV=C-TSK(005) ) /*.99U030 A030 .
+/
+ 002T SLC (006)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (006)  (AD=YLMFHT'_' CV=C-TSK(006) ) /*.99U030 A030 .
+/
+ 002T SLC (007)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (007)  (AD=YLMFHT'_' CV=C-TSK(007) ) /*.99U030 A030 .
+/
+ 002T SLC (008)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (008)  (AD=YLMFHT'_' CV=C-TSK(008) ) /*.99U030 A030 .
+/
+ 002T SLC (009)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (009)  (AD=YLMFHT'_' CV=C-TSK(009) ) /*.99U030 A030 .
+/
+ 002T SLC (010)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (010)  (AD=YLMFHT'_' CV=C-TSK(010) ) /*.99U030 A030 .
+/
+ 002T SLC (011)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (011)  (AD=YLMFHT'_' CV=C-TSK(011) ) /*.99U030 A030 .
+/
+ 002T SLC (012)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (012)  (AD=YLMFHT'_' CV=C-TSK(012) ) /*.99U030 A030 .
+/
+ 002T SLC (013)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (013)  (AD=YLMFHT'_' CV=C-TSK(013) ) /*.99U030 A030 .
+/
+ 002T SLC (014)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (014)  (AD=YLMFHT'_' CV=C-TSK(014) ) /*.99U030 A030 .
+/
+ 002T SLC (015)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+ 005T #DL (015)  (AD=YLMFHT'_' CV=C-TSK(015) ) /*.99U030 A030 .
+/
+ 001T '-¬¬Œƒ---œ‘1---œ‘2---œ‘3---œ‘4---œ‘5---œ‘6---œ‘7---œ‘8---œ‘'-
+      '9---œ‘10--œ‘11--œ‘12-'
+/
+ 010T '?'(I)
+ 021T '¬˚ı'(REI)
+ 033T '«‡Ô'(PII)
+ 039T 'œ˜Ú'(I)
+ 045T 'ÕÁ‰'(I)
+ 051T '¬Ô'(I)
+ 057T 'Õ‡˜'(I)
+ 064T ' ÓÌ'(I)
+ 069T '¬˚·'(I)
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

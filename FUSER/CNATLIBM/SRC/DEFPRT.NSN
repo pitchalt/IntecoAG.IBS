@@ -1,0 +1,41 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFPRT
+* :UID IBS_10
+* :Mode S
+* :CP
+* :Date 20020529
+* :Time 1512330
+* <Natural Source Header /*<<RO>
+*********************************************
+* бнгбпюр оюпюлерпнб бшанпю сярпниярбю бшбндю
+*********************************************
+DEFINE DATA
+PARAMETER
+1 NAME-FILE(A8)
+1 PRO-FILE(A8)
+1 PAGS(N3)
+1 CPY(N5)
+1 NAME-BATCH(A1)
+LOCAL
+1 NAME_OF_MODULE(A8)
+1 OUTLINE(A50)
+1 REDEFINE OUTLINE
+2 OUT-FILE(A8)
+2 OUT-PROF(A8)
+2 OUT-PAGE(N3)
+2 OUT-SPOOL(A25)
+2 OUT-BATCH(A1)
+2 OUT-CPY(N5)
+END-DEFINE
+*
+FETCH RETURN 'DEFPRT1'
+OUTLINE := *COM
+IF OUTLINE = ' ' THEN ESCAPE ROUTINE END-IF
+*
+NAME-FILE := OUT-FILE PRO-FILE := OUT-PROF CPY := OUT-CPY
+NAME-BATCH := OUT-BATCH PAGS := OUT-PAGE
+IF OUT-SPOOL NE ' ' THEN
+  CALL 'CMS' OUT-SPOOL
+END-IF
+INCLUDE ERRORINC
+END

@@ -1,0 +1,21 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVPO
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20001108
+* :Time 1434330
+* <Natural Source Header /*<<RO>
+**************************************
+* бедемхе йндхтхйюрнпю ондпюгдекемхи *
+**************************************
+DEFINE DATA
+GLOBAL USING UFROG       /* цкнаюкэмше оепелеммше дкъ бяеи яхярелш
+LOCAL USING PRMNAV       /* наыюъ оюпюлерпхвеяйюъ накюярэ ондопнцпюлл-тсмйжхи яхярелш
+END-DEFINE
+PERFORM PRMFORW          /* оепеохяэ цк.оепелеммшу б оюпюлерпхвеяйсч накюярэ
+CALLNAT 'SNAVPO' PRMNAV  /* бшгнб тсмйжхнмюкэмни ондопнцпюллш хг STEPLIB
+PERFORM PRMBACK          /* оепеохяэ оюпюлерпхвеяйни накюярх напюрмн б цк.оепелеммше
+INCLUDE CCPRMSET
+END
+

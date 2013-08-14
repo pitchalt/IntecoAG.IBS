@@ -1,0 +1,12 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName UXOCMK1C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060519
+* :Time 2022000
+* <Natural Source Header /*<<RO>
+MOVE &1& TO UBODOC0A.OD-ID
+MOVE &2& TO UBODOC0A.DD-ID
+RESET UBODOC0A.OC-C UBODOC0A.OD-RULE-POS-C
+      UBODOC0A.OC-G(*) UBODOC0A.OD-RULE-POS-LIST(*)

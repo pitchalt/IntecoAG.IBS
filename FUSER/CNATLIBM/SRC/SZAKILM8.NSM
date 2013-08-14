@@ -1,0 +1,309 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SZAKILM8
+* :UID MSA
+* :Mode R
+* :CP
+* :Date 20050623
+* :Time 1649330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #ST(*,*) #VID-FI(*) C-RW C-RWM(*,*) NDS-NM NM-O-ISP NM-OSN-PRO
+*     NM-OTV-PO NM-R-TE NM-TR NM-TS NM-TZ NM-V-FI NM-VD NM-VO OSN-DT(*)
+*     OSN-KD(*) OSN-ND(*) OTV-ISP-KD(*) RUK-TE-KD(*)
+*     ZAK-IL.#SROK-ISP-T(*) ZAK-IL.#SROK-VIP-T(*) ZAK-IL.#TIP-RAB
+*     ZAK-IL.#TIP-SAM ZAK-IL.#TIP-VO ZAK-IL.#VID-DEYAT ZAK-IL.BS-F
+*     ZAK-IL.DT-OT ZAK-IL.DT-RASP ZAK-IL.KOD-VO ZAK-IL.NDS-KD
+*     ZAK-IL.NDS-SU ZAK-IL.OTV-PODR ZAK-IL.RASP ZAK-IL.SER-NUM
+*     ZAK-IL.SR-PO ZAK-IL.SR-S ZAK-IL.SROK-ISP-SU(*)
+*     ZAK-IL.SROK-VIP-SU(*) ZAK-IL.VAL-DG(*) ZAK-IL.VAL-PL(*)
+*     ZAK-IL.ZAV-NUM ZAK-IL.ZK-F
+DEFINE DATA PARAMETER
+1 #ST (N05.0/00001:00017,00001:00002)
+1 #VID-FI (N05.0/00001:00005)
+1  C-RW (C)
+1  C-RWM (C/00001:00017,00001:00002)
+1 NDS-NM (A025)
+1 NM-O-ISP (A044)
+1 NM-OSN-PRO (A032)
+1 NM-OTV-PO (A044)
+1 NM-R-TE (A044)
+1 NM-TR (A044)
+1 NM-TS (A044)
+1 NM-TZ (A044)
+1 NM-V-FI (A044)
+1 NM-VD (A044)
+1 NM-VO (A044)
+1 OSN-DT (N08.0/00001:00004)
+1 OSN-KD (N05.0/00001:00004)
+1 OSN-ND (A020/00001:00004)
+1 OTV-ISP-KD (N05.0/00001:00005)
+1 RUK-TE-KD (N05.0/00001:00005)
+1 ZAK-IL.#SROK-ISP-T (N08.0/00001:00010)
+1 ZAK-IL.#SROK-VIP-T (N08.0/00001:00010)
+1 ZAK-IL.#TIP-RAB (N05.0)
+1 ZAK-IL.#TIP-SAM (N05.0)
+1 ZAK-IL.#TIP-VO (N05.0)
+1 ZAK-IL.#VID-DEYAT (N05.0)
+1 ZAK-IL.BS-F (N05.0)
+1 ZAK-IL.DT-OT (N08.0)
+1 ZAK-IL.DT-RASP (N08.0)
+1 ZAK-IL.KOD-VO (N05.0)
+1 ZAK-IL.NDS-KD (N05.0)
+1 ZAK-IL.NDS-SU (N13.2)
+1 ZAK-IL.OTV-PODR (N05.0)
+1 ZAK-IL.RASP (A010)
+1 ZAK-IL.SER-NUM (A010)
+1 ZAK-IL.SR-PO (N08.0)
+1 ZAK-IL.SR-S (N08.0)
+1 ZAK-IL.SROK-ISP-SU (N13.2/00001:00010)
+1 ZAK-IL.SROK-VIP-SU (N13.2/00001:00010)
+1 ZAK-IL.VAL-DG (A003/00001:00010)
+1 ZAK-IL.VAL-PL (A003/00001:00010)
+1 ZAK-IL.ZAV-NUM (A010)
+1 ZAK-IL.ZK-F (A009)
+END-DEFINE
+FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024080        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T 'Распор жение'
+ 014T ZAK-IL.RASP  (AD=YLMFHT'_' CV=C-RW ) /*.99V010 A010 .
+ 026T 'от (ггггммдд)'
+ 041T ZAK-IL.DT-RASP  (AD=YLMFHT'_' CV=C-RW ) /*.99V008 N08.0.
+ 052T 'Заказ'
+ 058T ZAK-IL.ZK-F  (AD=DLOFHT ) /*.01U009 A009 .
+ 069T 'Счет'
+ 074T ZAK-IL.BS-F  (AD=DLOFHT ) /*.01V005 N05.0.
+/
+ 001T 'Дата открыти '
+ 015T '(ггггммдд) ........'
+ 035T ZAK-IL.DT-OT  (AD=DLOFHT ) /*.01V008 N08.0.
+/
+ 001T 'Ответственное подразделение'
+ 029T ZAK-IL.OTV-PODR  (AD=YRMFHT'_' CV=C-RW ) /*.99V005 N05.0.
+ 035T NM-OTV-PO  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Руководитель темы .........'
+ 029T RUK-TE-KD (001)  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+   /**A1000050000100001000010000100001100001001001000001000HV
+ 035T NM-R-TE  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Ответственный исполнитель .'
+ 029T OTV-ISP-KD (001)  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+   /**A1000050000100001000010000100001100001001001000001000HV
+ 035T NM-O-ISP  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Вид финансировани  ........'
+ 029T #VID-FI (001)  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+   /**A1000050000100001000010000100001100001001001000001000HV
+ 035T NM-V-FI  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Заказчик ..................'
+ 029T ZAK-IL.KOD-VO  (AD=YLMFHT'_' CV=C-RW ) /*.99V005 N05.0.
+ 035T NM-VO  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Основание дл  проведени  работ'
+ 041T 'N документа'
+ 063T 'Дата (гггггммдд)'
+/
+ 001T OSN-KD (001)  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+   /**A1000040000100001000010000100001100001001001000001000HV
+ 007T NM-OSN-PRO  (AD=DLOFHT ) /*.01U032 A032 .
+ 041T OSN-ND (001)  (AD=YLMFHT'_' CV=C-RW ) /*.99U020 A020 .
+   /**A1000040000100001000010000100001100001001001000001000HV
+ 071T OSN-DT (001)  (AD=YLMFHT'_' CV=C-RW ) /*.99U008 N08.0.
+   /**A1000040000100001000010000100001100001001001000001000HV
+/
+ 001T 'Срок действи  заказа с ....'
+ 029T ZAK-IL.SR-S  (AD=YLMFHT'_' CV=C-RW ) /*.99V008 N08.0.
+ 038T 'по'
+ 041T ZAK-IL.SR-PO  (AD=YLMFHT'_' CV=C-RW ) /*.99V008 N08.0.
+ 054T 'Серийный номер'
+ 069T ZAK-IL.SER-NUM  (AD=YLMFHT'_' CV=C-RW ) /*.99V010 A010 .
+/
+ 001T 'Валюта договора'
+ 017T ZAK-IL.VAL-DG (001)  (AD=YLMFHT'_' CV=C-RW ) /*.99U003 A003 .
+   /**A1000100000100001000010000100001100001001001000001000HV
+ 021T '*'
+ 023T 'Валюта платежа'
+ 041T ZAK-IL.VAL-PL (001)  (AD=YLMFHT'_' CV=C-RW ) /*.99U003 A003 .
+   /**A1000100000100001000010000100001100001001001000001000HV
+ 045T '*'
+ 054T 'Бортовой номер'
+ 069T ZAK-IL.ZAV-NUM  (AD=YLMFHT'_' CV=C-RW ) /*.99V010 A010 .
+/
+ 001T 'Инф. по НДС ...............'
+ 029T ZAK-IL.NDS-KD  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+ 035T NDS-NM  (AD=DLOFHT ) /*.01U025 A025 .
+ 063T ZAK-IL.NDS-SU  (AD=YRMFHT'_' CV=C-RW ) /*.99U016 N13.2.
+/
+ 001T 'Тип Заказчика .............'
+ 029T ZAK-IL.#TIP-VO  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+ 035T NM-TZ  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Тип самолета ..............'
+ 029T ZAK-IL.#TIP-SAM  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+ 035T NM-TS  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Тип работ .................'
+ 029T ZAK-IL.#TIP-RAB  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+ 035T NM-TR  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Вид де т-ти ...............'
+ 029T ZAK-IL.#VID-DEYAT  (AD=YRMFHT'_' CV=C-RW ) /*.99U005 N05.0.
+ 035T NM-VD  (AD=DLOFHT ) /*.01U044 A044 .
+/
+ 001T 'Планируемые статьи'
+ 029T #ST (001,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(001,001) )
+   /**A2000170000200001000010000100001210002017001000001000HV
+ 032T #ST (002,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(002,001) )
+ 035T #ST (003,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(003,001) )
+ 038T #ST (004,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(004,001) )
+ 041T #ST (005,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(005,001) )
+ 044T #ST (006,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(006,001) )
+ 047T #ST (007,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(007,001) )
+ 050T #ST (008,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(008,001) )
+ 053T #ST (009,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(009,001) )
+ 056T #ST (010,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(010,001) )
+ 059T #ST (011,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(011,001) )
+ 062T #ST (012,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(012,001) )
+ 065T #ST (013,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(013,001) )
+ 068T #ST (014,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(014,001) )
+ 071T #ST (015,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(015,001) )
+ 074T #ST (016,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(016,001) )
+ 077T #ST (017,001)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(017,001) )
+/
+ 029T #ST (001,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(001,002) )
+ 032T #ST (002,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(002,002) )
+ 035T #ST (003,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(003,002) )
+ 038T #ST (004,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(004,002) )
+ 041T #ST (005,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(005,002) )
+ 044T #ST (006,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(006,002) )
+ 047T #ST (007,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(007,002) )
+ 050T #ST (008,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(008,002) )
+ 053T #ST (009,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(009,002) )
+ 056T #ST (010,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(010,002) )
+ 059T #ST (011,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(011,002) )
+ 062T #ST (012,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(012,002) )
+ 065T #ST (013,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(013,002) )
+ 068T #ST (014,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(014,002) )
+ 071T #ST (015,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(015,002) )
+ 074T #ST (016,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(016,002) )
+ 077T #ST (017,002)  (AD=YLMFHT'_' NL=02.0  /*.99U002 N05.0.
+      CV=C-RWM(017,002) )
+/
+ 001T 'План исполнени  об зательств по оплате .:'
+ 044T ZAK-IL.#SROK-ISP-T (001)  (AD=YLMT'_' CV=C-RW ) /*.99U008 N08.0.
+   /**A1000100000100001000010000100001100001001001000001000HV
+ 053T '*'
+ 062T ZAK-IL.SROK-ISP-SU (001)  (AD=YLMFHT'_' CV=C-RW /*.99U017 N13.2.
+      SG=ON )
+   /**A1000100000100001000010000100001100001001001000001000HV
+/
+ 001T 'План исполнени  об зательств по поставке:'
+ 044T ZAK-IL.#SROK-VIP-T (001)  (AD=YLMT'_' CV=C-RW ) /*.99U008 N08.0.
+   /**A1000100000100001000010000100001100001001001000001000HV
+ 053T '*'
+ 062T ZAK-IL.SROK-VIP-SU (001)  (AD=YLMFHT'_' CV=C-RW /*.99U017 N13.2.
+      SG=ON )
+   /**A1000100000100001000010000100001100001001001000001000HV
+/
+/
+/
+ 020T 'F3-Выход'
+ 030T 'F4-* Доп.инф'
+ 044T 'F5-Запись'
+ 055T 'F11-Выбор'
+/
+* MAP2: VALIDATION *****************************************************
+RULEVAR D01ZAK-IL.RASP
+INCDIR ZAK-IL                          RASP                            ;
+RULEVAR D01ZAK-IL.DT-RASP
+INCDIR ZAK-IL                          DT-RASP                         ;
+RULEVAR D01ZAK-IL.ZK-F
+* CDIR ZAK-IL                          ZK-F                            ;
+RULEVAR D01ZAK-IL.BS-F
+* CDIR ZAK-IL                          BS-F                            ;
+RULEVAR D01ZAK-IL.DT-OT
+* CDIR ZAK-IL                          DT-OT                           ;
+RULEVAR D01ZAK-IL.OTV-PODR
+INCDIR ZAK-IL                          OTV-PODR                        ;
+RULEVAR D01RUK-TE-KD
+INCDIR ZAK-IL                          RUK-TE                          ;
+RULEVAR D01OTV-ISP-KD
+INCDIR ZAK-IL                          OTV-ISP                         ;
+RULEVAR D01#VID-FI
+INCDIR ZAK-IL                          VID-FI                          ;
+RULEVAR D01ZAK-IL.KOD-VO
+INCDIR ZAK-IL                          KOD-VO                          ;
+RULEVAR D01OSN-KD
+INCDIR ZAK-IL                          VID-FI                          ;
+RULEVAR D01ZAK-IL.SR-S
+INCDIR ZAK-IL                          SR-S                            ;
+RULEVAR D01ZAK-IL.SR-PO
+INCDIR ZAK-IL                          SR-PO                           ;
+RULEVAR D01ZAK-IL.SER-NUM
+INCDIR ZAK-IL                          SER-NUM                         ;
+RULEVAR D01ZAK-IL.VAL-DG
+INCDIR ZAK-IL                          VA-F                            ;
+RULEVAR D01ZAK-IL.VAL-PL
+INCDIR ZAK-IL                          VAL-PL                          ;
+RULEVAR D01ZAK-IL.ZAV-NUM
+INCDIR ZAK-IL                          ZAV-NUM                         ;
+RULEVAR D01ZAK-IL.NDS-KD
+INCDIR ZAK-IL                          VID-FI                          ;
+RULEVAR D01NDS-NM
+* CDIR ZAK-IL                          NDS                             ;
+RULEVAR D01ZAK-IL.#TIP-VO
+INCDIR ZAK-IL                          VID-FI                          ;
+RULEVAR D01ZAK-IL.#TIP-SAM
+INCDIR ZAK-IL                          VID-FI                          ;
+RULEVAR D01ZAK-IL.#TIP-RAB
+INCDIR ZAK-IL                          VID-FI                          ;
+RULEVAR D01ZAK-IL.#VID-DEYAT
+INCDIR ZAK-IL                          VID-FI                          ;
+RULEVAR D01#ST
+INCDIR ZAK-IL                          ST-PL                           ;
+RULEVAR D01ZAK-IL.SROK-ISP-SU
+INCDIR SROK-ISP                        SROK-ISP-SU                     ;
+RULEVAR D01ZAK-IL.SROK-VIP-SU
+INCDIR SROK-VIP                        SROK-VIP-SU                     ;
+* MAP2: END OF MAP *****************************************************
+END

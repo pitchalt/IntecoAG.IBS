@@ -1,0 +1,72 @@
+DB: 000 FILE: 062  - IBS-OBJ-FILE1                    DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID INTECO
+*      :CP
+*
+*
+*      :Date 20091028
+*      :Time 0910330
+*      <Natural Source Header
+*      GENERATED FROM ADABAS FNR 62
+*      ADABAS DBID 7
+  1 OG OG-ID                             N  5.0  N D
+  1 OS OS-ID                             N  5.0  N
+  1 BO BO-ID                             N  1.0  N
+  1 KS KS-ID                             N  5.0  N D
+  1 DT DT-ID                             N  6.0  N D
+  1 PO PO-ID                             N  5.0  N D
+  1 KL KL-ID                             N  7.6  N
+  1 SU SU-RU                             N 13.2  N
+  1 SV SU-VA                             N 13.2  N
+  1 VA VA-ID                             A    3  N D
+  1 OB OB-ID                             N  5.0  N D
+  1 SP SP-DAILY                          A    1  N
+  1 ZK ZK-ID                             A    8  N D
+  1 FA FL-AN                             A    3  N
+  1 DI DI-OLD                            A   20  N D
+M 1 DP DI-ID                             A   31  N D
+  1 TX TX-ID                             A   80
+  1 MT MT-ID                             A    2  N D
+  1 SS ST-ID                             N  8.0  N D
+  1 TE TE-ID                             A   10  N D
+  1 SA ST-KD                             A   50  N D
+  1 FS FS-ID                             N  8.0  N D
+  1 GZ GZ-ID                             N  5.0  N D
+P 1 I1 GS-SS
+  2 I2 KK-SS                             A    5  N
+  2 I3 KD-SS                             I    4  N
+  1 ZF UZP-FL                            A    1  N
+  1 P1 KORR-PO                           N  5.0  N
+  1 P2 KORR-ZK                           A    9  N
+P 1 P3 KORR-ST
+  2 P4 KORR-KK                           A    5  N
+  2 P5 KORR-KD                           I    4  N
+  1 P6 KORR-NDS                          N  5.0  N
+P 1 DG GP-DG
+  2 DO DG-ID                             I    4  N
+  1 P7 SUM-RBP                           N 13.2  N
+  1 P8 SUM-NDS                           N 13.2  N
+  1 GG OG-OS-KS-DT-BO                    B   22    S
+*      -------- SOURCE FIELD(S) -------
+*      OG-1(1-5)
+*      OS-1(1-5)
+*      KS-1(1-5)
+*      DT-1(1-6)
+*      BO-1(1-1)
+  1 GS OG-OS                             B   10  N S
+*      -------- SOURCE FIELD(S) -------
+*      OG-1(1-5)
+*      OS-1(1-5)
+P 1 GD OG-DG                             B    9    S
+*      -------- SOURCE FIELD(S) -------
+*      OG-1(1-5)
+*      DO-1(1-4)
+  1 GC OG-ST                             A   14    S
+*      -------- SOURCE FIELD(S) -------
+*      OG-1(1-5)
+*      I2-1(1-5)
+*      I3-1(1-4)
+******DDM OUTPUT TERMINATED******

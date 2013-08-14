@@ -1,0 +1,12 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CCUKK
+* :UID IBS_9
+* :Mode S
+* :CP
+* :Date 19991101
+* :Time 0946330
+* <Natural Source Header /*<<RO>
+ASSIGN IBS-KK-FILE.UP-DT = *DATX
+ASSIGN IBS-KK-FILE.UP-PG = *PROGRAM
+ASSIGN IBS-KK-FILE.UP-ID = *INIT-ID
+ASSIGN IBS-KK-FILE.UP-US = *INIT-USER

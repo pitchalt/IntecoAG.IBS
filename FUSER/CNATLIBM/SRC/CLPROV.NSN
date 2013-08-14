@@ -1,0 +1,119 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CLPROV
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20090729
+* :Time 1135330
+* <Natural Source Header /*<<RO>
+*
+*  проводоки и период их закрыти
+*
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)
+  LOCAL USING LCLKKL
+  LOCAL USING STEKL
+  LOCAL
+  1 LEN-ST(B4) INIT < 70 >
+  1 INPUT-REC(A70/18)
+  1 REDEFINE INPUT-REC
+    2 #INPUT-REC(18)
+      3 #NP(N5)
+      3 REDEFINE #NP
+        4 PUS(B1)
+      3 #NM(A50)  3 #US(A8)  3 #ISN(P13)
+  1 STEK(A70)
+  1 REDEFINE STEK
+    2 SNP(N5)
+    2 REDEFINE SNP
+      3 #SNP(A5)
+    2 X58(A58)  2 SISN(P13)
+END-DEFINE
+*
+SET KEY ALL
+CALL 'GTNX' XN1  CALL 'GTNX' XN1
+XI := 1000  CALL 'GTSX' LEN-ST XI XN1
+XI := 7  XW := 1000  CALL 'GTSX' XI XW XN2
+XW := 1
+F1. FIND IBS-KK-FILE OG-ID = #OG AND KK-F = 'UC'
+  ADD 1 TO IS1  XI := IS1
+  #NP(1) := KD-F  #NM(1) := NM-PROV  #US(1) := NA-USR  #ISN(1) := *ISN
+  CALL 'RWSX' XI INPUT-REC(1) XW XN1
+END-FIND
+*
+#N := 1
+REPEAT
+  #L := 0  #K := 17 + #N
+  FOR #I #N #K
+    ADD 1 TO #L
+    IF #I <= IS1  XI := #I  CALL 'RWSX' XI INPUT-REC(#L) XR XN1
+      ELSE  RESET INPUT-REC(#L)
+    END-IF
+  END-FOR
+  INPUT USING MAP 'CLPROVM1'
+  IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+  FOR #I 1 17
+    IF #NP(#I) NE 0  #K := #I + 1
+      FOR #J #K 18
+        IF #NP(#J) NE 0 AND #NP(#I) = #NP(#J)
+          REINPUT 'Дублирование номера' MARK *#NP(#I)
+        END-IF
+      END-FOR
+    END-IF
+  END-FOR
+  #L := #N
+  FOR #I 1 18
+    IF #NP(#I) = 0  PUS(#I) := H'FF'
+      IF #L <= IS1
+        ADD 1 TO IS2  XI := IS2  CALL 'RWSX' XI #ISN(#I) XW XN2
+      END-IF
+      ELSE
+      IF #NM(#I) = ' '
+        REINPUT 'Наименование' MARK *#NM(#I)
+      END-IF
+      IF #US(#I) = ' '
+        REINPUT 'Пользователь' MARK *#US(#I)
+      END-IF
+      FOR #J 1 IS1
+        IF #J NE #L  XI := #J  CALL 'RWSX' XI STEK XR XN1
+          IF #SNP IS (N5)
+            IF #NP(#I) = SNP
+              REINPUT 'Дублирование номера' MARK *#NP(#I)
+            END-IF
+          END-IF
+        END-IF
+      END-FOR
+    END-IF
+    XI := #L  CALL 'RWSX' XI INPUT-REC(#I) XW XN1
+    ADD 1 TO #L
+  END-FOR
+  CALL 'PRSX' XW XW XN1
+  XI := 1  CALL 'CMPX' ' ' XI XW XN1
+  IS1 := XI  ADD -1 TO IS1
+  IF *PF-KEY = 'PF5'  ESCAPE BOTTOM  END-IF
+  IF *PF-KEY = 'PF7' AND #N > 18  ADD -18 TO #N  END-IF
+  IF *PF-KEY = 'PF8' AND #K <= IS1  ADD 18 TO #N  END-IF
+END-REPEAT
+IF *PF-KEY = 'PF5'
+  FOR #I 1 IS2  XI := #I  CALL 'RWSX' XI #ISN(1) XR XN2
+    GET IBS-KK-FILE #ISN(1)
+    DELETE
+  END-FOR
+*
+  FOR #I 1 IS1  XI := #I  CALL 'RWSX' XI INPUT-REC(1) XR XN1
+    FIND IBS-KK-FILE OG-ID = #OG AND KK-F = 'UC' AND KD-F = #NP(1)
+    IF NO OG-ID := #OG  KK-F := 'UC'  KD-F := #NP(1)
+    END-NOREC
+      KD-F := #NP(1)  NM-PROV := #NM(1)  NA-USR := #US(1)
+      IF *NUMBER NE 0  UPDATE
+        ELSE  STORE IBS-KK-FILE
+      END-IF
+    END-FIND
+    END TRANSACTION
+  END-FOR
+END-IF
+*
+CALL 'FRSX' XN1  CALL 'FRSX' XN2
+*
+END

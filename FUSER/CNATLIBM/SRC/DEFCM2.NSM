@@ -1,0 +1,71 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFCM2
+* :UID NIMI
+* :Mode S
+* :CP
+* :Date 20070417
+* :Time 1551330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #DEF-N(*) #DEF-NM(*) KE
+DEFINE DATA PARAMETER
+1 #DEF-N (N01.0/00001:00004)
+1 #DEF-NM (A024/00001:00004)
+1 KE (N01.0)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 003T 'Р е ж и м'(I)
+ 015T 'п е ч а т и'(I)
+ 028T 'N'(I)
+/
+ 003T '--------------------------'
+/
+ 003T #DEF-NM (001)  (AD=IO DY=<D> ) /*.01U024 A024 .
+   /**A1000040000100001000010000100001100004001001000001000HV
+ 028T #DEF-N (001)  (AD=DRMT ) /*.99U001 N01.0.
+   /**A1000040000100001000010000100001100004001001000001000HV
+/
+ 003T #DEF-NM (002)  (AD=IO DY=<D> ) /*.01U024 A024 .
+ 028T #DEF-N (002)  (AD=DRMT ) /*.99U001 N01.0.
+/
+ 003T #DEF-NM (003)  (AD=IO DY=<D> ) /*.01U024 A024 .
+ 028T #DEF-N (003)  (AD=DRMT ) /*.99U001 N01.0.
+/
+ 003T #DEF-NM (004)  (AD=IO DY=<D> ) /*.01U024 A024 .
+ 028T #DEF-N (004)  (AD=DRMT ) /*.99U001 N01.0.
+/
+ 008T 'Кол. экземпл ров'
+/
+ 015T KE  (AD=DLMFHT' ' ) /*.99U001 N01.0.
+/
+ 005T 'Отметьте курсором'
+ 023T 'N'(I)
+ 025T 'и'
+/
+ 005T 'нажмите'
+ 014T 'Ввод(ENTER)'(I)
+/
+ 010T 'ПФ3-'
+ 015T 'Вых'(I)
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

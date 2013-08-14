@@ -1,0 +1,46 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLFROL2
+**C               *:UID IBS_8
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000706
+**C               *:Time 1116330
+**C               *<Natural Source Header
+**DF          0000A  72 1DATAT
+**DR          0000     R1DATAT                           /* BEGIN REDEFINE: DATAT
+**DFR         0000N   3 2DATA-BS                         /* балансовый счет
+**DR          0000     R2DATA-BS                         /* BEGIN REDEFINE: DATA-BS
+**DFR         0000A   3 3DATA-BSA
+**DFR         0000N   5 2DATA-SS                         /* субсчет
+**DFR         0000A  40 2DATA-NM                         /* наименование счета
+**DFR         0000A   3 2DATA-FL                         /* флаг аналитики
+**DFR         0000A   1 2DATA-DI                         /* флаг доп. информации
+**DFR         0000A   1 2DATA-PO                         /* флаг подразделени
+**DFR         0000A   1 2DATA-DZ                         /* флаг двойной записи
+**DFR         0000N   2 2DATA-SL
+**DFR         0000A   3 2DATA-VA                         /* валюта
+**DFR         0000A   1 2DATA-ST
+**DFR         0000A   5 2DATA-UR                         /* дл  формировани  сальдо
+**DFR         0000N   2 2DATA-CS                         /* кол. уровней в статье
+**DFR         0000A   3 2DATA-AP                         /* ФЛАГ АКТ.-ПАС. СЧЕТА
+**DFR         0000A   1 2DATA-ZK
+**DFR         0000A   1 2DATA-KL
+**DF          0000A  72 1POLE
+**DR          0000     R1POLE                            /* BEGIN REDEFINE: POLE
+**DFR         0000N   3 2POLE-BS
+**DR          0000     R2POLE-BS                         /* BEGIN REDEFINE: POLE-BS
+**DFR         0000A   3 3POLE-BSA
+**DFR         0000N   5 2POLE-SS
+**DFR         0000A  40 2POLE-NM
+**DFR         0000A   3 2POLE-FL
+**DFR         0000A   1 2POLE-DI
+**DFR         0000A   1 2POLE-PO
+**DFR         0000A   1 2POLE-DZ
+**DFR         0000N   2 2POLE-SL
+**DFR         0000A   3 2POLE-VA
+**DFR         0000A   1 2POLE-ST
+**DFR         0000A   5 2POLE-UR
+**DFR         0000N   2 2POLE-CS
+**DFR         0000A   3 2POLE-AP
+**DFR         0000A   1 2POLE-ZK
+**DFR         0000A   1 2POLE-KL

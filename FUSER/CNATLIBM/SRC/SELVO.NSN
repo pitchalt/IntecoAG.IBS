@@ -1,0 +1,163 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SELVO
+* :UID NAT002
+* :Mode S
+* :CP
+* :Date 20030620
+* :Time 1503330
+* <Natural Source Header /*<<RO>
+*  BHEØHÈE OPÃAHÈÇAÖÈÈ
+*********************************************************************
+DEFINE DATA
+  PARAMETER
+    1 OG_IDENT_G         (N005)
+    1 KODVO              (N005)
+  LOCAL  USING LCLVOL2    /* VIEW HA ÔAÉË IBS-SYS-FILE
+  LOCAL  USING LCLKKL     /* VIEW HA ÔAÉË IBS-SYS-FILE
+  LOCAL  USING LCLFROL1      /* OÁÙÈE ÏEPEMEHHÛE
+  LOCAL  USING LCLAGLOB
+  LOCAL  USING LCLSTAKD
+  LOCAL
+    1 POSIT              (I004)
+    1 IT                 (I004)
+    1 INPUT-REC          (A69/12)
+    1 REDEFINE INPUT-REC
+      2 #INPUT-REC       (12)
+        3 FIELD-ISN      (P007)      /* ISN ÇAÏÈCÈ
+        3 #FIELD-01      (N005)      /* KOÄ
+        3 #FIELD-05      (A045)      /* HAÈMEHOBAHÈE
+        3 #FIELD-06      (A015)      /* AÄPEC
+    1 STEK-REC           (A069)
+    1 REDEFINE STEK-REC
+      2 STEK-ISN         (P007)
+      2 STEK-01          (N005)
+      2 STEK-05          (A045)
+      2 STEK-06          (A015)
+    1 KEY1               (A010)      /*  ÏOÈCKOBÛÉ KËÞ× HA×AËÜHÛÉ
+    1 REDEFINE KEY1
+      2 KEYOG1           (N005)      /*  OPÃAHÈÇAÖÈß
+      2 KEYKD1           (N005)      /*  KOÄ
+    1 KEY2               (A010)      /*  ÏOÈCKOBÛÉ KËÞ× KOHE×HÛÉ
+    1 REDEFINE KEY2
+      2 KEYOG2           (N005)
+      2 KEYKD2           (N005)
+    1 #KD                (N005)      /*  KOÄ OPÃAHÈÇAÖÈÈ
+    1 #INN               (A015)
+    1 #KS                (A015)      /*  KOPP. C×ET
+    1 #RS                (A015)      /*  PAC×. C×ET
+    1 #NAME              (A045)      /*  HAÈMEHOBAHÈE
+    1 #ADRES             (A045)      /*  AÄPEC
+    1 MRK                (A1/12)
+    1 MRK-C              (C/12)  INIT ALL <(AD=PN)>
+    1 TEXT1              (A050)
+END-DEFINE
+DEFINE WINDOW WIN
+  SIZE L-DEL * Q-DEL
+  BASE N-DEL / 15
+  TITLE TEXT1
+  CONTROL SCREEN
+  FRAMED ON POSITION OFF
+SET KEY PF1  PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+*
+MOVE 3   TO N-DATA N-DATA-B     /* HOMEP CTEKA C ÄAHHÛMÈ
+MOVE 69 TO L-DATA L-DATA-B      /* ÄËÈHA ÝËEMEHTA B CTEKE C ÄAHHÛMÈ
+MOVE 1000 TO Q-DATA Q-DATA-B    /* KOËÈ×ECTBO ÝËEMEHTOB B CTEKE C ÄAHHÛMÈ
+*
+ASSIGN Q-LINE = 12           /* CTPOK HA ÝKPAHE
+ASSIGN T-KEY = 5             /* HA×AËÜHAß ÏOÇÈÖÈß KËÞ×EBOÃO ATPÈÁÓTA
+ASSIGN L-KEY = 5             /* HA×AËÜHAß ÏOÇÈÖÈß KËÞ×EBOÃO ATPÈÁÓTA
+*
+R1. REPEAT
+    L-DEL := 13   Q-DEL := 55   N-DEL := 5
+    TEXT1 := 'Çaäaéòe êpèòepèè oòáopa'
+    SET WINDOW 'WIN'
+    INPUT USING MAP 'MAPVOM1'
+    ASSIGN KEYOG1 = OG_IDENT_G
+    ASSIGN KEYOG2 = OG_IDENT_G
+    IF *PF-KEY = 'PF3'
+      CALL 'FRSX' N-DATA-B
+      RESET MAX-EL(N-DATA)
+      ESCAPE BOTTOM
+    END-IF
+    IF #KD = 0
+      ASSIGN KEYKD1 = 1  ASSIGN KEYKD2 = 99999
+      ELSE  ASSIGN KEYKD1 = #KD  ASSIGN KEYKD2 = #KD
+    END-IF
+    CALL 'GTSX' L-DATA-B Q-DATA-B N-DATA-B
+    CALL 'NULX' ' '  N-DATA-B
+    PERFORM LOAD-PROC
+    IF C-DATA = 0  REINPUT 'HET ÄAHHÛX' ALARM  END-IF
+    ASSIGN C-DATA1-B = T-KEY
+    ASSIGN C-DATA2-B = L-KEY
+    CALL 'SRTX' C-DATA1-B C-DATA2-B N-DATA-B
+*
+    L-DEL := 21   Q-DEL := 60   N-DEL := 2
+    TEXT1 := 'Cïècoê oòoápaííûx opãaíèçaöèé'
+    SET WINDOW 'WIN'
+    REPEAT
+      RESET INPUT-REC(*) #FIELD-01(*)
+      RESET INITIAL MRK-C(*)
+      PERFORM ARRY-PROC
+      INPUT MARK POSIT USING MAP 'MAPVOM2'
+      POSIT := *CURS-FIELD
+      FOR C-CURS 1 Q-LINE
+        IF POSIT = POS(MRK(C-CURS))  ESCAPE BOTTOM  END-IF
+      END-FOR
+      DECIDE FOR EVERY CONDITION
+        WHEN *PF-KEY = 'PF3'
+          ESCAPE BOTTOM(R1.)
+        WHEN *PF-KEY = 'PF7'
+          COMPUTE FIRST-EL(N-DATA) = FIRST-EL(N-DATA) - Q-LINE
+          IF FIRST-EL(N-DATA) <= 0  FIRST-EL(N-DATA) := 1 END-IF
+        WHEN *PF-KEY = 'PF8'
+          COMPUTE C-DATA1 = FIRST-EL(N-DATA) + Q-LINE - 1
+          IF C-DATA1 <= MAX-EL(N-DATA) THEN
+            COMPUTE FIRST-EL(N-DATA) = C-DATA1 + 1
+          END-IF
+        WHEN *PF-KEY = 'PF9'
+          ASSIGN FIRST-EL(N-DATA) = 1
+        WHEN *PF-KEY = 'PF10'
+          ASSIGN FIRST-EL(N-DATA) = MAX-EL(N-DATA)
+        WHEN *PF-KEY = 'PF11'
+          KODVO := #FIELD-01(C-CURS)
+          ESCAPE BOTTOM(R1.)
+        WHEN NONE IGNORE
+      END-DECIDE
+    END-REPEAT
+  END-REPEAT
+  CALL 'FRSX' N-DATA-B
+  RESET MAX-EL(N-DATA)
+  SET WINDOW OFF
+  ESCAPE ROUTINE
+*
+DEFINE SUBROUTINE ARRY-PROC
+  RESET  FIELD-ISN(*)
+  ASSIGN C-DATA = FIRST-EL(N-DATA)
+  FOR C-LINE = 1 TO Q-LINE
+    IF C-DATA > MAX-EL(N-DATA) THEN ESCAPE BOTTOM END-IF
+    ASSIGN C-DATA-B = C-DATA
+    CALL 'RWSX' C-DATA-B INPUT-REC(C-LINE) RD-REC N-DATA-B
+    MOVE (AD=I) TO MRK-C(C-LINE)
+    ADD 1 TO C-DATA
+  END-FOR
+END-SUBROUTINE
+*
+DEFINE SUBROUTINE LOAD-PROC
+  ASSIGN C-DATA = 0
+  FIND IBS-KVO-FILE OG-VO = KEY1 THRU KEY2
+    IF #NAME  NE ' ' AND  NM-OG NE SCAN  #NAME   ESCAPE TOP  END-IF
+    IF #ADRES NE ' ' AND  AD-OG NE SCAN  #ADRES  ESCAPE TOP  END-IF
+    IF #INN   NE ' ' AND  NN-ID NE SCAN  #INN    ESCAPE TOP  END-IF
+    IF C-DATA >= Q-DATA THEN ESCAPE BOTTOM END-IF
+    COMPUTE C-DATA = C-DATA + 1
+    ASSIGN STEK-ISN = *ISN
+    ASSIGN STEK-01 = VO-ID
+    ASSIGN STEK-05 = NM-OG
+    ASSIGN STEK-06 = AD-OG
+    ASSIGN C-DATA-B = C-DATA
+    CALL 'RWSX' C-DATA-B STEK-REC WR-REC N-DATA-B
+  END-FIND
+  ASSIGN MAX-EL(N-DATA)   = C-DATA
+  ASSIGN FIRST-EL(N-DATA) = 1
+END-SUBROUTINE
+END

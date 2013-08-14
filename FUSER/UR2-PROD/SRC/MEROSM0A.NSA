@@ -1,0 +1,26 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEROSM0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070925
+**C               *:Time 2307000
+**C               *<Natural Source Header
+**DS          0000      1MEROSM0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000I   4 2STACK-POS
+**DK          0000P  15 2DD-ID
+**DK          0000P  15 2DR-ID
+**DK          0000P  15 2DR-UP-ID
+**DK          0000P  15 2MT-ID
+**DK          0000A  22 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000P  15 2ZK-ID
+**DK          0000A   9 2ZK-CODE
+**DK          0000P13.2 2BALC-SUMMA
+**DK          0000P13.2 2BALC-SUMMA-LIMIT
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P 8.7 2BASE-COL-LIMIT
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000N   5 2BASE-EI-CODE
+**DK          0000A   5 2BASE-EI-SHORT-NAME

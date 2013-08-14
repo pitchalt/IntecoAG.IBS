@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName NPSP91LA
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090323
+**C               *:Time 0839330
+**C               *<Natural Source Header
+**DS          0         1NPSP91LA
+**DK          0   N   5 2N-PROV
+**DK          0   L     2IS-SALDO
+**DK          0   N   5 2OG-CODE
+**DK          0   N   6 2GM-YYYYMM
+**DK          0   I   4 2RECORD-C

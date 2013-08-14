@@ -1,0 +1,57 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPDSTM2
+* :UID IBS_8
+* :Mode S
+* :CP
+* :Date 20000706
+* :Time 1119330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #SS(*)
+DEFINE DATA PARAMETER
+1 #SS (A001/00001:00013)
+END-DEFINE
+FORMAT PS=023 LS=080 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 023080        N1NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+/
+ 003T 'Доступ к режимам   :'
+ 024T #SS (1+000)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+   /**A1000130000100001000010000100001100003001001000001000HV
+/
+ 003T 'Допустимые б/счета :'
+ 024T #SS (1+001)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+/
+ 003T 'Режимы + б/счета   :'
+ 024T #SS (1+002)  (AD=DLMFHT'_' ) /*.99U001 A001 .
+/
+/
+ 002T '------------------------'
+/
+ 002T '-ВВОД---ПФ1---ПФ2---ПФ3-'
+/
+ 003T 'Выбор'
+ 022T 'Вых'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

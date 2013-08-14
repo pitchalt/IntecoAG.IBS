@@ -1,0 +1,21 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName PRMCOMM
+**C               *:UID IEN
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20001019
+**C               *:Time 1749330
+**C               *<Natural Source Header
+**DS          0000      1PARCOMM
+**DK          0000I   4 2OG_ID
+**DK          0000A   5 2SHORT
+**C           0000**********************************************************************
+**DK          0000A   1 2POINT
+**DK          0000A   1 2NULL
+**DK          0000A   1 2FILL
+**DK          0000N   2 2MAXLEV
+**DK          0000A  70 2NAME
+**C           0000**********************************************************************
+**DS          0000      2RESULT_STRUCT
+**DK          0000L     3RESULT                          /* ÐÅÇÓËÜÒÀÒ ÎÏÅÐÀÖÈÈ
+**DK          0000I   4 3RESULT_ID

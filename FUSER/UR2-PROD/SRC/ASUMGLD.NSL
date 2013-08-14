@@ -1,0 +1,18 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName ASUMGLD
+**C               *:UID NIMI
+**C               *:Mode R
+**C               *:CP
+**C               *:Date 20000621
+**C               *:Time 1539000
+**C               *<Natural Source Header
+**C           0000*BÈÄ HA ASUM-SYS-FILE  : ÄPAÃ   MAT    ËÛ
+**DV          0000     V1ASUM-GLD                        ASUM-SYS-FILE
+**DD          0000N 5.0 2OG-F
+**DD          0000A   2 2KK-F                            /*  = GL
+**DD          0000N 5.0 2KD-F                            /* KOÄ
+**DD I1 C     0000A  60M2YN-F                            (1:1)
+**DR          0000     R2YN-F                            /* BEGIN REDEFINE: YN-F
+**DFR         0000A  60 3NAMEMAT                         /* HAÈMEHOBAHÈE
+**DD          0000N 6.0 2GM-F                            /* EÄÈHÈÖA  ÈÇMEPEHÈß
+**DD          0000N 7.2 2CH-MAT                          /* ÖEHA ÇA EÄÈHÈÖÓ

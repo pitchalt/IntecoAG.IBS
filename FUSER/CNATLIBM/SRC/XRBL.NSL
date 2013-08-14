@@ -1,0 +1,24 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XRBL
+**C               *:UID LMV
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090502
+**C               *:Time 1225330
+**C               *<Natural Source Header
+**DFC  S      2   N   3C1COL-SZ
+**HS1
+**I                      99
+**DV          0        V1X-RB-FILE                       X-RB-FILE
+**DD          0   N 5.0 2OG-F
+**DD          0   N 5.0 2IS-F
+**DD    *     0        C2SZ-F
+**DD I1 C     0   A  40M2SZ-F                            (1:COL-SZ)
+**DD          0   A   1 2PS-F
+**DD          0   A  10 2SH-F
+**DD          0   N 5.0 2BS-F
+**DD          0   N 6.0 2DI-F
+**DD          0   A  10 2TE-F
+**DD          0   N 6.0 2GM-F
+**DD          0   N 5.0 2GZ-F
+**DD          0   N 5.0 2KD-F

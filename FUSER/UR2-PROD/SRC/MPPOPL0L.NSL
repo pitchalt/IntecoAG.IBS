@@ -1,0 +1,52 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPPOPL0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070628
+**C               *:Time 0917000
+**C               *<Natural Source Header
+**DFC  S      0002I   4C1MPPOPL0L-LINES-MAX
+**HS0001
+**I                      5
+**DS          0000      1MPPOPL0L
+**DK          0000N13.2 2DT-CENA-SUMMA
+**DK          0000N13.2 2DT-NDS-SUMMA
+**DK          0000N13.2 2DT-ALL-SUMMA
+**DK          0000P   7 2DR-LINES-C
+**DS I1       0000      2DR-LINES                        (1:20)
+**DK          0000A   2 3DL-CMD
+**DK          0000C     3DL-CMD-C
+**DK          0000P  15 3PM-ID
+**DR          0000     R3PM-ID                           /* BEGIN REDEFINE: PM-ID
+**DFR         0000P  15 4DR-ID
+**DK          0000A  22 3MT-CODE
+**DK          0000P  15 3MT-ID
+**DK          0000A 150 3MT-NAME
+**DR          0000     R3MT-NAME                         /* BEGIN REDEFINE: MT-NAME
+**DFR         0000A  36 4MT-NAME1
+**DFR         0000A  72 4MT-NAME2
+**DK          0000N 8.7 3DR-COL
+**DK          0000P 8.7 3BASE-COL
+**DK          0000N   1 3BASE-COL-TYPE
+**DK          0000P  15 3BASE-EI-ID
+**DK          0000N   5 3BASE-EI-CODE
+**DK          0000A   5 3BASE-EI-SHORT-NAME
+**DK          0000N 8.7 3COL
+**DK          0000N 8.7 3COL-LIMIT
+**DK          0000P  15 3EI-ID
+**DK          0000A   5 3EI-SHORT-NAME
+**DK          0000N13.2 3DR-CENA
+**DK          0000N13.2 3DR-CENA-SUMMA
+**DK          0000N13.2 3DR-NDS
+**DK          0000N13.2 3DR-NDS-SUMMA
+**DK          0000P  15 3ND-ID
+**DK          0000A   5 3ND-STAVKA
+**DK          0000N13.2 3DR-ALL-SUMMA
+**DK          0000P  15 3DC-PM-ID
+**DK          0000P13.2 3DC-CENA-SUMMA
+**DK          0000P 8.7 3DC-BASE-COL
+**DK          0000P 8.7 3DC-PRIH-COL
+**DK          0000P 8.7 3OST-BASE-COL
+**DK          0000P 8.7 3OST-PRIH-COL
+**DK          0000P13.2 3OST-BALC-SUMMA

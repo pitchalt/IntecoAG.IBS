@@ -1,0 +1,58 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SZAKIM7
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050220
+* :Time 1357330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #VA(*)
+DEFINE DATA PARAMETER
+1 #VA (A003/00001:00010)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T #VA (001)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+/
+ 001T #VA (002)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (003)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (004)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (005)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (006)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (007)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (008)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (009)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+ 001T #VA (010)  (AD=DLMFHT' ' ) /*.99U003 A003 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

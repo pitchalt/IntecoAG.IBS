@@ -1,0 +1,44 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLSTATI
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090919
+**C               *:Time 1329330
+**C               *<Natural Source Header
+**DFC  S      2   I   4C1MAXSTATIC
+**HS1
+**I                      6
+**DS I1       0         1STSTATIC                        (1:MAXSTATIC)
+**DKC  S      7   A   4C2SHORT
+**HS6
+**I(1)                   VO
+**I(2)                   PO
+**I(3)                   RBP
+**I(4)                   NIOK
+**I(5)                   DOG
+**I(6)                   UNIT
+**DKC  S      7   A  80C2NAME
+**HS6
+**I(1)                   Внешние организации
+**I(2)                   Подразделени
+**I(3)                   РБП
+**I(4)                   НИОКР
+**I(5)                   ДОГОВОРА
+**I(6)                   Оборудование к установке
+**DKC  S      7   A   8C2PRGEDIT
+**HS6
+**I(1)                   SNAVVOR
+**I(2)                   SNAVPO
+**I(3)                   RUN_RBP
+**I(4)                   RUN_NIOK
+**I(5)                   RUN_DOG
+**I(6)                   RUN_UNIT
+**DKC  S      7   A   8C2PRGVIEW
+**HS6
+**I(1)                   :
+**I(2)                   :
+**I(3)                   :
+**I(4)                   :
+**I(5)                   :
+**I(6)                   :

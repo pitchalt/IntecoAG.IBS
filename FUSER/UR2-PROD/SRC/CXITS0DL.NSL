@@ -1,0 +1,40 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CXITS0DL
+**C               *:UID Àäìèíèñò
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061024
+**C               *:Time 2000000
+**C               *<Natural Source Header
+**DS          0000      1CXITS0DLC
+**DKC  S      0002I   4C2STACK-REC-LEN
+**HS0001
+**I                      97
+**DKC  S      0002I   4C2CXITS0DL-REC-LEN
+**HS0001
+**I                      97
+**DKC  S      0002I   4C2STACK-ALLOC-COUNT
+**HS0001
+**I                      200
+**DS          0000      1CXITS0DL
+**DK   S      0002B   4 2STACK-READ
+**HS0001
+**I                      H'00000000'
+**DK   S      0002B   4 2STACK-WRITE
+**HS0001
+**I                      H'00000001'
+**DK          0000B   4 2STACK-POS
+**DK          0000I   4 2STACK-POS-I
+**DK          0000B   4 2STACK-TMP-B
+**DK          0000I   4 2STACK-TMP-I
+**DK          0000B   4 2STACK-FIELD-POS
+**DK          0000B   4 2STACK-FIELD-LEN
+**DK I1       0000B   1 2STACK-REC-B                     (1:CXITS0DL-REC-LEN)
+**DR          0000     R2STACK-REC-B                     /* BEGIN REDEFINE: STACK-REC-B
+**DSR         0000      3STACK-REC-G
+**DFR         0000B   4 4IT-NPP                          /*ÍÎÌÅĞ ÏÎ ÏÎĞßÄÊÓ
+**DFR         0000B   4 4IT-SORT                         /*ÏÎËÅ ÑÎĞÒÈĞÎÂÊÈ
+**DFR         0000P  15 4IT-ID
+**DFR         0000A  10 4IT-CODE
+**DFR         0000A  70 4IT-NAME
+**DFR         0000P   1 4IT-SALDO-TYPE

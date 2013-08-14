@@ -1,0 +1,34 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName IBS-VOL
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20090920
+**C               *:Time 1535330
+**C               *<Natural Source Header
+**DV          0        V1IBS-KVO-FILE                    IBS-SYS-FILE
+**DD          0   N 5.0 2OG-ID
+**DD          0   N 8.0 2BN-ID
+**DD          0   A  80 2NM-OG
+**DD          0   A  80 2AD-OG
+**DD I1 C     0        P2PR-ID                           (1:1)
+**DD          0   N 8.0 3BN-OG                           /* DEF. FROM PREDICT
+**DD          0   A  20 3KR-OG
+**DD I2 C     0   A  20M3RS-OG                           (1:1)
+**DD          0   N 5.0 2VO-ID
+**DD          0   A  15 2NN-ID
+**DD          0   N 5.0 2RE-OG
+**DD          0   A 250 2NA-F
+**DD          0   A  80 2NM-PL
+**DD I1 C     0   A  40M2VO-DI                           (1:10)
+**DD          0   D     2UP-DT
+**DD          0   A   8 2UP-PG
+**DD          0   A   8 2UP-ID
+**DD          0   A   8 2UP-US
+**DD          0   A   5 2ST-F
+**DD          0   N 6.0 2CT-F
+**DD          0   A   1 2FL-DG
+**DF          0   B  10 1SUP_OG_VO
+**DR          0        R1SUP_OG_VO                       /* BEGIN REDEFINE: SUP_OG_VO
+**DFR         0   N   5 2OG_ID
+**DFR         0   N   5 2VO_ID

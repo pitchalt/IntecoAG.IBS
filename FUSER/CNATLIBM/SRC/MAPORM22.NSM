@@ -1,0 +1,137 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MAPORM22
+* :UID NIMI3
+* :Mode S
+* :CP
+* :Date 20010227
+* :Time 1202330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 3.1.0 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #FIELD-01 #FIELD-02 #FIELD-03 #FIELD-04 #FIELD-05D(*) #FIELD-06
+*     #FIELD-08 #FIELD-09 #FIELD-12D(*) #FIELD-13 #FIELD-14 #FIELD-15
+*     FUN-NM-G REG-NM-G SYS-NM-G
+DEFINE DATA PARAMETER
+1 #FIELD-01 (A060)
+1 #FIELD-02 (A060)
+1 #FIELD-03 (N08.0)
+1 #FIELD-04 (A009)
+1 #FIELD-05D (A020/00001:00015)
+1 #FIELD-06 (A020)
+1 #FIELD-08 (A028)
+1 #FIELD-09 (A028)
+1 #FIELD-12D (A003/00001:00015)
+1 #FIELD-13 (A015)
+1 #FIELD-14 (A030)
+1 #FIELD-15 (A030)
+1 FUN-NM-G (A060)
+1 REG-NM-G (A040)
+1 SYS-NM-G (A060)
+END-DEFINE
+FORMAT PS=023 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)к&:+(                       *
+* 023080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T *DATX  (AD=DLOFHT ) /*.01S008 D    .
+ 011T SYS-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *LIBRARY-ID  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 002T *TIMX  (AD=DLOFHT ) /*.01S008 T    .
+ 011T FUN-NM-G  (AD=DLOFHT DY=<I> ) /*.01U060 A060 .
+ 072T *USER  (AD=DLOFHT ) /*.01S008 A008 .
+/
+ 020T REG-NM-G  (AD=DLOFHT'_' DY=<I> ) /*.01U040 A040 .
+/
+ 001T 'Наименование'
+ 014T #FIELD-01  (AD=DLMFHT'_' ) /*.99U060 A060 .
+/
+ 001T 'Адрес'
+ 014T #FIELD-02  (AD=DLMFHT'_' ) /*.99U060 A060 .
+/
+ 001T 'Код банка'
+ 014T #FIELD-03  (AD=DLMFHT'_' ) /*.99U008 N08.0.
+ 028T 'Вал'
+ 054T 'ИНН:'
+ 059T #FIELD-13  (AD=DMT'_' ) /*.99U015 A015 .
+/
+ 001T 'Счета'
+ 007T #FIELD-05D (001)  (AD=DMT'_' ) /*.99U020 A020 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 028T #FIELD-12D (001)  (AD=DMT'_' ) /*.99U003 A003 .
+   /**A1000150000100001000010000100001100015001001000001000HV
+ 037T 'Отрасль(вид де тельности)'
+/
+ 007T #FIELD-05D (002)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (002)  (AD=DMT'_' ) /*.99U003 A003 .
+ 044T #FIELD-14  (AD=DLMFHT'_' ) /*.99U030 A030 .
+/
+ 007T #FIELD-05D (003)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (003)  (AD=DMT'_' ) /*.99U003 A003 .
+ 037T 'Организационно-правова  форма'
+/
+ 007T #FIELD-05D (004)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (004)  (AD=DMT'_' ) /*.99U003 A003 .
+ 044T #FIELD-15  (AD=DLMFHT'_' ) /*.99U030 A030 .
+/
+ 007T #FIELD-05D (005)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (005)  (AD=DMT'_' ) /*.99U003 A003 .
+/
+ 007T #FIELD-05D (006)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (006)  (AD=DMT'_' ) /*.99U003 A003 .
+ 042T 'Инфоpмаци  о банке'(I)
+/
+ 007T #FIELD-05D (007)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (007)  (AD=DMT'_' ) /*.99U003 A003 .
+ 042T '------------------'(I)
+/
+ 007T #FIELD-05D (008)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (008)  (AD=DMT'_' ) /*.99U003 A003 .
+ 037T 'Наименование'
+ 050T #FIELD-08  (AD=IO ) /*.01U028 A028 .
+/
+ 007T #FIELD-05D (009)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (009)  (AD=DMT'_' ) /*.99U003 A003 .
+ 037T 'Адpес'
+ 050T #FIELD-09  (AD=IO ) /*.01U028 A028 .
+/
+ 007T #FIELD-05D (010)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (010)  (AD=DMT'_' ) /*.99U003 A003 .
+ 037T 'БИК'
+ 050T #FIELD-04  (AD=IO ) /*.01U009 A009 .
+/
+ 007T #FIELD-05D (011)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (011)  (AD=DMT'_' ) /*.99U003 A003 .
+ 037T 'Коpp.счет'
+ 050T #FIELD-06  (AD=IO ) /*.01U020 A020 .
+/
+ 007T #FIELD-05D (012)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (012)  (AD=DMT'_' ) /*.99U003 A003 .
+/
+ 007T #FIELD-05D (013)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (013)  (AD=DMT'_' ) /*.99U003 A003 .
+/
+ 007T #FIELD-05D (014)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (014)  (AD=DMT'_' ) /*.99U003 A003 .
+/
+ 007T #FIELD-05D (015)  (AD=DMT'_' ) /*.99U020 A020 .
+ 028T #FIELD-12D (015)  (AD=DMT'_' ) /*.99U003 A003 .
+/
+ 001T '-ВВОД---ПФ1---ПФ2---ПФ3---ПФ4---ПФ5---ПФ6---ПФ7---ПФ8---ПФ'-
+      '9---ПФ10--ПФ11--ПФ12-'
+/
+ 008T 'Альт'(I)
+ 015T 'Бнк'(I)
+ 021T 'Вых'(I)
+ 033T 'Зап'(I)
+ 045T 'Нзд'(I)
+ 051T 'Впр'(I)
+ 057T 'Нач'(I)
+ 064T 'Кон'(I)
+ 069T 'Р/С-'(I)
+ 075T 'Р/С+'(I)
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

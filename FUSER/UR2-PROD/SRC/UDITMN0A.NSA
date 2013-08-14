@@ -1,0 +1,22 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDITMN0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060514
+**C               *:Time 1145000
+**C               *<Natural Source Header
+**DS          0000      1UDITMN0A
+**DK          0000A  10 2DL-COMMAND
+**DK          0000P  10 2IT-ISN
+**DK          0000P 7.0 2IT-ID
+**DK          0000P   7 2CL-ID
+**DK          0000A  10 2IT-CODE
+**DK          0000A  70 2IT-NAME
+**DK          0000P   1 2IT-SALDO-TYPE
+**DS I1       0000      2MA-G                            (1:30)
+**DK          0000P   7 3MA-ID
+**DK          0000P 7.0 3MA-TYPE-ID
+**DK          0000A   1 3MA-TYPE
+**DK          0000P 7.0 3MA-CONV-TYPE-ID
+**DK          0000P 1.0 3MA-COMB-INDEX-NUM

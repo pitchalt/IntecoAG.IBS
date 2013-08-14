@@ -1,0 +1,41 @@
+DB: 000 FILE: 030  - ZAKAZ                            DEFAULT SEQUENCE:
+TYPE: ADABAS
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID T_UPA
+*      :CP
+*
+*
+*      :Date 20100325
+*      :Time 0938330
+*      <Natural Source Header
+  1 PT PT-F                              A   10  N D
+  1 D2 DT-ZA                             N  8.0  N D
+  1 D1 DT-OT                             N  8.0  N D
+  1 DG DG-F                              A   20  N
+  1 ZK ZK-F                              A   20  N D
+  1 BS BS-F                              N  5.0  N D
+  1 FD FD-F                              A   10  N
+  1 KN KN-F                              A    7  N
+  1 TE TE-F                              A   10  N D
+  1 ZZ ZZ-F                              A   20  N D
+  1 IN INT-NUM-ZK                        P 11.0  N D
+  1 LH LH-F                              A   30  N
+P 1 PZ PZ-F
+M 2 PO PO-F                              N  5.0  N
+  1 OG OG-F                              N  5.0  N D
+P 1 GM GM-F
+M 2 MO MO-F                              N  5.0  N D
+M 2 GR GR-F                              N  5.0  N D
+  1 NM NM-F                              A  120  N
+  1 GZ GZ-F                              N  5.0  N
+  1 S6 Z-SP                              A    1  N
+  1 CF C-FOND                            N  2.2  N
+  1 LL B-SCET                            A   11  N D
+  1 ND NDS-PRIZN                         A    1  N D
+  1 ZT ZT-OID                            I    4  N
+  1 CN NAK-COEFF                         P  3.4  N
+  1 CO NAK-KB                            P  3.4  N
+******DDM OUTPUT TERMINATED******

@@ -1,0 +1,22 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SBGZKN
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050513
+* :Time 1653330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  PARAMETER
+  1 STAT_ID(P11)
+  LOCAL USING LCLKKL
+END-DEFINE
+FIND IBS-KK-FILE OG-ID = 1000 AND KK-F = 'ZK'
+IF NO  OG-ID := 1000  KK-F := 'ZK'  RESET KD-F  END-NOREC
+  ADD 1 TO KD-F
+  IF *NUMBER = 0  STORE IBS-KK-FILE
+    ELSE  UPDATE
+  END-IF
+  STAT_ID := KD-F
+END-FIND
+END

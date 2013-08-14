@@ -1,0 +1,68 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MENU_021
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20110914
+* :Time 1549000
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+PARAMETER USING XXERX00A
+PARAMETER USING XXCTXX0A
+PARAMETER USING XABOXX0A
+LOCAL USING MENUXXXL
+LOCAL USING XPMXSM0L
+LOCAL
+1 #ITEM (I4)
+END-DEFINE
+/*
+MOVE 'АОЗТ ИНТЕКО АГ СИСТЕМА МТС ПОДСИСТЕМА СКЛАД'
+     TO MX-FUNCTION-NAME
+MOVE 'Справочна  подсистема' TO MX-EDITOR-NAME
+/*
+RESET #ITEM
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Карточка складского учета'
+PRG(#ITEM)  := "MAMTSK0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Поиск документов'
+PRG(#ITEM)  := "MADCSH0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Поиск ЛЗK'
+PRG(#ITEM)  := "MLKAXS0N"
+CMD(#ITEM)  := " "
+ODID(#ITEM) := 0
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Остатки на складах'
+PRG(#ITEM)  := "MASAMT0N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 300
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Движение по складам'
+PRG(#ITEM)  := "MASOSH1N"
+CMD(#ITEM)  := "NEW"
+ODID(#ITEM) := 200
+/*
+ADD 1 TO #ITEM
+NAME(#ITEM) := 'Экспорт операций'
+PRG(#ITEM)  := "MOPAXS0N"
+CMD(#ITEM)  := "SEARCH"
+ODID(#ITEM) := 0
+/*
+* ADD 1 TO #ITEM
+* NAME(#ITEM) := 'Импортные материалы'
+* PRG(#ITEM)  := "UNLEXP"
+* CMD(#ITEM)  := "SEARCH"
+* ODID(#ITEM) := 0
+/*
+INCLUDE MENU000C
+END

@@ -1,0 +1,103 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBOTST0C
+* :UID юДЛХМХЯР
+* :Mode S
+* :CP
+* :Date 20060911
+* :Time 1024000
+* <Natural Source Header /*<<RO>
+  DEFINE SUBROUTINE SORT-FIELD
+        /* бшгнб опнцпюллш дкъ янпрхпнбйх бяонлнцюрекэмнцн ярейю
+        EXAMINE MBXXSS0A.DS-TYPE-STEK(*) FOR &1& GIVING INDEX #NS
+        MOVE MBXXSS0A.STACK-NUMBER(#NS) TO CXXXS0CA.STACK-NUMBER
+        MOVE MBXXSS0A.STACK-COUNT(#NS) TO CXXXS0CA.STACK-COUNT
+        MOVE MBXXSS0A.STACK-LEN(#NS) TO CXXXS0CA.STACK-LEN
+        MOVE MBXXSS0A.STACK-ID(#NS) TO CXXXS0CA.STACK-ID
+        MOVE 'SORT' TO &2&
+        PERFORM &3& XXERX00A &4& CXXXS0CA MBXXOP0A XXCTXX0A
+        IF RETURN-CODE NE 0 THEN *ERROR-NR := EC-QUIT-STACK-TRACE END-IF
+
+        /** янпрхнбйю нямнбмнцн ярейю *********************************
+        /* бшдекемхе ярейю дкъ янпрхпнбйх
+    /*   CALL 'GTNX' #OUT-STEK
+    /*    MOVE MBOTXX0A.STACK-LEN(#I) TO &5&.STACK-POS /* йнкхвеярбн щкелемрнб
+    /*    MOVE MBOTXX0A.STACK-ELEM-LEN TO &5&.STACK-FIELD-LEN
+    /*    CALL 'GTSX' &5&.STACK-FIELD-LEN &5&.STACK-POS #OUT-STEK
+        /* оепейкюдшбюел мю нямнбе онкъ янпр бяонлнцюрекэмнцн ярейю
+        /* опнялнрп нямнбмнцн ярейю
+        RESET MBXXDO0L.STACK-POS-I MBXXDO0L.STACK-TMP-B
+        MOVE MBOTXX0A.STACK-OUT TO #STEK /* нямнбмни ярей
+        MOVE MBXXSS0A.STACK-NUMBER(#NS) TO #STEK-V  /* юмюкхрхвеяйхи ярей
+        #J := MBOTXX0A.OT-NUMBER-ELEMENT
+        REPEAT
+           /* вхрюел нямнбмни ярей
+           ADD 1 TO MBXXDO0L.STACK-POS-I
+           MOVE MBXXDO0L.STACK-POS-I TO MBXXDO0L.STACK-TMP-B
+           IF MBOTXX0A.STACK-LEN < MBXXDO0L.STACK-TMP-B  /* MBXXDO0L.OS-NPP = H'00000000'
+              ESCAPE BOTTOM
+           END-IF
+           CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC-B(1) MBXXDO0L.STACK-READ
+                       #STEK
+           /* хыел б юмюкхрхвеяйнл ярейю
+           RESET &5&.STACK-REC-B(*)
+           &5&.STACK-FIELD-POS := 1
+           &5&.STACK-FIELD-LEN := 4
+           MOVE MBXXDO0L.ANALITIK(#J) TO &5&.STACK-POS
+           CALL 'CMPXF' &5&.STACK-POS &5&.STACK-FIELD-POS
+               &5&.STACK-FIELD-LEN #STEK-V
+           MOVE &5&.STACK-FIELD-POS TO MBXXDO0L.OS-NPP
+           CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC-B(1) MBXXDO0L.STACK-WRITE
+                       #STEK
+        END-REPEAT
+        /*
+        RESET &5&.STACK-POS-I
+        REPEAT
+           ADD 1 TO &5&.STACK-POS-I
+           MOVE &5&.STACK-POS-I TO &5&.STACK-TMP-B
+           IF MBXXSS0A.STACK-LEN(#NS) < &5&.STACK-TMP-B /*  MBXXDO0L.OS-NPP = H'00000000'
+              ESCAPE BOTTOM
+           END-IF
+           RESET &5&.STACK-REC-B(*)
+           CALL 'RWSX' &5&.STACK-TMP-B &5&.STACK-REC-B(1) &5&.STACK-READ
+                       #STEK-V
+           MOVE &5&.STACK-POS-I TO &5&.&6&
+           CALL 'RWSX' &5&.STACK-TMP-B &5&.STACK-REC-B(1) &5&.STACK-WRITE
+                       #STEK-V
+           RESET &5&.STACK-REC-G
+        END-REPEAT
+        /* япрхпнбйю нямнбмнцн ярейю
+        RESET #SORT &5&.STACK-POS-I
+        REPEAT
+           ADD 1 TO MBXXDO0L.STACK-POS-I
+           MOVE MBXXDO0L.STACK-POS-I TO MBXXDO0L.STACK-TMP-B
+           IF MBOTXX0A.STACK-LEN < MBXXDO0L.STACK-TMP-B /*  MBXXDO0L.OS-NPP = H'00000000'
+              ESCAPE BOTTOM
+           END-IF
+           CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC-B(1) MBXXDO0L.STACK-READ
+                       #STEK
+                       /*
+           END-ALL
+           /*
+           SORT MBXXDO0L.OS-NPP USING MBXXDO0L.STACK-REC-B(*)
+              ADD 1 TO #SORT
+              MOVE #SORT TO MBXXDO0L.STACK-TMP-B
+              CALL 'RWSX' MBXXDO0L.STACK-TMP-B MBXXDO0L.STACK-REC-B(1) MBXXDO0L.STACK-WRITE
+                          #STEK
+              RESET MBXXDO0L.STACK-REC-G
+           END-SORT
+           /*
+     /*   CALL 'PRSX' H'00000001' H'00000001' #OUT-STEK
+     /*   FOR #I = 1 TO MBXXZP0A.C-STACK
+     /*      IF MBOTXX0A.STACK-OUT = MBXXZP0A.STACK-NUMBER(#I)
+     /*         MOVE #OUT-STEK  TO MBXXZP0A.STACK-NUMBER(#I)
+     /*         ESCAPE BOTTOM
+     /*      END-IF
+     /*   END-FOR
+        /* сдюкъел хяундмши ярей
+    /*    CALL 'FRSX' MBOTXX0A.STACK-OUT
+        /* гюонлхмюел нрянпрхпнбюммши ярей
+    /*    MOVE #OUT-STEK TO MBOTXX0A.STACK-OUT
+        RESET MBXXDO0L.STACK-POS-I
+        PERFORM READ-STEK
+  END-SUBROUTINE
+

@@ -1,0 +1,44 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MADCSH0N
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060613
+* :Time 1354000
+* <Natural Source Header /*<<RO>
+/***********************************************************************
+/*
+/* яхярелю: ARM-K
+/* опнцпюллю: ахгмея ноепюжхъ
+/*
+/* пюгпюанрвхй: сгнпхм о.ю.
+/* дюрю бшосяйю:
+/*
+/* мюгбюмхе: опхундшбюмхе он опхундмнлс нпдепс
+/* йнлюмдш:
+/*  - NEW
+/*  - EDIT
+/*
+/* хяопюбкемхъ:
+/*
+/***********************************************************************
+DEFINE DATA
+PARAMETER USING XXERX00A
+PARAMETER USING XXCTXX0A
+PARAMETER USING XABOXX0A
+/*
+LOCAL USING XXXXEC0L
+LOCAL USING MPOSSH0A
+END-DEFINE
+RESET XXERX00A
+/*
+SET KEY OFF
+SET KEY COMMAND OFF
+SET KEY NAMED OFF
+SET KEY ALL
+SET CONTROL 'M=RE'
+OS-COMMAND := 'NEW'
+PERFORM MPOSSH0S XXERX00A XXCTXX0A MPOSSH0A
+/*
+INCLUDE XXERSY1C
+END

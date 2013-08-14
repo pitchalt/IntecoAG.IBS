@@ -1,0 +1,28 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MMXXMN3C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060508
+* :Time 2220000
+* <Natural Source Header /*<<RO>
+/* —“¿Õƒ¿–“Õ€≈  ŒÃ¿Õƒ€ »Õ“≈–‘≈…—¿
+  DECIDE ON FIRST VALUE MX-COMMAND
+/* HEADER
+     VALUE 'NEW'
+        MX-COMMAND := 'NEW'
+        PERFORM &1& XXERX00A XXCTXX0A XPMXXX0A UXCSXX0A
+     VALUE 'EDIT'
+        MX-COMMAND := 'EDIT'
+        PERFORM &1& XXERX00A XXCTXX0A XPMXXX0A UXCSXX0A
+     VALUE 'VIEW'
+        MX-COMMAND := 'VIEW'
+        PERFORM &1& XXERX00A XXCTXX0A XPMXXX0A UXCSXX0A
+     VALUE 'SAVE'
+        ESCAPE BOTTOM
+     VALUE 'EXIT'
+        ESCAPE BOTTOM
+     NONE VALUE
+        INCLUDE XXERSY2C '2201' 'MX-COMMAND'
+  END-DECIDE
+

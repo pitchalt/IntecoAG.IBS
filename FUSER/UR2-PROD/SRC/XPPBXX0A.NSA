@@ -1,0 +1,20 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XPPBXX0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060716
+**C               *:Time 1034000
+**C               *<Natural Source Header
+**DS          0000      1XPPBXX0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000A  50 2PB-HEADER
+**DK          0000I   4 2PB-PROCESS-MAX
+**DK          0000I   4 2PB-PROCESS-CURRENT
+**DK          0000I   4 2PB-PROCESS-PREV
+**DK          0000I   4 2PB-PROCESS-DELTA
+**DK          0000T     2PB-TIME-START
+**DK          0000T     2PB-TIME-PREV
+**DK          0000T     2PB-TIME-LAST-SHOW
+**DK          0000T     2PB-TIME-CURRENT
+**DK          0000I   4 2PB-TIME-DELTA

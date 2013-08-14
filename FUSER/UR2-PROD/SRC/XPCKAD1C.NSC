@@ -1,0 +1,14 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPCKAD1C
+* :UID Админист
+* :Mode S
+* :CP
+* :Date 20050916
+* :Time 2215000
+* <Natural Source Header /*<<RO>
+ADD 1 TO CK-LIST-C
+CK-CMD-INT(CK-LIST-C) := &1&
+CK-CMD-CODE(CK-LIST-C) := " "
+CK-PFKEY-CODE(CK-LIST-C) := &2&
+CK-PFKEY-NAME(CK-LIST-C) := &3&
+

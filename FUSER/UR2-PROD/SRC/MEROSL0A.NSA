@@ -1,0 +1,15 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEROSL0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070925
+**C               *:Time 1209000
+**C               *<Natural Source Header
+**DS          0000      1MEROSL0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2RO-ID
+**DK          0000P  15 2IN-MO-ID
+**DK          0000P  15 2OUT-MO-ID
+**DK          0000P  15 2MT-ID
+**DK          0000P  15 2ZK-ID

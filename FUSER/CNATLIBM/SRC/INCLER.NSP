@@ -1,0 +1,107 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName INCLER
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20041130
+* :Time 1713330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL USING STEKL
+  LOCAL
+  1 STR(A250)
+  1 REDEFINE STR
+    2 #END(A50)
+  1 REDEFINE STR
+    2 STR4(A4)
+    2 STR40(A40)
+    2 PGM(A8)
+  1 REDEFINE STR
+    2 STR11(A11)
+    2 PRZ(A1)
+  1 STR1(A250)  1 STR2(A250)
+  1 #PRZ(A1)  1 GLB(N3)  1 #PGM(A8)  1 FLGE(N1)  1 FLGM(N1)
+END-DEFINE
+XI := 250  XW := 5000  CALL 'GTSX' XI XW XN1
+XW := 1
+READ WORK 1 STR
+  IF STR4 = '*C**' #PGM := PGM  RESET FLGE FLGM  END-IF
+  IF FLGE = 0
+    EXAMINE STR 'END-ERROR' GIVING NUMBER FLGE
+  END-IF
+  IF FLGM = 0
+    EXAMINE STR 'NAME_OF_MODULE' GIVING NUMBER FLGM
+  END-IF
+  IF #END = '*E  '  WRITE WORK 11 STR
+    ESCAPE BOTTOM
+  END-IF
+  ADD 1 TO IS1  XI := IS1  CALL 'RWSX' XI STR XW XN1
+  IF STR4 = '*D01' #PRZ := PRZ  END-IF
+  IF #END = '*S**END             ' OR =
+  '*S** END             ' OR =
+  '*S**  END             ' OR =
+  '*S**   END             ' OR =
+  '*S**    END             '
+    RESET GLB #K
+    FOR #I 1 IS1  XI := #I  CALL 'RWSX' XI STR1 XR XN1
+      EXAMINE STR1 'END-DEFINE' GIVING NUMBER #K
+      IF #K NE 0  ESCAPE BOTTOM  END-IF
+      EXAMINE STR1 'GLOBAL' GIVING NUMBER GLB
+      IF GLB NE 0  ESCAPE BOTTOM  END-IF
+    END-FOR
+    IF #PRZ NE 'S'
+      #J := IS1 - 1
+      FOR #I 1 #J  XI := #I  CALL 'RWSX' XI STR1 XR XN1
+        IF GLB = 0
+          EXAMINE STR1 'END-DEFINE' GIVING NUMBER #K
+          IF #K NE 0  GLB := 1
+            IF FLGM = 0
+              STR2 := '*S** LOCAL 1 NAME_OF_MODULE(A8)'
+              WRITE WORK 11 STR2
+            END-IF
+          END-IF
+        END-IF
+        WRITE WORK 11 STR1
+      END-FOR
+      IF FLGE = 0
+        STR1 := '*S**INCLUDE ERRORINC'
+        WRITE WORK 11 STR1
+      END-IF
+      WRITE WORK 11 STR
+      ELSE
+      FOR #I IS1 1 -1  XI := #I  CALL 'RWSX' XI STR1 XR XN1
+        IF STR1 = '*S**END-SUBROUTINE          ' OR =
+        '*S** END-SUBROUTINE          ' OR =
+        '*S**  END-SUBROUTINE          ' OR =
+        '*S**   END-SUBROUTINE          ' OR =
+        '*S**    END-SUBROUTINE          ' OR =
+        '*S**     END-SUBROUTINE          '
+          #J := #I - 1
+          ESCAPE BOTTOM
+        END-IF
+      END-FOR
+      FOR #I 1 #J  XI := #I  CALL 'RWSX' XI STR1 XR XN1
+        IF GLB = 0
+          EXAMINE STR1 'END-DEFINE' GIVING NUMBER #K
+          IF #K NE 0  GLB := 1
+            IF FLGM = 0
+              STR2 := '*S**  LOCAL 1 NAME_OF_MODULE(A8)'
+              WRITE WORK 11 STR2
+            END-IF
+          END-IF
+        END-IF
+        WRITE WORK 11 STR1
+      END-FOR
+      IF FLGE = 0
+        STR1 := '*S**INCLUDE ERRORINC'
+        WRITE WORK 11 STR1
+     END-IF
+     ADD 1 TO #J
+      FOR #I #J IS1  XI := #I  CALL 'RWSX' XI STR1 XR XN1
+        WRITE WORK 11 STR1
+      END-FOR
+    END-IF
+    RESET IS1  CALL 'NULX' ' ' XN1
+  END-IF
+END-WORK
+END

@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName XBLTMN0A
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060620
+**C               *:Time 1445000
+**C               *<Natural Source Header
+**DS          0000      1XBLTMN0A
+**DK          0000A  10 2BL-COMMAND
+**DK          0000P15.0 2LT-ID
+**DK          0000P 7.0 2OT-ID
+**DK          0000P15.0 2OB-ID
+**DK          0000P15.0 2TX-ID

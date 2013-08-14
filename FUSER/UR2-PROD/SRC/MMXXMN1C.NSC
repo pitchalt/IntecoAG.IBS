@@ -1,0 +1,21 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MMXXMN1C
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20050113
+* :Time 2228000
+* <Natural Source Header /*<<RO>
+/* —“¿Õƒ¿–“ÕŒ≈ Õ¿◊¿ÀŒ
+/*
+IF BM-COMMAND NE 'NEW' AND BM-COMMAND NE 'EDIT' AND
+   BM-COMMAND NE 'VIEW' THEN
+  INCLUDE XXERSY2C '2201' 'BM-COMMAND'
+END-IF
+/*
+/*INCLUDE CPCPIN0C
+/*
+MX-COMMAND := BM-COMMAND
+MX-OBJECT  := BM-OBJECT
+MX-OBJECT-UP := BM-OBJECT-UP
+

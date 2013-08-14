@@ -1,0 +1,90 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SELSTZ
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20091117
+* :Time 1054330
+* <Natural Source Header /*<<RO>
+*********************************************************************
+*                                                                   *
+* ÂÅÄÅÍÈÅ ÊÎÄÈÔÈÊÀÒÎÐÀ ÑÒÀÒÅÉ ÇÀÒÐÀÒ UZP                               *
+*                                                                   *
+*********************************************************************
+DEFINE DATA
+  PARAMETER
+  1 IKD(N5) 1 IDATA(A70)  1 OG_IDENT_G(N5)
+  LOCAL  USING UZP-SYS
+  LOCAL  USING STEKL
+  LOCAL  USING GLL
+  LOCAL
+  1 OPSYS(A3)  1 SLC(A1/15)
+  1 INPUT-REC(A035/1:15)
+  1 REDEFINE INPUT-REC
+    2 #INPUT-REC(15)
+      3 #KD(N5)  3 #NM(A30)
+  1 STEK(A35)
+  1 REDEFINE STEK
+    2 SKD(N5)  2 SNM(A30)
+  1 #NB(A80)
+  1 REDEFINE #NB
+    2 NKD(N2)  2 NNM(A30)
+END-DEFINE
+*
+FORMAT(1) ZP=OFF LS=130 PS=80
+SET KEY PF1 PF2 PF3 PF4 PF5 PF6 PF7 PF8 PF9 PF10 PF11 PF12
+OPSYS := *OPSYS
+SYS-NM-G := 'ÈÁÑ  ÈÍÒÅÊÎ ÀÃ'  CALLNAT 'CENTER60' SYS-NM-G
+FUN-NM-G := 'ÍÀÑÒÐÎÉÊÀ ÑÈÑÒÅÌÛ'  CALLNAT 'CENTER60' FUN-NM-G
+REG-NM-G := 'Ñòàòüè çàòðàò'  CALLNAT 'CENTER40' REG-NM-G
+*
+CALL 'GTNX' XN1
+ASSIGN XI = 35  ASSIGN XW = 1000  CALL 'GTSX' XI XW XN1
+ASSIGN XW = 1
+F. FIND UZP-SYS-FILE KK-F = 'Z0'
+  FOR #I 1 C*NB-F
+    #NB := NB-F(#I)
+    ADD 1 TO IS1  ASSIGN XI = IS1  SKD := NKD  SNM := NNM
+    CALL 'RWSX' XI STEK XW XN1
+  END-FOR
+END-FIND
+#N := 1
+REPEAT
+  RESET #L  COMPUTE #K = #N + 14
+  FOR #I #N #K  ASSIGN XI = #I  CALL 'RWSX' XI STEK XR XN1
+    IF STEK = ' '  RESET SNM SKD   END-IF
+    ADD 1 TO #L  ASSIGN INPUT-REC(#L) = STEK
+  END-FOR
+  INPUT USING MAP 'SELSTM1'
+*
+  IF *PF-KEY = 'PF3'  ESCAPE BOTTOM  END-IF
+  IF *PF-KEY = 'PF9'  ASSIGN #N = 1  END-IF
+  IF *PF-KEY = 'PF10'  ASSIGN #N = IS1  END-IF
+  IF *PF-KEY = 'PF7' AND #N > 15  COMPUTE #N = #N - 15  END-IF
+  IF *PF-KEY = 'PF8' AND #K <= IS1  COMPUTE #N = #N + 15  END-IF
+  IF *PF-KEY = 'PF11'  RESET IDATA
+    FOR #I 1 15
+      IF *CURS-FIELD = POS(SLC(#I))
+        #L := #N + #I - 1
+        IF #L <= IS1  XI := #L  CALL 'RWSX' XI STEK XR XN1
+          IKD := SKD  IDATA := SNM  ESCAPE BOTTOM
+        END-IF
+      END-IF
+    END-FOR
+    IF IDATA NE ' '  SET CONTROL 'K0'  ESCAPE BOTTOM  END-IF
+  END-IF
+  IF *PF-KEY = 'PF6'
+    IF *OPSYS = 'Windows/' OR = 'WNT-X86'
+      CLOSE PRINTER(1)
+      DEFINE PRINTER(1) OUTPUT 'LPT2' PROFILE 'SS'
+    END-IF
+    WRITE(1) NOTITLE 'Còàòüè'
+    FOR #I 1 IS1
+      XI := #I  CALL 'RWSX' XI STEK XR XN1
+      WRITE(1)(SG=OFF) SKD SNM
+    END-FOR
+    INCLUDE CLOSPRN
+  END-IF
+END-REPEAT
+CALL 'FRSX' XN1
+END

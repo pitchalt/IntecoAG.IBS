@@ -1,0 +1,16 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName TESTER
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20041111
+* :Time 0945330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+  LOCAL
+  1 #I(N7)  1 NAME_OF_MODULE(A8)
+  1 #J(N9)
+END-DEFINE
+PERFORM TTT
+INCLUDE ERRORINC
+END

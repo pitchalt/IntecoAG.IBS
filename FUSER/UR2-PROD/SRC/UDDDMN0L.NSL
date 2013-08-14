@@ -1,0 +1,25 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UDDDMN0L
+**C               *:UID INTECO
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060501
+**C               *:Time 2250000
+**C               *<Natural Source Header
+**DV          0000     V1UR-DOC-META-VIEW                UR-DOC-META
+**DD          0000P 7.0 2DD-ID
+**DD          0000P 7.0 2DD-TYPE-ID
+**DD          0000A  10 2DD-CODE
+**DD          0000A  70 2DD-NAME
+**DD          0000P 1.0 2DD-LEVEL
+**DD          0000P 7.0 2DD-UP-ID
+**DD          0000L     2DD-TX-IS-REQUIRED
+**DD    *     0000     C2DD-MA-G
+**DD I1 C     0000     P2DD-MA-G                         (1:40)
+**DD          0000P 7.0 3DD-MA-TYPE-ID
+**DD          0000P 7.0 3DD-MA-ATTR-ID
+**DD          0000A   1 3DD-MA-ATTR-TYPE
+**DD          0000L     3DD-MA-IS-INDEX
+**DD          0000L     3DD-MA-IS-REQUIRED
+**DD          0000L     3DD-MA-IS-AGGREGATE
+**DD          0000L     3DD-MA-IS-HERITABLE

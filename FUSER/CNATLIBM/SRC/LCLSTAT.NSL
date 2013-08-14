@@ -1,0 +1,14 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLSTAT
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070615
+**C               *:Time 0908330
+**C               *<Natural Source Header
+**DV          0        V1VIEWSTAT                        IBS-SYS-FILE
+**DD          0   N 5.0 2OG-ID
+**DD          0   A  80 2NM-OG
+**DD          0   A   5 2ST-F
+**DD          0   N 6.0 2CT-F
+**DD          0   P11.0 2INT-NUM-ST

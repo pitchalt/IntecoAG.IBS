@@ -1,0 +1,57 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SELTNM1
+* :UID NAT22606
+* :Mode S
+* :CP
+* :Date 20050221
+* :Time 1319330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     #KD #NAME
+DEFINE DATA PARAMETER
+1 #KD (N05.0)
+1 #NAME (A050)
+END-DEFINE
+FORMAT PS=024 LS=081 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024080        N0NNUCN____         X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 002T '“‡·. ÌÓÏÂ'
+ 016T '(0-‚ce)........................'
+ 048T #KD  (AD=ILMFHT'_' ) /*.99U005 N05.0.
+/
+ 002T '‘‡ÏËÎË '
+/
+ 003T #NAME  (AD=IMT'_' ) /*.99U050 A050 .
+/
+/
+ 001T '-BBOƒ---œ‘1---œ‘2---œ‘3---œ‘4---œ‘5---œ‘6---œ‘7---œ‘8'
+/
+ 002T 'ŒÚ·Ó'
+ 010T '?'
+ 015T 'B˚x'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

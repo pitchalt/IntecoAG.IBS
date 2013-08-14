@@ -1,0 +1,17 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName NAVVOR0
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050624
+* :Time 1447330
+* <Natural Source Header /*<<RO>
+*************************************
+* опнцпюллю бедемхъ окюмю явернб лт *
+*************************************
+DEFINE DATA
+ LOCAL USING PR4NAVVO
+END-DEFINE
+  KODIF_VO.OG_ID_G := 1000  #RW := 'R'
+  CALLNAT 'SYSNAVO' KODIF_VO
+END

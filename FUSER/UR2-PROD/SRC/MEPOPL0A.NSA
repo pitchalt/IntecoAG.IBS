@@ -1,0 +1,12 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MEPOPL0A
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070627
+**C               *:Time 1453000
+**C               *<Natural Source Header
+**DS          0000      1MEPOPL0A
+**DK          0000A  10 2ME-COMMAND
+**DK          0000P  15 2PO-ID
+**DK          0000P  15 2STORNO-PO-ID

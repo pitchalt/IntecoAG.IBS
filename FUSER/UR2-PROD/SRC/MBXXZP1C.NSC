@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBXXZP1C
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20060612
+* :Time 0156000
+* <Natural Source Header /*<<RO>
+        DIVIDE 2 INTO &1& REMAINDER #Q
+        IF #Q = 1 THEN
+           ADD 1 TO &1&
+        END-IF
+

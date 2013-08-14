@@ -1,0 +1,28 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DEFP
+* :UID NIMI
+* :Mode S
+* :CP
+* :Date 20070417
+* :Time 1556330
+* <Natural Source Header /*<<RO>
+CLOSE PRINTER(1)
+ IF OPSYS = 'Win' OR = 'WNT'
+  IF POZ = 1  DEFINE PRINTER(1) OUTPUT 'LPT1' PROFILE 'TTY'
+    PAGS := 68
+  END-IF
+  IF POZ = 2  DEFINE PRINTER(1) OUTPUT 'LPT2' PROFILE 'TTY'
+    PAGS := 68
+  END-IF
+  IF POZ = 3    /* ÝKPAH
+     DEFINE PRINTER(1) OUTPUT 'VIDEO'                          /* 23
+     PAGS := 23
+  END-IF
+  IF POZ = 4    /*  ÄÈCK
+     DEFINE PRINTER(1) OUTPUT 'LPT4' PROFILE 'TTY'             /* 23
+     PAGS := 46
+  END-IF
+END-IF
+IF ( OPSYS = 'CMS' OR = 'MVS' )
+  DEFINE PRINTER (1) OUTPUT 'CMPRT04'
+END-IF

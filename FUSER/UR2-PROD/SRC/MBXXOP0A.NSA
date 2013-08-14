@@ -1,0 +1,29 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MBXXOP0A
+**C               *:UID OLEG
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061027
+**C               *:Time 1004000
+**C               *<Natural Source Header
+**DS          0000      1MBXXOP0A
+**DK          0000A  10 2OP-COMMAND
+**DK          0000I   4 2OP-ID-ARRAY                     /*номер элемента массива
+**DK          0000I   4 2OP-KOL-AN                       /*кол аналитик
+**DK          0000I   4 2OP-KOL-EAN                      /*кол элем стека под анал
+**DK          0000I   4 2OP-KOL-POK                      /*кол элем стека под показ
+**DK I1       0000P   7 2OP-ATTR-SHOW                    (1:6) /*кол элем стека под показ
+**DK          0000I   4 2STACK-REC-LENR                  /*расчитываем длин корнев стека
+**DK          0000P 7.0 2OP-ID                           /*id описани
+**DS I1       0000      2OP-ARRAY                        (1:30)
+**DK          0000I   4 3OP-NUMBER-STEK                  /*НОМЕР СТЕКА
+**DK          0000I   2 3OP-POR-NUMBER                   /*пор дковый номер
+**DK          0000P 7.0 3OP-CODE-AT                      /*код аналитики или показател
+**DK          0000A  20 3OP-TITLE                        /*ОПИСАНИЕ ПОЛЯ ПОКАЗАТЕЛЯ
+**DK          0000A   8 3OP-TYPE-STEK                    /*тип стека
+**DK          0000L     3OP-PRIZNAK                      /*признак не 0 - го знач (TRUE)
+**DK          0000A  10 3OP-ATTR                         /*АТРИБУТ ОПИСАТЕЛЯ
+**DR          0000     R3OP-ATTR                         /* BEGIN REDEFINE: OP-ATTR
+**DFR         0000A   2 4OP-ATTR-SHOT
+**DK I1       0000P   7 3OP-CODE-IN                      (1:5)
+**DK I1       0000P   7 3OP-CODE-OUT                     (1:5)

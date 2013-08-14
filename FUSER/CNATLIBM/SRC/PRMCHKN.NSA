@@ -1,0 +1,19 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName PRMCHKN
+**C               *:UID IEN
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20010814
+**C               *:Time 1617330
+**C               *<Natural Source Header
+**DS          0000      1PARCHKN
+**DK          0000I   4 2OG_ID                           /* ÊÎÄ ÎÐÃÀÍÈÇÀÖÈÈ
+**DK          0000I   4 2SS_ID
+**C           0000**********************************************************************
+**DS I1       0000      2STAT_N                          (1:10)
+**DK          0000I   4 3CODE
+**C           0000**********************************************************************
+**DK          0000I   2 2ERRORINDEX
+**DS          0000      2RESULT_STRUCT
+**DK          0000L     3RESULT                          /* ÐÅÇÓËÜÒÀÒ ÎÏÅÐÀÖÈÈ
+**DK          0000I   4 3RESULT_ID

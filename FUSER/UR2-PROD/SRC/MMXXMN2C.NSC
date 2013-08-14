@@ -1,0 +1,29 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MMXXMN2C
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20050113
+* :Time 2228000
+* <Natural Source Header /*<<RO>
+/* СТАНДАРТНЫЙ ИНТЕРФЕЙС ПОЛЬЗОВАТЕЛЯ
+/* RESET COMMAND
+  INCLUDE XPCPRS0C
+/* COMMON COMMAND
+  INCLUDE XPCKAD0C '"EXIT"' '"EXIT"' '"PF3"' '"Выход"'
+  INCLUDE XPCKAD0C '"EXIT"' '"EXIT"' '"CLR"' '"Выход"'
+  DECIDE ON EVERY VALUE MX-COMMAND
+/* KEY COMMAND
+     VALUE 'NEW'
+        INCLUDE XPCKAD0C '"NEW"' '"SAVE"' '"PF5"' '"Добав"'
+     VALUE 'EDIT'
+        INCLUDE XPCKAD0C '"SAVE"' '"SAVE"' '"PF5"' '"Сохрн"'
+     VALUE 'NEW', 'EDIT'
+        INCLUDE XPCKAD1C '"SELECT"' '"PF11"' '"Выбор"'
+        INCLUDE XPCKAD1C '"CHECK"'  '"ENTR"' '"Провр"'
+     VALUE 'EDIT'
+        INCLUDE XPCKAD1C '"RELOAD"' '"PF6"'  '"Переч"'
+     NONE VALUE
+        IGNORE
+  END-DECIDE
+

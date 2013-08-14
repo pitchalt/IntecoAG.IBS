@@ -1,0 +1,34 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MDPRMN0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20110224
+**C               *:Time 1639000
+**C               *<Natural Source Header
+**DV          0000     V1MA-PARTY-VIEW                   MA-PARTY
+**DD          0000P15.0 2PR-ID
+**DD          0000P 7.0 2PR-TYPE-ID
+**DD          0000P 9.0 2PR-CODE
+**DD          0000P 9.0 2PR-CODE-COUNTER
+**DD I1 C     0000     P2DM-G                            (1:5)
+**DD          0000P15.0 3DM-ID
+**DD          0000P15.0 3DM-EI-ID
+**DD          0000P 8.7 3DM-COL
+**DD          0000P13.2 2PR-CENA
+**DD          0000P15.0 2PR-EI-ID
+**DD          0000P 8.7 2PR-COL
+**DD          0000D     2PR-USE-PERIOD
+**DD          0000D     2PR-MAKE-DATA
+**DD          0000P15.0 2DC-ID
+**DD          0000P15.0 2DR-ID
+**DD          0000P15.0 2MT-ID
+**DD          0000P11.0 2PR-ASUM-INT-NUM
+**DD          0000P 3.0 2PR-ASUM-LINE
+**DD          0000P15.0 2PR-CONFIRM
+**DD          0000T     2PR-MODIFY-TIME
+**DS I1       0000      1PR-ASUM-SUPER-G                 (1:2)
+**DK          0000B   8 2PR-ASUM-SUPER
+**DR          0000     R2PR-ASUM-SUPER                   /* BEGIN REDEFINE: PR-ASUM-SUPE
+**DFR         0000P  11 3PR-ASUM-INT-NUM
+**DFR         0000P   3 3PR-ASUM-LINE

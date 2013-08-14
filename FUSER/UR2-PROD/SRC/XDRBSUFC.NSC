@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XDRBSUFC
+* :UID PAUL
+* :Mode S
+* :CP
+* :Date 20070715
+* :Time 2237000
+* <Natural Source Header /*<<RO>
+  NONE VALUE
+     IGNORE
+  END-DECIDE
+END-FOR
+

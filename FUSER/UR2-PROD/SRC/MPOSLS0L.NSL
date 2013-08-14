@@ -1,0 +1,23 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPOSLS0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070430
+**C               *:Time 1725000
+**C               *<Natural Source Header
+**DS          0000      1MPOSLS0L
+**DK          0000P   7 2LS-COUNTER
+**DS I1       0000      2LIST                            (1:8)
+**DK          0000A   2 3CP-CMD
+**DK          0000C     3C-Z
+**DK          0000A   6 3LS-NUM-DOC
+**DK          0000N   8 3LS-DATE-N
+**DR          0000     R3LS-DATE-N                       /* BEGIN REDEFINE: LS-DATE-N
+**DFR         0000A   8 4LS-DATE-A
+**DK          0000A  10 3LS-TYPE-DOC
+**DK          0000A  45 3LS-SUPPLIER                     /*поставщик
+**DK          0000A  45 3LS-CUSTOMER                     /*получатель
+**DK          0000A  26 3LS-OPERATION
+**DK          0000P  15 3LS-DOC-ID
+**DK          0000P  15 3LS-TYPE-ID

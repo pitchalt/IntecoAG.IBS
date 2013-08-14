@@ -1,0 +1,26 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName LCLASMAT
+**C               *:UID NIMI1
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20000712
+**C               *:Time 1335330
+**C               *<Natural Source Header
+**C           0000*************************************************************
+**C           0000**
+**C           0000*BÈÄ HA ASUM-KODIF-FILE : MATEPÈAËÛ
+**C           0000**
+**C           0000**
+**C           0000***********************************************************
+**DV          0000     V1ASUMMAT                         ASUM-KODIF-FILE
+**DD          0000N 5.0 2OG-F
+**DD          0000A  22 2KM-F
+**DD I1 C     0000A  50M2NM-F                            (1:1)
+**DD          0000N12.2 2CE-F
+**DD          0000N 5.0 2EI-F
+**DD          0000N 5.0 2GR-F
+**DD          0000N 5.0 2ML-F
+**DD          0000N 5.0 2BS-F
+**DD          0000N 5.0 2SK-F
+**DD          0000N 8.0 2DT-F
+**DD          0000A  30 2DI-F

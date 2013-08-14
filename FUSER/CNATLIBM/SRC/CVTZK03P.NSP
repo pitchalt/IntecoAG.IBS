@@ -1,0 +1,60 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CVTZK03P
+* :UID T_UPA
+* :Mode S
+* :CP
+* :Date 20100325
+* :Time 1347330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+LOCAL USING IBS-RECL
+LOCAL USING LCLZKL
+LOCAL USING IBS-BSL
+LOCAL
+/*
+1 #OGBS       (B8)
+1 REDEFINE #OGBS
+2 #OGBS-OG    (N5)
+2 #OGBS-BS    (N3)
+/*
+1 #OGOS       (B10)
+1 REDEFINE #OGOS
+2 #OGOS-OG    (N5)
+2 #OGOS-OS    (N5)
+/*
+1 #SUMM1       (N13.2)
+1 #SUMM2       (N13.2)
+END-DEFINE
+#OGBS-OG := 1000
+#OGBS-BS := 23
+FIND IBS-BS-FILE WITH OG-BS EQ #OGBS
+  ACCEPT SS-ID NE 0
+  FIND ZAKAZ WITH BS-F EQ IBS-BS-FILE.SS-ID
+     ACCEPT ZK-F NE " "
+/*     WRITE SS-ID ZK-F ZZ-F
+     FIND IBS-REC-FILE WITH GM-F EQ 201001 THRU 999999 AND
+                             ZK-OS EQ ZAKAZ.ZK-F AND
+                             OS-F EQ 2300 THRU 2399
+        IF KD-F EQ 1000 AND OS-F NE ZAKAZ.BS-F THEN
+           WRITE SS-ID ZAKAZ.ZK-F GM-F SY-F OS-F KS-F BO-F TZ-ID SU-F
+           ADD SU-F TO #SUMM1
+           OS-F := ZAKAZ.BS-F
+           UPDATE
+        END-IF
+        END TRANSACTION
+     END-FIND
+     FIND IBS-REC-FILE WITH GM-F EQ 201001 THRU 999999 AND
+                             ZK-F EQ ZAKAZ.ZK-F AND
+                             KS-F EQ 2300 THRU 2399
+        IF KD-F EQ 1000 AND KS-F NE ZAKAZ.BS-F THEN
+           WRITE SS-ID ZAKAZ.ZK-F GM-F SY-F OS-F KS-F BO-F TZ-ID SU-F
+           ADD SU-F TO #SUMM2
+           KS-F := ZAKAZ.BS-F
+           UPDATE
+        END-IF
+        END TRANSACTION
+     END-FIND
+  END-FIND
+END-FIND
+WRITE #SUMM1 #SUMM2
+END

@@ -1,0 +1,149 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SNAVREF
+* :UID IEN
+* :Mode S
+* :CP
+* :Date 20001019
+* :Time 1701330
+* <Natural Source Header /*<<RO>
+*************************************************************************
+* œ–Œ—ÃŒ“– »  Œ––≈ ÷»ﬂ «¿Õﬂ“Œ—“»  Œƒ»‘» ¿“Œ–Œ¬ ƒŒœŒÀÕ»“≈À‹Õ€’ ¿“–»¡”“Œ¬ *
+*************************************************************************
+DEFINE DATA
+*  GLOBAL USING UFROG       /* √ÀŒ¡¿À‹Õ€≈ œ≈–≈Ã≈ÕÕ€≈ ƒÀﬂ ¬—≈… —»—“≈Ã€
+PARAMETER USING PRMNAVI
+*
+  LOCAL  USING LCLKKL     /* VIEW Õ¿ ‘¿…À IBS-SYS-FILE
+  LOCAL  USING LCLFROL1
+  LOCAL
+    1 SELFUN(A60) INIT<' ÓÌÚÓÎ¸ ÍÓ‰ËÙ. ‰ÓÔÓÎÌËÚ. ‡ÚË·ÛÚÓ‚'>
+    1 SELREG(A40)
+    1 STEKKD            (A006)          /*  —“≈  ƒŒœŒÀÕ»“.»Õ‘Œ–Ã¿÷»»
+    1 REDEFINE STEKKD
+      2 STEKKDO         (A005)
+      2 REDEFINE STEKKDO
+        3 KDKK          (A002)          /*   Œƒ —œ–¿¬Œ◊Õ» ¿
+        3 KDKD          (P005)          /*   Œƒ ¬ —œ–¿¬Œ◊Õ» ≈
+      2 SUMM            (N001)          /*   Œƒ Œ–√¿Õ»«¿÷»»
+    1 STEK-NA           (A051)
+    1 REDEFINE STEK-NA
+      2 STEK-01         (A001)
+      2 STEK-02         (A050)
+    1 NUMBER            (P010)
+    1 #W-TITL           (A040)
+    1 #TIME             (N007)
+    1 #CCC              (N002)
+END-DEFINE
+*
+SET KEY PF3 PF5
+INCLUDE CCASKOG
+*
+   DEFINE WINDOW WIN
+     SIZE 11 * 56
+     BASE 05 / 10
+     TITLE ' ŒÕ“–ŒÀ‹   À¿——»‘» ¿“Œ–Œ¬  ƒŒœŒÀÕ»“≈À‹Õ€’  ¿“–»¡”“Œ¬'
+     CONTROL SCREEN
+     FRAMED ON POSITION OFF
+*
+ REPEAT
+   SET WINDOW 'WIN'
+   INPUT USING MAP 'MAPREFM'
+   SET WINDOW OFF
+   IF *PF-KEY = 'PF3' STOP          END-IF
+   IF *PF-KEY = 'PF5' ESCAPE BOTTOM END-IF
+ END-REPEAT
+*
+   N-DEL-B := 14   N-DATA-B := 10
+   L-DATA-B := 6   Q-DATA-B := 5000
+   CALL 'GTSX' L-DATA-B Q-DATA-B N-DEL-B
+   CALL 'GTSX' L-DATA-B Q-DATA-B N-DATA-B
+   TM. SETTIME
+   ASSIGN #W-TITL = ' ŒÕ“–ŒÀ‹  Œƒ»‘» . ƒŒœŒÀ. ¿“–»¡”“Œ¬'
+*
+   FIND NUMBER IBS-KK-FILE OG-ID = OG-IDENT-G
+   NUMBER := *NUMBER
+   READ IBS-KK-FILE BY OG-ID = OG-IDENT-G
+     IF OG-ID > OG-IDENT-G  ESCAPE BOTTOM  END-IF
+     #TIME := *TIMD(TM.)
+     CALLNAT 'SBWAITN' *COUNTER NUMBER #CCC #W-TITL #TIME
+     ACCEPT IF C*VO-PE > 0
+     FOR C-DEL 1 C*VO-PE
+       KDKK := VO-KK(C-DEL)  KDKD := VO-KD(C-DEL)
+       ADD 1 TO C-DATA  C-DATA-B := C-DATA
+       CALL 'RWSX' C-DATA-B STEKKD WR-REC N-DEL-B
+     END-FOR
+   END-READ
+   C-DATA-B := 1  L-DATA-B := 5  C-DEL-B := 6  L-DEL-B := 1
+   CALL 'SVDX' C-DATA-B L-DATA-B C-DEL-B L-DEL-B N-DEL-B N-DATA-B
+   C-DATA := C-DATA-B
+*
+  RESET C-DEL C-DUBL C-DATA2 F-MARK
+  FIND NUMBER IBS-KK-FILE OG-ID = OG-IDENT-G AND KK-F NE ' '
+    AND KD-F = 0 RETAIN AS 'LIST1'
+  FIND IBS-KK-FILE WITH 'LIST1'
+    ACCEPT IF NM-NP = 'DOP'
+    KDKK := KK-F
+    KDKD := KD-F
+    ADD 1 TO C-DEL  C-DATA-B := C-DEL
+    CALL 'RWSX' C-DATA-B STEKKD WR-REC N-DEL-B
+  END-FIND
+  Q-DEL := C-DEL
+  FOR C-DATA1 1 C-DEL
+    C-DATA-B := C-DATA1
+    CALL 'RWSX' C-DATA-B STEKKD RD-REC N-DEL-B
+   NU. FIND IBS-KK-FILE OG-ID = OG-IDENT-G AND KK-F = KDKK
+         ACCEPT IF KD-F NE 0
+         KDKK := KK-F
+         KDKD := KD-F
+         ADD 1 TO Q-DEL  C-DATA-B := Q-DEL
+         CALL 'RWSX' C-DATA-B STEKKD WR-REC N-DEL-B
+       END-FIND
+   END-FOR
+*
+   FOR C-DATA1 1 C-DATA
+     C-DATA-B := C-DATA1
+     CALL 'RWSX' C-DATA-B STEKKD RD-REC N-DATA-B
+     C-DATA-B := 1  L-DATA-B := 5
+     CALL 'CMPXF' STEKKDO C-DATA-B L-DATA-B N-DEL-B
+     IF C-DATA-B NE 0
+        CALL 'RWSX' C-DATA-B STEKKD RD-REC N-DEL-B
+        SUMM := 1
+        CALL 'RWSX' C-DATA-B STEKKD WR-REC N-DEL-B
+     END-IF  RESET KDKD
+     C-DATA-B := 1  L-DATA-B := 5
+     CALL 'CMPXF' STEKKDO C-DATA-B L-DATA-B N-DEL-B
+     IF C-DATA-B NE 0
+        CALL 'RWSX' C-DATA-B STEKKD RD-REC N-DEL-B
+        SUMM := 1
+        CALL 'RWSX' C-DATA-B STEKKD WR-REC N-DEL-B
+     END-IF
+   END-FOR
+   FOR C-DATA1 1 Q-DEL
+     C-DATA-B := C-DATA1
+     CALL 'RWSX' C-DATA-B STEKKD RD-REC N-DEL-B
+     IF SUMM = 1  ESCAPE TOP  END-IF
+     IF KDKD = 0
+       FIND IBS-KK-FILE KK-F = KDKK AND OG-ID = OG-IDENT-G
+         ACCEPT IF KD-F = 0
+       STEK-NA := NA-F
+       IF STEK-01 = ' ' ESCAPE TOP  END-IF
+       INCLUDE CCUKK
+       RESET STEK-01
+       IBS-KK-FILE.NA-F := STEK-NA
+       UPDATE
+       END OF TRANSACTION
+       END-FIND
+      ELSE
+       FIND IBS-KK-FILE OG-ID = OG-IDENT-G AND KK-F = KDKK
+         AND KD-F = KDKD
+       STEK-NA := NA-F
+       IF STEK-01 = ' ' ESCAPE TOP  END-IF
+       INCLUDE CCUKK
+       RESET STEK-01
+       IBS-KK-FILE.NA-F := STEK-NA
+       UPDATE
+       END OF TRANSACTION
+       END-FIND
+     END-IF
+   END-FOR
+END

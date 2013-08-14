@@ -1,0 +1,17 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CXMTS0XA
+**C               *:UID Админист
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060911
+**C               *:Time 1024000
+**C               *<Natural Source Header
+**DS          0000      1CXMTS0XA
+**DK          0000A  10 2MT-COMMAND
+**DK          0000P  15 2MT-SEARCH
+**DK          0000I   4 2DS-ELEM-STEK                    /*ЭЛЕМЕНТ СТЕКА
+**DS          0000      2ITEM-G
+**DK          0000P  15 3MT-ID
+**DK          0000B   4 3MT-SORT
+**DK          0000A  22 3MT-CODE
+**DK          0000A 150 3MT-NAME

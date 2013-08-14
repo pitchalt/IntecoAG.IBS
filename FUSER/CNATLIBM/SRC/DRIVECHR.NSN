@@ -1,0 +1,49 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName DRIVECHR
+* :UID TIROD
+* :Mode S
+* :CP
+* :Date 20090703
+* :Time 1047330
+* <Natural Source Header /*<<RO>
+DEFINE DATA
+* Подпрограмма определени  режима работы NATURAL
+* по литере назначенной диску с рабочими файлами.
+* (по назначению в NATPARMe дл  wkf10.fle)
+PARAMETER
+1 #DC(A1) /* возвращаетс : ' ' - Неопознанный режим / 'C' - режим Network / 'S' - режим Terminal
+LOCAL
+ 1 USR2011L
+   2 INPUTS
+     3 FUNCTION        (A01)
+     3 WORK-NUM        (I01)
+   2 INPUT-OUTPUTS
+     3 WORK-FILE       (A253)
+     3 REDEFINE WORK-FILE
+       4 WORK-FILE-A   (A50/1:5)
+     3 WORK-TYPE       (A01)
+   2 OUTPUTS
+     3 MAX-NUM         (I01)
+     3 RESPONSE        (I04)
+ /*
+ 1 USR2011N
+   2 VERSION           (I01) INIT <0>
+ 1 REDEFINE USR2011N
+   2 EXTENDED-PARMS
+     3 EXTENDED-DATA   (A01/1:1)
+/*
+ 1 WORK-DRIVE(A2)
+END-DEFINE
+/*
+FUNCTION  := 'G' /* 'G' - Get work file name
+WORK-NUM  := 10
+WORK-FILE := ' '
+WORK-TYPE := 'D'
+/*
+  CALLNAT 'USR2011N'  USR2011L  USR2011N.EXTENDED-PARMS
+   IF RESPONSE NE 0 RESET #DC ESCAPE ROUTINE
+   ELSE
+    EXAMINE WORK-FILE AND TRANSLATE INTO UPPER CASE
+    #DC := WORK-FILE
+   END-IF
+END

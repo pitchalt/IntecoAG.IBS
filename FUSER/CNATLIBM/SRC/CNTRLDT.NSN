@@ -1,0 +1,22 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName CNTRLDT
+* :UID INTECO
+* :Mode S
+* :CP
+* :Date 20090707
+* :Time 0845330
+* <Natural Source Header /*<<RO>
+*
+*   ŒÕ“–ŒÀ‹ œ≈–»Œƒ¿ «¿ –€“»ﬂ
+*
+DEFINE DATA
+  PARAMETER
+  1 #OG(N5)  1 #NP(N5)  1 #GM(N8)
+  LOCAL USING LCLKKL
+END-DEFINE
+*
+RESET #GM
+FIND IBS-KK-FILE OG-ID = #OG AND KK-F = 'UC' AND KD-F = #NP
+  #GM := NA-GM
+END-FIND
+END

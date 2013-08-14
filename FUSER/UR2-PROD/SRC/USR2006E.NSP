@@ -1,0 +1,155 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName USR2006E
+* :UID NATURAL
+* :Mode S
+* :CP
+* :Date 20050218
+* :Time 0116000
+* <Natural Source Header /*<<RO>
+/*  Read NATURAL Error Information
+/*  This program serves as example how to design a user-defined
+/*  program to call 'USR2006N'.
+/*  It will be called via ERROR-TA, when executing USR2006X.
+/***********************************************************************
+*
+*
+*
+DEFINE DATA LOCAL
+************************************************************************
+01 CONTROL                            /*control block*/
+  02 INDEX                  (I4)       /*NUMBER OF MESSAGE TO READ*/
+  02 RESPONSE               (I4)       /*RESPONSE CODE*/
+*
+01 ERROR                              /*error information*/
+  02 NUMBER                 (I4)       /*ERROR NUMBER*/
+ 02 LINE                   (I4)       /*PROGRAM LINE WHERE ERROR OCCURED
+  02 PROGRAM                (A32)      /*PROGRAM WITH ERROR*/
+  02 LIBRARY                (A32)      /*LIBRARY OF PROGRAM WITH ERROR*/
+  02 DBID                   (I4)       /*DBID*/
+  02 FNR                    (I4)       /*AND FILE NUMBER*/
+  02 TIME                   (T)        /*TIME OF ERROR*/
+  02 OBJTYPE                (A11)      /*OBJECT TYPE*/
+  02 LANGUAGE               (I4)       /*LANGUAGE CODE*/
+  02 LEVEL                  (I4)       /*OBJECT LEVEL*/
+  02 FILLER                 (B1)
+  02 MC                     (B1)       /*MESSAGE CLASS:
+    /*00 - ERROR
+    /*01 - WARNING
+    /*02 - MESSAGE
+  02 EC                     (B1)       /*ERROR CLASS:
+    /*00 - SYSTEM
+    /*00 - USER
+  02 ET                     (B1)       /*ERROR TYPE*/
+    /*00 - RUNTIME
+    /*01 - SYNTAX
+    /*02 - COMMAND TIME
+    /*03 - TERMINATION
+    /*04 - PROGRAM TERMINATION
+    /*05 - REMOTE
+*
+01 TEXT                    (A253)     /*message text
+************************************************************************
+*
+1 #TYPE       (A20)
+1 #CLASS      (A20)
+1 #MSG-CLASS  (A20)
+1 #DATE       (A20)
+1 #TIME       (A20)
+*
+END-DEFINE
+*
+DEFINE WINDOW DETAIL
+  SIZE AUTO
+  BASE 05/18
+  TITLE  'MESSAGE INFORMATION'
+  CONTROL SCREEN
+  FRAMED OFF
+*
+*
+MOVE  1 TO INDEX
+*
+REPEAT
+********************************
+**  read message information  **
+********************************
+  CALLNAT 'USR2006N' CONTROL ERROR TEXT
+  IF RESPONSE NE 0
+    IF INDEX GT 1
+*
+      MOVE -1 TO INDEX
+      CALLNAT 'USR2006N' CONTROL ERROR TEXT
+*
+      ESCAPE BOTTOM
+    END-IF
+    RESET INDEX                               /*READ LAST MESSAGE*/
+    CALLNAT 'USR2006N' CONTROL ERROR TEXT
+  END-IF
+*
+**********************************
+**  DISPLAY MESSAGE INFORMATION **
+**********************************
+*
+  RESET #CLASS
+  DECIDE ON FIRST VALUE OF EC
+    VALUE 0    MOVE 'System'            TO #CLASS
+    VALUE 1    MOVE 'User'              TO #CLASS
+    NONE MOVE 'Unknown'           TO #CLASS
+  END-DECIDE
+*
+  RESET #MSG-CLASS
+  DECIDE ON FIRST VALUE OF MC
+    VALUE 0    MOVE 'Error'             TO #MSG-CLASS
+    VALUE 1    MOVE 'Warning'           TO #MSG-CLASS
+    VALUE 2    MOVE 'Message'           TO #MSG-CLASS
+    NONE MOVE 'Unknown'           TO #MSG-CLASS
+  END-DECIDE
+*
+  RESET #TYPE
+  DECIDE ON FIRST VALUE OF ET
+    VALUE 0    MOVE 'Runtime'             TO #TYPE
+    VALUE 1    MOVE 'Syntax'              TO #TYPE
+    VALUE 2    MOVE 'Command Execution'   TO #TYPE
+    VALUE 3    MOVE 'Termination'         TO #TYPE
+    VALUE 4    MOVE 'Program Termination' TO #TYPE
+    VALUE 5    MOVE 'Remote'              TO #TYPE
+    NONE MOVE 'Unknown'             TO #TYPE
+  END-DECIDE
+*
+  MOVE EDITED TIME   (EM=YYYY'-'MM'-'DD) TO #DATE
+  MOVE EDITED TIME   (EM=HH':'II':'SS)   TO #TIME
+*
+*
+  IF INDEX EQ 0
+    WRITE 'last message'
+  ELSE
+    WRITE INDEX '.message'
+  END-IF
+*
+  WRITE
+    'Date of message.......' '-' #DATE          (AD=O) /
+    'Time of message.......' '-' #TIME          (AD=O) /
+    '---------------------------------------'          /
+    'Message Number........' '-' NUMBER         (AD=O) /
+    'Message Type..........' '-' #TYPE          (AD=O) /
+    'Message Class.........' '-' #MSG-CLASS     (AD=O) /
+    'Error Class...........' '-' #CLASS         (AD=O) /
+    '---------------------------------------'          /
+    'Object Name...........' '-' PROGRAM        (AD=O) /
+    'Line..................' '-' LINE           (AD=O) /
+    'Object Type...........' '-' OBJTYPE        (AD=O) /
+    'Subroutine Level......' '-' LEVEL          (AD=O) /
+    'Library...............' '-' LIBRARY        (AD=O) /
+    'Database..............' '-' DBID           (AD=O) /
+    'File Number...........' '-' FNR            (AD=O) /
+    'Text..................'                    (AD=O) /
+    TEXT (AL=79)
+  NEWPAGE
+*
+  IF INDEX = 0
+    ESCAPE BOTTOM
+  ELSE         ADD 1 TO INDEX
+  END-IF
+*
+END-REPEAT
+*
+END

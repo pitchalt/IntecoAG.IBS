@@ -1,0 +1,44 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName XPMTSM1M
+* :UID ARMK01
+* :Mode S
+* :CP
+* :Date 20060703
+* :Time 1420000
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE
+* INPUT USING MAP 'XXXXXXXX'
+*     XPMXSM0L.CB-BAR-NAME(*)
+DEFINE DATA PARAMETER
+1 XPMXSM0L.CB-BAR-NAME (A010/00001:00006)
+END-DEFINE
+FORMAT PS=015 LS=076 ZP=OFF SG=OFF KD=ON  IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 017075        N0NNUCN             X        01 SYSDBA  YR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 008T XPMXSM0L.CB-BAR-NAME (1+000)  (AD=ULOFHT ) /*.01U010 A010 .
+   /**A1000060000100001000010000100001010001005001001003000HV
+ 021T XPMXSM0L.CB-BAR-NAME (1+001)  (AD=ULOFHT ) /*.01U010 A010 .
+ 034T XPMXSM0L.CB-BAR-NAME (1+002)  (AD=ULOFHT ) /*.01U010 A010 .
+ 047T XPMXSM0L.CB-BAR-NAME (1+003)  (AD=ULOFHT ) /*.01U010 A010 .
+ 060T XPMXSM0L.CB-BAR-NAME (1+004)  (AD=ULOFHT ) /*.01U010 A010 .
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

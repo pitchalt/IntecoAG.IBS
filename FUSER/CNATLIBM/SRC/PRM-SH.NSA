@@ -1,0 +1,11 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName PRM-SH
+**C               *:UID ARMK01
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20060720
+**C               *:Time 2020330
+**C               *<Natural Source Header
+**DS          0000      1PRM-SH
+**DK          0000A 100 2ST-NM
+**DK I1       0000A  30 2SH-NM                           (1:50)

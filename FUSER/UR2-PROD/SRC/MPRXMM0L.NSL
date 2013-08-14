@@ -1,0 +1,55 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MPRXMM0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20061122
+**C               *:Time 1209000
+**C               *<Natural Source Header
+**DS          0000      1MPRXMM0L
+**DK          0000P  15 2RL-ID
+**DK          0000P  15 2RLM-ID
+**DK          0000C     2RLM-C
+**DK          0000P  15 2MT-ID
+**DK          0000C     2MT-C
+**DK          0000A  22 2MT-SEARCH
+**DK          0000A  22 2MT-CODE
+**DK          0000A 150 2MT-NAME
+**DK          0000P  15 2MZ-ID
+**DK          0000P  15 2MZ-MT-ID
+**DK          0000A  22 2MZ-MT-CODE
+**DK          0000A 150 2MZ-MT-NAME
+**DK          0000P  15 2GM-ID
+**DK          0000N   5 2GM-CODE
+**DK          0000A  70 2GM-NAME
+**DK          0000P  15 2LK-ID
+**DK          0000A  10 2LK-NUMBER
+**DK          0000D     2LK-DATE
+**DK          0000P  15 2ZK-ID
+**DK          0000A   9 2ZK-CODE
+**DK          0000P  15 2BS-ID
+**DK          0000N   5 2BS-CODE
+**DK          0000A  60 2BS-NAME
+**DK          0000C     2SUMMA-C
+**DK          0000P  15 2ND-ID
+**DK          0000A   5 2ND-SEARCH
+**DK          0000N   5 2ND-CODE
+**DK          0000A   5 2ND-STAVKA
+**DK          0000P 2.1 2ND-VALUE
+**DK          0000P13.2 2NDS
+**DK          0000P13.2 2NDS-SUMMA
+**DK          0000P13.2 2CENA
+**DK          0000P13.2 2CENA-SUMMA
+**DK          0000P13.2 2ALL-SUMMA
+**DK          0000P13.2 2BALC-CENA-SUMMA
+**DK          0000P13.2 2BALC-CENA-SUMMA-LIMIT
+**DK          0000P 8.7 2BASE-COL
+**DK          0000P 8.7 2BASE-COL-LIMIT
+**DK          0000P 8.7 2PLAN-COL
+**DK          0000P 8.7 2PLAN-COL-LIMIT
+**DK          0000P  15 2BASE-EI-ID
+**DK          0000N   5 2BASE-EI-CODE
+**DK          0000A   5 2BASE-EI-SHORT-NAME
+**DK          0000P  15 2PLAN-EI-ID
+**DK          0000N   5 2PLAN-EI-CODE
+**DK          0000A   5 2PLAN-EI-SHORT-NAME

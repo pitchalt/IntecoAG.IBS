@@ -1,0 +1,53 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MLKBHS0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070821
+**C               *:Time 2322000
+**C               *<Natural Source Header
+**DS          0000      1MLKBHS0L-CONST
+**DKC  S      0002I   4C2STACK-REC-LEN
+**HS0001
+**I                      190
+**DKC  S      0002I   4C2STACK-ALLOC-COUNT
+**HS0001
+**I                      5000
+**DKC  S      0002I   4C2STACK-KEY-START
+**HS0001
+**I                      1
+**DKC  S      0002I   4C2STACK-KEY-LEN
+**HS0001
+**I                      8
+**DS          0000      1MLKBHS0L
+**DK          0000B   4 2STACK-POS
+**DK          0000I   4 2STACK-POS-I
+**DK          0000B   4 2STACK-TMP-B1
+**DK          0000B   4 2STACK-TMP-B2
+**DK          0000B   4 2STACK-FIELD-POS
+**DK          0000B   4 2STACK-FIELD-LEN
+**DK I1       0000B   1 2STACK-REC-B                     (1:STACK-REC-LEN)
+**DR          0000     R2STACK-REC-B                     /* BEGIN REDEFINE: STACK-REC-B
+**DSR         0000      3STACK-REC-G
+**DFRI1       0000B   1 4STACK-KEY-B                     (1:STACK-KEY-LEN)
+**DR          0000     R4STACK-KEY-B                     /* BEGIN REDEFINE: STACK-KEY-B
+**DSR         0000      5STACK-KEY-G
+**DFR         0000P  15 6LK-ID
+**DFR         0000A  10 4LK-NUMBER
+**DFR         0000D     4LK-DATE
+**DFR         0000D     4LK-DT-START
+**DFR         0000D     4LK-DT-STOP
+**DFR         0000P 8.7 4LKR-PLAN-COL
+**DFR         0000P 8.7 4LK-COL
+**DFR         0000P 8.7 4LK-NORM-COL
+**DFR         0000P13.2 4LK-CENA
+**DFR         0000A  60 4LK-PRIM
+**DFR         0000A  11 4LK-UZEL
+**DFR         0000A   1 4LK-PRIZNAK
+**DFR         0000P  15 4EI-ID
+**DFR         0000P  15 4MT-ID
+**DFR         0000P  15 4ZK-ID
+**DFR         0000P  15 4DP-ID
+**DFR         0000P  15 4MO-ID
+**DFR         0000P  15 4TX-CREATE-ID
+**DFR         0000P  15 4TX-UPDATE-ID

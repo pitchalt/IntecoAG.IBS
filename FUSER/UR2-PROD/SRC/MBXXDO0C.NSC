@@ -1,0 +1,42 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBXXDO0C
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20061011
+* :Time 2344000
+* <Natural Source Header /*<<RO>
+  /* –¿—◊»“€¬¿≈Ã ƒÀ»Õ” «¿œ»—»
+  FOR #I = 1 TO MBXXOP0L-CONST.OP-ARRAY-ELEM
+     IF MBXXOP0A.OP-ATTR(#I) = " " THEN
+        ESCAPE BOTTOM
+     END-IF
+     IF MBXXOP0A.OP-ATTR(#I) NE "AN" THEN
+        ADD 1 TO #KOL-POK
+     ELSE
+        ADD 1 TO #KOL-AN
+     END-IF
+  END-FOR
+  /*
+  IF #KOL-POK = 0 AND #KOL-AN = 0 THEN
+     WRITE 'Œÿ»¡ ¿ ¬ Œœ»—¿Õ»».'
+  ELSE
+     IF #KOL-AN NE 0
+        DIVIDE 2 INTO #KOL-AN GIVING #KOL-EA REMAINDER #Q
+        IF #Q = 1 THEN
+           ADD 1 TO #KOL-EA
+        END-IF
+        MBXXDO0L.STACK-REC-LENR := #KOL-EA * 8
+
+     END-IF
+     /*
+     IF #KOL-POK NE 0
+        MBXXDO0L.STACK-REC-LENR := MBXXDO0L.STACK-REC-LENR + #KOL-POK * 8
+        MBXXDO0L.STACK-REC-LENR := MBXXDO0L.STACK-REC-LENR + 8
+     END-IF
+  END-IF
+  MOVE #KOL-AN TO MBXXOP0A.OP-KOL-AN
+  MOVE #KOL-POK TO MBXXOP0A.OP-KOL-POK
+  MOVE #KOL-EA TO MBXXOP0A.OP-KOL-EAN
+  MOVE MBXXDO0L.STACK-REC-LENR TO MBXXOP0A.STACK-REC-LENR
+

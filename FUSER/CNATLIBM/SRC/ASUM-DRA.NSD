@@ -1,0 +1,19 @@
+DB: 000 FILE: 147  - ASUM-DRAG-FILE                   DEFAULT SEQUENCE:
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID TIROD
+*      :CP
+*
+*
+*      :Date 20081118
+*      :Time 1057330
+*      <Natural Source Header
+  1 OG OG-F                              N  5.0  N D
+  1 DT DT-F                              N  6.0  N D
+  1 KM KM-F                              A   22  N D
+P 1 SD SD-F                                0
+  2 KD KD-F                              N  5.0  N
+  2 NS NS-F                              N  6.6  N
+******DDM OUTPUT TERMINATED******

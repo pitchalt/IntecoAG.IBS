@@ -1,0 +1,16 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName UZP-CLPL
+**C               *:UID MSA
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20110112
+**C               *:Time 1241000
+**C               *<Natural Source Header
+**DV          0        V1UZP-SYS-FILE                    UZP-SYS-FILE
+**DD          0   N   5 2OG-F
+**DD          0   A   3 2KK-F
+**DD          0   N   5 2KD-F
+**DD          0   A  60 2NA-F
+**DD I1 C     0   A 101M2NB-F                            (1:1)
+**DR          0        R2NB-F                            /* BEGIN REDEFINE: NB-F
+**DFRI1       0   A 100 3ZN-F                            (1:1)

@@ -1,0 +1,65 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName MOPXMS0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20070620
+**C               *:Time 0138000
+**C               *<Natural Source Header
+**DS          0000      1MOPXMS0L-CONST
+**DKC  S      0002I   4C2MOPXMS0L-REC-LEN
+**HS0001
+**I                      161
+**DR          0000     R2MOPXMS0L-REC-LEN                /* BEGIN REDEFINE: MOPXMS0L-REC
+**DFR         0000I   4 3STACK-REC-LEN
+**DKC  S      0002I   4C2STACK-ALLOC-COUNT
+**HS0001
+**I                      10000
+**DKC  S      0002I   4C2STACK-KEY-START
+**HS0001
+**I                      5
+**DKC  S      0002I   4C2MOPXMS0L-KEY-LEN
+**HS0001
+**I                      8
+**DR          0000     R2MOPXMS0L-KEY-LEN                /* BEGIN REDEFINE: MOPXMS0L-KE
+**DFR         0000I   4 3STACK-KEY-LEN
+**DS          0000      1MOPXMS0L
+**DK          0000B   4 2STACK-POS
+**DK          0000I   4 2STACK-POS-I
+**DK          0000B   4 2STACK-TMP-B1
+**DK          0000B   4 2STACK-TMP-B2
+**DK          0000B   4 2STACK-FIELD-POS
+**DK          0000B   4 2STACK-FIELD-LEN
+**DK I1       0000B   1 2STACK-REC-B                     (1:MOPXMS0L-REC-LEN)
+**DR          0000     R2STACK-REC-B                     /* BEGIN REDEFINE: STACK-REC-B
+**DSR         0000      3STACK-REC-G
+**DFR         0000B   4 4SA-ID
+**DFRI1       0000B   1 4STACK-KEY-B                     (1:MOPXMS0L-KEY-LEN)
+**DR          0000     R4STACK-KEY-B                     /* BEGIN REDEFINE: STACK-KEY-B
+**DSR         0000      5STACK-KEY-G
+**DFR         0000P  15 6IX-ID
+**DFR         0000P   1 4MD-MODIF
+**DFR         0000D     4DT-REAL
+**DFR         0000D     4DT-REFL
+**DFR         0000D     4DT-MAKE
+**DFR         0000P  15 4OD-ID
+**DFR         0000P   7 4DD-ID
+**DFR         0000P  15 4DR-ID
+**DFR         0000P  15 4MO-ID
+**DFR         0000P  15 4MT-ID
+**DFR         0000P  15 4ZK-ID
+**DFR         0000P  15 4KOR-VO-ID
+**DFR         0000P  15 4KOR-MO-ID
+**DFR         0000P  15 4KOR-ZK-ID
+**DFR         0000P13.2 4BALC-SUMMA
+**DR          0000     R4BALC-SUMMA                      /* BEGIN REDEFINE: BALC-SUMMA
+**DFR         0000P  15 5BALC-SUMMA-P
+**DFR         0000P 8.7 4BASE-COL
+**DR          0000     R4BASE-COL                        /* BEGIN REDEFINE: BASE-COL
+**DFR         0000P  15 5BASE-COL-P
+**DFR         0000P 8.7 4PRIH-COL
+**DR          0000     R4PRIH-COL                        /* BEGIN REDEFINE: PRIH-COL
+**DFR         0000P  15 5PRIH-COL-P
+**DFR         0000P 8.7 4PLAN-COL
+**DR          0000     R4PLAN-COL                        /* BEGIN REDEFINE: PLAN-COL
+**DFR         0000P  15 5PLAN-COL-P

@@ -1,0 +1,40 @@
+DB: 000 FILE: 084  - AU_RBP                           DEFAULT SEQUENCE:
+TYPE: ADABAS
+
+T L DB Name                              F Leng  S D Remark
+- - -- --------------------------------  - ----  - - ------------------------
+*      >Natural Source Header 000000
+*      :UID UPA
+*      :CP
+*
+*
+*      :Date 20100429
+*      :Time 1416020
+*      <Natural Source Header
+  1 AA RB-CODE                           N  6.0  N D
+  1 AB RB-NAME                           A  100  N
+  1 AC RB-STOIMOST                       P 13.2  N
+  1 AD RB-NUMBER-PACT                    A   15  N
+  1 AE RB-DATA-PACT                      D    6  N
+  1 AF RB-LENEAR-DISKARDING              L    1  N
+  1 AG RB-PRO_RATE-DISKARDING            L    1  N
+  1 AI RB-PERIOD-DISCARDING              N  5.0  N
+  1 AH RB-EI-PERIOD-DISCARDING           A    1  N
+  1 AK RB-QUANTYTI-PRODUCT               P  8.7  N
+  1 AL RB-QUANTYTI-MONTH                 P  7.0  N
+  1 AM RB-CODE-PROGRAMM                  A    5  N
+  1 AN RB-PROGRAMM                       N  5.0  N
+  1 AO RB-CODE-DOGOVOR                   A    5  N
+  1 AP RB-DOGOVOR                        N  5.0  N
+  1 AR RB-CODE-CODIFIKATOR               A    5  N
+  1 AS RB-CODIFIKATOR                    N  5.0  N
+  1 AT RB-ZAKAZ                          A    9  N
+  1 AU RB-SCHET                          N  5.0  N
+  1 R1 RB-PERIOD-DISCARDING-START        D    6  N
+  1 R2 RB-PERIOD-DISCARDING-END          D    6  N
+  1 R3 RB-OB                             N  5.0  N
+M 1 R4 RB-DI                             A   31  N
+  1 SR SUMMA-RBP                         N 13.2  N
+  1 R5 RB-BS                             N  5.0  N
+  1 R6 RB-SZ-CODE                        N  5.0  N
+******DDM OUTPUT TERMINATED******

@@ -1,0 +1,28 @@
+**C               *>Natural Source Header 000000
+**C               *:NatName CDGNXM0L
+**C               *:UID PAUL
+**C               *:Mode S
+**C               *:CP
+**C               *:Date 20100324
+**C               *:Time 2306330
+**C               *<Natural Source Header
+**DV          0        V1CDGNXM0L                        C-SYS-GENERAL
+**DD          0   I   4 2RID
+**DD          0   I   4 2OID
+**DD          0   I   4 2UP-RID
+**DD          0   I   4 2TYPE
+**DD          0   A  15 2CODE
+**DD          0   A  70 2NAME
+**DD          0   P11.0 2DT-FROM
+**DD          0   P11.0 2DT-TO
+**DD          0   A 250 2DESCRIPTION
+**DD          0   I   4 2CA-1
+**DD          0   I   4 2CB-1
+**DD          0   I   4 2DA-1
+**DD          0   I   4 2DB-1
+**DD          0   I   4 2DC-1
+**DD          0   I   4 2DD-1
+**DD          0   P15.0 2DE-1
+**DD          0   P15.0 2DF-1
+**DD          0   P15.0 2DG-1
+**DD          0   P15.0 2DH-1

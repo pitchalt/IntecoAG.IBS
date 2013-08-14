@@ -1,0 +1,83 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName SZAKILM9
+* :UID MSA
+* :Mode S
+* :CP
+* :Date 20050115
+* :Time 1153330
+* <Natural Source Header /*<<RO>
+* MAP2: PROTOTYPE              --- CREATED BY WNT 6.1.1 ---
+* INPUT USING MAP 'XXXXXXXX'
+*     #DT(*) #TM(*) USR(*)
+DEFINE DATA PARAMETER
+1 #DT (N08.0/00001:00010)
+1 #TM (A005/00001:00010)
+1 USR (A008/00001:00010)
+END-DEFINE
+FORMAT PS=024 LS=132 ZP=OFF SG=OFF KD=OFF IP=OFF
+* MAP2: MAP PROFILES *****************************        200***********
+* .TTAAAMMOO   D I D I N D I D I        ?_)^&:+(                       *
+* 024131        N0NNUCN             X        01 SYSDBA  NR             *
+************************************************************************
+INPUT          (     IP=OFF                                           /*
+                                                                       )
+ 001T USR (001)  (AD=DLOFHT ) /*.01U008 A008 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+ 010T #DT (001)  (AD=DLOFHT ) /*.01U008 N08.0.
+   /**A1000100000100001000010000100001100010001001000001000HV
+ 019T #TM (001)  (AD=DLOFHT ) /*.01U005 A005 .
+   /**A1000100000100001000010000100001100010001001000001000HV
+/
+ 001T USR (002)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (002)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (002)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (003)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (003)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (003)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (004)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (004)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (004)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (005)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (005)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (005)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (006)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (006)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (006)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (007)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (007)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (007)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (008)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (008)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (008)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (009)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (009)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (009)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 001T USR (010)  (AD=DLOFHT ) /*.01U008 A008 .
+ 010T #DT (010)  (AD=DLOFHT ) /*.01U008 N08.0.
+ 019T #TM (010)  (AD=DLOFHT ) /*.01U005 A005 .
+/
+ 002T 'F3-Вых F7-Нзд F8-Впр'
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+/
+* MAP2: VALIDATION *****************************************************
+* MAP2: END OF MAP *****************************************************
+END

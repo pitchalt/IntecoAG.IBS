@@ -1,0 +1,13 @@
+* >Natural Source Header 000000 /*<RO>>
+* :NatName MBSOMT1C
+* :UID OLEG
+* :Mode S
+* :CP
+* :Date 20061011
+* :Time 2344000
+* <Natural Source Header /*<<RO>
+     MOVE CXMTS0DL.MT-CODE TO XPOTMT1L.MT-CODE(#I)
+     MOVE CXMTS0DL.MT-NAME TO XPOTMT1L.MT-NAME(#I)
+     MOVE CXMTS0DL.MT-ID TO XPOTMT1L.MT-ID(#I)
+     RESET XPOTMT1L.OT-CMD-C(#I)
+
