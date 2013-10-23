@@ -97,6 +97,34 @@
                   <xs:restriction base='xs:boolean' />
                 </xs:simpleType>
               </xs:element>
+              <xs:element name='TB-NATION-CODE' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string' >
+                    <xs:maxLength value='10' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name='TB-PRIMARY-LANG-CODE' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string' >
+                    <xs:maxLength value='10' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name='TB-HIRE-TYPE-CODE' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string' >
+                    <xs:maxLength value='10' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name='TB-CITIZEN-CODE' >
+                <xs:simpleType>
+                  <xs:restriction base='xs:string' >
+                    <xs:maxLength value='10' />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>

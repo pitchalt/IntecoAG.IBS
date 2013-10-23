@@ -13,7 +13,7 @@ namespace IntecoAG.IBS.SyncService {
 
         [TestFixtureSetUp]
         public void Init() {
-            SyncService = new HTTPSyncService("http://npomash/natcgi/natcgi.exe/");
+            SyncService = new HTTPSyncService("http://sagsrv:8080/natcgi/natcgi.exe/");
 //            SyncService = new HTTPSyncService("http://sagsrv:8080/nww3d/mod/ws-srv/xml-rpc/");
         }
         
@@ -76,8 +76,8 @@ namespace IntecoAG.IBS.SyncService {
             XWTBXLIA msg_in = new XWTBXLIA();
             lprm.CMD = "CHANGES";
             lprm.DPGROUPCODE = 2;
-            lprm.UPDTSTART = new DateTime(2011, 01, 01);
-            lprm.UPDTSTOP = new DateTime(2011, 01, 31);
+            lprm.UPDTSTART = new DateTime(2013, 01, 01);
+            lprm.UPDTSTOP = new DateTime(2013, 01, 31);
             XWTBXCOA lres = SyncService.XWTBXC0N(lprm);
             //Assert.AreEqual(lres.VOLIST.Count, 20);
             foreach (var item in lres.TBLIST) {
@@ -99,7 +99,7 @@ namespace IntecoAG.IBS.SyncService {
             msg_in.CMD = "LIST";
             XWTBXLOA lres = SyncService.XWTBXL0N(msg_in);
             foreach (var item in lres.TBLIST) {
-                System.Console.WriteLine(item.TBCODE + "/" + item.TBDPCODE + "/" + item.TBDLCODE + " " + item.TBSEX + " " + item.TBLASTNAME + " " + item.TBFIRSTNAME + " " + item.TBMIDDLENAME + " ");
+                System.Console.WriteLine(item.TBCODE + "/" + item.TBDPCODE + "/" + item.TBDLCODE + " " + item.TBSEX + " " + item.TBLASTNAME + " " + item.TBFIRSTNAME + " " + item.TBMIDDLENAME + " " + item.TBPRIMARYLANGCODE + " " + item.TBNATIONCODE + " " + item.TBCITIZENCODE + " " + item.TBHIRETYPECODE);
             }
         }
     }

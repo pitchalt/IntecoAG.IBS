@@ -4,8 +4,7 @@
 //    <NameSpace>IntecoAG.IBS.SyncService.Messages.XTB</NameSpace><Collection>List</Collection><codeType>CSharp</codeType><EnableDataBinding>False</EnableDataBinding><EnableLazyLoading>False</EnableLazyLoading><TrackingChangesEnable>False</TrackingChangesEnable><GenTrackingClasses>False</GenTrackingClasses><HidePrivateFieldInIDE>False</HidePrivateFieldInIDE><EnableSummaryComment>False</EnableSummaryComment><VirtualProp>False</VirtualProp><IncludeSerializeMethod>True</IncludeSerializeMethod><UseBaseClass>True</UseBaseClass><GenBaseClass>False</GenBaseClass><GenerateCloneMethod>False</GenerateCloneMethod><GenerateDataContracts>False</GenerateDataContracts><CodeBaseTag>Net20</CodeBaseTag><SerializeMethodName>Serialize</SerializeMethodName><DeserializeMethodName>Deserialize</DeserializeMethodName><SaveToFileMethodName>SaveToFile</SaveToFileMethodName><LoadFromFileMethodName>LoadFromFile</LoadFromFileMethodName><GenerateXMLAttributes>True</GenerateXMLAttributes><EnableEncoding>False</EnableEncoding><AutomaticProperties>False</AutomaticProperties><GenerateShouldSerialize>False</GenerateShouldSerialize><DisableDebug>False</DisableDebug><PropNameSpecified>Default</PropNameSpecified><Encoder>UTF8</Encoder><CustomUsings></CustomUsings><ExcludeIncludedTypes>False</ExcludeIncludedTypes><EnableInitializeFields>True</EnableInitializeFields>
 //  </auto-generated>
 // ------------------------------------------------------------------------------
-namespace IntecoAG.IBS.SyncService.Messages.XTB
-{
+namespace IntecoAG.IBS.SyncService.Messages.XTB {
     using System;
     using System.Diagnostics;
     using System.Xml.Serialization;
@@ -15,236 +14,239 @@ namespace IntecoAG.IBS.SyncService.Messages.XTB
     using System.IO;
     using System.Text;
     using System.Collections.Generic;
-
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
+    
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    [System.Xml.Serialization.XmlRootAttribute(Namespace = "", IsNullable = false)]
-    public partial class XWTBXLOA : ServiceMessage<XWTBXLOA>
-    {
-
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    [System.Xml.Serialization.XmlRootAttribute(Namespace="", IsNullable=false)]
+    public partial class XWTBXLOA : ServiceMessage<XWTBXLOA> {
+        
         private int rETURNCODEField;
-
+        
         private List<XWTBXLOATBLIST> tBLISTField;
-
-        public XWTBXLOA()
-        {
+        
+        public XWTBXLOA() {
             this.tBLISTField = new List<XWTBXLOATBLIST>();
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("RETURN-CODE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 0)]
-        public int RETURNCODE
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("RETURN-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public int RETURNCODE {
+            get {
                 return this.rETURNCODEField;
             }
-            set
-            {
+            set {
                 this.rETURNCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-LIST", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 1)]
-        public List<XWTBXLOATBLIST> TBLIST
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-LIST", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public List<XWTBXLOATBLIST> TBLIST {
+            get {
                 return this.tBLISTField;
             }
-            set
-            {
+            set {
                 this.tBLISTField = value;
             }
         }
     }
-
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.1")]
+    
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.0.30319.233")]
     [System.SerializableAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
-    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType = true)]
-    public partial class XWTBXLOATBLIST : ServiceMessage<XWTBXLOATBLIST>
-    {
-
+    [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true)]
+    public partial class XWTBXLOATBLIST : ServiceMessage<XWTBXLOATBLIST> {
+        
         private string tBCODEField;
-
+        
         private decimal tBBUHCODEField;
-
+        
         private string tBLASTNAMEField;
-
+        
         private string tBFIRSTNAMEField;
-
+        
         private string tBMIDDLENAMEField;
-
+        
         private string tBSEXField;
-
+        
         private decimal tBDPCODEField;
-
+        
         private decimal tBDLCODEField;
-
+        
         private string tBDLNAMEField;
-
+        
         private string tBDTBEGINField;
-
+        
         private string tBDTENDField;
-
+        
         private bool tBISCLOSEDField;
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-CODE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 0)]
-        public string TBCODE
-        {
-            get
-            {
+        
+        private string tBNATIONCODEField;
+        
+        private string tBPRIMARYLANGCODEField;
+        
+        private string tBHIRETYPECODEField;
+        
+        private string tBCITIZENCODEField;
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=0)]
+        public string TBCODE {
+            get {
                 return this.tBCODEField;
             }
-            set
-            {
+            set {
                 this.tBCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-BUH-CODE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 1)]
-        public decimal TBBUHCODE
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-BUH-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
+        public decimal TBBUHCODE {
+            get {
                 return this.tBBUHCODEField;
             }
-            set
-            {
+            set {
                 this.tBBUHCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-LAST-NAME", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 2)]
-        public string TBLASTNAME
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-LAST-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=2)]
+        public string TBLASTNAME {
+            get {
                 return this.tBLASTNAMEField;
             }
-            set
-            {
+            set {
                 this.tBLASTNAMEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-FIRST-NAME", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 3)]
-        public string TBFIRSTNAME
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-FIRST-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=3)]
+        public string TBFIRSTNAME {
+            get {
                 return this.tBFIRSTNAMEField;
             }
-            set
-            {
+            set {
                 this.tBFIRSTNAMEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-MIDDLE-NAME", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 4)]
-        public string TBMIDDLENAME
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-MIDDLE-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=4)]
+        public string TBMIDDLENAME {
+            get {
                 return this.tBMIDDLENAMEField;
             }
-            set
-            {
+            set {
                 this.tBMIDDLENAMEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-SEX", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 5)]
-        public string TBSEX
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-SEX", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=5)]
+        public string TBSEX {
+            get {
                 return this.tBSEXField;
             }
-            set
-            {
+            set {
                 this.tBSEXField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-DP-CODE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 6)]
-        public decimal TBDPCODE
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-DP-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=6)]
+        public decimal TBDPCODE {
+            get {
                 return this.tBDPCODEField;
             }
-            set
-            {
+            set {
                 this.tBDPCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-DL-CODE", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 7)]
-        public decimal TBDLCODE
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-DL-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=7)]
+        public decimal TBDLCODE {
+            get {
                 return this.tBDLCODEField;
             }
-            set
-            {
+            set {
                 this.tBDLCODEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-DL-NAME", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 8)]
-        public string TBDLNAME
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-DL-NAME", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=8)]
+        public string TBDLNAME {
+            get {
                 return this.tBDLNAMEField;
             }
-            set
-            {
+            set {
                 this.tBDLNAMEField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-DT-BEGIN", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 9)]
-        public string TBDTBEGIN
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-DT-BEGIN", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=9)]
+        public string TBDTBEGIN {
+            get {
                 return this.tBDTBEGINField;
             }
-            set
-            {
+            set {
                 this.tBDTBEGINField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-DT-END", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 10)]
-        public string TBDTEND
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-DT-END", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=10)]
+        public string TBDTEND {
+            get {
                 return this.tBDTENDField;
             }
-            set
-            {
+            set {
                 this.tBDTENDField = value;
             }
         }
-
-        [System.Xml.Serialization.XmlElementAttribute("TB-IS-CLOSED", Form = System.Xml.Schema.XmlSchemaForm.Unqualified, Order = 11)]
-        public bool TBISCLOSED
-        {
-            get
-            {
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-IS-CLOSED", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=11)]
+        public bool TBISCLOSED {
+            get {
                 return this.tBISCLOSEDField;
             }
-            set
-            {
+            set {
                 this.tBISCLOSEDField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-NATION-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=12)]
+        public string TBNATIONCODE {
+            get {
+                return this.tBNATIONCODEField;
+            }
+            set {
+                this.tBNATIONCODEField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-PRIMARY-LANG-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=13)]
+        public string TBPRIMARYLANGCODE {
+            get {
+                return this.tBPRIMARYLANGCODEField;
+            }
+            set {
+                this.tBPRIMARYLANGCODEField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-HIRE-TYPE-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=14)]
+        public string TBHIRETYPECODE {
+            get {
+                return this.tBHIRETYPECODEField;
+            }
+            set {
+                this.tBHIRETYPECODEField = value;
+            }
+        }
+        
+        [System.Xml.Serialization.XmlElementAttribute("TB-CITIZEN-CODE", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=15)]
+        public string TBCITIZENCODE {
+            get {
+                return this.tBCITIZENCODEField;
+            }
+            set {
+                this.tBCITIZENCODEField = value;
             }
         }
     }
