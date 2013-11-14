@@ -65,6 +65,16 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>xwdpxloa.xsd</DependentUpon>
     </Compile>
+    <Compile Include="SyncService\Messages\XTB\xwtbaloa.Designer.cs">
+      <DependentUpon>xwtbaloa.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="SyncService\Messages\XTB\xwtbalia.Designer.cs">
+      <DependentUpon>xwtbalia.xsd</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="SyncService\Messages\XTB\xwtbxcia.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -157,6 +167,16 @@
       <SubType>Designer</SubType>
       <Generator>Xsd2CodeCustomTool</Generator>
       <LastGenOutput>xwdpxloa.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="SyncService\Messages\XTB\xwtbaloa.xsd">
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwtbaloa.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="SyncService\Messages\XTB\xwtbalia.xsd">
+      <Generator>Xsd2CodeCustomTool</Generator>
+      <LastGenOutput>xwtbalia.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
     <None Include="SyncService\Messages\XTB\xwtbxcia.xsd">
       <SubType>Designer</SubType>

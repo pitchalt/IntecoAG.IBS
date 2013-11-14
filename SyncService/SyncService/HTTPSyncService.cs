@@ -105,6 +105,10 @@ namespace IntecoAG.IBS.SyncService {
             return CallService<XWTBXLIA, XWTBXLOA>("xwtbxl0n", prm_in);
         }
 
+        public XWTBALOA XWTBAL0N(XWTBALIA prm_in) {
+            return CallService<XWTBALIA, XWTBALOA>("xwtbal0n", prm_in);
+        }
+
         public FWSJXMOA FWSJXM0N(FWSJXMIA prm_in) {
             return CallService<FWSJXMIA, FWSJXMOA>("fwsjxm0n", prm_in);
         }

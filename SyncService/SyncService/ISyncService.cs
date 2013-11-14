@@ -36,6 +36,7 @@ namespace IntecoAG.IBS.SyncService {
         XWDPXLOA XWDPXL0N(XWDPXLIA prm_in);
         XWTBXCOA XWTBXC0N(XWTBXCIA prm_in);
         XWTBXLOA XWTBXL0N(XWTBXLIA prm_in);
+        XWTBALOA XWTBAL0N(XWTBALIA prm_in);
         XWZKXCOA XWZKXC0N(XWZKXCIA prm_in);
         XWZKXMOA XWZKXM0N(XWZKXMIA prm_in);
         FWSJXMOA FWSJXM0N(FWSJXMIA prm_in);
