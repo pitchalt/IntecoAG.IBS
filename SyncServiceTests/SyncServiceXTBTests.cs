@@ -46,7 +46,7 @@ namespace IntecoAG.IBS.SyncService {
 //                System.Console.WriteLine(item.TBCODE + " " + item.TBBUHCODE + " " + item.TBDPCODE);
                 count++;
                 msg_in.TBBUHCODE.Add(item.TBBUHCODE);
-                if (count >= 100) {
+                if (count >= 1000) {
                     ListTest(msg_in);
                     count = 0;
                     msg_in = new XWTBXLIA();
@@ -99,7 +99,13 @@ namespace IntecoAG.IBS.SyncService {
             msg_in.CMD = "LIST";
             XWTBXLOA lres = SyncService.XWTBXL0N(msg_in);
             foreach (var item in lres.TBLIST) {
+                if (item.TBCODE == "14060") {
+                    System.Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                }
                 System.Console.WriteLine(item.TBCODE + "/" + item.TBDPCODE + "/" + item.TBDLCODE + " " + item.TBSEX + " " + item.TBLASTNAME + " " + item.TBFIRSTNAME + " " + item.TBMIDDLENAME + " " + item.TBPRIMARYLANGCODE + " " + item.TBNATIONCODE + " " + item.TBCITIZENCODE + " " + item.TBHIRETYPECODE);
+                if (item.TBCODE == "14060") {
+                    System.Console.WriteLine("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+                }
             }
         }
     }
